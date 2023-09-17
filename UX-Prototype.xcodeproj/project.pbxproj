@@ -9,21 +9,47 @@
 /* Begin PBXBuildFile section */
 		C6C40F7B2AB2F70700E958C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C40F7A2AB2F70700E958C1 /* AppDelegate.swift */; };
 		C6C40F7D2AB2F70700E958C1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C40F7C2AB2F70700E958C1 /* SceneDelegate.swift */; };
-		C6C40F7F2AB2F70700E958C1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C40F7E2AB2F70700E958C1 /* ViewController.swift */; };
+		C6C40F7F2AB2F70700E958C1 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C40F7E2AB2F70700E958C1 /* LoginVC.swift */; };
 		C6C40F822AB2F70700E958C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6C40F802AB2F70700E958C1 /* Main.storyboard */; };
 		C6C40F842AB2F70A00E958C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6C40F832AB2F70A00E958C1 /* Assets.xcassets */; };
 		C6C40F872AB2F70A00E958C1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6C40F852AB2F70A00E958C1 /* LaunchScreen.storyboard */; };
+		C6C40F8F2AB2F81500E958C1 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C40F8E2AB2F81500E958C1 /* SignUpVC.swift */; };
+		C6C40F912AB301EA00E958C1 /* MainTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C40F902AB301EA00E958C1 /* MainTabBarVC.swift */; };
+		C6C40F932AB3034300E958C1 /* CourseNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C40F922AB3034300E958C1 /* CourseNC.swift */; };
+		C6C40F952AB3036200E958C1 /* CalendarNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C40F942AB3036200E958C1 /* CalendarNC.swift */; };
+		C6C40F972AB3038000E958C1 /* AssignmentsNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C40F962AB3038000E958C1 /* AssignmentsNC.swift */; };
+		C6C40F992AB3039B00E958C1 /* RemindersNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C40F982AB3039B00E958C1 /* RemindersNC.swift */; };
+		C6C40F9B2AB3046D00E958C1 /* CourseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C40F9A2AB3046D00E958C1 /* CourseVC.swift */; };
+		C6C40F9D2AB3047B00E958C1 /* CalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C40F9C2AB3047B00E958C1 /* CalendarVC.swift */; };
+		C6C40F9F2AB3048900E958C1 /* AssignmentsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C40F9E2AB3048900E958C1 /* AssignmentsVC.swift */; };
+		C6C40FA12AB3049900E958C1 /* RemindersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C40FA02AB3049900E958C1 /* RemindersVC.swift */; };
+		C6C40FA32AB30E9F00E958C1 /* UserLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C40FA22AB30E9F00E958C1 /* UserLogin.swift */; };
+		C6C40FA62AB33B3A00E958C1 /* customViewCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C40FA42AB33B3A00E958C1 /* customViewCellTableViewCell.swift */; };
+		C6C40FA72AB33B3A00E958C1 /* customViewCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6C40FA52AB33B3A00E958C1 /* customViewCellTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C6C40F772AB2F70700E958C1 /* UX-Prototype.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UX-Prototype.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6C40F7A2AB2F70700E958C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C6C40F7C2AB2F70700E958C1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C6C40F7E2AB2F70700E958C1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C6C40F7E2AB2F70700E958C1 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		C6C40F812AB2F70700E958C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C6C40F832AB2F70A00E958C1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C6C40F862AB2F70A00E958C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C6C40F882AB2F70A00E958C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C6C40F8E2AB2F81500E958C1 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
+		C6C40F902AB301EA00E958C1 /* MainTabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarVC.swift; sourceTree = "<group>"; };
+		C6C40F922AB3034300E958C1 /* CourseNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseNC.swift; sourceTree = "<group>"; };
+		C6C40F942AB3036200E958C1 /* CalendarNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarNC.swift; sourceTree = "<group>"; };
+		C6C40F962AB3038000E958C1 /* AssignmentsNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentsNC.swift; sourceTree = "<group>"; };
+		C6C40F982AB3039B00E958C1 /* RemindersNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersNC.swift; sourceTree = "<group>"; };
+		C6C40F9A2AB3046D00E958C1 /* CourseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseVC.swift; sourceTree = "<group>"; };
+		C6C40F9C2AB3047B00E958C1 /* CalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVC.swift; sourceTree = "<group>"; };
+		C6C40F9E2AB3048900E958C1 /* AssignmentsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentsVC.swift; sourceTree = "<group>"; };
+		C6C40FA02AB3049900E958C1 /* RemindersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersVC.swift; sourceTree = "<group>"; };
+		C6C40FA22AB30E9F00E958C1 /* UserLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLogin.swift; sourceTree = "<group>"; };
+		C6C40FA42AB33B3A00E958C1 /* customViewCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customViewCellTableViewCell.swift; sourceTree = "<group>"; };
+		C6C40FA52AB33B3A00E958C1 /* customViewCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = customViewCellTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,13 +84,82 @@
 			children = (
 				C6C40F7A2AB2F70700E958C1 /* AppDelegate.swift */,
 				C6C40F7C2AB2F70700E958C1 /* SceneDelegate.swift */,
-				C6C40F7E2AB2F70700E958C1 /* ViewController.swift */,
+				C6F745AF2AB7750800780F90 /* Views */,
+				C6C40FA92AB33D6900E958C1 /* CustomCell */,
 				C6C40F802AB2F70700E958C1 /* Main.storyboard */,
 				C6C40F832AB2F70A00E958C1 /* Assets.xcassets */,
 				C6C40F852AB2F70A00E958C1 /* LaunchScreen.storyboard */,
 				C6C40F882AB2F70A00E958C1 /* Info.plist */,
+				C6C40FA22AB30E9F00E958C1 /* UserLogin.swift */,
 			);
 			path = "UX-Prototype";
+			sourceTree = "<group>";
+		};
+		C6C40FA92AB33D6900E958C1 /* CustomCell */ = {
+			isa = PBXGroup;
+			children = (
+				C6C40FA52AB33B3A00E958C1 /* customViewCellTableViewCell.xib */,
+				C6C40FA42AB33B3A00E958C1 /* customViewCellTableViewCell.swift */,
+			);
+			path = CustomCell;
+			sourceTree = "<group>";
+		};
+		C6F745AA2AB774AE00780F90 /* MainVC */ = {
+			isa = PBXGroup;
+			children = (
+				C6C40F9A2AB3046D00E958C1 /* CourseVC.swift */,
+				C6C40F9C2AB3047B00E958C1 /* CalendarVC.swift */,
+				C6C40F9E2AB3048900E958C1 /* AssignmentsVC.swift */,
+				C6C40FA02AB3049900E958C1 /* RemindersVC.swift */,
+			);
+			path = MainVC;
+			sourceTree = "<group>";
+		};
+		C6F745AB2AB774C200780F90 /* MainNC */ = {
+			isa = PBXGroup;
+			children = (
+				C6C40F922AB3034300E958C1 /* CourseNC.swift */,
+				C6C40F942AB3036200E958C1 /* CalendarNC.swift */,
+				C6C40F962AB3038000E958C1 /* AssignmentsNC.swift */,
+				C6C40F982AB3039B00E958C1 /* RemindersNC.swift */,
+			);
+			path = MainNC;
+			sourceTree = "<group>";
+		};
+		C6F745AC2AB774D300780F90 /* LoginVC */ = {
+			isa = PBXGroup;
+			children = (
+				C6C40F7E2AB2F70700E958C1 /* LoginVC.swift */,
+				C6C40F8E2AB2F81500E958C1 /* SignUpVC.swift */,
+			);
+			path = LoginVC;
+			sourceTree = "<group>";
+		};
+		C6F745AD2AB774ED00780F90 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				C6C40F902AB301EA00E958C1 /* MainTabBarVC.swift */,
+				C6F745AB2AB774C200780F90 /* MainNC */,
+				C6F745AA2AB774AE00780F90 /* MainVC */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		C6F745AE2AB774F800780F90 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				C6F745AC2AB774D300780F90 /* LoginVC */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		C6F745AF2AB7750800780F90 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C6F745AE2AB774F800780F90 /* Login */,
+				C6F745AD2AB774ED00780F90 /* Main */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,6 +221,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C6C40F872AB2F70A00E958C1 /* LaunchScreen.storyboard in Resources */,
+				C6C40FA72AB33B3A00E958C1 /* customViewCellTableViewCell.xib in Resources */,
 				C6C40F842AB2F70A00E958C1 /* Assets.xcassets in Resources */,
 				C6C40F822AB2F70700E958C1 /* Main.storyboard in Resources */,
 			);
@@ -138,9 +234,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C6C40F7F2AB2F70700E958C1 /* ViewController.swift in Sources */,
+				C6C40F8F2AB2F81500E958C1 /* SignUpVC.swift in Sources */,
+				C6C40F932AB3034300E958C1 /* CourseNC.swift in Sources */,
+				C6C40F9D2AB3047B00E958C1 /* CalendarVC.swift in Sources */,
+				C6C40F912AB301EA00E958C1 /* MainTabBarVC.swift in Sources */,
+				C6C40F9B2AB3046D00E958C1 /* CourseVC.swift in Sources */,
+				C6C40F992AB3039B00E958C1 /* RemindersNC.swift in Sources */,
+				C6C40F972AB3038000E958C1 /* AssignmentsNC.swift in Sources */,
+				C6C40F7F2AB2F70700E958C1 /* LoginVC.swift in Sources */,
+				C6C40FA12AB3049900E958C1 /* RemindersVC.swift in Sources */,
 				C6C40F7B2AB2F70700E958C1 /* AppDelegate.swift in Sources */,
 				C6C40F7D2AB2F70700E958C1 /* SceneDelegate.swift in Sources */,
+				C6C40FA62AB33B3A00E958C1 /* customViewCellTableViewCell.swift in Sources */,
+				C6C40F952AB3036200E958C1 /* CalendarNC.swift in Sources */,
+				C6C40FA32AB30E9F00E958C1 /* UserLogin.swift in Sources */,
+				C6C40F9F2AB3048900E958C1 /* AssignmentsVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
