@@ -24,8 +24,10 @@
 		C6C40F9F2AB3048900E958C1 /* AssignmentsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C40F9E2AB3048900E958C1 /* AssignmentsVC.swift */; };
 		C6C40FA12AB3049900E958C1 /* RemindersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C40FA02AB3049900E958C1 /* RemindersVC.swift */; };
 		C6C40FA32AB30E9F00E958C1 /* UserLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C40FA22AB30E9F00E958C1 /* UserLogin.swift */; };
-		C6C40FA62AB33B3A00E958C1 /* customViewCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C40FA42AB33B3A00E958C1 /* customViewCellTableViewCell.swift */; };
-		C6C40FA72AB33B3A00E958C1 /* customViewCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6C40FA52AB33B3A00E958C1 /* customViewCellTableViewCell.xib */; };
+		C6C40FA62AB33B3A00E958C1 /* CustomViewCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C40FA42AB33B3A00E958C1 /* CustomViewCellTableViewCell.swift */; };
+		C6C40FA72AB33B3A00E958C1 /* CustomViewCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6C40FA52AB33B3A00E958C1 /* CustomViewCellTableViewCell.xib */; };
+		C6F745B12AB8764700780F90 /* addCourseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F745B02AB8764700780F90 /* addCourseVC.swift */; };
+		C6F745B32AB87D4100780F90 /* UITouch+extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F745B22AB87D4100780F90 /* UITouch+extention.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,8 +50,10 @@
 		C6C40F9E2AB3048900E958C1 /* AssignmentsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentsVC.swift; sourceTree = "<group>"; };
 		C6C40FA02AB3049900E958C1 /* RemindersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersVC.swift; sourceTree = "<group>"; };
 		C6C40FA22AB30E9F00E958C1 /* UserLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLogin.swift; sourceTree = "<group>"; };
-		C6C40FA42AB33B3A00E958C1 /* customViewCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customViewCellTableViewCell.swift; sourceTree = "<group>"; };
-		C6C40FA52AB33B3A00E958C1 /* customViewCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = customViewCellTableViewCell.xib; sourceTree = "<group>"; };
+		C6C40FA42AB33B3A00E958C1 /* CustomViewCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewCellTableViewCell.swift; sourceTree = "<group>"; };
+		C6C40FA52AB33B3A00E958C1 /* CustomViewCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomViewCellTableViewCell.xib; sourceTree = "<group>"; };
+		C6F745B02AB8764700780F90 /* addCourseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addCourseVC.swift; sourceTree = "<group>"; };
+		C6F745B22AB87D4100780F90 /* UITouch+extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITouch+extention.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +95,7 @@
 				C6C40F852AB2F70A00E958C1 /* LaunchScreen.storyboard */,
 				C6C40F882AB2F70A00E958C1 /* Info.plist */,
 				C6C40FA22AB30E9F00E958C1 /* UserLogin.swift */,
+				C6F745B22AB87D4100780F90 /* UITouch+extention.swift */,
 			);
 			path = "UX-Prototype";
 			sourceTree = "<group>";
@@ -98,8 +103,8 @@
 		C6C40FA92AB33D6900E958C1 /* CustomCell */ = {
 			isa = PBXGroup;
 			children = (
-				C6C40FA52AB33B3A00E958C1 /* customViewCellTableViewCell.xib */,
-				C6C40FA42AB33B3A00E958C1 /* customViewCellTableViewCell.swift */,
+				C6C40FA52AB33B3A00E958C1 /* CustomViewCellTableViewCell.xib */,
+				C6C40FA42AB33B3A00E958C1 /* CustomViewCellTableViewCell.swift */,
 			);
 			path = CustomCell;
 			sourceTree = "<group>";
@@ -111,6 +116,7 @@
 				C6C40F9C2AB3047B00E958C1 /* CalendarVC.swift */,
 				C6C40F9E2AB3048900E958C1 /* AssignmentsVC.swift */,
 				C6C40FA02AB3049900E958C1 /* RemindersVC.swift */,
+				C6F745B02AB8764700780F90 /* addCourseVC.swift */,
 			);
 			path = MainVC;
 			sourceTree = "<group>";
@@ -221,7 +227,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C6C40F872AB2F70A00E958C1 /* LaunchScreen.storyboard in Resources */,
-				C6C40FA72AB33B3A00E958C1 /* customViewCellTableViewCell.xib in Resources */,
+				C6C40FA72AB33B3A00E958C1 /* CustomViewCellTableViewCell.xib in Resources */,
 				C6C40F842AB2F70A00E958C1 /* Assets.xcassets in Resources */,
 				C6C40F822AB2F70700E958C1 /* Main.storyboard in Resources */,
 			);
@@ -234,6 +240,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6F745B32AB87D4100780F90 /* UITouch+extention.swift in Sources */,
 				C6C40F8F2AB2F81500E958C1 /* SignUpVC.swift in Sources */,
 				C6C40F932AB3034300E958C1 /* CourseNC.swift in Sources */,
 				C6C40F9D2AB3047B00E958C1 /* CalendarVC.swift in Sources */,
@@ -245,10 +252,11 @@
 				C6C40FA12AB3049900E958C1 /* RemindersVC.swift in Sources */,
 				C6C40F7B2AB2F70700E958C1 /* AppDelegate.swift in Sources */,
 				C6C40F7D2AB2F70700E958C1 /* SceneDelegate.swift in Sources */,
-				C6C40FA62AB33B3A00E958C1 /* customViewCellTableViewCell.swift in Sources */,
+				C6C40FA62AB33B3A00E958C1 /* CustomViewCellTableViewCell.swift in Sources */,
 				C6C40F952AB3036200E958C1 /* CalendarNC.swift in Sources */,
 				C6C40FA32AB30E9F00E958C1 /* UserLogin.swift in Sources */,
 				C6C40F9F2AB3048900E958C1 /* AssignmentsVC.swift in Sources */,
+				C6F745B12AB8764700780F90 /* addCourseVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

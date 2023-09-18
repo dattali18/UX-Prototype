@@ -23,9 +23,19 @@ class CourseVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        let nib = UINib(nibName: "CustomViewCellTableViewCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "CustomViewCellTableViewCell")
+        
         tableView.delegate = self
         tableView.dataSource = self
+        
+        tableView.rowHeight = 44
+        
 
+
+        
+        
         // Do any additional setup after loading the view.
         self.title = "Courses"
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -41,7 +51,7 @@ class CourseVC: UIViewController {
 extension CourseVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("hello")
+        print(indexPath.row)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -49,9 +59,9 @@ extension CourseVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CustomViewCellTableViewCell", for: indexPath) as! customViewCellTableViewCell
         
-        cell.textLabel?.text = list[indexPath.row]
+        cell.courseName.text = list[indexPath.row]
         
         return cell
     }

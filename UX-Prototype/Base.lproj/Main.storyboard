@@ -242,6 +242,9 @@
                                     <constraint firstAttribute="height" constant="44" id="cL4-H3-vyJ"/>
                                 </constraints>
                                 <buttonConfiguration key="configuration" style="plain" title="   Add Course"/>
+                                <connections>
+                                    <segue destination="3Kp-AZ-SJU" kind="show" id="E6U-oN-TW8"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Juv-Uq-2d3">
                                 <rect key="frame" x="10" y="91" width="370" height="605"/>
@@ -267,6 +270,71 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aVp-n8-yIk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-878" y="665"/>
+        </scene>
+        <!--Add CourseVC-->
+        <scene sceneID="jbb-WU-oWr">
+            <objects>
+                <viewController id="3Kp-AZ-SJU" customClass="addCourseVC" customModule="UX_Prototype" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pF6-bB-f4Y">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="JvU-GC-3l0">
+                                <rect key="frame" x="10" y="222" width="370" height="400"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Course Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sAC-kZ-2g8">
+                                        <rect key="frame" x="0.0" y="0.0" width="370" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" textContentType="name"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Course Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="be4-it-sUe">
+                                        <rect key="frame" x="0.0" y="66.666666666666686" width="370" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Credits" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="I35-S3-ma8">
+                                        <rect key="frame" x="0.0" y="133.33333333333331" width="370" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                                    </textField>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" toolTip="hello" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="D0b-gY-Epw" userLabel="startingDate">
+                                        <rect key="frame" x="0.0" y="200" width="370" height="50"/>
+                                    </datePicker>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" toolTip="hello" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="ObR-zB-ai7" userLabel="endingDate">
+                                        <rect key="frame" x="0.0" y="283" width="370" height="50"/>
+                                    </datePicker>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ggw-NH-s3q">
+                                        <rect key="frame" x="0.0" y="365.66666666666663" width="370" height="34.333333333333314"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Add"/>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="I35-S3-ma8" secondAttribute="trailing" id="0mM-Wp-zhe"/>
+                                    <constraint firstItem="ggw-NH-s3q" firstAttribute="centerX" secondItem="JvU-GC-3l0" secondAttribute="centerX" id="6Jd-Gu-wML"/>
+                                    <constraint firstItem="be4-it-sUe" firstAttribute="leading" secondItem="JvU-GC-3l0" secondAttribute="leading" id="Won-As-UKy"/>
+                                    <constraint firstAttribute="height" constant="400" id="afy-ug-tlg"/>
+                                    <constraint firstItem="I35-S3-ma8" firstAttribute="leading" secondItem="JvU-GC-3l0" secondAttribute="leading" id="cue-QO-uRG"/>
+                                    <constraint firstItem="sAC-kZ-2g8" firstAttribute="leading" secondItem="JvU-GC-3l0" secondAttribute="leading" id="iYj-eP-9Jt"/>
+                                    <constraint firstAttribute="trailing" secondItem="be4-it-sUe" secondAttribute="trailing" id="mIa-kF-OJ0"/>
+                                    <constraint firstAttribute="trailing" secondItem="sAC-kZ-2g8" secondAttribute="trailing" id="oms-2o-rBQ"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Dap-Yr-6sj"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="JvU-GC-3l0" firstAttribute="centerX" secondItem="pF6-bB-f4Y" secondAttribute="centerX" id="Vp3-K9-XCS"/>
+                            <constraint firstItem="JvU-GC-3l0" firstAttribute="centerY" secondItem="pF6-bB-f4Y" secondAttribute="centerY" id="hA7-31-bAr"/>
+                            <constraint firstItem="JvU-GC-3l0" firstAttribute="leading" secondItem="Dap-Yr-6sj" secondAttribute="leading" constant="10" id="rgJ-4S-BlT"/>
+                            <constraint firstItem="Dap-Yr-6sj" firstAttribute="trailing" secondItem="JvU-GC-3l0" secondAttribute="trailing" constant="10" id="vvn-Mf-KEs"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="qeG-dV-fE7"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Js-1f-4Fd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-160" y="665"/>
         </scene>
         <!--Main Tab BarVC-->
         <scene sceneID="UTh-iP-DDe">
