@@ -12,25 +12,32 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
     
     
-    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
-        let storyboard = UIStoryboard (name: "Main", bundle: nil)
-        
-        if (UserLogin.shared.loggedIn()) {
-            //if user is logged in go to the tab controller
-            // set CustomTabBarController as the root view
-            let CustomTB = storyboard.instantiateViewController(identifier: "MainTB") as! MainTabBarVC
-            window?.rootViewController = CustomTB
-            window?.makeKeyAndVisible()
-        } else {
-            // user not logged in, take to LoginNavigationController
-            let loginNC = storyboard.instantiateViewController(identifier: "LoginNC")
-            window?.rootViewController = loginNC
-            window?.makeKeyAndVisible()
+        func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+            // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
+            // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
+            // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+            guard let _ = (scene as? UIWindowScene) else { return }
+            changeScreen()
         }
+    
+        func changeScreen() {
+            let storyboard = UIStoryboard (name: "Main", bundle: nil)
+            
+            if (UserLogin.shared.loggedIn()) {
+                //if user is logged in go to the tab controller
+                // set CustomTabBarController as the root view
+                let CustomTB = storyboard.instantiateViewController(identifier: "MainTB") as! MainTabBarVC
+                window?.rootViewController = CustomTB
+                window?.makeKeyAndVisible()
+            } else {
+                // user not logged in, take to LoginNavigationController
+                let loginNC = storyboard.instantiateViewController(identifier: "LoginNC")
+                window?.rootViewController = loginNC
+                window?.makeKeyAndVisible()
+            }
+        }
+        
+        
         
         func sceneDidDisconnect(_ scene: UIScene) {
             // Called as the scene is being released by the system.
@@ -60,6 +67,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             // to restore the scene back to its current state.
         }
         
+        func setRootViewController(_ vc: UIViewController, _ userId: Int? = nil) {
+             if let window = self.window {
+                  // if we are logging in, pass the userId
+                  if let customTb = vc as? MainTabBarVC {
+                       customTb.userId = userId
+                  }
+                  window.rootViewController = vc
+             }
+        }
         
-    }
 }

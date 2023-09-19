@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hQz-kr-U4p">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hQz-kr-U4p">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -12,12 +13,13 @@
         <scene sceneID="6IF-dF-NBR">
             <objects>
                 <navigationController storyboardIdentifier="LoginNC" id="hQz-kr-U4p" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="LcK-Eb-t3g"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="cnk-Hj-OpG">
                         <rect key="frame" x="0.0" y="47" width="390" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="0aD-7I-Jw9"/>
+                        <segue destination="Jvg-hs-oUk" kind="relationship" relationship="rootViewController" id="EAZ-lF-IHd"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hHA-36-Uyo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -43,7 +45,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="qWN-CI-UMU">
                                         <rect key="frame" x="0.0" y="66.333333333333314" width="350" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" textContentType="email"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="YeO-eB-lIf">
                                         <rect key="frame" x="0.0" y="133" width="350" height="34"/>
@@ -93,7 +95,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Sign In"/>
                                         <connections>
-                                            <segue destination="Jvg-hs-oUk" kind="show" id="WCT-jB-jHH"/>
+                                            <action selector="signInLink:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PEi-Zc-jXF"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -120,7 +122,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <exit id="wEf-eb-w8l" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-877" y="1"/>
+            <point key="canvasLocation" x="-182" y="1"/>
         </scene>
         <!--Sign In-->
         <scene sceneID="UcK-6b-bzA">
@@ -141,7 +143,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="IY0-fh-sUi">
                                         <rect key="frame" x="0.0" y="88.666666666666686" width="350" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" textContentType="email"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="UXH-lB-WWZ">
                                         <rect key="frame" x="0.0" y="177" width="350" height="34"/>
@@ -183,6 +185,10 @@
                                         <rect key="frame" x="212.66666666666666" y="0.0" width="83.999999999999972" height="34.333333333333336"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Sign Up"/>
+                                        <connections>
+                                            <action selector="signUpLink:" destination="hqf-Sc-tKJ" eventType="touchUpInside" id="UHB-nE-PGe"/>
+                                            <segue destination="BYZ-38-t0r" kind="show" id="BZx-tc-s6B"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -208,8 +214,9 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b7f-AV-Zav" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="hqf-Sc-tKJ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-159" y="1"/>
+            <point key="canvasLocation" x="-895" y="1"/>
         </scene>
         <!--CourseNC-->
         <scene sceneID="WJw-WX-eRZ">
@@ -297,10 +304,10 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                                     </textField>
-                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" toolTip="hello" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="D0b-gY-Epw" userLabel="startingDate">
-                                        <rect key="frame" x="0.0" y="200" width="370" height="50"/>
+                                    <datePicker toolTip="hello" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="D0b-gY-Epw" userLabel="startingDate">
+                                        <rect key="frame" x="0.0" y="200.33333333333331" width="370" height="50"/>
                                     </datePicker>
-                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" toolTip="hello" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="ObR-zB-ai7" userLabel="endingDate">
+                                    <datePicker toolTip="hello" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="ObR-zB-ai7" userLabel="endingDate">
                                         <rect key="frame" x="0.0" y="283" width="370" height="50"/>
                                     </datePicker>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ggw-NH-s3q">
@@ -311,10 +318,14 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="I35-S3-ma8" secondAttribute="trailing" id="0mM-Wp-zhe"/>
+                                    <constraint firstItem="ObR-zB-ai7" firstAttribute="leading" secondItem="JvU-GC-3l0" secondAttribute="leading" id="6Fh-0t-iPl"/>
                                     <constraint firstItem="ggw-NH-s3q" firstAttribute="centerX" secondItem="JvU-GC-3l0" secondAttribute="centerX" id="6Jd-Gu-wML"/>
+                                    <constraint firstAttribute="trailing" secondItem="D0b-gY-Epw" secondAttribute="trailing" id="8dd-fc-VKD"/>
+                                    <constraint firstItem="D0b-gY-Epw" firstAttribute="leading" secondItem="JvU-GC-3l0" secondAttribute="leading" id="OFu-W5-uZ1"/>
                                     <constraint firstItem="be4-it-sUe" firstAttribute="leading" secondItem="JvU-GC-3l0" secondAttribute="leading" id="Won-As-UKy"/>
                                     <constraint firstAttribute="height" constant="400" id="afy-ug-tlg"/>
                                     <constraint firstItem="I35-S3-ma8" firstAttribute="leading" secondItem="JvU-GC-3l0" secondAttribute="leading" id="cue-QO-uRG"/>
+                                    <constraint firstAttribute="trailing" secondItem="ObR-zB-ai7" secondAttribute="trailing" id="eYU-7b-wL0"/>
                                     <constraint firstItem="sAC-kZ-2g8" firstAttribute="leading" secondItem="JvU-GC-3l0" secondAttribute="leading" id="iYj-eP-9Jt"/>
                                     <constraint firstAttribute="trailing" secondItem="be4-it-sUe" secondAttribute="trailing" id="mIa-kF-OJ0"/>
                                     <constraint firstAttribute="trailing" secondItem="sAC-kZ-2g8" secondAttribute="trailing" id="oms-2o-rBQ"/>
@@ -348,7 +359,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6ys-Zd-cL4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3542" y="1431"/>
+            <point key="canvasLocation" x="-3180" y="1605"/>
         </scene>
         <!--CalendarNC-->
         <scene sceneID="BbB-JG-e90">
