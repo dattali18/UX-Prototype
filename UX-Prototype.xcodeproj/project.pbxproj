@@ -32,7 +32,7 @@
 		C6C40FA32AB30E9F00E958C1 /* UserLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C40FA22AB30E9F00E958C1 /* UserLogin.swift */; };
 		C6C40FA62AB33B3A00E958C1 /* CustomViewCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C40FA42AB33B3A00E958C1 /* CustomViewCellTableViewCell.swift */; };
 		C6C40FA72AB33B3A00E958C1 /* CustomViewCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6C40FA52AB33B3A00E958C1 /* CustomViewCellTableViewCell.xib */; };
-		C6F745B12AB8764700780F90 /* addCourseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F745B02AB8764700780F90 /* addCourseVC.swift */; };
+		C6F745B12AB8764700780F90 /* AddCourseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F745B02AB8764700780F90 /* AddCourseVC.swift */; };
 		C6F745B32AB87D4100780F90 /* UITouch+extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F745B22AB87D4100780F90 /* UITouch+extention.swift */; };
 /* End PBXBuildFile section */
 
@@ -64,7 +64,7 @@
 		C6C40FA22AB30E9F00E958C1 /* UserLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLogin.swift; sourceTree = "<group>"; };
 		C6C40FA42AB33B3A00E958C1 /* CustomViewCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewCellTableViewCell.swift; sourceTree = "<group>"; };
 		C6C40FA52AB33B3A00E958C1 /* CustomViewCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomViewCellTableViewCell.xib; sourceTree = "<group>"; };
-		C6F745B02AB8764700780F90 /* addCourseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addCourseVC.swift; sourceTree = "<group>"; };
+		C6F745B02AB8764700780F90 /* AddCourseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCourseVC.swift; sourceTree = "<group>"; };
 		C6F745B22AB87D4100780F90 /* UITouch+extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITouch+extention.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -166,7 +166,7 @@
 				C6C40F9C2AB3047B00E958C1 /* CalendarVC.swift */,
 				C6C40F9E2AB3048900E958C1 /* AssignmentsVC.swift */,
 				C6C40FA02AB3049900E958C1 /* RemindersVC.swift */,
-				C6F745B02AB8764700780F90 /* addCourseVC.swift */,
+				C6F745B02AB8764700780F90 /* AddCourseVC.swift */,
 			);
 			path = MainVC;
 			sourceTree = "<group>";
@@ -312,7 +312,7 @@
 				C6C40FA32AB30E9F00E958C1 /* UserLogin.swift in Sources */,
 				C60D06EA2ACC767000B1F5BC /* Model.swift in Sources */,
 				C6C40F9F2AB3048900E958C1 /* AssignmentsVC.swift in Sources */,
-				C6F745B12AB8764700780F90 /* addCourseVC.swift in Sources */,
+				C6F745B12AB8764700780F90 /* AddCourseVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

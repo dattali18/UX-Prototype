@@ -17,8 +17,10 @@ class customViewCellTableViewCell:
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        self.backgroundColor = .systemGray6
-        self.layer.cornerRadius = 5
+//        self.layer.cornerRadius = 5
+        courseName.lineBreakMode = .byTruncatingTail
+//        courseName.numberOfLines = 0
+//        courseName.adjustsFontForContentSizeCategory = true
   
     }
 
@@ -30,6 +32,6 @@ class customViewCellTableViewCell:
     
     
     @IBAction func didTouchButton(_ sender: Any) {
-
+        
     }
 }

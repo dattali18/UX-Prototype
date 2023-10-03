@@ -259,7 +259,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="oiK-mV-hSB"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Juv-Uq-2d3" firstAttribute="centerX" secondItem="LSO-3E-OOl" secondAttribute="centerX" id="5Y1-xe-6WN"/>
                             <constraint firstItem="oiK-mV-hSB" firstAttribute="bottom" secondItem="p5z-cG-ZuZ" secondAttribute="bottom" constant="50" id="HqP-Eu-68v"/>
@@ -457,6 +457,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
