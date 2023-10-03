@@ -35,24 +35,7 @@ class addCourseVC: UIViewController {
             } else {
                 // pop up the course with exacte same number allready exist
             }
-//
-//            let managedObjectContext = CoreDataStack.shared.managedObjectContext
-//            // Creating a new Course
-//            let newCourse = Course(context: managedObjectContext)
-//            
-//            newCourse.name = name
-//            newCourse.number = number
-//            newCourse.credits = credits
-//
-//
-//            // Save changes to Core Data
-//            do {
-//                try managedObjectContext.save()
-//                print("Data saved successfully!")
-//            } catch {
-//                print("Error saving data: \(error.localizedDescription)")
-//            }
-//            
+
             
         }
     }

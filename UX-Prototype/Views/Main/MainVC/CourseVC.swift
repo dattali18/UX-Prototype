@@ -24,7 +24,7 @@ class CourseVC: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        tableView.rowHeight = 44
+//        tableView.rowHeight = 44
  
         // Do any additional setup after loading the view.
         self.title = "Courses"
@@ -32,6 +32,8 @@ class CourseVC: UIViewController {
         
         view.backgroundColor = .secondarySystemBackground
         tableView.backgroundColor = .secondarySystemBackground
+        
+//        tableView.layer.cornerRadius = 10 //set corner radius here
 
     }
     
@@ -41,15 +43,6 @@ class CourseVC: UIViewController {
         list = fetchAllCourses()
         tableView.reloadData()
         
-//        let fetchRequest: NSFetchRequest<Course> = Course.fetchRequest()
-//        do {
-//            let courses = try CoreDataStack.shared.managedObjectContext.fetch(fetchRequest)
-//            // Process fetched courses
-//            list = courses
-//            tableView.reloadData()
-//        } catch {
-//            print("Error fetching data: \(error.localizedDescription)")
-//        }
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -68,9 +61,17 @@ class CourseVC: UIViewController {
         }
         
         let editAction  = UIContextualAction(style: .normal, title: "Edit") {  (contextualAction, view, boolValue) in
-            //Code I want to do here
-            // TODO: pop up new UIView
-            print("hi from here")
+            // Get the name of the course
+            let name = self.list?[indexPath.row].name
+
+            // Create a new instance of the EditCourseVC
+            let editCourseVC = editCourseVC()
+
+            // Pass the name of the course to the EditCourseVC
+            editCourseVC.courseName = name
+
+            // Push the EditCourseVC onto the navigation controller
+            self.navigationController?.pushViewController(editCourseVC, animated: true)
         }
         
         editAction.backgroundColor = .systemBlue
@@ -79,30 +80,6 @@ class CourseVC: UIViewController {
 
         return swipeActions
     }
-    
-//    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-//        let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete", handler: { action, indexPath in
-//
-//            let name = self.list?[indexPath.row].name
-//            
-//            self.list?.remove(at: indexPath.row)
-//            self.tableView.deleteRows(at: [indexPath], with: .automatic)
-//            
-//        
-//            
-//            deleteCourse(withName: name)
-//        })
-//        
-//        let editAction = UITableViewRowAction(style: .normal, title: "Edit", handler: {
-//        action, indexPath in
-//        // TODO: pop up new UIView
-//            print("hi from here")
-//        })
-//        
-//        editAction.backgroundColor = .systemBlue
-//        
-//        return [deleteAction, editAction]
-//    }
 
 }
 
@@ -121,8 +98,32 @@ extension CourseVC: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomViewCellTableViewCell", for: indexPath) as! customViewCellTableViewCell
         
         cell.courseName.text = list?[indexPath.row].name
+
         
         return cell
+    }
+    
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        1
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if(section == 0) {
+            return "Spring Semester"
+        }
+        return "Another Secttion"
+    }
+
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 44 // Adjust the section header height as needed
+    }
+
+
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 44
     }
     
 }

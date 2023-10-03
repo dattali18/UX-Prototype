@@ -244,7 +244,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p5z-cG-ZuZ">
-                                <rect key="frame" x="118.66666666666669" y="716" width="153" height="44"/>
+                                <rect key="frame" x="118.66666666666669" y="746" width="153" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="cL4-H3-vyJ"/>
                                 </constraints>
@@ -253,8 +253,8 @@
                                     <segue destination="3Kp-AZ-SJU" kind="show" id="E6U-oN-TW8"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Juv-Uq-2d3">
-                                <rect key="frame" x="10" y="91" width="370" height="605"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Juv-Uq-2d3">
+                                <rect key="frame" x="20" y="91" width="350" height="635"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -262,8 +262,8 @@
                         <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Juv-Uq-2d3" firstAttribute="centerX" secondItem="LSO-3E-OOl" secondAttribute="centerX" id="5Y1-xe-6WN"/>
-                            <constraint firstItem="oiK-mV-hSB" firstAttribute="bottom" secondItem="p5z-cG-ZuZ" secondAttribute="bottom" constant="50" id="HqP-Eu-68v"/>
-                            <constraint firstItem="Juv-Uq-2d3" firstAttribute="leading" secondItem="oiK-mV-hSB" secondAttribute="leading" constant="10" id="VWD-zA-AAV"/>
+                            <constraint firstItem="oiK-mV-hSB" firstAttribute="bottom" secondItem="p5z-cG-ZuZ" secondAttribute="bottom" constant="20" id="HqP-Eu-68v"/>
+                            <constraint firstItem="Juv-Uq-2d3" firstAttribute="leading" secondItem="oiK-mV-hSB" secondAttribute="leading" constant="20" id="VWD-zA-AAV"/>
                             <constraint firstItem="Juv-Uq-2d3" firstAttribute="top" secondItem="oiK-mV-hSB" secondAttribute="top" id="fhe-nh-RQJ"/>
                             <constraint firstItem="p5z-cG-ZuZ" firstAttribute="centerX" secondItem="LSO-3E-OOl" secondAttribute="centerX" id="q2m-ho-W3V"/>
                             <constraint firstItem="p5z-cG-ZuZ" firstAttribute="top" secondItem="Juv-Uq-2d3" secondAttribute="bottom" constant="20" id="sa8-WI-3jD"/>
@@ -344,6 +344,67 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Js-1f-4Fd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-160" y="665"/>
+        </scene>
+        <!--Edit CourseVC-->
+        <scene sceneID="mhR-9A-8FQ">
+            <objects>
+                <viewController title="Edit CourseVC" id="MkG-2h-BAR" customClass="editCourseVC" customModule="UX_Prototype" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ias-jR-Ok8">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="nhl-mZ-ny2">
+                                <rect key="frame" x="20" y="297" width="350" height="250"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Course Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h2y-c0-mqQ">
+                                        <rect key="frame" x="0.0" y="0.0" width="350" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" textContentType="name"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Course Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vjo-GB-vNh">
+                                        <rect key="frame" x="0.0" y="72" width="350" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Credits" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7ia-Ow-wFS">
+                                        <rect key="frame" x="0.0" y="143.66666666666669" width="350" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cbO-sQ-2L5">
+                                        <rect key="frame" x="0.0" y="215.66666666666663" width="350" height="34.333333333333343"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Add"/>
+                                        <connections>
+                                            <action selector="addCourseBtn:" destination="3Kp-AZ-SJU" eventType="touchUpInside" id="yJw-eV-X8a"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="2bH-QD-Fof"/>
+                                    <constraint firstAttribute="trailing" secondItem="vjo-GB-vNh" secondAttribute="trailing" id="X81-4f-a8w"/>
+                                    <constraint firstItem="vjo-GB-vNh" firstAttribute="leading" secondItem="nhl-mZ-ny2" secondAttribute="leading" id="gVK-Pw-Cdj"/>
+                                    <constraint firstAttribute="trailing" secondItem="h2y-c0-mqQ" secondAttribute="trailing" id="hEe-iy-IQN"/>
+                                    <constraint firstItem="h2y-c0-mqQ" firstAttribute="leading" secondItem="nhl-mZ-ny2" secondAttribute="leading" id="l0s-mT-1fV"/>
+                                    <constraint firstAttribute="trailing" secondItem="7ia-Ow-wFS" secondAttribute="trailing" id="nkD-mS-4uW"/>
+                                    <constraint firstItem="cbO-sQ-2L5" firstAttribute="centerX" secondItem="nhl-mZ-ny2" secondAttribute="centerX" id="noy-Ap-P2g"/>
+                                    <constraint firstItem="7ia-Ow-wFS" firstAttribute="leading" secondItem="nhl-mZ-ny2" secondAttribute="leading" id="pj1-fP-1h3"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="aWp-SX-LGk"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="nhl-mZ-ny2" firstAttribute="centerY" secondItem="Ias-jR-Ok8" secondAttribute="centerY" id="EP3-6p-wTj"/>
+                            <constraint firstItem="nhl-mZ-ny2" firstAttribute="centerX" secondItem="Ias-jR-Ok8" secondAttribute="centerX" id="aiv-Az-red"/>
+                            <constraint firstItem="nhl-mZ-ny2" firstAttribute="leading" secondItem="aWp-SX-LGk" secondAttribute="leading" constant="20" id="exk-Vz-San"/>
+                            <constraint firstItem="aWp-SX-LGk" firstAttribute="trailing" secondItem="nhl-mZ-ny2" secondAttribute="trailing" constant="20" id="p9N-Mn-Hmy"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hiB-Zf-9aZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="564" y="675"/>
         </scene>
         <!--Main Tab BarVC-->
         <scene sceneID="UTh-iP-DDe">
