@@ -8,7 +8,10 @@
 import UIKit
 
 class addCourseVC: UIViewController {
-
+    @IBOutlet weak var courseName: UITextField!
+    @IBOutlet weak var courseNumber: UITextField!
+    @IBOutlet weak var courseCredits: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround() 
@@ -18,15 +21,34 @@ class addCourseVC: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     
+    @IBAction func addCourseBtn(_ sender: Any) {
+        
+        if(courseName.text == "" || courseNumber.text == "" || courseCredits.text == "") {
+            return
+        } else {
+            let name: String       = courseName.text ?? ""
+            let number: Int16      = Int16(courseNumber.text ?? "0") ?? 0
+            let credits: Float     = Float(courseCredits.text ?? "0.0") ?? 0
+            
+            let managedObjectContext = CoreDataStack.shared.managedObjectContext
+            // Creating a new Course
+            let newCourse = Course(context: managedObjectContext)
+            
+            newCourse.name = name
+            newCourse.number = number
+            newCourse.credits = credits
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+            // Save changes to Core Data
+            do {
+                try managedObjectContext.save()
+                print("Data saved successfully!")
+            } catch {
+                print("Error saving data: \(error.localizedDescription)")
+            }
+            
+            navigationController?.popToRootViewController(animated: true)
+        }
     }
-    */
-
+    
 }

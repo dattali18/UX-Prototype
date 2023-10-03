@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C60D06EA2ACC767000B1F5BC /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60D06E92ACC767000B1F5BC /* Model.swift */; };
 		C634F2042ABB2E4C00CC1B91 /* IMG_8054.PNG in Resources */ = {isa = PBXBuildFile; fileRef = C634F2002ABB2E4C00CC1B91 /* IMG_8054.PNG */; };
 		C634F2052ABB2E4C00CC1B91 /* IMG_8057.PNG in Resources */ = {isa = PBXBuildFile; fileRef = C634F2012ABB2E4C00CC1B91 /* IMG_8057.PNG */; };
 		C634F2062ABB2E4C00CC1B91 /* IMG_8056.PNG in Resources */ = {isa = PBXBuildFile; fileRef = C634F2022ABB2E4C00CC1B91 /* IMG_8056.PNG */; };
@@ -36,6 +37,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C60D06E92ACC767000B1F5BC /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		C634F2002ABB2E4C00CC1B91 /* IMG_8054.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_8054.PNG; sourceTree = "<group>"; };
 		C634F2012ABB2E4C00CC1B91 /* IMG_8057.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_8057.PNG; sourceTree = "<group>"; };
 		C634F2022ABB2E4C00CC1B91 /* IMG_8056.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_8056.PNG; sourceTree = "<group>"; };
@@ -77,6 +79,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C60D06EB2ACC767700B1F5BC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C60D06E92ACC767000B1F5BC /* Model.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		C634F1FF2ABB2E3600CC1B91 /* ScreenShot */ = {
 			isa = PBXGroup;
 			children = (
@@ -125,6 +135,7 @@
 			children = (
 				C6C40F7A2AB2F70700E958C1 /* AppDelegate.swift */,
 				C6C40F7C2AB2F70700E958C1 /* SceneDelegate.swift */,
+				C60D06EB2ACC767700B1F5BC /* Model */,
 				C6F745AF2AB7750800780F90 /* Views */,
 				C6C40FA92AB33D6900E958C1 /* CustomCell */,
 				C68DF9CA2AB9FDA2006B0F70 /* UserLogin */,
@@ -299,6 +310,7 @@
 				C6C40FA62AB33B3A00E958C1 /* CustomViewCellTableViewCell.swift in Sources */,
 				C6C40F952AB3036200E958C1 /* CalendarNC.swift in Sources */,
 				C6C40FA32AB30E9F00E958C1 /* UserLogin.swift in Sources */,
+				C60D06EA2ACC767000B1F5BC /* Model.swift in Sources */,
 				C6C40F9F2AB3048900E958C1 /* AssignmentsVC.swift in Sources */,
 				C6F745B12AB8764700780F90 /* addCourseVC.swift in Sources */,
 			);
