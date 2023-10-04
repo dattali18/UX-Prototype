@@ -40,7 +40,7 @@ class CourseVC: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        list = fetchAllCourses()
+        list = CourseDataManager.shared.fetchAllCourses()
         tableView.reloadData()
         
     }
@@ -57,21 +57,23 @@ class CourseVC: UIViewController {
             self.list?.remove(at: indexPath.row)
             self.tableView.deleteRows(at: [indexPath], with: .automatic)
             
-            deleteCourse(withName: name)
+            CourseDataManager.shared.deleteCourse(withName: name)
         }
         
         let editAction  = UIContextualAction(style: .normal, title: "Edit") {  (contextualAction, view, boolValue) in
             // Get the name of the course
             let name = self.list?[indexPath.row].name
 
-            // Create a new instance of the EditCourseVC
-            let editCourseVC = editCourseVC()
-
-            // Pass the name of the course to the EditCourseVC
-            editCourseVC.courseName = name
+            let vc = self.storyboard?.instantiateViewController(identifier: "editCourseVC") as! editCourseVC
+            vc.courseNameTxt = name
+//            // Create a new instance of the EditCourseVC
+//            let editCourseVC = editCourseVC()
+//
+//            // Pass the name of the course to the EditCourseVC
+//            editCourseVC.courseNameTxt = name
 
             // Push the EditCourseVC onto the navigation controller
-            self.navigationController?.pushViewController(editCourseVC, animated: true)
+            self.navigationController?.pushViewController(vc, animated: true)
         }
         
         editAction.backgroundColor = .systemBlue

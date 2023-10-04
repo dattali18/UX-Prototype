@@ -29,8 +29,7 @@ class addCourseVC: UIViewController {
             let name: String       = courseName.text ?? ""
             let number: Int32      = Int32(courseNumber.text ?? "0") ?? 0
             let credits: Float     = Float(courseCredits.text ?? "0.0") ?? 0
-            
-            if addNewCourse(name: name, number: number, credits: credits) {
+            if CourseDataManager.shared.addNewCourse(name: name, number: number, credits: credits) {
                 navigationController?.popToRootViewController(animated: true)
             } else {
                 // pop up the course with exacte same number allready exist

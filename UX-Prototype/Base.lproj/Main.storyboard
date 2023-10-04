@@ -348,7 +348,7 @@
         <!--Edit CourseVC-->
         <scene sceneID="mhR-9A-8FQ">
             <objects>
-                <viewController title="Edit CourseVC" id="MkG-2h-BAR" customClass="editCourseVC" customModule="UX_Prototype" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="editCourseVC" title="Edit CourseVC" id="MkG-2h-BAR" customClass="editCourseVC" customModule="UX_Prototype" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ias-jR-Ok8">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -361,7 +361,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" textContentType="name"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Course Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vjo-GB-vNh">
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Course Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vjo-GB-vNh">
                                         <rect key="frame" x="0.0" y="72" width="350" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -374,9 +374,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cbO-sQ-2L5">
                                         <rect key="frame" x="0.0" y="215.66666666666663" width="350" height="34.333333333333343"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Add"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Update"/>
                                         <connections>
-                                            <action selector="addCourseBtn:" destination="3Kp-AZ-SJU" eventType="touchUpInside" id="yJw-eV-X8a"/>
+                                            <action selector="updateBtn:" destination="MkG-2h-BAR" eventType="touchUpInside" id="iEa-Fg-7iN"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -401,10 +401,16 @@
                             <constraint firstItem="aWp-SX-LGk" firstAttribute="trailing" secondItem="nhl-mZ-ny2" secondAttribute="trailing" constant="20" id="p9N-Mn-Hmy"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="nVr-e2-kFJ"/>
+                    <connections>
+                        <outlet property="courseCredits" destination="7ia-Ow-wFS" id="79T-W2-3dR"/>
+                        <outlet property="courseName" destination="h2y-c0-mqQ" id="UnU-sm-LaJ"/>
+                        <outlet property="courseNumber" destination="vjo-GB-vNh" id="2UM-Kr-dzd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hiB-Zf-9aZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="564" y="675"/>
+            <point key="canvasLocation" x="598" y="665"/>
         </scene>
         <!--Main Tab BarVC-->
         <scene sceneID="UTh-iP-DDe">
