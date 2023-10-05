@@ -21,7 +21,8 @@ class editCourseVC: UIViewController {
         self.hideKeyboardWhenTappedAround()
 
         // Do any additional setup after loading the view.
-        self.course = CourseDataManager.shared.fetchCourse(withName: courseNameTxt)
+//        self.course = CourseDataManager.shared.fetchCourse(withName: courseNameTxt)
+        self.course = CoreDataManager.shared.fetch(entity: Course.self, with: ["name": courseNameTxt])?[0]
         
         
         self.title = courseNameTxt
@@ -71,6 +72,7 @@ class editCourseVC: UIViewController {
             let credits: Float     = Float(courseCredits.text ?? "0.0") ?? 0
             
             let _ = CourseDataManager.shared.updateCourseWithID(self.course?.number ?? 0, newName: name, newCredits: credits)
+            
             navigationController?.popToRootViewController(animated: true)
         }
         

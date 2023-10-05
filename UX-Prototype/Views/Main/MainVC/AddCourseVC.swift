@@ -31,16 +31,18 @@ class addCourseVC: UIViewController {
     @IBAction func addCourseBtn(_ sender: Any) {
         
         if(courseName.text == "" || courseNumber.text == "" || courseCredits.text == "") {
-            self.showAlert(message: "Please fill all info in the text field.")
+            self.showErrorAlert(message: "Please fill all info in the text field.")
         } else {
             let name: String       = courseName.text ?? ""
             let number: Int32      = Int32(courseNumber.text ?? "0") ?? 0
             let credits: Float     = Float(courseCredits.text ?? "0.0") ?? 0
-            if CourseDataManager.shared.addNewCourse(name: name, number: number, credits: credits) {
+            
+            let res = CoreDataManager.shared.create(entity: Course.self, with: ["name": name, "number": number, "credits": credits])
+            if (res != nil) {
                 navigationController?.popToRootViewController(animated: true)
             } else {
                 // pop up the course with exacte same number allready exist
-                self.showAlert(message: "Error a course with the same id allready exist.")
+                self.showErrorAlert(message: "Error a course with the same id allready exist.")
             }
 
             
@@ -67,6 +69,7 @@ extension addCourseVC: UIPickerViewDataSource, UIPickerViewDelegate {
         // Handle the selected row
         func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
             let selectedSemester = semesters[row]
+            
             print("Selected Semester: \(selectedSemester)")
         }
 }

@@ -38,7 +38,8 @@ class CourseVC: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        list = CourseDataManager.shared.fetchAllCourses()
+        list = CoreDataManager.shared.fetch(entity: Course.self)
+
         tableView.reloadData()
         
     }
@@ -49,13 +50,23 @@ class CourseVC: UIViewController {
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") {  (contextualAction, view, boolValue) in
-            //Code I want to do here
+            
             let name = self.list?[indexPath.row].name
             
-            self.list?.remove(at: indexPath.row)
-            self.tableView.deleteRows(at: [indexPath], with: .automatic)
             
-            CourseDataManager.shared.deleteCourse(withName: name)
+            
+//            CourseDataManager.shared.deleteCourse(withName: name)
+            self.showDeleteConfirmationAlert(message: "Are you sure you want to delete the course \(name ?? "")?") { didConfirmDelete in
+                
+                if didConfirmDelete {
+
+                    self.list?.remove(at: indexPath.row)
+                    self.tableView.deleteRows(at: [indexPath], with: .automatic)
+                    
+                    CoreDataManager.shared.delete(entity: Course.self, with: ["name": name])
+                }
+            }
+            
         }
         
         let editAction  = UIContextualAction(style: .normal, title: "Edit") {  (contextualAction, view, boolValue) in
@@ -64,13 +75,7 @@ class CourseVC: UIViewController {
 
             let vc = self.storyboard?.instantiateViewController(identifier: "editCourseVC") as! editCourseVC
             vc.courseNameTxt = name
-//            // Create a new instance of the EditCourseVC
-//            let editCourseVC = editCourseVC()
-//
-//            // Pass the name of the course to the EditCourseVC
-//            editCourseVC.courseNameTxt = name
 
-            // Push the EditCourseVC onto the navigation controller
             self.navigationController?.pushViewController(vc, animated: true)
         }
         

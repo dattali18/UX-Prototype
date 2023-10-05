@@ -9,6 +9,11 @@ import Foundation
 import CoreData
 
 class CoreDataManager {
+    private static let Shared = CoreDataManager()
+
+    static var shared: CoreDataManager {
+      return Shared
+    }
     // MARK: - CRUD Operations
     let managedObjectContext = CoreDataStack.shared.managedObjectContext
 
@@ -62,13 +67,17 @@ class CoreDataManager {
     }
 
     // Delete
-    func delete<T: NSManagedObject>(entity: T) {
-      managedObjectContext.delete(entity)
-
-      do {
-        try managedObjectContext.save()
-      } catch {
-        print("Error deleting entity: \(error)")
-      }
+    func delete<T: NSManagedObject>(entity: T.Type, with parameters: [String: Any]) {
+        let obj = fetch(entity: entity, with: parameters)?.first
+        
+        if let obj = obj {
+            managedObjectContext.delete(obj)
+            
+            do {
+                try managedObjectContext.save()
+            } catch {
+                print("Error deleting entity: \(error)")
+            }
+        }
     }
 }
