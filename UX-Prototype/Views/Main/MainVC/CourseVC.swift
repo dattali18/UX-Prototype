@@ -24,16 +24,14 @@ class CourseVC: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-//        tableView.rowHeight = 44
- 
-        // Do any additional setup after loading the view.
+
         self.title = "Courses"
         navigationController?.navigationBar.prefersLargeTitles = true
         
-        view.backgroundColor = .secondarySystemBackground
-        tableView.backgroundColor = .secondarySystemBackground
+        view.backgroundColor = .systemBackground
+        tableView.backgroundColor = .systemBackground
         
-//        tableView.layer.cornerRadius = 10 //set corner radius here
+        
 
     }
     
