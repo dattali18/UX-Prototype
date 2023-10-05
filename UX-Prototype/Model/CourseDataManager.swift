@@ -65,7 +65,7 @@ class CourseDataManager {
         }
     }
     
-    func updateCourseWithID(_ number: Int16, newName: String, newCredits: Float) -> Course? {
+    func updateCourseWithID(_ number: Int32, newName: String, newCredits: Float) -> Course? {
         let fetchRequest: NSFetchRequest<Course> = Course.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "number == %d", number)
         

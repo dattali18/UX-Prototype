@@ -38,7 +38,11 @@ class editCourseVC: UIViewController {
         courseCredits.text = "\(credits)"
         
         
-        
+        // Create a save button
+        let saveButton = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(save))
+
+        // Add the save button to the navigation bar
+        self.navigationItem.rightBarButtonItem = saveButton
     }
     
     // TODO: add the views inorder to update the course and make the update using core data
@@ -50,10 +54,25 @@ class editCourseVC: UIViewController {
             let name: String       = courseName.text ?? ""
             let credits: Float     = Float(courseCredits.text ?? "0.0") ?? 0
             
-            CourseDataManager.shared.updateCourseWithID(self.course?.number ?? 0, newName: name, newCredits: credits)
+            let _ = CourseDataManager.shared.updateCourseWithID(self.course?.number ?? 0, newName: name, newCredits: credits)
             
             navigationController?.popToRootViewController(animated: true)
         
         }
+    }
+    
+    // The save action
+    @objc func save() {
+        
+        if(courseName.text == "" || courseNumber.text == "" || courseCredits.text == "") {
+            return
+        } else {
+            let name: String       = courseName.text ?? ""
+            let credits: Float     = Float(courseCredits.text ?? "0.0") ?? 0
+            
+            let _ = CourseDataManager.shared.updateCourseWithID(self.course?.number ?? 0, newName: name, newCredits: credits)
+            navigationController?.popToRootViewController(animated: true)
+        }
+        
     }
 }
