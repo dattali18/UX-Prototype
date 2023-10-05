@@ -10,7 +10,8 @@ import CoreData
 
 class CourseVC: UIViewController {
     
-    var list: [Course]?
+    var courses: [Course] = []
+    var semesters: [Semester] = []
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -23,6 +24,9 @@ class CourseVC: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
+        
+        fetchCourses()
+        fetchSemesters()
         
 
         self.title = "Courses"
@@ -38,8 +42,7 @@ class CourseVC: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        list = CoreDataManager.shared.fetch(entity: Course.self)
-
+        fetchCourses()
         tableView.reloadData()
         
     }
@@ -51,7 +54,7 @@ class CourseVC: UIViewController {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") {  (contextualAction, view, boolValue) in
             
-            let name = self.list?[indexPath.row].name
+            let name = self.courses[indexPath.row].name
             
             
             
@@ -60,7 +63,7 @@ class CourseVC: UIViewController {
                 
                 if didConfirmDelete {
 
-                    self.list?.remove(at: indexPath.row)
+                    self.courses.remove(at: indexPath.row)
                     self.tableView.deleteRows(at: [indexPath], with: .automatic)
                     
                     CoreDataManager.shared.delete(entity: Course.self, with: ["name": name])
@@ -71,7 +74,7 @@ class CourseVC: UIViewController {
         
         let editAction  = UIContextualAction(style: .normal, title: "Edit") {  (contextualAction, view, boolValue) in
             // Get the name of the course
-            let name = self.list?[indexPath.row].name
+            let name = self.courses[indexPath.row].name
 
             let vc = self.storyboard?.instantiateViewController(identifier: "editCourseVC") as! editCourseVC
             vc.courseNameTxt = name
@@ -86,6 +89,14 @@ class CourseVC: UIViewController {
         return swipeActions
     }
 
+    private func fetchCourses() {
+        courses = CoreDataManager.shared.fetch(entity: Course.self) ?? []
+        courses.sort { $0.semester?.str ?? "" < $1.semester?.str ?? "" }
+       }
+
+   private func fetchSemesters() {
+       semesters = CoreDataManager.shared.fetch(entity: Semester.self) ?? []
+   }
 }
 
 
@@ -96,13 +107,15 @@ extension CourseVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        list?.count ?? 0
+        let semester = semesters[section]
+        let coursesForSemester = courses.filter { $0.semester == semester }
+        return coursesForSemester.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomViewCellTableViewCell", for: indexPath) as! customViewCellTableViewCell
         
-        cell.courseName.text = list?[indexPath.row].name
+        cell.courseName.text = courses[indexPath.row].name
 
         
         return cell
@@ -110,14 +123,12 @@ extension CourseVC: UITableViewDelegate, UITableViewDataSource {
     
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        1
+        return semesters.count
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if(section == 0) {
-            return "Spring Semester"
-        }
-        return "Another Secttion"
+        let semester = semesters[section]
+        return semester.str
     }
 
     
