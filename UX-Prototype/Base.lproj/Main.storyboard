@@ -726,13 +726,119 @@
             </objects>
             <point key="canvasLocation" x="-878" y="2635"/>
         </scene>
+        <!--New SemesterVC-->
+        <scene sceneID="216-OC-Djz">
+            <objects>
+                <viewController storyboardIdentifier="EditSemesterVC" id="nEx-sz-rBl" userLabel="New SemesterVC" customClass="EditSemesterVC" customModule="UX_Prototype" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Fxa-58-a6a">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="R8q-Nh-2Sk">
+                                <rect key="frame" x="10" y="172" width="370" height="500"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="c8U-Ge-mqe" userLabel="type">
+                                        <rect key="frame" x="0.0" y="0.0" width="370" height="120.33333333333333"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e7t-JR-Hw8">
+                                                <rect key="frame" x="0.0" y="0.0" width="370" height="20.333333333333332"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uAE-6f-md0" userLabel="Semester Picker">
+                                                <rect key="frame" x="0.0" y="20.333333333333343" width="370" height="100"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="100" id="Y4L-kX-yMF"/>
+                                                </constraints>
+                                            </pickerView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="XoE-07-rtc" userLabel="start">
+                                        <rect key="frame" x="0.0" y="152" width="370" height="120.33333333333331"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Semester Start Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="giU-Xs-3hu">
+                                                <rect key="frame" x="0.0" y="0.0" width="370" height="20.333333333333332"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <datePicker contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="teG-Ch-7bp" userLabel="Start">
+                                                <rect key="frame" x="0.0" y="20.333333333333314" width="370" height="100"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="100" id="Ajt-q2-mA7"/>
+                                                </constraints>
+                                            </datePicker>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ovn-pI-SHL" userLabel="end">
+                                        <rect key="frame" x="0.0" y="304" width="370" height="120.33333333333331"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Semester End Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bSd-pJ-3kR">
+                                                <rect key="frame" x="0.0" y="0.0" width="370" height="20.333333333333332"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="fY4-8q-C7D" userLabel="End">
+                                                <rect key="frame" x="0.0" y="20.333333333333314" width="370" height="100"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="100" id="1P3-aP-bf0"/>
+                                                </constraints>
+                                            </datePicker>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="duR-uB-P39">
+                                        <rect key="frame" x="0.0" y="456" width="370" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="efk-N3-znM"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Update"/>
+                                        <connections>
+                                            <action selector="updateBtn:" destination="MkG-2h-BAR" eventType="touchUpInside" id="14y-hj-9Vk"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="XoE-07-rtc" secondAttribute="trailing" id="3F2-9p-8en"/>
+                                    <constraint firstAttribute="trailing" secondItem="c8U-Ge-mqe" secondAttribute="trailing" id="Ilh-g4-jyW"/>
+                                    <constraint firstItem="c8U-Ge-mqe" firstAttribute="leading" secondItem="R8q-Nh-2Sk" secondAttribute="leading" id="RaQ-1m-nla"/>
+                                    <constraint firstItem="ovn-pI-SHL" firstAttribute="leading" secondItem="R8q-Nh-2Sk" secondAttribute="leading" id="XIh-35-q4t"/>
+                                    <constraint firstAttribute="height" constant="500" id="YoV-hD-wm2"/>
+                                    <constraint firstItem="XoE-07-rtc" firstAttribute="leading" secondItem="R8q-Nh-2Sk" secondAttribute="leading" id="h3Z-gi-wpz"/>
+                                    <constraint firstAttribute="trailing" secondItem="ovn-pI-SHL" secondAttribute="trailing" id="vcQ-JF-uCZ"/>
+                                    <constraint firstItem="duR-uB-P39" firstAttribute="centerX" secondItem="R8q-Nh-2Sk" secondAttribute="centerX" id="yyQ-FO-sCN"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="8n5-Fx-szT"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="R8q-Nh-2Sk" firstAttribute="centerX" secondItem="Fxa-58-a6a" secondAttribute="centerX" id="9EV-bs-v4r"/>
+                            <constraint firstItem="R8q-Nh-2Sk" firstAttribute="centerY" secondItem="Fxa-58-a6a" secondAttribute="centerY" id="F9G-Rv-KtA"/>
+                            <constraint firstItem="R8q-Nh-2Sk" firstAttribute="leading" secondItem="8n5-Fx-szT" secondAttribute="leading" constant="10" id="l8r-bC-RXy"/>
+                            <constraint firstItem="8n5-Fx-szT" firstAttribute="trailing" secondItem="R8q-Nh-2Sk" secondAttribute="trailing" constant="10" id="ofO-JA-6KB"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Ubr-pD-nPo"/>
+                    <connections>
+                        <outlet property="endDatePicker" destination="fY4-8q-C7D" id="pZ7-WA-VHW"/>
+                        <outlet property="semesterPicker" destination="uAE-6f-md0" id="BPf-LG-nEm"/>
+                        <outlet property="startDatePicker" destination="teG-Ch-7bp" id="hXx-hd-ZvH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="caL-NV-Vga" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="534" y="1290"/>
+        </scene>
     </scenes>
     <resources>
         <systemColor name="secondaryLabelColor">
-            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="secondarySystemBackgroundColor">
-            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

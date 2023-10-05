@@ -29,6 +29,13 @@ class addCourseVC: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         
         self.semesters = CoreDataManager.shared.fetch(entity: Semester.self)
+        
+        if(self.semesters != nil) {
+            if(!self.semesters!.isEmpty) {
+                self.selectedSemester = self.semesters?[0]
+            
+            }
+        }
     }
     
     @IBAction func addCourseBtn(_ sender: Any) {
@@ -39,9 +46,17 @@ class addCourseVC: UIViewController {
             let name: String       = courseName.text ?? ""
             let number: Int32      = Int32(courseNumber.text ?? "0") ?? 0
             let credits: Float     = Float(courseCredits.text ?? "0.0") ?? 0
-            let semester: Semester = self.selectedSemester ?? Semester()
+            let semester: Semester? = self.selectedSemester
             
-            let res = CoreDataManager.shared.create(entity: Course.self, with: ["name": name, "number": number, "credits": credits, "semester": semester])
+            let res: Course?
+            
+            if(semester == nil) {
+                res = CoreDataManager.shared.create(entity: Course.self, with: ["name": name, "number": number, "credits": credits])
+            } else {
+                res = CoreDataManager.shared.create(entity: Course.self, with: ["name": name, "number": number, "credits": credits, "semester": semester])
+            }
+            
+           
             
             if (res != nil) {
                 navigationController?.popToRootViewController(animated: true)

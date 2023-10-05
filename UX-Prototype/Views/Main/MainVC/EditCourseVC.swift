@@ -40,11 +40,6 @@ class editCourseVC: UIViewController {
         view.backgroundColor = .systemBackground
         
         
-//        // Create a save button
-//        let saveButton = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(save))
-//
-//        // Add the save button to the navigation bar
-//        self.navigationItem.rightBarButtonItem = saveButton
         
         let name: String = self.course?.name ?? ""
         let number: Int = Int(self.course?.number ?? 0)
@@ -61,15 +56,14 @@ class editCourseVC: UIViewController {
         }
         
         if let row = semesters?.firstIndex(of: semester!) {
+            print(row)
             semesterPicker.selectRow(row, inComponent: 0, animated: false)
             self.selectedSemester = semesters?[row]
        }
         
-
         
     }
     
-    // TODO: add the views inorder to update the course and make the update using core data
    
     @IBAction func updateBtn(_ sender: Any){
       if(courseName.text == "" || courseNumber.text == "" || courseCredits.text == "") {
@@ -92,7 +86,6 @@ class editCourseVC: UIViewController {
           // Fetch the Semester object from the persistent store
           let sem = CoreDataManager.shared.fetch(entity: Semester.self, with: ["str": str])?.first
           
-          
 
             // Check if the Semester object exists in the persistent store
             if sem == nil {
@@ -100,15 +93,21 @@ class editCourseVC: UIViewController {
                   self.showErrorAlert(message: "The selected semester does not exist.")
                   return
             }
+          
 
             // Update the Course object
-            let res = CoreDataManager.shared.update(entity: self.course ?? Course(), with: ["name": name, "number": number, "credits": credits, "semester": sem])
+          if(self.course != nil) {
+              let res = CoreDataManager.shared.update(entity: self.course!, with: ["name": name, "number": number, "credits": credits, "semester": sem])
+              
+              if(res != nil) {
+                  print(res?.semester?.str)
+                  navigationController?.popToRootViewController(animated: true)
+              } else {
+                  self.showErrorAlert(message: "There was a problem updating the course info.")
+              }
+            
+          }
 
-            if(res != nil) {
-                navigationController?.popToRootViewController(animated: true)
-            } else {
-                self.showErrorAlert(message: "There was a problem updating the course info.")
-            }
       }
     }
 

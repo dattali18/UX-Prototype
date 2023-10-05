@@ -12,6 +12,23 @@ enum SemesterEnum: CustomStringConvertible {
     case summer
     case fall
     
+    init(description: String?) {
+        if(description == nil) {
+            fatalError("Invalid semester string")
+        }
+        
+        switch description {
+        case "Spring":
+            self = .spring
+        case "Summer":
+            self = .summer
+        case "Fall":
+            self = .fall
+        default:
+            fatalError("Invalid semester string")
+        }
+    }
+    
     var description: String {
         switch self {
         case .spring:
@@ -22,4 +39,22 @@ enum SemesterEnum: CustomStringConvertible {
             return "Fall"
         }
     }
+    
+    var num: Int {
+        switch self {
+        case .spring:
+            return 0
+        case .summer:
+            return 1
+        case .fall:
+            return 2
+        }
+    }
+}
+
+
+func semesterFromString(str: String) -> SemesterEnum? {
+    let semesterString: String? = str.split(separator: " ")[0].description
+    let semester = SemesterEnum(description: semesterString)
+    return semester
 }

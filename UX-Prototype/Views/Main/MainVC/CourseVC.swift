@@ -12,6 +12,7 @@ class CourseVC: UIViewController {
     
     var courses: [Course] = []
     var semesters: [Semester] = []
+    var coursesBySemesters: [[Course]] = []
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -27,6 +28,7 @@ class CourseVC: UIViewController {
         
         fetchCourses()
         fetchSemesters()
+        getCoursesBySemesters()
         
 
         self.title = "Courses"
@@ -35,6 +37,10 @@ class CourseVC: UIViewController {
         view.backgroundColor = .systemBackground
         tableView.backgroundColor = .systemBackground
         
+        // MARK- testing
+//        tableView.register(CourseSectionHeaderView.self, forHeaderFooterViewReuseIdentifier: "HeaderView")
+        tableView.register(UINib(nibName: "CourseSectionHeaderView", bundle: nil), forHeaderFooterViewReuseIdentifier: "HeaderView")
+        tableView.sectionHeaderHeight = 50
         
 
     }
@@ -44,8 +50,9 @@ class CourseVC: UIViewController {
         
         fetchCourses()
         fetchSemesters()
-        tableView.reloadData()
+        getCoursesBySemesters()
         
+        tableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -55,25 +62,17 @@ class CourseVC: UIViewController {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") {  (contextualAction, view, boolValue) in
             
-            // TODO: fix the bugs in the index formula
-            let index = indexPath.section * tableView.numberOfRows(inSection: indexPath.section) + indexPath.row
+            let row = indexPath.row
+            let section = indexPath.section
             
-            let name = self.courses[index].name
-            
-            
+            let name = self.coursesBySemesters[section][row].name
             
 //            CourseDataManager.shared.deleteCourse(withName: name)
             self.showDeleteConfirmationAlert(message: "Are you sure you want to delete the course \(name ?? "")?") { didConfirmDelete in
                 
                 if didConfirmDelete {
-                    self.courses.remove(at: index)
-                    
+                    self.coursesBySemesters[section].remove(at: row)
                     self.tableView.reloadData()
-                    
-//                    if(tableView.numberOfRows(inSection: indexPath.section) == 1) {
-//                        self.tableView.deleteSections([indexPath.section], with: .automatic)
-//                    } else {
-//                        self.tableView.deleteRows(at: [indexPath], with: .automatic)
                     
                     CoreDataManager.shared.delete(entity: Course.self, with: ["name": name])
                     
@@ -84,15 +83,20 @@ class CourseVC: UIViewController {
         
         let editAction  = UIContextualAction(style: .normal, title: "Edit") {  (contextualAction, view, boolValue) in
             // Get the name of the course
-            let name = self.courses[indexPath.row].name
-
+            let row = indexPath.row
+            let section = indexPath.section
+            
+            let name = self.coursesBySemesters[section][row].name
+            
             let vc = self.storyboard?.instantiateViewController(identifier: "editCourseVC") as! editCourseVC
             vc.courseNameTxt = name
 
             self.navigationController?.pushViewController(vc, animated: true)
         }
         
+
         editAction.backgroundColor = .systemBlue
+        
         
         let swipeActions = UISwipeActionsConfiguration(actions: [deleteAction, editAction])
 
@@ -100,13 +104,32 @@ class CourseVC: UIViewController {
     }
 
     private func fetchCourses() {
+        courses = []
         courses = CoreDataManager.shared.fetch(entity: Course.self) ?? []
-        courses.sort { $0.semester?.str ?? "" < $1.semester?.str ?? "" }
+//        courses.sort { $0.semester?.str ?? "" < $1.semester?.str ?? "" }
        }
 
-   private func fetchSemesters() {
-       semesters = CoreDataManager.shared.fetch(entity: Semester.self) ?? []
-   }
+    private func fetchSemesters() {
+        self.semesters = []
+        // Get all of the semesters from Core Data.
+        var semesters = CoreDataManager.shared.fetch(entity: Semester.self) ?? []
+
+        // Sort the semesters by the start date.
+        semesters.sort { $0.start ?? Date() > $1.start ?? Date() }
+
+        // Assign the sorted semesters to the semesters property.
+        self.semesters = semesters
+    }
+    
+    private func getCoursesBySemesters(){
+        coursesBySemesters = []
+        
+        for semester in self.semesters {
+            let coursesBySemester = self.courses.filter { $0.semester == semester }
+            self.coursesBySemesters.append(coursesBySemester)
+        }
+
+    }
 }
 
 
@@ -117,17 +140,17 @@ extension CourseVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let semester = semesters[section]
-        let coursesForSemester = courses.filter { $0.semester == semester }
-        return coursesForSemester.count
+        if(self.coursesBySemesters.isEmpty || self.courses.count < section) {
+            return 0
+        }
+        return self.coursesBySemesters[section].count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomViewCellTableViewCell", for: indexPath) as! customViewCellTableViewCell
         
-        cell.courseName.text = courses[indexPath.row].name
+        cell.courseName.text = self.coursesBySemesters[indexPath.section][indexPath.row].name
 
-        
         return cell
     }
     
@@ -136,10 +159,10 @@ extension CourseVC: UITableViewDelegate, UITableViewDataSource {
         return semesters.count
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let semester = semesters[section]
-        return semester.str
-    }
+//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        let semester = semesters[section]
+//        return semester.str
+//    }
 
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -150,6 +173,21 @@ extension CourseVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 44
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "HeaderView") as? CourseSectionHeaderView {
+            
+            headerView.semesterNameLabel?.text = semesters[section].str?.uppercased()
+            headerView.semester = semesters[section]
+            headerView.navigationController = self.navigationController
+            headerView.storyboard = self.storyboard
+            
+            return headerView
+        } else {
+            print(section)
+            return nil
+        }
     }
     
 }
