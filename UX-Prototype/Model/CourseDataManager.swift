@@ -134,7 +134,18 @@ class CourseDataManager {
         }
     }
     
+    private func addSemesters() {
+        if(CoreDataManager.shared.fetch(entity: Semester.self) == nil) {
+            let start1 = Date()
+            let end1 = Date()
+            
+            let _ = CoreDataManager.shared.create(entity: Semester.self, with: ["type": "Summer", "str": "Summer 2023", "start" : start1, "end": end1])
+        }
+    }
+    
     private func addProvidedCourses() {
+        // creating Courses
+        addSemesters()
         // Dummy course data provided in separate arrays
         let courseNames = [
             "Linear Algebra I",
@@ -169,11 +180,15 @@ class CourseDataManager {
             3.50
         ]
         
+        let semester = CoreDataManager.shared.fetch(entity: Semester.self)
+        
         for index in 0..<courseNames.count {
+            
             let newCourse = Course(context: managedObjectContext)
             newCourse.name = courseNames[index]
             newCourse.number = courseNumbers[index]
             newCourse.credits = courseCredits[index]
+            newCourse.semester = semester?.randomElement()
         }
         
         do {

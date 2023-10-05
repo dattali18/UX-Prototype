@@ -21,16 +21,16 @@ class CoreDataManager {
     func create<T: NSManagedObject>(entity: T.Type, with parameters: [String: Any]) -> T? {
         let newEntity = entity.init(context: managedObjectContext)
 
-      for (key, value) in parameters {
-        newEntity.setValue(value, forKey: key)
-      }
+          for (key, value) in parameters {
+            newEntity.setValue(value, forKey: key)
+          }
 
-      do {
-        try managedObjectContext.save()
-        return newEntity
-      } catch {
-        print("Error creating entity: \(error)")
-        return nil
+          do {
+            try managedObjectContext.save()
+            return newEntity
+          } catch {
+            print("Error creating entity: \(error)")
+            return nil
       }
     }
 

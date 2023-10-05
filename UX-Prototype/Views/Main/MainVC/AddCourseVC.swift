@@ -14,7 +14,8 @@ class addCourseVC: UIViewController {
     @IBOutlet weak var semesterPicker: UIPickerView!
     
     // Define the data source for the picker view
-    let semesters: [SemesterEnum] = [.spring, .summer, .fall]
+    var semesters: [Semester]? = nil;
+    var selectedSemester: Semester?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +27,8 @@ class addCourseVC: UIViewController {
         // Do any additional setup after loading the view.
         self.title = "Add Course"
         navigationController?.navigationBar.prefersLargeTitles = true
+        
+        self.semesters = CoreDataManager.shared.fetch(entity: Semester.self)
     }
     
     @IBAction func addCourseBtn(_ sender: Any) {
@@ -36,13 +39,15 @@ class addCourseVC: UIViewController {
             let name: String       = courseName.text ?? ""
             let number: Int32      = Int32(courseNumber.text ?? "0") ?? 0
             let credits: Float     = Float(courseCredits.text ?? "0.0") ?? 0
+            let semester: Semester = self.selectedSemester ?? Semester()
             
-            let res = CoreDataManager.shared.create(entity: Course.self, with: ["name": name, "number": number, "credits": credits])
+            let res = CoreDataManager.shared.create(entity: Course.self, with: ["name": name, "number": number, "credits": credits, "semester": semester])
+            
             if (res != nil) {
                 navigationController?.popToRootViewController(animated: true)
             } else {
                 // pop up the course with exacte same number allready exist
-                self.showErrorAlert(message: "Error a course with the same id allready exist.")
+                self.showErrorAlert(message: "Something went wront with creating new Course.")
             }
 
             
@@ -58,18 +63,26 @@ extension addCourseVC: UIPickerViewDataSource, UIPickerViewDelegate {
         }
         
         func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-            return semesters.count
+            return semesters?.count ?? 0
         }
         
         // Implement UIPickerViewDelegate method to display text in the picker view
         func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-            return semesters[row].description // Display the description of the Semester enum
+            let semester: Semester? = semesters?[row]
+            
+            guard let date = semester?.start else { return "" }
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy"
+            let yearString = dateFormatter.string(from: date)
+            
+            return  "\(semester?.type ?? "")  \(yearString)" // Display the description of the Semester enum
         }
         
         // Handle the selected row
         func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-            let selectedSemester = semesters[row]
+            self.selectedSemester = semesters?[row]
             
-            print("Selected Semester: \(selectedSemester)")
+//            print("Selected Semester: \(selectedSemester)")
         }
 }
