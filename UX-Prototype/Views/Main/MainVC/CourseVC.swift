@@ -43,6 +43,7 @@ class CourseVC: UIViewController {
         super.viewDidAppear(animated)
         
         fetchCourses()
+        fetchSemesters()
         tableView.reloadData()
         
     }
@@ -54,7 +55,10 @@ class CourseVC: UIViewController {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") {  (contextualAction, view, boolValue) in
             
-            let name = self.courses[indexPath.row].name
+            // TODO: fix the bugs in the index formula
+            let index = indexPath.section * tableView.numberOfRows(inSection: indexPath.section) + indexPath.row
+            
+            let name = self.courses[index].name
             
             
             
@@ -62,11 +66,17 @@ class CourseVC: UIViewController {
             self.showDeleteConfirmationAlert(message: "Are you sure you want to delete the course \(name ?? "")?") { didConfirmDelete in
                 
                 if didConfirmDelete {
-
-                    self.courses.remove(at: indexPath.row)
-                    self.tableView.deleteRows(at: [indexPath], with: .automatic)
+                    self.courses.remove(at: index)
+                    
+                    self.tableView.reloadData()
+                    
+//                    if(tableView.numberOfRows(inSection: indexPath.section) == 1) {
+//                        self.tableView.deleteSections([indexPath.section], with: .automatic)
+//                    } else {
+//                        self.tableView.deleteRows(at: [indexPath], with: .automatic)
                     
                     CoreDataManager.shared.delete(entity: Course.self, with: ["name": name])
+                    
                 }
             }
             
@@ -103,7 +113,7 @@ class CourseVC: UIViewController {
 extension CourseVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
+        print("\(indexPath.row), \(indexPath.section)")
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
