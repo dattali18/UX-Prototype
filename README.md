@@ -24,7 +24,7 @@ The prototype includes a variety of features for managing courses and semesters,
 
 ## Screenshots
 
-* put in screenshot
+<img height="400" src="/UX-Prototype/ScreenShot/IMG_8054.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8055.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8056.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8057.PNG">
 
 ## Installation
 
