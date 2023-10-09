@@ -12,7 +12,7 @@
     <entity name="Link" representedClassName="Link" syncable="YES" codeGenerationType="class">
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="url" optional="YES" attributeType="String"/>
-        <relationship name="resources" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Resource" inverseName="links" inverseEntity="Resource"/>
+        <relationship name="resource" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Resource" inverseName="links" inverseEntity="Resource"/>
     </entity>
     <entity name="Project" representedClassName="Project" syncable="YES" codeGenerationType="class">
         <attribute name="icon" optional="YES" attributeType="String"/>
@@ -28,7 +28,7 @@
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="number" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="course" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Course" inverseName="resource" inverseEntity="Course"/>
-        <relationship name="links" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Link" inverseName="resources" inverseEntity="Link"/>
+        <relationship name="links" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Link" inverseName="resource" inverseEntity="Link"/>
     </entity>
     <entity name="Semester" representedClassName="Semester" syncable="YES" codeGenerationType="class">
         <attribute name="end" optional="YES" attributeType="Date" usesScalarValueType="NO"/>

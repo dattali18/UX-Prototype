@@ -61,6 +61,17 @@ class CoreDataManager {
         return resources
     }
     
+    func fetchLinks(for resource: Resource) -> [Link] {
+      // Get the links relationship from the resource.
+      let linksRelationship = resource.links
+
+      // Get the links from the links relationship.
+        let links = linksRelationship?.allObjects as? [Link]
+
+      // Return the links.
+      return links ?? []
+    }
+
 
     // Update
     func update<T: NSManagedObject>(entity: T, with parameters: [String: Any]) -> T? {
