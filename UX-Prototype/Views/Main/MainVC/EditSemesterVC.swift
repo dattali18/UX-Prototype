@@ -35,13 +35,21 @@ class EditSemesterVC: UIViewController {
             let row = semesterFromString(str: semester!.str!)?.num ?? 0
             semesterPicker.selectRow(row, inComponent: 0, animated: false)
             
-            
-            
+            startDatePicker.date = semester?.start! ?? Date()
+            endDatePicker.date = semester?.end! ?? Date()
         }
+        
+        // Add a delete button to the navigation bar
+        let deleteButton = UIBarButtonItem(title: "Delete", style: .plain, target: self, action: #selector(deleteSemester))
+        self.navigationItem.rightBarButtonItem = deleteButton
+        // Set the font of the delete button to red
+//        deleteButton.setTitleColor(.systemRed, for: .normal)
+        deleteButton.tintColor = .systemRed
+
     }
     
 
-    @IBAction func startNewSemester(_ sender: Any){
+    @IBAction func editSemester(_ sender: Any){
         // Get the start and end dates from the date pickers
         let startDate = startDatePicker.date
         let endDate = endDatePicker.date
@@ -52,6 +60,7 @@ class EditSemesterVC: UIViewController {
             self.showErrorAlert(message: "The end date must be after the start date.")
             return
           }
+        
         let type = self.selectedSemester.description
         
         let date = startDate
@@ -61,7 +70,7 @@ class EditSemesterVC: UIViewController {
         
         let str =  "\(type) \(yearString)"
         
-        let res = CoreDataManager.shared.create(entity: Semester.self, with: ["type": type, "start": startDate, "end": endDate, "str": str])
+        let res = CoreDataManager.shared.update(entity: self.semester!, with: ["type": type, "start": startDate, "end": endDate, "str": str])
         
         if (res != nil) {
             navigationController?.popToRootViewController(animated: true)
@@ -71,9 +80,24 @@ class EditSemesterVC: UIViewController {
         }
     }
     
+    @objc func deleteSemester() {
+        // Delete the semester from the database
+        
+        self.showDeleteConfirmationAlert(message: "Are you sure you want to delete the semester \(self.semester?.str! ?? "")?") { didConfirmDelete in
+            
+            if didConfirmDelete {
+                
+                CoreDataManager.shared.delete(entity: Semester.self, with: ["str": self.semester?.str!])
+                
+                // Navigate back to the root view controller
+            }
+            self.navigationController?.popToRootViewController(animated: true)
+        }
+        
+        
 
+    }
     
-
 }
 
 extension EditSemesterVC: UIPickerViewDataSource, UIPickerViewDelegate {

@@ -17,7 +17,6 @@ class customViewCellTableViewCell:
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-//        self.layer.cornerRadius = 10
         courseName.lineBreakMode = .byTruncatingTail
   
     }

@@ -50,17 +50,15 @@ class editCourseVC: UIViewController {
         courseNumber.text = "\(number)"
         courseCredits.text = "\(credits)"
         
-        if (semesters != nil || semester == nil){
+        if (semesters != nil){
             self.selectedSemester = semesters?.first
+            if let row = semesters?.firstIndex(of: semester!) {
+                semesterPicker.selectRow(row, inComponent: 0, animated: false)
+                self.selectedSemester = semesters?[row]
+           }
+        } else if(semester == nil) {
             return
         }
-        
-        if let row = semesters?.firstIndex(of: semester!) {
-            print(row)
-            semesterPicker.selectRow(row, inComponent: 0, animated: false)
-            self.selectedSemester = semesters?[row]
-       }
-        
         
     }
     
@@ -100,7 +98,7 @@ class editCourseVC: UIViewController {
               let res = CoreDataManager.shared.update(entity: self.course!, with: ["name": name, "number": number, "credits": credits, "semester": sem])
               
               if(res != nil) {
-                  print(res?.semester?.str)
+//                  print(res?.semester?.str!)
                   navigationController?.popToRootViewController(animated: true)
               } else {
                   self.showErrorAlert(message: "There was a problem updating the course info.")

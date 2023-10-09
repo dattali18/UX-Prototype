@@ -454,9 +454,6 @@
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Update"/>
-                                        <connections>
-                                            <action selector="updateBtn:" destination="MkG-2h-BAR" eventType="touchUpInside" id="iEa-Fg-7iN"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -796,6 +793,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Update"/>
                                         <connections>
+                                            <action selector="editSemester:" destination="nEx-sz-rBl" eventType="touchUpInside" id="J0x-7H-XKP"/>
                                             <action selector="updateBtn:" destination="MkG-2h-BAR" eventType="touchUpInside" id="14y-hj-9Vk"/>
                                         </connections>
                                     </button>
@@ -835,10 +833,10 @@
     </scenes>
     <resources>
         <systemColor name="secondaryLabelColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="secondarySystemBackgroundColor">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
