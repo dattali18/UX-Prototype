@@ -10,14 +10,20 @@ import UIKit
 class customViewCellTableViewCell:
     UITableViewCell {
     
-    @IBOutlet weak var courseName: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var creditLabel: UILabel!
+    @IBOutlet weak var numberLabel: UILabel!
     
+    @IBOutlet weak var rightArrowBtn: UIButton!
     
-
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        courseName.lineBreakMode = .byTruncatingTail
+        nameLabel.lineBreakMode = .byTruncatingTail
+        
+        rightArrowBtn.tintColor = .secondaryLabel
+        
+        self.backgroundColor = .secondarySystemGroupedBackground
   
     }
 

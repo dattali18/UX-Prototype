@@ -21,6 +21,17 @@ extension UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
+    func showInfoAlert(message: String) {
+        let alert = UIAlertController(title: "Info", message: message, preferredStyle: .alert)
+        
+        // Add an OK button to the alert
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(okAction)
+        
+        // Present the alert
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     func showDeleteConfirmationAlert(message: String, completion: @escaping (Bool) -> Void) {
       let alert = UIAlertController(title: "Delete Confirmation", message: message, preferredStyle: .alert)
 

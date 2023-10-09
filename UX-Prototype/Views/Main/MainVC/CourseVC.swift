@@ -152,7 +152,11 @@ extension CourseVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomViewCellTableViewCell", for: indexPath) as! customViewCellTableViewCell
         
-        cell.courseName.text = self.coursesBySemesters[indexPath.section][indexPath.row].name
+        let course = self.coursesBySemesters[indexPath.section][indexPath.row]
+        
+        cell.nameLabel.text     = course.name
+        cell.creditLabel.text   = "\(course.credits)"
+        cell.numberLabel.text   = "\(course.number)"
 
         return cell
     }
@@ -170,7 +174,7 @@ extension CourseVC: UITableViewDelegate, UITableViewDataSource {
 
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 44
+        return 84
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

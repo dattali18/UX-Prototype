@@ -66,6 +66,38 @@ class AddResourcesVC: UIViewController {
     }
     
     @IBAction func addRescourceBtn(_ sender: Any) {
+//        self.showInfoAlert(message: "Please add all links before saving.")
+        let name = self.nameField.text
+        let description = self.descriptionField.text
+        let links = self.links
+        
+        if(name == "" || description == "") {
+            self.showErrorAlert(message: "Please fill in the name and description before saving.")
+            return
+        }
+        let managedObjectContext = CoreDataStack.shared.managedObjectContext
+        
+        let newResource = Resource(context: managedObjectContext)
+        
+        newResource.name = name
+        newResource.descriptions = description
+        
+        for link in self.links {
+            newResource.addToLinks(link)
+        }
+        
+        newResource.course = self.course
+        
+        managedObjectContext.insert(newResource)
+        
+        do {
+          try managedObjectContext.save()
+        } catch {
+          print("Error creating entity: \(error)")
+          return
+        }
+        
+        navigationController?.popViewController(animated: true)
     }
 }
 
@@ -96,6 +128,8 @@ extension AddResourcesVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 44 // Adjust the section header height as needed
     }
+
+
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 84
