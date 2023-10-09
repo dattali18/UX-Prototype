@@ -37,11 +37,9 @@ class CourseVC: UIViewController {
         view.backgroundColor = .systemBackground
         tableView.backgroundColor = .systemBackground
         
-        // MARK- testing
-//        tableView.register(CourseSectionHeaderView.self, forHeaderFooterViewReuseIdentifier: "HeaderView")
+
         tableView.register(UINib(nibName: "CourseSectionHeaderView", bundle: nil), forHeaderFooterViewReuseIdentifier: "HeaderView")
         tableView.sectionHeaderHeight = 50
-        
 
     }
     
@@ -137,6 +135,11 @@ extension CourseVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("\(indexPath.row), \(indexPath.section)")
+        
+        let vc = self.storyboard?.instantiateViewController(identifier: "CourseInfoVC") as! CourseInfoVC
+//        vc.courseNameTxt = name
+        vc.course = self.coursesBySemesters[indexPath.section][indexPath.row]
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

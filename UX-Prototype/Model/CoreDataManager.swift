@@ -50,6 +50,17 @@ class CoreDataManager {
         return nil
       }
     }
+    
+    func fetchResources(for course: Course) -> [Resource] {
+        let fetchRequest = NSFetchRequest<Resource>(entityName: Resource.entity().name!)
+
+        fetchRequest.predicate = NSPredicate(format: "course == %@", course)
+
+        let resources = try! managedObjectContext.fetch(fetchRequest)
+
+        return resources
+    }
+    
 
     // Update
     func update<T: NSManagedObject>(entity: T, with parameters: [String: Any]) -> T? {
@@ -80,4 +91,5 @@ class CoreDataManager {
             }
         }
     }
+    
 }

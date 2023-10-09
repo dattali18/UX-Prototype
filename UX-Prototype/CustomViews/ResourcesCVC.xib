@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="ResourcesCVC" customModule="UX_Prototype" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="84"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="84"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="163" translatesAutoresizingMaskIntoConstraints="NO" id="kA7-a8-SFW">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="84"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="Pza-aN-vHJ">
+                                <rect key="frame" x="0.0" y="0.0" width="58" height="84"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dnf-oq-4nL" userLabel="name">
+                                        <rect key="frame" x="0.0" y="0.0" width="58" height="40.333333333333336"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BeR-34-aRO" userLabel="description">
+                                        <rect key="frame" x="0.0" y="43.333333333333343" width="58" height="40.666666666666657"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" systemColor="secondaryLabelColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DDS-g6-6GS">
+                                <rect key="frame" x="221" y="0.0" width="99" height="84"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="chevron.right" catalog="system"/>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="Pza-aN-vHJ" firstAttribute="top" secondItem="kA7-a8-SFW" secondAttribute="top" id="6nM-qN-gnZ"/>
+                            <constraint firstItem="DDS-g6-6GS" firstAttribute="top" secondItem="kA7-a8-SFW" secondAttribute="top" id="mZt-ZO-F9f"/>
+                            <constraint firstItem="Pza-aN-vHJ" firstAttribute="leading" secondItem="kA7-a8-SFW" secondAttribute="leading" id="nfk-G3-ARj"/>
+                            <constraint firstAttribute="trailing" secondItem="DDS-g6-6GS" secondAttribute="trailing" id="qMe-Lp-sQQ"/>
+                        </constraints>
+                    </stackView>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="kA7-a8-SFW" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="FM6-5z-Vd9"/>
+                <constraint firstAttribute="trailing" secondItem="kA7-a8-SFW" secondAttribute="trailing" id="eND-3M-dGQ"/>
+                <constraint firstItem="kA7-a8-SFW" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="nsB-44-7Op"/>
+                <constraint firstAttribute="bottom" secondItem="kA7-a8-SFW" secondAttribute="bottom" id="tOy-j8-Sq9"/>
+            </constraints>
+            <size key="customSize" width="314" height="50"/>
+            <connections>
+                <outlet property="descriptionLabel" destination="BeR-34-aRO" id="e4v-Z0-3Dn"/>
+                <outlet property="nameLabel" destination="Dnf-oq-4nL" id="lPU-E3-69S"/>
+            </connections>
+            <point key="canvasLocation" x="340.45801526717554" y="19.718309859154932"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="chevron.right" catalog="system" width="97" height="128"/>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
