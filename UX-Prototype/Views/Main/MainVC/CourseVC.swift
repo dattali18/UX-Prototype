@@ -162,11 +162,6 @@ extension CourseVC: UITableViewDelegate, UITableViewDataSource {
         return semesters.count
     }
     
-//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        let semester = semesters[section]
-//        return semester.str
-//    }
-
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 44 // Adjust the section header height as needed

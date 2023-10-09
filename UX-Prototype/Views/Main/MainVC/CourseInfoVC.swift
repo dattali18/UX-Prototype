@@ -39,6 +39,8 @@ class CourseInfoVC: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        
         if(course != nil) {
             self.title = self.course?.name
             
@@ -50,6 +52,13 @@ class CourseInfoVC: UIViewController {
     
     @objc func addNewResource() {
       // Implement the logic for adding a new resource to the course
+        let vc = self.storyboard?.instantiateViewController(identifier: "AddResourcesVC") as! AddResourcesVC
+        
+        if(self.course != nil) {
+            vc.course = self.course
+        }
+        
+        self.navigationController?.pushViewController(vc, animated: true)
         
     }
 
