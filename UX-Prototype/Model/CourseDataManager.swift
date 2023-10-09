@@ -127,7 +127,7 @@ class CourseDataManager {
             if existingCourses.isEmpty {
                 addProvidedCourses()
             } else {
-                print("Courses already exist.")
+//                print("Courses already exist.")
             }
         } catch {
             print("Error checking for courses: \(error.localizedDescription)")
