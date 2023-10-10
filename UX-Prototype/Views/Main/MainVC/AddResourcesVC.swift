@@ -51,8 +51,8 @@ class AddResourcesVC: UIViewController {
         
         self.navigationController?.navigationBar.prefersLargeTitles = false
         
-        self.view.backgroundColor = .systemBackground
-        self.tableView.backgroundColor = .systemBackground
+        self.view.backgroundColor = .secondarySystemBackground
+//        self.tableView.backgroundColor = .systemBackground
         
         // if the mode == true we are in add mode
         if(mode == .edit) {

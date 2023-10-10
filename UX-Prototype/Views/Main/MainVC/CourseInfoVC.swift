@@ -1,6 +1,6 @@
 import UIKit
 
-class CourseInfoVC: UIViewController {
+class CourseInfoVC: UIViewController, UIPopoverPresentationControllerDelegate {
     @IBOutlet weak var tableView: UITableView!
     
     var course: Course?
@@ -18,8 +18,8 @@ class CourseInfoVC: UIViewController {
         self.title = "Course Name"
         self.navigationController?.navigationBar.prefersLargeTitles = true
         
-        self.view.backgroundColor = .systemBackground
-        self.tableView.backgroundColor = .systemBackground
+        self.view.backgroundColor = .secondarySystemBackground
+//        self.tableView.backgroundColor = .systemBackground
         
         // Create a new navigation bar button item
         let navigationButton = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(addNewResource))
@@ -146,6 +146,9 @@ extension CourseInfoVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       // TODO: continue implemanting resources
+        let vc = self.storyboard?.instantiateViewController(identifier: "LinksListVC") as! LinksListVC
+        
+      
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }

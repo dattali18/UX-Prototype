@@ -34,8 +34,8 @@ class CourseVC: UIViewController {
         self.title = "Courses"
         navigationController?.navigationBar.prefersLargeTitles = true
         
-        view.backgroundColor = .systemBackground
-        tableView.backgroundColor = .systemBackground
+        view.backgroundColor = .secondarySystemBackground
+//        tableView.backgroundColor = .systemBackground
         
 
         tableView.register(UINib(nibName: "CourseSectionHeaderView", bundle: nil), forHeaderFooterViewReuseIdentifier: "HeaderView")
