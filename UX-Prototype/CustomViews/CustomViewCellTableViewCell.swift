@@ -23,7 +23,7 @@ class customViewCellTableViewCell:
         
         rightArrowBtn.tintColor = .secondaryLabel
         
-        self.backgroundColor = .secondarySystemGroupedBackground
+        self.backgroundColor = .systemBackground
   
     }
 

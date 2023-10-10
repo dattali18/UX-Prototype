@@ -105,14 +105,14 @@ class CoreDataManager {
     }
     
     func delete(_ obj: NSManagedObject?) {
-        guard let obj = obj else { return }
-        
-        managedObjectContext.delete(obj)
-        
-        do {
-            try managedObjectContext.save()
-        } catch {
-            print("Error deleting entity: \(error)")
+        if let obj = obj {
+            managedObjectContext.delete(obj)
+            
+            do {
+                try managedObjectContext.save()
+            } catch {
+                print("Error deleting entity: \(error)")
+            }
         }
     }
     

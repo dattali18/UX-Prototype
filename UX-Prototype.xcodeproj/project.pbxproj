@@ -195,12 +195,12 @@
 			children = (
 				C6C40FA52AB33B3A00E958C1 /* CustomViewCellTableViewCell.xib */,
 				C6C40FA42AB33B3A00E958C1 /* CustomViewCellTableViewCell.swift */,
-				C681251C2AD0022B008DE83E /* CourseSectionHeaderView.swift */,
 				C681251D2AD0022B008DE83E /* CourseSectionHeaderView.xib */,
-				C6D8D64B2AD40F85009A1F9F /* ResourcesTVC.swift */,
+				C681251C2AD0022B008DE83E /* CourseSectionHeaderView.swift */,
 				C6D8D64C2AD40F85009A1F9F /* ResourcesTVC.xib */,
-				C6AE4BD52AD450FA0037C821 /* LinkTVC.swift */,
+				C6D8D64B2AD40F85009A1F9F /* ResourcesTVC.swift */,
 				C6AE4BD62AD450FA0037C821 /* LinkTVC.xib */,
+				C6AE4BD52AD450FA0037C821 /* LinkTVC.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";

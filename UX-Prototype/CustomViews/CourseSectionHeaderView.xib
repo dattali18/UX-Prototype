@@ -20,10 +20,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="141" translatesAutoresizingMaskIntoConstraints="NO" id="BLP-PX-V3x">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="15" y="0.0" width="290" height="44"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g74-hB-3Tk">
-                                <rect key="frame" x="0.0" y="0.0" width="89.666666666666671" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="74.666666666666671" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="0Za-Wk-H8R"/>
                                 </constraints>
@@ -32,7 +32,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nLd-Ux-AhN">
-                                <rect key="frame" x="230.66666666666666" y="0.0" width="89.333333333333343" height="44"/>
+                                <rect key="frame" x="215.66666666666666" y="0.0" width="74.333333333333343" height="44"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Edit">
@@ -44,8 +44,8 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="BLP-PX-V3x" secondAttribute="bottom" id="EFm-rf-P64"/>
-                    <constraint firstItem="BLP-PX-V3x" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="X6b-zo-ybH"/>
-                    <constraint firstAttribute="trailing" secondItem="BLP-PX-V3x" secondAttribute="trailing" id="a1Q-MH-1Gv"/>
+                    <constraint firstItem="BLP-PX-V3x" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="X6b-zo-ybH"/>
+                    <constraint firstAttribute="trailing" secondItem="BLP-PX-V3x" secondAttribute="trailing" constant="15" id="a1Q-MH-1Gv"/>
                     <constraint firstItem="BLP-PX-V3x" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="o1s-Op-EWY"/>
                 </constraints>
             </tableViewCellContentView>
