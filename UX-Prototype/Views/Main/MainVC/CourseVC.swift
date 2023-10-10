@@ -76,7 +76,6 @@ class CourseVC: UIViewController {
                     
                 }
             }
-            
         }
         
         let editAction  = UIContextualAction(style: .normal, title: "Edit") {  (contextualAction, view, boolValue) in
@@ -91,7 +90,6 @@ class CourseVC: UIViewController {
 
             self.navigationController?.pushViewController(vc, animated: true)
         }
-        
 
         editAction.backgroundColor = .systemBlue
         
@@ -104,7 +102,6 @@ class CourseVC: UIViewController {
     private func fetchCourses() {
         courses = []
         courses = CoreDataManager.shared.fetch(entity: Course.self) ?? []
-//        courses.sort { $0.semester?.str ?? "" < $1.semester?.str ?? "" }
        }
 
     private func fetchSemesters() {
@@ -126,6 +123,12 @@ class CourseVC: UIViewController {
             let coursesBySemester = self.courses.filter { $0.semester == semester }
             self.coursesBySemesters.append(coursesBySemester)
         }
+        
+        // Add all courses without semester to the end of the list.
+        let coursesWithoutSemester = self.courses.filter { $0.semester == nil }
+        if !coursesWithoutSemester.isEmpty {
+            self.coursesBySemesters.append(coursesWithoutSemester)
+        }
 
     }
 }
@@ -137,7 +140,7 @@ extension CourseVC: UITableViewDelegate, UITableViewDataSource {
         print("\(indexPath.row), \(indexPath.section)")
         
         let vc = self.storyboard?.instantiateViewController(identifier: "CourseInfoVC") as! CourseInfoVC
-//        vc.courseNameTxt = name
+
         vc.course = self.coursesBySemesters[indexPath.section][indexPath.row]
         self.navigationController?.pushViewController(vc, animated: true)
     }
@@ -163,7 +166,7 @@ extension CourseVC: UITableViewDelegate, UITableViewDataSource {
     
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return semesters.count
+        return self.coursesBySemesters.count
     }
     
     
@@ -178,18 +181,26 @@ extension CourseVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "HeaderView") as? CourseSectionHeaderView {
-            
-            headerView.semesterNameLabel?.text = semesters[section].str?.uppercased()
-            headerView.semester = semesters[section]
-            headerView.navigationController = self.navigationController
-            headerView.storyboard = self.storyboard
-            
-            return headerView
+        if section < semesters.count
+        {
+            if let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "HeaderView") as? CourseSectionHeaderView {
+                
+                headerView.semesterNameLabel?.text = semesters[section].str?.uppercased()
+                headerView.semester = semesters[section]
+                headerView.navigationController = self.navigationController
+                headerView.storyboard = self.storyboard
+                
+                return headerView
+            } else {
+                print(section)
+                return nil
+            }
         } else {
-            print(section)
-            return nil
-        }
+            // Return a header view for the section for courses without semester.
+            let headerView = UITableViewHeaderFooterView()
+            headerView.textLabel?.text = "Courses Without Semester"
+            return headerView
+          }
     }
     
 }

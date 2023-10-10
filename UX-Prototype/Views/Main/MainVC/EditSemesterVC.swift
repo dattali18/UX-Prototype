@@ -31,7 +31,7 @@ class EditSemesterVC: UIViewController {
         
         // setting the values
         if(semester != nil) {
-            self.title = "Edit \(semester!.str!)"
+            self.title = "Edit - \(semester!.str!)"
             let row = semesterFromString(str: semester!.str!)?.num ?? 0
             semesterPicker.selectRow(row, inComponent: 0, animated: false)
             

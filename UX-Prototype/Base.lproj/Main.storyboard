@@ -454,6 +454,9 @@
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Update"/>
+                                        <connections>
+                                            <action selector="updateBtn:" destination="MkG-2h-BAR" eventType="touchUpInside" id="0HW-C4-82N"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>

@@ -50,7 +50,7 @@ class editCourseVC: UIViewController {
         courseNumber.text = "\(number)"
         courseCredits.text = "\(credits)"
         
-        if (semesters != nil){
+        if (semesters != nil && semester != nil){
             self.selectedSemester = semesters?.first
             if let row = semesters?.firstIndex(of: semester!) {
                 semesterPicker.selectRow(row, inComponent: 0, animated: false)
@@ -64,6 +64,7 @@ class editCourseVC: UIViewController {
     
    
     @IBAction func updateBtn(_ sender: Any){
+        print("hi")
       if(courseName.text == "" || courseNumber.text == "" || courseCredits.text == "") {
         self.showErrorAlert(message: "Please fill all field before saving")
         return
@@ -91,7 +92,6 @@ class editCourseVC: UIViewController {
                   self.showErrorAlert(message: "The selected semester does not exist.")
                   return
             }
-          
 
             // Update the Course object
           if(self.course != nil) {
@@ -103,7 +103,6 @@ class editCourseVC: UIViewController {
               } else {
                   self.showErrorAlert(message: "There was a problem updating the course info.")
               }
-            
           }
 
       }

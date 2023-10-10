@@ -91,4 +91,29 @@ extension CourseInfoVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 84
     }
+    
+    // MARK: siwpe action
+    
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let favoriteAction = UIContextualAction(style: .normal, title: "Favorite") { (contextualAction, view, boolValue) in
+            // TODO: put in action in order to favorite a resource
+        }
+        
+        favoriteAction.image = UIImage(systemName: "star.fill")
+        favoriteAction.backgroundColor = .systemYellow
+        
+        let swipeActions = UISwipeActionsConfiguration(actions: [favoriteAction])
+
+        return swipeActions
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") {  (contextualAction, view, boolValue) in
+            // TODO: put in action in order to delete a favorite
+        }
+        
+        let swipeActions = UISwipeActionsConfiguration(actions: [deleteAction])
+
+        return swipeActions
+    }
 }
