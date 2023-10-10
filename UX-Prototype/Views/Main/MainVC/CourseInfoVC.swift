@@ -110,10 +110,35 @@ extension CourseInfoVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") {  (contextualAction, view, boolValue) in
             // TODO: put in action in order to delete a favorite
+            
+            self.showDeleteConfirmationAlert(message: "Are you sure you want to delete this item?") { didConfirmDelete in
+                
+                if didConfirmDelete {
+                    let row = indexPath.row
+                    
+                    let resource = self.resources[row]
+                    self.resources.remove(at: row)
+                    
+                    CoreDataManager.shared.delete(resource)
+                    
+                    self.tableView.reloadData()
+                }
+            }
+            
         }
         
         let swipeActions = UISwipeActionsConfiguration(actions: [deleteAction])
-
+        
         return swipeActions
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let vc = self.storyboard?.instantiateViewController(identifier: "AddResourcesVC") as! AddResourcesVC
+        
+        vc.resource = self.resources[indexPath.row]
+        vc.mode = .edit
+        
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }

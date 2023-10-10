@@ -12,7 +12,7 @@
     <entity name="Link" representedClassName="Link" syncable="YES" codeGenerationType="class">
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="url" optional="YES" attributeType="String"/>
-        <relationship name="resource" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Resource" inverseName="links" inverseEntity="Resource"/>
+        <relationship name="resource" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Resource" inverseName="links" inverseEntity="Resource"/>
     </entity>
     <entity name="Project" representedClassName="Project" syncable="YES" codeGenerationType="class">
         <attribute name="icon" optional="YES" attributeType="String"/>

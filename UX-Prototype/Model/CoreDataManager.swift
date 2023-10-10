@@ -61,6 +61,7 @@ class CoreDataManager {
         return resources
     }
     
+    
     func fetchLinks(for resource: Resource) -> [Link] {
       // Get the links relationship from the resource.
       let linksRelationship = resource.links
@@ -92,6 +93,18 @@ class CoreDataManager {
     func delete<T: NSManagedObject>(entity: T.Type, with parameters: [String: Any]) {
         let obj = fetch(entity: entity, with: parameters)?.first
         
+        if let obj = obj {
+            managedObjectContext.delete(obj)
+            
+            do {
+                try managedObjectContext.save()
+            } catch {
+                print("Error deleting entity: \(error)")
+            }
+        }
+    }
+    
+    func delete(_ obj: NSManagedObject?) {
         if let obj = obj {
             managedObjectContext.delete(obj)
             

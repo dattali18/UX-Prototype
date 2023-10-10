@@ -634,6 +634,7 @@
                         <outlet property="descriptionField" destination="mw9-kZ-HkO" id="dIL-Kc-ZIt"/>
                         <outlet property="linkNameField" destination="suL-1o-Sgh" id="UuB-cE-BVn"/>
                         <outlet property="linkUrlField" destination="1E5-Js-wae" id="Phl-c3-ace"/>
+                        <outlet property="mainBtn" destination="7Ko-9a-vAS" id="prC-eb-NP8"/>
                         <outlet property="nameField" destination="kBV-24-D1A" id="GHv-CN-i0J"/>
                         <outlet property="tableView" destination="YB5-Ao-55i" id="VoV-b3-NQ4"/>
                     </connections>

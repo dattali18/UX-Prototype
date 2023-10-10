@@ -10,6 +10,12 @@ import UIKit
 // TODO: 1. add a save button with all check and save it to core data
 // TODO: 2. add swip action to delete link from list
 
+enum Mode {
+case edit
+case add
+    
+}
+
 class AddResourcesVC: UIViewController {
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var descriptionField: UITextField!
@@ -17,8 +23,13 @@ class AddResourcesVC: UIViewController {
     @IBOutlet weak var linkUrlField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var mainBtn: UIButton!
+    
+    
     var course: Course?
     var links: [Link] = []
+    var resource: Resource?
+    var mode: Mode = .add
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +41,7 @@ class AddResourcesVC: UIViewController {
         let nib = UINib(nibName: "LinkTVC", bundle: nil)
         self.tableView.register(nib, forCellReuseIdentifier: "LinkTVC")
 
+        
         // Do any additional setup after loading the view.
         if(course != nil) {
             self.title = "Add Resource To \(self.course!.name!)"
@@ -41,6 +53,20 @@ class AddResourcesVC: UIViewController {
         
         self.view.backgroundColor = .systemBackground
         self.tableView.backgroundColor = .systemBackground
+        
+        // if the mode == true we are in add mode
+        if(mode == .edit) {
+            if(self.resource != nil) {
+                self.links = CoreDataManager.shared.fetchLinks(for: self.resource!)
+                
+                self.nameField.text = self.resource?.name
+                self.descriptionField.text = self.resource?.descriptions
+                
+                self.tableView.reloadData()
+                
+                self.mainBtn.setTitle("Save", for: .normal)
+            }
+        }
     }
     
     @IBAction func addLinkBtn(_ sender: Any) {
@@ -77,18 +103,29 @@ class AddResourcesVC: UIViewController {
         }
         let managedObjectContext = CoreDataStack.shared.managedObjectContext
         
-        let newResource = Resource(context: managedObjectContext)
-        
-        newResource.name = name
-        newResource.descriptions = description
-        
-        for link in self.links {
-            newResource.addToLinks(link)
+        if(mode == .add)
+        {
+            let newResource = Resource(context: managedObjectContext)
+            
+            newResource.name = name
+            newResource.descriptions = description
+            
+ 
+            let linksSet = NSSet(array: self.links)
+            newResource.links = linksSet
+            
+            newResource.course = self.course
+            
+            managedObjectContext.insert(newResource)
+        } else {
+            self.resource?.name = name
+            self.resource?.descriptions = description
+            
+            // Convert the array to a set.
+            let linksSet = NSSet(array: self.links)
+            
+            self.resource?.links = linksSet
         }
-        
-        newResource.course = self.course
-        
-        managedObjectContext.insert(newResource)
         
         do {
           try managedObjectContext.save()
@@ -150,4 +187,6 @@ extension AddResourcesVC: UITableViewDelegate, UITableViewDataSource {
 
         return swipeActions
     }
+    
+
 }
