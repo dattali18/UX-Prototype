@@ -87,7 +87,7 @@ class EditSemesterVC: UIViewController {
             
             if didConfirmDelete {
                 
-                CoreDataManager.shared.delete(entity: Semester.self, with: ["str": self.semester?.str!])
+                CoreDataManager.shared.delete(entity: Semester.self, with: ["str": self.semester?.str! as Any])
                 
                 // Navigate back to the root view controller
             }

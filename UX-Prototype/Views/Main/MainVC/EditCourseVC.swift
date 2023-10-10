@@ -30,7 +30,7 @@ class editCourseVC: UIViewController {
 
         // Do any additional setup after loading the view.
 //        self.course = CourseDataManager.shared.fetchCourse(withName: courseNameTxt)
-        self.course = CoreDataManager.shared.fetch(entity: Course.self, with: ["name": courseNameTxt])?.first
+        self.course = CoreDataManager.shared.fetch(entity: Course.self, with: ["name": courseNameTxt as Any])?.first
         self.semesters = CoreDataManager.shared.fetch(entity: Semester.self)
         
         
@@ -93,12 +93,11 @@ class editCourseVC: UIViewController {
                   return
             }
 
-            // Update the Course object
+          // Update the Course object
           if(self.course != nil) {
-              let res = CoreDataManager.shared.update(entity: self.course!, with: ["name": name, "number": number, "credits": credits, "semester": sem])
+              let res = CoreDataManager.shared.update(entity: self.course!, with: ["name": name, "number": number, "credits": credits, "semester": sem as Any])
               
               if(res != nil) {
-//                  print(res?.semester?.str!)
                   navigationController?.popToRootViewController(animated: true)
               } else {
                   self.showErrorAlert(message: "There was a problem updating the course info.")

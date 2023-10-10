@@ -127,18 +127,25 @@ extension CourseInfoVC: UITableViewDelegate, UITableViewDataSource {
             
         }
         
-        let swipeActions = UISwipeActionsConfiguration(actions: [deleteAction])
+        let editAction = UIContextualAction(style: .normal, title: "Edit") {
+            (contextualAction, view, boolValue) in
+            
+            let vc = self.storyboard?.instantiateViewController(identifier: "AddResourcesVC") as! AddResourcesVC
+            
+            vc.resource = self.resources[indexPath.row]
+            vc.mode = .edit
+            
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        
+        editAction.backgroundColor = .systemBlue
+        
+        let swipeActions = UISwipeActionsConfiguration(actions: [deleteAction, editAction])
         
         return swipeActions
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        let vc = self.storyboard?.instantiateViewController(identifier: "AddResourcesVC") as! AddResourcesVC
-        
-        vc.resource = self.resources[indexPath.row]
-        vc.mode = .edit
-        
-        self.navigationController?.pushViewController(vc, animated: true)
+       // TODO: continue implemanting resources
     }
 }

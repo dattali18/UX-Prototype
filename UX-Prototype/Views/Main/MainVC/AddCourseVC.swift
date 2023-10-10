@@ -53,7 +53,7 @@ class addCourseVC: UIViewController {
             if(semester == nil) {
                 res = CoreDataManager.shared.create(entity: Course.self, with: ["name": name, "number": number, "credits": credits])
             } else {
-                res = CoreDataManager.shared.create(entity: Course.self, with: ["name": name, "number": number, "credits": credits, "semester": semester])
+                res = CoreDataManager.shared.create(entity: Course.self, with: ["name": name, "number": number, "credits": credits, "semester": semester as Any])
             }
             
            

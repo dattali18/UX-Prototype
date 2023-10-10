@@ -78,7 +78,7 @@ class AddResourcesVC: UIViewController {
             return
         }
         
-        let link = CoreDataManager.shared.create(entity: Link.self, with: ["name": name, "url": url])
+        let link = CoreDataManager.shared.create(entity: Link.self, with: ["name": name as Any, "url": url as Any])
         
         if(link != nil)
         {
@@ -95,7 +95,7 @@ class AddResourcesVC: UIViewController {
 //        self.showInfoAlert(message: "Please add all links before saving.")
         let name = self.nameField.text
         let description = self.descriptionField.text
-        let links = self.links
+//        let links = self.links
         
         if(name == "" || description == "") {
             self.showErrorAlert(message: "Please fill in the name and description before saving.")
@@ -183,10 +183,23 @@ extension AddResourcesVC: UITableViewDelegate, UITableViewDataSource {
             self.tableView.reloadData()
         }
         
-        let swipeActions = UISwipeActionsConfiguration(actions: [deleteAction])
+        let editAction = UIContextualAction(style: .normal, title: "Edit") {  (contextualAction, view, boolValue) in
+            
+            let link = self.links[indexPath.row]
+            let index = self.links.firstIndex(of: link)
+            
+            self.links.remove(at: index!)
+            
+            self.linkNameField.text = link.name
+            self.linkUrlField.text = link.url
+            
+            self.tableView.reloadData()
+        }
+        editAction.backgroundColor = .systemBlue
+        
+        let swipeActions = UISwipeActionsConfiguration(actions: [deleteAction, editAction])
 
         return swipeActions
     }
     
-
 }

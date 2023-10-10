@@ -72,7 +72,7 @@ class CourseVC: UIViewController {
                     self.coursesBySemesters[section].remove(at: row)
                     self.tableView.reloadData()
                     
-                    CoreDataManager.shared.delete(entity: Course.self, with: ["name": name])
+                    CoreDataManager.shared.delete(entity: Course.self, with: ["name": name as Any])
                     
                 }
             }

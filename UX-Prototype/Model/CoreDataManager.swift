@@ -17,7 +17,7 @@ class CoreDataManager {
     // MARK: - CRUD Operations
     let managedObjectContext = CoreDataStack.shared.managedObjectContext
 
-    // Create
+    //MARK: Create
     func create<T: NSManagedObject>(entity: T.Type, with parameters: [String: Any]) -> T? {
         let newEntity = entity.init(context: managedObjectContext)
 
@@ -34,7 +34,7 @@ class CoreDataManager {
       }
     }
 
-    // Fetch
+    //MARK: Fetch
     func fetch<T: NSManagedObject>(entity: T.Type, with parameters: [String: Any] = [:]) -> [T]? {
       let fetchRequest = NSFetchRequest<T>(entityName: entity.entity().name!)
 
@@ -74,7 +74,7 @@ class CoreDataManager {
     }
 
 
-    // Update
+    //MARK: Update
     func update<T: NSManagedObject>(entity: T, with parameters: [String: Any]) -> T? {
       for (key, value) in parameters {
         entity.setValue(value, forKey: key)
@@ -89,7 +89,7 @@ class CoreDataManager {
       }
     }
 
-    // Delete
+    //MARK: Delete
     func delete<T: NSManagedObject>(entity: T.Type, with parameters: [String: Any]) {
         let obj = fetch(entity: entity, with: parameters)?.first
         
@@ -105,14 +105,14 @@ class CoreDataManager {
     }
     
     func delete(_ obj: NSManagedObject?) {
-        if let obj = obj {
-            managedObjectContext.delete(obj)
-            
-            do {
-                try managedObjectContext.save()
-            } catch {
-                print("Error deleting entity: \(error)")
-            }
+        guard let obj = obj else { return }
+        
+        managedObjectContext.delete(obj)
+        
+        do {
+            try managedObjectContext.save()
+        } catch {
+            print("Error deleting entity: \(error)")
         }
     }
     
