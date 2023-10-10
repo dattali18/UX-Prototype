@@ -1,5 +1,5 @@
 //
-//  customViewCellTableViewCell.swift
+//  CourseTVC.swift
 //  UX-Prototype
 //
 //  Created by Daniel Attali on 9/14/23.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class customViewCellTableViewCell:
+class CourseTVC:
     UITableViewCell {
     
     @IBOutlet weak var nameLabel: UILabel!

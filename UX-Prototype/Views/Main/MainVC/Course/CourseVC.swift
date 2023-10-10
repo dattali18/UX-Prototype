@@ -85,7 +85,7 @@ class CourseVC: UIViewController {
             
             let name = self.coursesBySemesters[section][row].name
             
-            let vc = self.storyboard?.instantiateViewController(identifier: "editCourseVC") as! editCourseVC
+            let vc = self.storyboard?.instantiateViewController(identifier: "editCourseVC") as! EditCourseVC
             vc.courseNameTxt = name
 
             self.navigationController?.pushViewController(vc, animated: true)
@@ -153,7 +153,7 @@ extension CourseVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CustomViewCellTableViewCell", for: indexPath) as! customViewCellTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CourseTVC", for: indexPath) as! CourseTVC
         
         let course = self.coursesBySemesters[indexPath.section][indexPath.row]
         

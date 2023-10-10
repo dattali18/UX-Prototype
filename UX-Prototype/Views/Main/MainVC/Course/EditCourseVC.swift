@@ -8,7 +8,7 @@
 import UIKit
 import CoreData
 
-class editCourseVC: UIViewController {
+class EditCourseVC: UIViewController {
     var courseNameTxt: String? = ""
     var course: Course?
     var selectedSemester: Semester?
@@ -126,7 +126,7 @@ class editCourseVC: UIViewController {
 }
 
 
-extension editCourseVC: UIPickerViewDataSource, UIPickerViewDelegate {
+extension EditCourseVC: UIPickerViewDataSource, UIPickerViewDelegate {
     // Implement UIPickerViewDataSource methods
         func numberOfComponents(in pickerView: UIPickerView) -> Int {
             return 1 // Number of components in the picker view (1 for a single column)

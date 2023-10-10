@@ -1,5 +1,5 @@
 //
-//  addCourseVC.swift
+//  AddCourseVC.swift
 //  UX-Prototype
 //
 //  Created by Daniel Attali on 9/18/23.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class addCourseVC: UIViewController {
+class AddCourseVC: UIViewController {
     @IBOutlet weak var courseName: UITextField!
     @IBOutlet weak var courseNumber: UITextField!
     @IBOutlet weak var courseCredits: UITextField!
@@ -71,7 +71,7 @@ class addCourseVC: UIViewController {
     
 }
 
-extension addCourseVC: UIPickerViewDataSource, UIPickerViewDelegate {
+extension AddCourseVC: UIPickerViewDataSource, UIPickerViewDelegate {
     // Implement UIPickerViewDataSource methods
         func numberOfComponents(in pickerView: UIPickerView) -> Int {
             return 1 // Number of components in the picker view (1 for a single column)

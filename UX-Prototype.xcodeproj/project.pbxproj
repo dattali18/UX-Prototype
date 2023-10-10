@@ -48,8 +48,8 @@
 		C6C40F9F2AB3048900E958C1 /* AssignmentsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C40F9E2AB3048900E958C1 /* AssignmentsVC.swift */; };
 		C6C40FA12AB3049900E958C1 /* RemindersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C40FA02AB3049900E958C1 /* RemindersVC.swift */; };
 		C6C40FA32AB30E9F00E958C1 /* UserLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C40FA22AB30E9F00E958C1 /* UserLogin.swift */; };
-		C6C40FA62AB33B3A00E958C1 /* CustomViewCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C40FA42AB33B3A00E958C1 /* CustomViewCellTableViewCell.swift */; };
-		C6C40FA72AB33B3A00E958C1 /* CustomViewCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6C40FA52AB33B3A00E958C1 /* CustomViewCellTableViewCell.xib */; };
+		C6C40FA62AB33B3A00E958C1 /* CourseTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C40FA42AB33B3A00E958C1 /* CourseTVC.swift */; };
+		C6C40FA72AB33B3A00E958C1 /* CourseTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6C40FA52AB33B3A00E958C1 /* CourseTVC.xib */; };
 		C6D8D64D2AD40F85009A1F9F /* ResourcesTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D8D64B2AD40F85009A1F9F /* ResourcesTVC.swift */; };
 		C6D8D64E2AD40F85009A1F9F /* ResourcesTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6D8D64C2AD40F85009A1F9F /* ResourcesTVC.xib */; };
 		C6D8D6522AD42575009A1F9F /* AddResourcesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D8D6512AD42575009A1F9F /* AddResourcesVC.swift */; };
@@ -103,8 +103,8 @@
 		C6C40F9E2AB3048900E958C1 /* AssignmentsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentsVC.swift; sourceTree = "<group>"; };
 		C6C40FA02AB3049900E958C1 /* RemindersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersVC.swift; sourceTree = "<group>"; };
 		C6C40FA22AB30E9F00E958C1 /* UserLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLogin.swift; sourceTree = "<group>"; };
-		C6C40FA42AB33B3A00E958C1 /* CustomViewCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewCellTableViewCell.swift; sourceTree = "<group>"; };
-		C6C40FA52AB33B3A00E958C1 /* CustomViewCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomViewCellTableViewCell.xib; sourceTree = "<group>"; };
+		C6C40FA42AB33B3A00E958C1 /* CourseTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseTVC.swift; sourceTree = "<group>"; };
+		C6C40FA52AB33B3A00E958C1 /* CourseTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CourseTVC.xib; sourceTree = "<group>"; };
 		C6D8D64B2AD40F85009A1F9F /* ResourcesTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourcesTVC.swift; sourceTree = "<group>"; };
 		C6D8D64C2AD40F85009A1F9F /* ResourcesTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResourcesTVC.xib; sourceTree = "<group>"; };
 		C6D8D6512AD42575009A1F9F /* AddResourcesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddResourcesVC.swift; sourceTree = "<group>"; };
@@ -125,15 +125,103 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C60D06EB2ACC767700B1F5BC /* Model */ = {
+		C60D06EB2ACC767700B1F5BC /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				C60D06E92ACC767000B1F5BC /* Model.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C60D5B162AD68AAA004B4595 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
 				C6214D002ACEA9FB00E242AC /* CoreDataManager.swift */,
 				C6BA53842ACD916D00924AD0 /* CourseDataManager.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		C60D5B172AD68ACF004B4595 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
 				C6BA53862ACDB4D800924AD0 /* SemesterEnum.swift */,
 			);
-			path = Model;
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		C60D5B192AD68B42004B4595 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				C67777132AD305EC009B61BA /* Extenstions */,
+				C60D5B172AD68ACF004B4595 /* Enums */,
+				C6D8D6422AD3D706009A1F9F /* UserLogin */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		C63432F12AD687D900775A7B /* Course */ = {
+			isa = PBXGroup;
+			children = (
+				C6C40F9A2AB3046D00E958C1 /* CourseVC.swift */,
+				C6F745B02AB8764700780F90 /* AddCourseVC.swift */,
+				C65552512ACD5BE4006019DE /* EditCourseVC.swift */,
+				C6214CFE2ACEA33900E242AC /* CourseInfoVC.swift */,
+				C6214D022ACED68C00E242AC /* NewSemesterVC.swift */,
+				C68125202AD00A6A008DE83E /* EditSemesterVC.swift */,
+				C6D8D6512AD42575009A1F9F /* AddResourcesVC.swift */,
+				C62F81E02AD58F1A009A831F /* ResourcesVC.swift */,
+				C6E8E0B22AD5CF7A00FA56E9 /* LinksListVC.swift */,
+			);
+			path = Course;
+			sourceTree = "<group>";
+		};
+		C63432F22AD687EA00775A7B /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				C6C40F9C2AB3047B00E958C1 /* CalendarVC.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		C63432F32AD687F600775A7B /* Assignments */ = {
+			isa = PBXGroup;
+			children = (
+				C6C40F9E2AB3048900E958C1 /* AssignmentsVC.swift */,
+			);
+			path = Assignments;
+			sourceTree = "<group>";
+		};
+		C63432F42AD6880700775A7B /* Reminders */ = {
+			isa = PBXGroup;
+			children = (
+				C6C40FA02AB3049900E958C1 /* RemindersVC.swift */,
+			);
+			path = Reminders;
+			sourceTree = "<group>";
+		};
+		C63432F52AD6889E00775A7B /* CustomTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				C6AE4BD62AD450FA0037C821 /* LinkTVC.xib */,
+				C6AE4BD52AD450FA0037C821 /* LinkTVC.swift */,
+				C6D8D64C2AD40F85009A1F9F /* ResourcesTVC.xib */,
+				C6D8D64B2AD40F85009A1F9F /* ResourcesTVC.swift */,
+				C6C40FA52AB33B3A00E958C1 /* CourseTVC.xib */,
+				C6C40FA42AB33B3A00E958C1 /* CourseTVC.swift */,
+			);
+			path = CustomTableViewCell;
+			sourceTree = "<group>";
+		};
+		C63432F62AD688AE00775A7B /* CustomSectionHeader */ = {
+			isa = PBXGroup;
+			children = (
+				C6E8E0B02AD5CC9F00FA56E9 /* ResourcesSectionHeaderView.xib */,
+				C6E8E0AE2AD5CBAE00FA56E9 /* ResourcesSectionHeaderView.swift */,
+				C681251D2AD0022B008DE83E /* CourseSectionHeaderView.xib */,
+				C681251C2AD0022B008DE83E /* CourseSectionHeaderView.swift */,
+			);
+			path = CustomSectionHeader;
 			sourceTree = "<group>";
 		};
 		C634F1FF2ABB2E3600CC1B91 /* ScreenShot */ = {
@@ -181,16 +269,15 @@
 			children = (
 				C6C40F7A2AB2F70700E958C1 /* AppDelegate.swift */,
 				C6C40F7C2AB2F70700E958C1 /* SceneDelegate.swift */,
-				C60D06EB2ACC767700B1F5BC /* Model */,
+				C60D06EB2ACC767700B1F5BC /* Models */,
 				C6F745AF2AB7750800780F90 /* Views */,
-				C6C40FA92AB33D6900E958C1 /* CustomViews */,
-				C6D8D6422AD3D706009A1F9F /* UserLogin */,
-				C67777132AD305EC009B61BA /* Extenstions */,
+				C60D5B162AD68AAA004B4595 /* Controllers */,
 				C6C40F802AB2F70700E958C1 /* Main.storyboard */,
 				C6C40F852AB2F70A00E958C1 /* LaunchScreen.storyboard */,
 				C6C40F832AB2F70A00E958C1 /* Assets.xcassets */,
 				C68DF9CB2AB9FE93006B0F70 /* Model.xcdatamodeld */,
 				C6C40F882AB2F70A00E958C1 /* Info.plist */,
+				C60D5B192AD68B42004B4595 /* Utils */,
 				C634F1FF2ABB2E3600CC1B91 /* ScreenShot */,
 			);
 			path = "UX-Prototype";
@@ -199,16 +286,8 @@
 		C6C40FA92AB33D6900E958C1 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
-				C6C40FA52AB33B3A00E958C1 /* CustomViewCellTableViewCell.xib */,
-				C6C40FA42AB33B3A00E958C1 /* CustomViewCellTableViewCell.swift */,
-				C681251D2AD0022B008DE83E /* CourseSectionHeaderView.xib */,
-				C681251C2AD0022B008DE83E /* CourseSectionHeaderView.swift */,
-				C6D8D64C2AD40F85009A1F9F /* ResourcesTVC.xib */,
-				C6D8D64B2AD40F85009A1F9F /* ResourcesTVC.swift */,
-				C6AE4BD62AD450FA0037C821 /* LinkTVC.xib */,
-				C6AE4BD52AD450FA0037C821 /* LinkTVC.swift */,
-				C6E8E0B02AD5CC9F00FA56E9 /* ResourcesSectionHeaderView.xib */,
-				C6E8E0AE2AD5CBAE00FA56E9 /* ResourcesSectionHeaderView.swift */,
+				C63432F62AD688AE00775A7B /* CustomSectionHeader */,
+				C63432F52AD6889E00775A7B /* CustomTableViewCell */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -224,18 +303,10 @@
 		C6F745AA2AB774AE00780F90 /* MainVC */ = {
 			isa = PBXGroup;
 			children = (
-				C6C40F9A2AB3046D00E958C1 /* CourseVC.swift */,
-				C6C40F9C2AB3047B00E958C1 /* CalendarVC.swift */,
-				C6C40F9E2AB3048900E958C1 /* AssignmentsVC.swift */,
-				C6C40FA02AB3049900E958C1 /* RemindersVC.swift */,
-				C6F745B02AB8764700780F90 /* AddCourseVC.swift */,
-				C65552512ACD5BE4006019DE /* EditCourseVC.swift */,
-				C6214CFE2ACEA33900E242AC /* CourseInfoVC.swift */,
-				C6214D022ACED68C00E242AC /* NewSemesterVC.swift */,
-				C68125202AD00A6A008DE83E /* EditSemesterVC.swift */,
-				C6D8D6512AD42575009A1F9F /* AddResourcesVC.swift */,
-				C62F81E02AD58F1A009A831F /* ResourcesVC.swift */,
-				C6E8E0B22AD5CF7A00FA56E9 /* LinksListVC.swift */,
+				C63432F12AD687D900775A7B /* Course */,
+				C63432F22AD687EA00775A7B /* Calendar */,
+				C63432F32AD687F600775A7B /* Assignments */,
+				C63432F42AD6880700775A7B /* Reminders */,
 			);
 			path = MainVC;
 			sourceTree = "<group>";
@@ -281,6 +352,7 @@
 		C6F745AF2AB7750800780F90 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C6C40FA92AB33D6900E958C1 /* CustomViews */,
 				C6F745AE2AB774F800780F90 /* Login */,
 				C6F745AD2AB774ED00780F90 /* Main */,
 			);
@@ -353,7 +425,7 @@
 				C61689522AD019ED00B102C5 /* IMG_8076.PNG in Resources */,
 				C61689532AD019ED00B102C5 /* IMG_8078.PNG in Resources */,
 				C6C40F872AB2F70A00E958C1 /* LaunchScreen.storyboard in Resources */,
-				C6C40FA72AB33B3A00E958C1 /* CustomViewCellTableViewCell.xib in Resources */,
+				C6C40FA72AB33B3A00E958C1 /* CourseTVC.xib in Resources */,
 				C61689542AD019ED00B102C5 /* IMG_8075.PNG in Resources */,
 				C6C40F842AB2F70A00E958C1 /* Assets.xcassets in Resources */,
 				C61689582AD019ED00B102C5 /* IMG_8079.PNG in Resources */,
@@ -392,7 +464,7 @@
 				C6D8D64D2AD40F85009A1F9F /* ResourcesTVC.swift in Sources */,
 				C6C40F7B2AB2F70700E958C1 /* AppDelegate.swift in Sources */,
 				C6C40F7D2AB2F70700E958C1 /* SceneDelegate.swift in Sources */,
-				C6C40FA62AB33B3A00E958C1 /* CustomViewCellTableViewCell.swift in Sources */,
+				C6C40FA62AB33B3A00E958C1 /* CourseTVC.swift in Sources */,
 				C6E8E0B32AD5CF7A00FA56E9 /* LinksListVC.swift in Sources */,
 				C6214D012ACEA9FB00E242AC /* CoreDataManager.swift in Sources */,
 				C6C40F952AB3036200E958C1 /* CalendarNC.swift in Sources */,
