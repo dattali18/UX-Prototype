@@ -66,7 +66,27 @@ class AddResourcesVC: UIViewController {
                 
                 self.mainBtn.setTitle("Save", for: .normal)
             }
+            
+            // Create a new navigation bar button item
+            let navigationButton = UIBarButtonItem(title: "Delete", style: .plain, target: self, action: #selector(deleteResource))
+            
+            navigationButton.tintColor = .systemRed
+
+
+            // Add the navigation bar button item to the navigation bar
+            self.navigationItem.rightBarButtonItem = navigationButton
         }
+        
+    }
+    
+    @objc func deleteResource() {
+        self.showDeleteConfirmationAlert(message: "Confirm deleting this resource", completion: {
+            confirm in
+            if(confirm) {
+                CoreDataManager.shared.delete(self.resource)
+                self.navigationController?.popViewController(animated: true)
+            }
+        })
     }
     
     @IBAction func addLinkBtn(_ sender: Any) {
@@ -149,7 +169,7 @@ extension AddResourcesVC: UITableViewDelegate, UITableViewDataSource {
         let link = self.links[indexPath.row]
         
         cell.nameLabel.text = link.name
-        cell.urlLabel.text = link.url
+        cell.UrlText.text = link.url
 
         return cell
     }

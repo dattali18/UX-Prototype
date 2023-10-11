@@ -24,7 +24,7 @@ class EditSemesterVC: UIViewController {
 
         self.title = "Edit Semester"
         navigationController?.navigationBar.prefersLargeTitles = true
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .secondarySystemBackground
         
         semesterPicker.dataSource = self
         semesterPicker.delegate = self

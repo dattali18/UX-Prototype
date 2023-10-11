@@ -50,4 +50,23 @@ extension UIViewController {
       // Present the alert
       self.present(alert, animated: true, completion: nil)
     }
+    
+    func showOpenConfirmationAlert(message: String, completion: @escaping (Bool) -> Void) {
+      let alert = UIAlertController(title: "Open Confirmation", message: message, preferredStyle: .alert)
+
+      // Add a Confirm button to the alert
+        let confirmAction = UIAlertAction(title: "Confirm", style: .default) { _ in
+        completion(true)
+      }
+      alert.addAction(confirmAction)
+
+      // Add a Cancel button to the alert
+      let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in
+        completion(false)
+      }
+      alert.addAction(cancelAction)
+
+      // Present the alert
+      self.present(alert, animated: true, completion: nil)
+    }
 }

@@ -36,6 +36,8 @@ class AddCourseVC: UIViewController {
             
             }
         }
+        
+        view.backgroundColor = .secondarySystemBackground
     }
     
     @IBAction func addCourseBtn(_ sender: Any) {

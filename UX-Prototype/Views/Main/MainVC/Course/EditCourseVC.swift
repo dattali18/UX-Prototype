@@ -37,7 +37,7 @@ class EditCourseVC: UIViewController {
         self.title = courseNameTxt
         
         navigationController?.navigationBar.prefersLargeTitles = true
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .secondarySystemBackground
         
         
         

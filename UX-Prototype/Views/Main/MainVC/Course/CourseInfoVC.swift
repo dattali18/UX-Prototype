@@ -1,16 +1,21 @@
 import UIKit
+import MessageUI
 
-class CourseInfoVC: UIViewController, UIPopoverPresentationControllerDelegate {
+
+class CourseInfoVC: UIViewController, MFMailComposeViewControllerDelegate {
     @IBOutlet weak var tableView: UITableView!
     
     var course: Course?
     var resources: [Resource] = []
+    var links: [[Link]] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let nib = UINib(nibName: "ResourcesTVC", bundle: nil)
-        self.tableView.register(nib, forCellReuseIdentifier: "ResourcesTVC")
+        let nib = UINib(nibName: "LinkTVC", bundle: nil)
+        self.tableView.register(nib, forCellReuseIdentifier: "LinkTVC")
+        
+        tableView.register(UINib(nibName: "ResourcesSectionHeaderView", bundle: nil), forHeaderFooterViewReuseIdentifier: "ResourcesSectionHeaderView")
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -28,26 +33,13 @@ class CourseInfoVC: UIViewController, UIPopoverPresentationControllerDelegate {
         // Add the navigation bar button item to the navigation bar
         self.navigationItem.rightBarButtonItem = navigationButton
         
-        if(course != nil) {
-            self.title = self.course?.name
-            
-            self.resources = CoreDataManager.shared.fetchResources(for: self.course!)
-        }
-
+        fetchData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        self.navigationController?.navigationBar.prefersLargeTitles = true
-        
-        if(course != nil) {
-            self.title = self.course?.name
-            
-            self.resources = CoreDataManager.shared.fetchResources(for: self.course!)
-        }
-        
-        tableView.reloadData()
+
+        fetchData()
     }
     
     @objc func addNewResource() {
@@ -57,33 +49,64 @@ class CourseInfoVC: UIViewController, UIPopoverPresentationControllerDelegate {
         if(self.course != nil) {
             vc.course = self.course
         }
-        
         self.navigationController?.pushViewController(vc, animated: true)
-        
     }
+        
+    func fetchData() {
+        if(self.course == nil) {
+            return
+        }
+        
+        self.resources = []
+        self.links = []
+        
+        self.resources = CoreDataManager.shared.fetchResources(for: self.course!)
+        
+        for resource in resources {
+            
+            let linksSet = resource.links ?? []
+            var linksArray = [Link]()
 
+            for link in linksSet {
+                linksArray.append(link as! Link)
+            }
+            
+            self.links.append(linksArray)
+        }
+        
+        self.tableView.reloadData()
+    }
 }
 
 extension CourseInfoVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.resources.count
+        if(self.resources.isEmpty || self.resources.count < section) {
+            return 0
+        }
+        return self.links[section].count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ResourcesTVC", for: indexPath) as! ResourcesTVC
+        let cell = tableView.dequeueReusableCell(withIdentifier: "LinkTVC", for: indexPath) as! LinkTVC
         
-        cell.nameLabel.text = self.resources[indexPath.row].name
-        cell.descriotionLabel.text = self.resources[indexPath.row].descriptions
+        let linksArray = self.links[indexPath.section]
+        if(linksArray.isEmpty) {
+            return cell
+        }
+        let link = linksArray[indexPath.row]
+        
+        cell.nameLabel.text = link.name
+        cell.UrlText.text  = link.url
 
         return cell
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return self.resources.count
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 44 // Adjust the section header height as needed
+        return 84 // Adjust the section header height as needed
     }
 
 
@@ -92,63 +115,69 @@ extension CourseInfoVC: UITableViewDelegate, UITableViewDataSource {
         return 84
     }
     
-    // MARK: siwpe action
-    
-    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let favoriteAction = UIContextualAction(style: .normal, title: "Favorite") { (contextualAction, view, boolValue) in
-            // TODO: put in action in order to favorite a resource
-        }
-        
-        favoriteAction.image = UIImage(systemName: "star.fill")
-        favoriteAction.backgroundColor = .systemYellow
-        
-        let swipeActions = UISwipeActionsConfiguration(actions: [favoriteAction])
-
-        return swipeActions
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if section < self.resources.count
+        {
+            if let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "ResourcesSectionHeaderView") as? ResourcesSectionHeaderView {
+                
+                let resource = self.resources[section]
+                
+                headerView.nameLabel.text        = resource.name
+                headerView.decriptionLabel.text  = resource.descriptions
+                
+                headerView.resource = resource
+                headerView.navigationController = self.navigationController
+                headerView.storyboard = self.storyboard
+                
+                return headerView
+            } else {
+                print(section)
+                return nil
+            }
+        } else {
+            // Return a header view for the section for courses without semester.
+            let headerView = UITableViewHeaderFooterView()
+            headerView.textLabel?.text = "Courses Without Semester"
+            return headerView
+          }
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let urlString = self.links[indexPath.section][indexPath.row].url ?? ""
+    }
+
+
+    // MARK: siwpe action
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") {  (contextualAction, view, boolValue) in
-            // TODO: put in action in order to delete a favorite
-            
-            self.showDeleteConfirmationAlert(message: "Are you sure you want to delete this item?") { didConfirmDelete in
-                
-                if didConfirmDelete {
-                    let row = indexPath.row
+            self.showDeleteConfirmationAlert(message: "Are you sure you want to delete this link?") { didConfirmDelete in
+                if(didConfirmDelete)
+                {
+                    let link = self.links[indexPath.section][indexPath.row]
                     
-                    let resource = self.resources[row]
-                    self.resources.remove(at: row)
+                    CoreDataManager.shared.delete(link)
                     
-                    CoreDataManager.shared.delete(resource)
-                    
-                    self.tableView.reloadData()
+                    self.fetchData()
                 }
             }
-            
         }
         
-        let editAction = UIContextualAction(style: .normal, title: "Edit") {
-            (contextualAction, view, boolValue) in
+        let editAction = UIContextualAction(style: .normal, title: "Edit") {  (contextualAction, view, boolValue) in
+
+            let addResource = self.storyboard?.instantiateViewController(identifier: "AddResourcesVC") as! AddResourcesVC
             
-            let vc = self.storyboard?.instantiateViewController(identifier: "AddResourcesVC") as! AddResourcesVC
-            
-            vc.resource = self.resources[indexPath.row]
-            vc.mode = .edit
-            
-            self.navigationController?.pushViewController(vc, animated: true)
+            addResource.resource = self.resources[indexPath.section]
+            addResource.mode = .edit
+
+            self.navigationController?.pushViewController(addResource, animated: true)
         }
         
         editAction.backgroundColor = .systemBlue
         
         let swipeActions = UISwipeActionsConfiguration(actions: [deleteAction, editAction])
-        
+
         return swipeActions
     }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = self.storyboard?.instantiateViewController(identifier: "LinksListVC") as! LinksListVC
-        
-      
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
+
 }

@@ -20,8 +20,8 @@ class CourseVC: UIViewController {
         super.viewDidLoad()
         
         
-        let nib = UINib(nibName: "CustomViewCellTableViewCell", bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: "CustomViewCellTableViewCell")
+        let nib = UINib(nibName: "CourseTVC", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "CourseTVC")
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -29,7 +29,6 @@ class CourseVC: UIViewController {
         fetchCourses()
         fetchSemesters()
         getCoursesBySemesters()
-        
 
         self.title = "Courses"
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -39,7 +38,6 @@ class CourseVC: UIViewController {
         
 
         tableView.register(UINib(nibName: "CourseSectionHeaderView", bundle: nil), forHeaderFooterViewReuseIdentifier: "HeaderView")
-        tableView.sectionHeaderHeight = 50
 
     }
     
@@ -137,7 +135,7 @@ class CourseVC: UIViewController {
 extension CourseVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("\(indexPath.row), \(indexPath.section)")
+//        print("\(indexPath.row), \(indexPath.section)")
         
         let vc = self.storyboard?.instantiateViewController(identifier: "CourseInfoVC") as! CourseInfoVC
 

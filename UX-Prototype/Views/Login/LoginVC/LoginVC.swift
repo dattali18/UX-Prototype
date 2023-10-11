@@ -17,6 +17,8 @@ class LoginVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
+        
+        self.view.backgroundColor = .secondarySystemBackground
         // Do any additional setup after loading the view.
         navigationController?.navigationBar.prefersLargeTitles = true
         
@@ -27,7 +29,7 @@ class LoginVC: UIViewController {
             emailTxtField.text = user.email
             passTxtField.text = user.password
         }
-        
+
     }
 
     @IBAction func signInBtnPressed(_ sender: Any) {
@@ -38,8 +40,6 @@ class LoginVC: UIViewController {
         
         if(name != nil && email != nil && password != nil) {
             if(UserLogin.shared.signIn(Name: name!, Email: email!, Password: password!)) {
-                
-
                 
                 let storyboard = UIStoryboard (name: "Main", bundle: nil)
                 let CustomTB = storyboard.instantiateViewController(identifier: "MainTB") as! MainTabBarVC

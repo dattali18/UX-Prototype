@@ -14,6 +14,7 @@ class CoreDataManager {
     static var shared: CoreDataManager {
       return Shared
     }
+    
     // MARK: - CRUD Operations
     let managedObjectContext = CoreDataStack.shared.managedObjectContext
 

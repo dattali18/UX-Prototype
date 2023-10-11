@@ -22,7 +22,7 @@ class NewSemesterVC: UIViewController {
 
         self.title = "Start New Semester"
         navigationController?.navigationBar.prefersLargeTitles = true
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .secondarySystemBackground
         
         semesterPicker.dataSource = self
         semesterPicker.delegate = self
