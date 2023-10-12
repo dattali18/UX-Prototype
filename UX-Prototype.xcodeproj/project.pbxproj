@@ -53,6 +53,7 @@
 		C6D8D64D2AD40F85009A1F9F /* ResourcesTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D8D64B2AD40F85009A1F9F /* ResourcesTVC.swift */; };
 		C6D8D64E2AD40F85009A1F9F /* ResourcesTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6D8D64C2AD40F85009A1F9F /* ResourcesTVC.xib */; };
 		C6D8D6522AD42575009A1F9F /* AddResourcesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D8D6512AD42575009A1F9F /* AddResourcesVC.swift */; };
+		C6E146862AD7E61E00DEE83B /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E146852AD7E61E00DEE83B /* SwiftUIView.swift */; };
 		C6E8E0AF2AD5CBAE00FA56E9 /* ResourcesSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E8E0AE2AD5CBAE00FA56E9 /* ResourcesSectionHeaderView.swift */; };
 		C6E8E0B12AD5CC9F00FA56E9 /* ResourcesSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6E8E0B02AD5CC9F00FA56E9 /* ResourcesSectionHeaderView.xib */; };
 		C6E8E0B32AD5CF7A00FA56E9 /* LinksListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E8E0B22AD5CF7A00FA56E9 /* LinksListVC.swift */; };
@@ -108,6 +109,7 @@
 		C6D8D64B2AD40F85009A1F9F /* ResourcesTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourcesTVC.swift; sourceTree = "<group>"; };
 		C6D8D64C2AD40F85009A1F9F /* ResourcesTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResourcesTVC.xib; sourceTree = "<group>"; };
 		C6D8D6512AD42575009A1F9F /* AddResourcesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddResourcesVC.swift; sourceTree = "<group>"; };
+		C6E146852AD7E61E00DEE83B /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		C6E8E0AE2AD5CBAE00FA56E9 /* ResourcesSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourcesSectionHeaderView.swift; sourceTree = "<group>"; };
 		C6E8E0B02AD5CC9F00FA56E9 /* ResourcesSectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResourcesSectionHeaderView.xib; sourceTree = "<group>"; };
 		C6E8E0B22AD5CF7A00FA56E9 /* LinksListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinksListVC.swift; sourceTree = "<group>"; };
@@ -300,6 +302,14 @@
 			path = Authentication;
 			sourceTree = "<group>";
 		};
+		C6E146842AD7E5FD00DEE83B /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				C6E146852AD7E61E00DEE83B /* SwiftUIView.swift */,
+			);
+			path = SwiftUI;
+			sourceTree = "<group>";
+		};
 		C6F745AA2AB774AE00780F90 /* MainVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -352,6 +362,7 @@
 		C6F745AF2AB7750800780F90 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C6E146842AD7E5FD00DEE83B /* SwiftUI */,
 				C6C40FA92AB33D6900E958C1 /* CustomViews */,
 				C6F745AE2AB774F800780F90 /* Login */,
 				C6F745AD2AB774ED00780F90 /* Main */,
@@ -472,6 +483,7 @@
 				C6BA53872ACDB4D800924AD0 /* SemesterEnum.swift in Sources */,
 				C6C40FA32AB30E9F00E958C1 /* UserLogin.swift in Sources */,
 				C681251E2AD0022B008DE83E /* CourseSectionHeaderView.swift in Sources */,
+				C6E146862AD7E61E00DEE83B /* SwiftUIView.swift in Sources */,
 				C67777112AD305E2009B61BA /* UITouch+extention.swift in Sources */,
 				C60D06EA2ACC767000B1F5BC /* Model.swift in Sources */,
 				C6AE4BD72AD450FA0037C821 /* LinkTVC.swift in Sources */,
