@@ -885,10 +885,35 @@
                     <view key="view" contentMode="scaleToFill" id="i73-eN-UtN">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="bk5-yR-6Wh">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="810"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="assignmentCell" id="sxx-hE-Mnh">
+                                        <rect key="frame" x="0.0" y="50" width="390" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sxx-hE-Mnh" id="oTX-Vr-njP">
+                                            <rect key="frame" x="0.0" y="0.0" width="390" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="4Xl-Nx-gVp"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="4Xl-Nx-gVp" firstAttribute="bottom" secondItem="bk5-yR-6Wh" secondAttribute="bottom" id="Hz8-XP-6Dw"/>
+                            <constraint firstItem="bk5-yR-6Wh" firstAttribute="top" secondItem="i73-eN-UtN" secondAttribute="top" id="Om5-QU-wUK"/>
+                            <constraint firstItem="bk5-yR-6Wh" firstAttribute="leading" secondItem="4Xl-Nx-gVp" secondAttribute="leading" id="rUy-wb-X87"/>
+                            <constraint firstItem="4Xl-Nx-gVp" firstAttribute="trailing" secondItem="bk5-yR-6Wh" secondAttribute="trailing" id="spN-Ur-2CM"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Assignments" id="68w-3S-7Pp"/>
+                    <connections>
+                        <outlet property="tableView" destination="bk5-yR-6Wh" id="ygo-Gz-a2d"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lbT-WJ-71t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

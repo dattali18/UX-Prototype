@@ -20,6 +20,7 @@
 		C6214D012ACEA9FB00E242AC /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6214D002ACEA9FB00E242AC /* CoreDataManager.swift */; };
 		C6214D032ACED68C00E242AC /* NewSemesterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6214D022ACED68C00E242AC /* NewSemesterVC.swift */; };
 		C62F81E12AD58F1A009A831F /* ResourcesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62F81E02AD58F1A009A831F /* ResourcesVC.swift */; };
+		C63BF2D22AD813DB00ED750A /* AssignmentEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63BF2D12AD813DA00ED750A /* AssignmentEnum.swift */; };
 		C65552522ACD5BE4006019DE /* EditCourseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65552512ACD5BE4006019DE /* EditCourseVC.swift */; };
 		C67777112AD305E2009B61BA /* UITouch+extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67777102AD305E2009B61BA /* UITouch+extention.swift */; };
 		C67777122AD305E2009B61BA /* UIAlerts+extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = C677770F2AD305E2009B61BA /* UIAlerts+extention.swift */; };
@@ -74,6 +75,7 @@
 		C6214D002ACEA9FB00E242AC /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		C6214D022ACED68C00E242AC /* NewSemesterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSemesterVC.swift; sourceTree = "<group>"; };
 		C62F81E02AD58F1A009A831F /* ResourcesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourcesVC.swift; sourceTree = "<group>"; };
+		C63BF2D12AD813DA00ED750A /* AssignmentEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentEnum.swift; sourceTree = "<group>"; };
 		C65552512ACD5BE4006019DE /* EditCourseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCourseVC.swift; sourceTree = "<group>"; };
 		C677770F2AD305E2009B61BA /* UIAlerts+extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlerts+extention.swift"; sourceTree = "<group>"; };
 		C67777102AD305E2009B61BA /* UITouch+extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITouch+extention.swift"; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				C6BA53862ACDB4D800924AD0 /* SemesterEnum.swift */,
+				C63BF2D12AD813DA00ED750A /* AssignmentEnum.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -467,6 +470,7 @@
 				C6C40F9B2AB3046D00E958C1 /* CourseVC.swift in Sources */,
 				C67777122AD305E2009B61BA /* UIAlerts+extention.swift in Sources */,
 				C6C40F992AB3039B00E958C1 /* RemindersNC.swift in Sources */,
+				C63BF2D22AD813DB00ED750A /* AssignmentEnum.swift in Sources */,
 				C65552522ACD5BE4006019DE /* EditCourseVC.swift in Sources */,
 				C6214CFF2ACEA33900E242AC /* CourseInfoVC.swift in Sources */,
 				C6C40F972AB3038000E958C1 /* AssignmentsNC.swift in Sources */,
