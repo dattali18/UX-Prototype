@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 class AssignmentsVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
@@ -19,8 +20,8 @@ class AssignmentsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let nib = UINib(nibName: "AssignmentsTVC", bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: "AssignmentsTVC")
+        let nib = UINib(nibName: "AssignmentsListTVC", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "AssignmentsListTVC")
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -28,6 +29,9 @@ class AssignmentsVC: UIViewController {
         // Do any additional setup after loading the view.
         self.title = "Assignments"
         navigationController?.navigationBar.prefersLargeTitles = true
+        
+        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
+        navigationItem.rightBarButtonItem = addButton
         
         fetchData()
     }
@@ -37,7 +41,14 @@ class AssignmentsVC: UIViewController {
         
         fetchData()
     }
+    
+    @objc func addButtonTapped() {
+        let swiftUIView = SwiftUICustomView()
+        let hostingController = UIHostingController(rootView: swiftUIView)
 
+        // Present the SwiftUI view
+        present(hostingController, animated: true, completion: nil)
+    }
 }
 
 
@@ -51,7 +62,7 @@ extension AssignmentsVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "AssignmentsTVC", for: indexPath) as! AssignmentsListTVC
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AssignmentsListTVC", for: indexPath) as! AssignmentsListTVC
         
         let (course, assignments) = self.sections[indexPath.section][indexPath.row]
         
