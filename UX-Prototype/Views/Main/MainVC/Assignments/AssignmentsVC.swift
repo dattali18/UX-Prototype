@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 class AssignmentsVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
@@ -19,8 +20,8 @@ class AssignmentsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let nib = UINib(nibName: "AssignmentsTVC", bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: "AssignmentsTVC")
+        let nib = UINib(nibName: "AssignmentsListTVC", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "AssignmentsListTVC")
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -28,6 +29,9 @@ class AssignmentsVC: UIViewController {
         // Do any additional setup after loading the view.
         self.title = "Assignments"
         navigationController?.navigationBar.prefersLargeTitles = true
+        
+        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
+        navigationItem.rightBarButtonItem = addButton
         
         fetchData()
     }
@@ -37,7 +41,14 @@ class AssignmentsVC: UIViewController {
         
         fetchData()
     }
+    
+    @objc func addButtonTapped() {
+        let swiftUIView = SwiftUICustomView()
+        let hostingController = UIHostingController(rootView: swiftUIView)
 
+        // Present the SwiftUI view
+        present(hostingController, animated: true, completion: nil)
+    }
 }
 
 
@@ -51,7 +62,7 @@ extension AssignmentsVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "AssignmentsTVC", for: indexPath) as! AssignmentsListTVC
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AssignmentsListTVC", for: indexPath) as! AssignmentsListTVC
         
         let (course, assignments) = self.sections[indexPath.section][indexPath.row]
         
@@ -72,7 +83,7 @@ extension AssignmentsVC : UITableViewDelegate, UITableViewDataSource {
 
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 54
+        return 44
     }
     
     
@@ -97,6 +108,8 @@ extension AssignmentsVC : UITableViewDelegate, UITableViewDataSource {
                 }
             }
         }
+        
+        deleteAction.image = UIImage(systemName: "trash.fill")
         
         
         let swipeActions = UISwipeActionsConfiguration(actions: [deleteAction])
@@ -134,6 +147,8 @@ extension AssignmentsVC {
         // Fetch assignments from the data manager
         self.assignments = CoreDataManager.shared.fetch(entity: Assignment.self) ?? []
         
+        printAssignments(self.assignments)
+        
         // Sort assignments by type (Homework, Midterm, Final)
         let (homework, midterm, final) = sortAssignmentsByType(self.assignments)
         
@@ -149,6 +164,31 @@ extension AssignmentsVC {
         
         // Reload table view data
         self.tableView.reloadData()
+    }
+    
+    func printAssignments(_ assignments: [Assignment]) {
+        if assignments.isEmpty {
+            print("No assignments found.")
+        } else {
+            print("Assignments:")
+            for assignment in assignments {
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateStyle = .short
+                dateFormatter.timeStyle = .short
+
+                let formattedDueDate = dateFormatter.string(from: assignment.due ?? Date())
+                let courseName = assignment.course?.name ?? "Unknown Course"
+                let assignmentType = assignment.type ?? "Unknown Type"
+
+                print("Name: \(assignment.name ?? "Unnamed Assignment")")
+                print("Description: \(assignment.descriptions ?? "No description")")
+                print("Due Date: \(formattedDueDate)")
+                print("Importance: \(assignment.importance)")
+                print("Type: \(assignmentType)")
+                print("Course: \(courseName)")
+                print("------")
+            }
+        }
     }
     
     // MARK: - Assignment Sorting
@@ -204,7 +244,10 @@ extension AssignmentsVC {
         let courseAssignmentPairs = courseAssignmentMap
             .filter { !$0.value.isEmpty }
             .map { ($0.key, $0.value) }
-
+            .sorted { (pair1, pair2) in
+                return pair1.0.name ?? "" < pair2.0.name ?? ""
+            }
+        
         return courseAssignmentPairs
     }
     
