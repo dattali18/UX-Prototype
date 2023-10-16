@@ -71,7 +71,7 @@ extension AssignmentsInfo : UITableViewDelegate, UITableViewDataSource {
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") {  (contextualAction, view, boolValue) in
             
             let row = indexPath.row
-            let section = indexPath.section
+//            let section = indexPath.section
             
             let assignment = self.assignemnts[row]
             

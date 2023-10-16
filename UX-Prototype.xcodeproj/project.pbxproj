@@ -34,6 +34,7 @@
 		C68125212AD00A6A008DE83E /* EditSemesterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68125202AD00A6A008DE83E /* EditSemesterVC.swift */; };
 		C68CE3632ADD2E06009411F9 /* COREDATA.md in Resources */ = {isa = PBXBuildFile; fileRef = C68CE3612ADD2E06009411F9 /* COREDATA.md */; };
 		C68CE3642ADD2E06009411F9 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = C68CE3622ADD2E06009411F9 /* README.md */; };
+		C68CE3662ADD322E009411F9 /* SwiftUICustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68CE3652ADD322D009411F9 /* SwiftUICustomView.swift */; };
 		C68DF9CD2AB9FE93006B0F70 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C68DF9CB2AB9FE93006B0F70 /* Model.xcdatamodeld */; };
 		C6AE4BD72AD450FA0037C821 /* LinkTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AE4BD52AD450FA0037C821 /* LinkTVC.swift */; };
 		C6AE4BD82AD450FA0037C821 /* LinkTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6AE4BD62AD450FA0037C821 /* LinkTVC.xib */; };
@@ -96,6 +97,7 @@
 		C68125202AD00A6A008DE83E /* EditSemesterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSemesterVC.swift; sourceTree = "<group>"; };
 		C68CE3612ADD2E06009411F9 /* COREDATA.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = COREDATA.md; sourceTree = "<group>"; };
 		C68CE3622ADD2E06009411F9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		C68CE3652ADD322D009411F9 /* SwiftUICustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUICustomView.swift; sourceTree = "<group>"; };
 		C68DF9CC2AB9FE93006B0F70 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		C6AE4BD52AD450FA0037C821 /* LinkTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkTVC.swift; sourceTree = "<group>"; };
 		C6AE4BD62AD450FA0037C821 /* LinkTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LinkTVC.xib; sourceTree = "<group>"; };
@@ -330,6 +332,7 @@
 			isa = PBXGroup;
 			children = (
 				C6E146852AD7E61E00DEE83B /* SwiftUIView.swift */,
+				C68CE3652ADD322D009411F9 /* SwiftUICustomView.swift */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";
@@ -509,6 +512,7 @@
 				C6C40F7D2AB2F70700E958C1 /* SceneDelegate.swift in Sources */,
 				C6C40FA62AB33B3A00E958C1 /* CourseTVC.swift in Sources */,
 				C6E8E0B32AD5CF7A00FA56E9 /* LinksListVC.swift in Sources */,
+				C68CE3662ADD322E009411F9 /* SwiftUICustomView.swift in Sources */,
 				C6214D012ACEA9FB00E242AC /* CoreDataManager.swift in Sources */,
 				C6C40F952AB3036200E958C1 /* CalendarNC.swift in Sources */,
 				C6E8E0AF2AD5CBAE00FA56E9 /* ResourcesSectionHeaderView.swift in Sources */,
