@@ -14,8 +14,13 @@ class AssignmentsVC: UIViewController {
     var courses: [Course] = []
     var sections: [[(Course , [Assignment])]] = []
     
+    var sectionName: [String] = ["Homework", "Midterm", "Final"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let nib = UINib(nibName: "AssignmentsTVC", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "AssignmentsTVC")
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -23,6 +28,14 @@ class AssignmentsVC: UIViewController {
         // Do any additional setup after loading the view.
         self.title = "Assignments"
         navigationController?.navigationBar.prefersLargeTitles = true
+        
+        fetchData()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        fetchData()
     }
 
 }
@@ -38,11 +51,72 @@ extension AssignmentsVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "assignmentCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AssignmentsTVC", for: indexPath) as! AssignmentsListTVC
+        
+        let (course, assignments) = self.sections[indexPath.section][indexPath.row]
+        
+        cell.courseLabel.text = course.name
+        cell.numberLabel.text = "\(assignments.count)"
         
         return cell
     }
     
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return self.sectionName[section]
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 44 // Adjust the section header height as needed
+    }
+
+
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 54
+    }
+    
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") {  (contextualAction, view, boolValue) in
+            
+            let row = indexPath.row
+            let section = indexPath.section
+            
+            let (course, assignments) = self.sections[section][row]
+            
+//            CourseDataManager.shared.deleteCourse(withName: name)
+            self.showDeleteConfirmationAlert(message: "Are you sure you want to delete the course \(course.name ?? "")?") { didConfirmDelete in
+                if didConfirmDelete {
+                    self.sections[section].remove(at: row)
+                    self.tableView.reloadData()
+                    
+                    for assignment in assignments {
+                        CoreDataManager.shared.delete(assignment)
+                    }
+                    
+                }
+            }
+        }
+        
+        
+        let swipeActions = UISwipeActionsConfiguration(actions: [deleteAction])
+
+        return swipeActions
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let row = indexPath.row
+        let section = indexPath.section
+        
+        let vc = self.storyboard?.instantiateViewController(identifier: "AssignmentsInfo") as! AssignmentsInfo
+        
+        let (course, assignments) = self.sections[section][row]
+        
+        vc.assignemnts = assignments
+        vc.course = course
+
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     
 }
 
@@ -63,12 +137,15 @@ extension AssignmentsVC {
         // Sort assignments by type (Homework, Midterm, Final)
         let (homework, midterm, final) = sortAssignmentsByType(self.assignments)
         
+    
         // Group assignments by course
         self.sections = [
             sortAssignmentsByCourse(homework),
             sortAssignmentsByCourse(midterm),
             sortAssignmentsByCourse(final)
         ]
+        
+        
         
         // Reload table view data
         self.tableView.reloadData()

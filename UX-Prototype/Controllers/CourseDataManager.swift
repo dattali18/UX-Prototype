@@ -199,3 +199,78 @@ class CourseDataManager {
         }
     }
 }
+
+
+extension CourseDataManager {
+    func checkAndAddSampleAssignmentsIfNeeded() {
+        let managedObjectContext = CoreDataStack.shared.managedObjectContext
+
+        // Create a fetch request for Assignment entity
+        let fetchRequest: NSFetchRequest<Assignment> = Assignment.fetchRequest()
+
+        do {
+            // Fetch assignments to check if any exist
+            let existingAssignments = try managedObjectContext.fetch(fetchRequest)
+
+            if existingAssignments.isEmpty {
+                // No assignments exist, so let's add some sample assignments
+                let courses = CoreDataManager.shared.fetch(entity: Course.self) ?? []
+
+                let sampleDescriptions = [
+                    "Complete homework assignment",
+                    "Prepare for midterm exam",
+                    "Submit final project",
+                    "Read chapters 3 and 4",
+                    "Solve practice problems",
+                    "Write a research paper",
+                    "Review class notes",
+                    "Create a presentation"
+                ]
+
+                let today = Date()
+
+                for course in courses {
+                    // Add sample Homework assignment with a random check
+                    if Bool.random() {
+                        let homework = Assignment(context: managedObjectContext)
+                        homework.descriptions = sampleDescriptions.randomElement()
+                        homework.due = Calendar.current.date(byAdding: .day, value: Int.random(in: 1...30), to: today) // Due in 1-30 days
+                        homework.importance = Int32.random(in: 1...10)
+                        homework.type = "Homework"
+                        homework.course = course
+                    }
+
+                    // Add sample Midterm assignment with a random check
+                    if Bool.random() {
+                        let midterm = Assignment(context: managedObjectContext)
+                        midterm.descriptions = sampleDescriptions.randomElement()
+                        midterm.due = Calendar.current.date(byAdding: .day, value: Int.random(in: 1...30), to: today) // Due in 1-30 days
+                        midterm.importance = Int32.random(in: 1...10)
+                        midterm.type = "Midterm"
+                        midterm.course = course
+                    }
+
+                    // Add sample Final assignment with a random check
+                    if Bool.random() {
+                        let final = Assignment(context: managedObjectContext)
+                        final.descriptions = sampleDescriptions.randomElement()
+                        final.due = Calendar.current.date(byAdding: .day, value: Int.random(in: 1...30), to: today) // Due in 1-30 days
+                        final.importance = Int32.random(in: 1...10)
+                        final.type = "Final"
+                        final.course = course
+                    }
+                }
+
+                // Save the changes
+                try managedObjectContext.save()
+
+//                print("Sample assignments added successfully.")
+            } else {
+//                print("Assignments already exist.")
+            }
+        } catch {
+            print("Error checking for assignments: \(error.localizedDescription)")
+        }
+    }
+
+}
