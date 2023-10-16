@@ -10,6 +10,7 @@ class Course {
 }
 
 class Assignment {
+  + name: String?
   + descriptions: String?
   + due: Date?
   + id: UUID
