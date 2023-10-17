@@ -21,9 +21,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             changeScreen()
             
             // adding dummy data if the list is empty
-            CourseDataManager.shared.checkAndAddDummyDataIfNeeded()
-            CourseDataManager.shared.checkAndAddSampleAssignmentsIfNeeded()
-            
+//            CourseDataManager.shared.checkAndAddDummyDataIfNeeded()
+//            CourseDataManager.shared.checkAndAddSampleAssignmentsIfNeeded()
+//            CoreDataManager.shared.deleteAll(Assignment.self)
         }
     
         func changeScreen() {

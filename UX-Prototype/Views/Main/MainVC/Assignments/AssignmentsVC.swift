@@ -15,7 +15,7 @@ class AssignmentsVC: UIViewController {
     var courses: [Course] = []
     var sections: [[(Course , [Assignment])]] = []
     
-    var sectionName: [String] = ["Homework", "Midterm", "Final"]
+    var sectionName: [String] = ["Homework", "Midterm", "Final", "Others"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +43,9 @@ class AssignmentsVC: UIViewController {
     }
     
     @objc func addButtonTapped() {
-        let swiftUIView = SwiftUICustomView()
+        var swiftUIView = AssignmentView()
+        swiftUIView.delegate = self
+        
         let hostingController = UIHostingController(rootView: swiftUIView)
 
         // Present the SwiftUI view
@@ -58,7 +60,7 @@ extension AssignmentsVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        3
+        self.sections.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -123,14 +125,24 @@ extension AssignmentsVC : UITableViewDelegate, UITableViewDataSource {
         
         let vc = self.storyboard?.instantiateViewController(identifier: "AssignmentsInfo") as! AssignmentsInfo
         
-        let (course, assignments) = self.sections[section][row]
+        let (course, _) = self.sections[section][row]
         
-        vc.assignemnts = assignments
+//        vc.assignemnts = assignments
         vc.course = course
+        vc.type = self.sectionName[section]
 
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+}
+
+extension AssignmentsVC: DisappearingViewDelegate {
+    func viewWillDisappear() {
+            // This function will be called from the SwiftUI view
+            // when it is about to disappear
+            // You can perform actions here
+            fetchData()
+        }
 }
 
 extension AssignmentsVC {
@@ -147,48 +159,24 @@ extension AssignmentsVC {
         // Fetch assignments from the data manager
         self.assignments = CoreDataManager.shared.fetch(entity: Assignment.self) ?? []
         
-        printAssignments(self.assignments)
+        //        printAssignments(self.assignments)
         
         // Sort assignments by type (Homework, Midterm, Final)
-        let (homework, midterm, final) = sortAssignmentsByType(self.assignments)
+        let (homework, midterm, final, others) = sortAssignmentsByType(self.assignments)
         
-    
+        
         // Group assignments by course
         self.sections = [
             sortAssignmentsByCourse(homework),
             sortAssignmentsByCourse(midterm),
-            sortAssignmentsByCourse(final)
+            sortAssignmentsByCourse(final),
+            sortAssignmentsByCourse(others)
         ]
         
         
         
         // Reload table view data
         self.tableView.reloadData()
-    }
-    
-    func printAssignments(_ assignments: [Assignment]) {
-        if assignments.isEmpty {
-            print("No assignments found.")
-        } else {
-            print("Assignments:")
-            for assignment in assignments {
-                let dateFormatter = DateFormatter()
-                dateFormatter.dateStyle = .short
-                dateFormatter.timeStyle = .short
-
-                let formattedDueDate = dateFormatter.string(from: assignment.due ?? Date())
-                let courseName = assignment.course?.name ?? "Unknown Course"
-                let assignmentType = assignment.type ?? "Unknown Type"
-
-                print("Name: \(assignment.name ?? "Unnamed Assignment")")
-                print("Description: \(assignment.descriptions ?? "No description")")
-                print("Due Date: \(formattedDueDate)")
-                print("Importance: \(assignment.importance)")
-                print("Type: \(assignmentType)")
-                print("Course: \(courseName)")
-                print("------")
-            }
-        }
     }
     
     // MARK: - Assignment Sorting
@@ -199,10 +187,11 @@ extension AssignmentsVC {
     ///   - assignments: An array of assignments to be sorted.
     ///
     /// - Returns: A tuple containing three arrays: Homework assignments, Midterm assignments, and Final assignments.
-    func sortAssignmentsByType(_ assignments: [Assignment]) -> ([Assignment], [Assignment], [Assignment]) {
+    func sortAssignmentsByType(_ assignments: [Assignment]) -> ([Assignment], [Assignment], [Assignment], [Assignment]) {
         var homeworkAssignments = [Assignment]()
         var midtermAssignments = [Assignment]()
         var finalAssignments = [Assignment]()
+        var othersAssignments = [Assignment]()
 
         for assignment in assignments {
             switch assignment.type {
@@ -212,13 +201,15 @@ extension AssignmentsVC {
                 midtermAssignments.append(assignment)
             case "Final":
                 finalAssignments.append(assignment)
+            case "Others":
+                othersAssignments.append(assignment)
             default:
                 // Handle unknown assignment types here.
                 break
             }
         }
 
-        return (homeworkAssignments, midtermAssignments, finalAssignments)
+        return (homeworkAssignments, midtermAssignments, finalAssignments, othersAssignments)
     }
     
     /// Sorts assignments by their associated course.
@@ -252,4 +243,28 @@ extension AssignmentsVC {
     }
     
     // Add more functions as needed for further functionality.
+    
+    func printAssignments(_ assignments: [Assignment]) {
+        if assignments.isEmpty {
+            print("No assignments found.")
+        } else {
+            print("Assignments:")
+            for assignment in assignments {
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateStyle = .short
+                dateFormatter.timeStyle = .short
+
+                let formattedDueDate = dateFormatter.string(from: assignment.due ?? Date())
+                let courseName = assignment.course?.name ?? "Unknown Course"
+                let assignmentType = assignment.type ?? "Unknown Type"
+
+                print("Name: \(assignment.name ?? "Unnamed Assignment")")
+                print("Description: \(assignment.descriptions ?? "No description")")
+                print("Due Date: \(formattedDueDate)")
+                print("Type: \(assignmentType)")
+                print("Course: \(courseName)")
+                print("------")
+            }
+        }
+    }
 }

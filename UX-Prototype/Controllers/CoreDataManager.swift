@@ -117,4 +117,27 @@ class CoreDataManager {
         }
     }
     
+    func deleteAll<T: NSManagedObject>(_ entity: T.Type) {
+        let managedObjectContext = CoreDataStack.shared.managedObjectContext
+
+        // Create a fetch request for the specified entity
+        let fetchRequest: NSFetchRequest<T> = T.fetchRequest() as! NSFetchRequest<T>
+
+        do {
+            // Fetch all objects of the specified entity
+            let objects = try managedObjectContext.fetch(fetchRequest)
+
+            for object in objects {
+                // Delete each object
+                managedObjectContext.delete(object)
+            }
+
+            // Save the changes to the managed object context
+            try managedObjectContext.save()
+        } catch {
+            print("Error deleting all entities: \(error)")
+        }
+    }
+
+    
 }

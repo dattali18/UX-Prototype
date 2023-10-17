@@ -7,10 +7,12 @@
 
 import SwiftUI
 
-struct SwiftUICustomView: View {
+struct AssignmentView: View {
+    weak var delegate: DisappearingViewDelegate?
+    
     @Environment(\.presentationMode) var presentationMode
     
-    @State private var title: String = "New Reminder"
+    @State private var title: String = ""
     @State private var notes: String = ""
     @State private var url: String = ""
     @State private var type: String = ""
@@ -18,7 +20,7 @@ struct SwiftUICustomView: View {
     
     @State private var datetime: Bool = false
     
-    @State private var improtance: Int32 = 1
+    @State private var importance: Int32 = 1
     
     @State private var selectedSemester: Int = 0
     @State private var selectedCourse: Int = 0
@@ -30,7 +32,13 @@ struct SwiftUICustomView: View {
     @State private var semesters: [Semester] = []
     @State private var courses: [[Course]] = []
     
-    @State private var types: [String] = ["Homework", "Midterm", "Final"]
+    @State private var types: [String] = ["Homework", "Midterm", "Final", "Others"]
+    
+    @State private var assignment: Assignment?
+
+    init(assignment: Assignment? = nil) {
+        self._assignment = State(initialValue: assignment)
+    }
     
     var body: some View {
         NavigationView
@@ -75,21 +83,6 @@ struct SwiftUICustomView: View {
                     }
                 }
                 
-                Section()
-                {
-                    HStack
-                    {
-                        Image(systemName: "exclamationmark.circle.fill")
-                            .foregroundColor(.orange)
-                            .font(.largeTitle)
-                        Picker("Improtance", selection: $improtance) {
-                            ForEach(1..<4, id: \.self) { value in
-                                Text("\(value)").tag(value)
-                            }
-                        }
-                    }
-                }
-                
                 Section() {
                     Picker("Semester", selection: $selectedSemester) {
                         ForEach(0..<semesters.count, id: \.self) { index in
@@ -106,9 +99,23 @@ struct SwiftUICustomView: View {
                     }
                 }
             }
-            .navigationTitle("New Reminder")
+            .navigationTitle("New Assignment")
             .onAppear {
                 fetchSemestersAndCourses()
+                if let assignment = assignment {
+                    // Populate the fields with assignment data
+                    title = assignment.name ?? ""
+                    notes = assignment.descriptions ?? ""
+                    url = assignment.url ?? ""
+                    dueDate = assignment.due ?? Date.now
+                    datetime = assignment.due != nil
+                    selectedType = types.firstIndex(where: { $0 == assignment.type ?? "Homework" }) ?? 0
+                    selectedSemester = semesters.firstIndex(where: {$0 == assignment.course?.semester}) ?? 0
+                    selectedCourse = courses[selectedSemester].firstIndex(where: {$0 == assignment.course}) ?? 0
+                    // You can also set selectedSemester and selectedCourse
+                }
+            }.onDisappear {
+                self.delegate?.viewWillDisappear()
             }
             .toolbar {
                 // Add a "Save" button to the top of the navigation bar
@@ -124,51 +131,46 @@ struct SwiftUICustomView: View {
     }
     
     func saveReminder() {
-        if(title != "")
-        {
-            let managedObjectContext = CoreDataStack.shared.managedObjectContext
-            
-            let assignment = Assignment(context: managedObjectContext)
-            let course = self.courses[selectedSemester][selectedCourse]
-            
+        if title.isEmpty {
+            return
+        }
+
+        let managedObjectContext = CoreDataStack.shared.managedObjectContext
+        
+        if let assignment = assignment {
+            // Update the existing assignment
             assignment.name = title
             assignment.descriptions = notes
             assignment.due = dueDate
-            assignment.importance = improtance
+            assignment.url = url
             assignment.type = types[selectedType]
             assignment.course = self.courses[selectedSemester][selectedCourse]
             
+        } else {
+            // Create a new assignment
+            let assignment = Assignment(context: managedObjectContext)
+            assignment.name = title
+            assignment.descriptions = notes
+            assignment.due = dueDate
+            assignment.type = types[selectedType]
+            assignment.course = self.courses[selectedSemester][selectedCourse]
+            
+            // Add the assignment to the course
+            let course = self.courses[selectedSemester][selectedCourse]
             course.addToAssignments(assignment)
             
+            // Insert the assignment into the context
             managedObjectContext.insert(assignment)
-            
-            
-            
-            do {
-              try managedObjectContext.save()
-            } catch {
-              print("Error creating entity: \(error)")
-              return
-            }
+        }
+        
+        do {
+            try managedObjectContext.save()
             
             // Dismiss the view
             self.presentationMode.wrappedValue.dismiss()
+        } catch {
+            print("Error creating/updating entity: \(error)")
         }
-    }
-    
-    func saveReminder() {
-            // Implement the logic to save the reminder
-            // You can access reminder properties like reminder?.title, reminder?.notes, etc.
-            // Here, you can update your data model or use Core Data to save the reminder.
-            // This function should handle the saving logic according to your app's requirements.
-        let _ = CoreDataManager.shared.create(entity: Assignment.self, with: [
-            "name" : title,
-            "descriptions": notes,
-            "due": datetime ? dueDate : Date(),
-            "importance": improtance,
-            "type": type,
-            "course" : courses[selectedSemester][selectedCourse]
-        ])
     }
     
     private func fetchSemestersAndCourses() {
@@ -190,5 +192,13 @@ struct SwiftUICustomView: View {
 }
 
 #Preview {
-    SwiftUICustomView()
+    AssignmentView()
 }
+
+#if canImport(UIKit)
+extension View {
+    func hideKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
+}
+#endif

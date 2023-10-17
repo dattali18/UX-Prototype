@@ -6,30 +6,49 @@
 //
 
 import UIKit
+import SwiftUI
 
 class AssignmentsInfo: UIViewController {
     @IBOutlet weak var tableView: UITableView!
-    
-    
+        
     var assignemnts: [Assignment] = []
     var course: Course?
+    var type: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        
         self.title = ""
-        // Do any additional setup after loading the view.
+        navigationController?.navigationBar.prefersLargeTitles = false
+        
         if(course != nil) {
             self.title = "\(course!.name!) - Assignments"
         }
         
-        navigationController?.navigationBar.prefersLargeTitles = true
+        fetchData()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        fetchData()
     }
 
 }
 
+extension AssignmentsInfo: DisappearingViewDelegate {
+    func viewWillDisappear() {
+        // This function will be called from the SwiftUI view
+        // when it is about to disappear
+        // You can perform actions here
+        fetchData()
+    }
+}
+
+// MARK: - Table View
 extension AssignmentsInfo : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.assignemnts.count
@@ -42,12 +61,7 @@ extension AssignmentsInfo : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "assignments", for: indexPath)
         
-        cell.textLabel?.text = self.assignemnts[indexPath.row].descriptions
-        
-//        let (course, assignments) = self.sections[indexPath.section][indexPath.row]
-//        
-//        cell.courseLabel.text = course.name
-//        cell.numberLabel.text = "\(assignments.count)"
+        cell.textLabel?.text = self.assignemnts[indexPath.row].name
         
         return cell
     }
@@ -66,7 +80,7 @@ extension AssignmentsInfo : UITableViewDelegate, UITableViewDataSource {
         return 44
     }
     
-    
+    // MARK: - Swipe Action
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") {  (contextualAction, view, boolValue) in
             
@@ -76,7 +90,7 @@ extension AssignmentsInfo : UITableViewDelegate, UITableViewDataSource {
             let assignment = self.assignemnts[row]
             
 //            CourseDataManager.shared.deleteCourse(withName: name)
-            self.showDeleteConfirmationAlert(message: "Are you sure you want to delete the course \(self.course?.name ?? "")?") { didConfirmDelete in
+            self.showDeleteConfirmationAlert(message: "Are you sure you want to delete this assignemnt?") { didConfirmDelete in
                 if didConfirmDelete {
                     
                     self.assignemnts.remove(at: row)
@@ -87,12 +101,39 @@ extension AssignmentsInfo : UITableViewDelegate, UITableViewDataSource {
             }
         }
         
+        deleteAction.image = UIImage(systemName: "trash.fill")
+        
         let swipeActions = UISwipeActionsConfiguration(actions: [deleteAction])
 
         return swipeActions
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let assignment = self.assignemnts[indexPath.row]
+        
+        var swiftUIView = AssignmentView(assignment: assignment)
+        // implementing the obeserver pattern
+        swiftUIView.delegate = self
+        let hostingController = UIHostingController(rootView: swiftUIView)
+
+        // Present the SwiftUI view
+        present(hostingController, animated: true, completion: nil)
     }
     
+}
+// MARK: - Data Fetching
+extension AssignmentsInfo {
+    func fetchData() {
+        self.assignemnts = []
+        
+        if(self.course == nil || self.type == nil) {
+            self.tableView.reloadData()
+            return
+        }
+        
+        self.assignemnts = CoreDataManager.shared.fetch(entity: Assignment.self) ?? []
+        self.assignemnts = self.assignemnts.filter {$0.course == self.course && $0.type == self.type}
+        
+        self.tableView.reloadData()
+    }
 }
