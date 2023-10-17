@@ -15,6 +15,8 @@ class CalendarVC: UIViewController {
         // Do any additional setup after loading the view.
         self.title = "Calendar"
         navigationController?.navigationBar.prefersLargeTitles = true
+        
+        view.backgroundColor = .secondarySystemBackground
     }
     
 

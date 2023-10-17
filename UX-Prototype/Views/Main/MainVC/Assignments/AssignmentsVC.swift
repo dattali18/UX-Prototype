@@ -30,6 +30,8 @@ class AssignmentsVC: UIViewController {
         self.title = "Assignments"
         navigationController?.navigationBar.prefersLargeTitles = true
         
+        view.backgroundColor = .secondarySystemBackground
+        
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
         navigationItem.rightBarButtonItem = addButton
         

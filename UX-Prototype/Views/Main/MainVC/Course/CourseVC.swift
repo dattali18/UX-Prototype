@@ -19,7 +19,6 @@ class CourseVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         let nib = UINib(nibName: "CourseTVC", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "CourseTVC")
         
@@ -34,15 +33,21 @@ class CourseVC: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         
         view.backgroundColor = .secondarySystemBackground
-//        tableView.backgroundColor = .systemBackground
         
-
         tableView.register(UINib(nibName: "CourseSectionHeaderView", bundle: nil), forHeaderFooterViewReuseIdentifier: "HeaderView")
 
+        let addCourse = UIBarButtonItem(title: "Add Course", style: .plain, target: self, action: #selector(addCourse))
+        
+        let addSemester = UIBarButtonItem(title: "Add Semester", style: .plain, target: self, action: #selector(addSemester))
+        
+        navigationItem.rightBarButtonItem = addSemester
+        navigationItem.leftBarButtonItem = addCourse
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        navigationController?.navigationBar.prefersLargeTitles = true
         
         fetchCourses()
         fetchSemesters()
@@ -51,50 +56,14 @@ class CourseVC: UIViewController {
         tableView.reloadData()
     }
     
-    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
+    @objc func addCourse() {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "AddCourseVC") as! AddCourseVC
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    // MARK: - Swipe Action
-    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") {  (contextualAction, view, boolValue) in
-            
-            let row = indexPath.row
-            let section = indexPath.section
-            
-            let name = self.coursesBySemesters[section][row].name
-            
-//            CourseDataManager.shared.deleteCourse(withName: name)
-            self.showDeleteConfirmationAlert(message: "Are you sure you want to delete the course \(name ?? "")?") { didConfirmDelete in
-                
-                if didConfirmDelete {
-                    self.coursesBySemesters[section].remove(at: row)
-                    self.tableView.reloadData()
-                    
-                    CoreDataManager.shared.delete(entity: Course.self, with: ["name": name as Any])
-                }
-            }
-        }
-        
-        let editAction  = UIContextualAction(style: .normal, title: "Edit") {  (contextualAction, view, boolValue) in
-            // Get the name of the course
-            let row = indexPath.row
-            let section = indexPath.section
-            
-            let name = self.coursesBySemesters[section][row].name
-            
-            let vc = self.storyboard?.instantiateViewController(identifier: "editCourseVC") as! EditCourseVC
-            vc.courseNameTxt = name
-
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
-
-        editAction.backgroundColor = .systemBlue
-        
-        
-        let swipeActions = UISwipeActionsConfiguration(actions: [deleteAction, editAction])
-
-        return swipeActions
+    @objc func addSemester() {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "NewSemesterVC") as! NewSemesterVC
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 
@@ -201,6 +170,52 @@ extension CourseVC: UITableViewDelegate, UITableViewDataSource {
             headerView.textLabel?.text = "Courses Without Semester"
             return headerView
       }
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    // MARK: - Swipe Action
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") {  (contextualAction, view, boolValue) in
+            
+            let row = indexPath.row
+            let section = indexPath.section
+            
+            let name = self.coursesBySemesters[section][row].name
+            
+//            CourseDataManager.shared.deleteCourse(withName: name)
+            self.showDeleteConfirmationAlert(message: "Are you sure you want to delete the course \(name ?? "")?") { didConfirmDelete in
+                
+                if didConfirmDelete {
+                    self.coursesBySemesters[section].remove(at: row)
+                    self.tableView.reloadData()
+                    
+                    CoreDataManager.shared.delete(entity: Course.self, with: ["name": name as Any])
+                }
+            }
+        }
+        
+        let editAction  = UIContextualAction(style: .normal, title: "Edit") {  (contextualAction, view, boolValue) in
+            // Get the name of the course
+            let row = indexPath.row
+            let section = indexPath.section
+            
+            let name = self.coursesBySemesters[section][row].name
+            
+            let vc = self.storyboard?.instantiateViewController(identifier: "editCourseVC") as! EditCourseVC
+            vc.courseNameTxt = name
+
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+
+        editAction.backgroundColor = .systemBlue
+        
+        
+        let swipeActions = UISwipeActionsConfiguration(actions: [deleteAction, editAction])
+
+        return swipeActions
     }
 }
 

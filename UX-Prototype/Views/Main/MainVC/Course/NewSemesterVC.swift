@@ -46,9 +46,9 @@ class NewSemesterVC: UIViewController {
         dateFormatter.dateFormat = "yyyy"
         let yearString = dateFormatter.string(from: date)
         
-        let str =  "\(type) \(yearString)"
+        let name =  "\(type) \(yearString)"
         
-        let res = CoreDataManager.shared.create(entity: Semester.self, with: ["type": type, "start": startDate, "end": endDate, "str": str])
+        let res = CoreDataManager.shared.create(entity: Semester.self, with: ["type": type, "start": startDate, "end": endDate, "name": name])
         
         if (res != nil) {
             navigationController?.popToRootViewController(animated: true)

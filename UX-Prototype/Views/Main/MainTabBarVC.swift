@@ -14,6 +14,7 @@ class MainTabBarVC: UITabBarController {
         super.viewDidLoad()
         
         self.delegate = self
+        view.backgroundColor = .secondarySystemFill
         
         let storyboard = UIStoryboard (name: "Main", bundle: nil)
         
@@ -34,9 +35,6 @@ class MainTabBarVC: UITabBarController {
         
         setViewControllers([courseNC, calendarNC, AssignmentsNC, remindersNC], animated: true)
     }
-    
-
-
 }
 
 extension MainTabBarVC: UITabBarControllerDelegate {

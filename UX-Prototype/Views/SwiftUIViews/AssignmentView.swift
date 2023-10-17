@@ -1,9 +1,9 @@
-//
-//  SwiftUICustomView.swift
-//  UX-Prototype
-//
-//  Created by Daniel Attali on 10/16/23.
-//
+///
+///  SwiftUICustomView.swift
+///  UX-Prototype
+///
+///  Created by Daniel Attali on 10/16/23.
+///
 
 import SwiftUI
 
@@ -18,20 +18,14 @@ struct AssignmentView: View {
     @State private var type: String = ""
     @State private var dueDate: Date = Date.now
     
-    @State private var datetime: Bool = false
-    
-    @State private var importance: Int32 = 1
+    @State private var dateTime: Bool = false
     
     @State private var selectedSemester: Int = 0
     @State private var selectedCourse: Int = 0
-    
     @State private var selectedType: Int = 0
-    
-    
     
     @State private var semesters: [Semester] = []
     @State private var courses: [[Course]] = []
-    
     @State private var types: [String] = ["Homework", "Midterm", "Final", "Others"]
     
     @State private var assignment: Assignment?
@@ -44,49 +38,51 @@ struct AssignmentView: View {
         NavigationView
         {
             Form {
-                Section() {
+                // Text Info Section
+                Section("") {
                     TextField("Title", text: $title)
                     TextField("Notes", text: $notes)
                     TextField("URL", text: $url)
                 }
                 
-                Section()
-                {
-                    Toggle(isOn: $datetime, label: {
-                        HStack {
-                            Image(systemName: "calendar.circle.fill")
-                                .foregroundColor(.red)
-                                .font(.largeTitle)
-                            Text("Date")
-                        }
-                    })
-                    
-                    if datetime {
-                        DatePicker("Due Date", selection: $dueDate)
-                            .datePickerStyle(GraphicalDatePickerStyle())
-                            .frame(maxHeight: 400)
-                    }
-                }
-                
-                Section()
-                {
-                    HStack
-                    {
-                        Image(systemName: "graduationcap.circle.fill")
-                            .foregroundColor(.blue)
+                // Date Section
+                Section("") {
+                Toggle(isOn: $dateTime, label: {
+                    HStack {
+                        Image(systemName: "calendar.circle.fill")
+                            .foregroundColor(.red)
                             .font(.largeTitle)
-                        Picker("Type", selection: $selectedType) {
-                            ForEach(0..<types.count, id: \.self) {index in
-                                Text(types[index])
-                            }
+                        Text("Date")
+                    }
+                })
+                
+                if dateTime {
+                    DatePicker("Due Date", selection: $dueDate)
+                        .datePickerStyle(GraphicalDatePickerStyle())
+                        .frame(maxHeight: 400)
+                }
+            }
+                
+                // Type Section
+                Section("") {
+                HStack
+                {
+                    Image(systemName: "graduationcap.circle.fill")
+                        .foregroundColor(.blue)
+                        .font(.largeTitle)
+                    Picker("Type", selection: $selectedType) {
+                        ForEach(0..<types.count, id: \.self) {index in
+                            Text(types[index])
                         }
                     }
                 }
+            }
                 
-                Section() {
+                // Semester/Course Section
+                Section("") {
                     Picker("Semester", selection: $selectedSemester) {
                         ForEach(0..<semesters.count, id: \.self) { index in
-                            Text(semesters[index].str ?? "")
+                            Text(semesters[index].name ?? "")
                         }
                     }
                     
@@ -99,22 +95,12 @@ struct AssignmentView: View {
                     }
                 }
             }
-            .navigationTitle("New Assignment")
+            .navigationTitle("Assignment")
             .onAppear {
                 fetchSemestersAndCourses()
-                if let assignment = assignment {
-                    // Populate the fields with assignment data
-                    title = assignment.name ?? ""
-                    notes = assignment.descriptions ?? ""
-                    url = assignment.url ?? ""
-                    dueDate = assignment.due ?? Date.now
-                    datetime = assignment.due != nil
-                    selectedType = types.firstIndex(where: { $0 == assignment.type ?? "Homework" }) ?? 0
-                    selectedSemester = semesters.firstIndex(where: {$0 == assignment.course?.semester}) ?? 0
-                    selectedCourse = courses[selectedSemester].firstIndex(where: {$0 == assignment.course}) ?? 0
-                    // You can also set selectedSemester and selectedCourse
-                }
-            }.onDisappear {
+                editMode()
+            }
+            .onDisappear {
                 self.delegate?.viewWillDisappear()
             }
             .toolbar {
@@ -130,6 +116,20 @@ struct AssignmentView: View {
         }
     }
     
+    func editMode() {
+        if(assignment != nil) {
+            // Populate the fields with assignment data
+            title = assignment!.name ?? ""
+            notes = assignment!.descriptions ?? ""
+            url = assignment!.url ?? ""
+            dueDate = assignment!.due ?? Date.now
+            dateTime = assignment!.due != nil
+            selectedType = types.firstIndex(where: { $0 == assignment!.type ?? "Homework" }) ?? 0
+            selectedSemester = semesters.firstIndex(where: {$0 == assignment!.course?.semester}) ?? 0
+            selectedCourse = courses[selectedSemester].firstIndex(where: {$0 == assignment!.course}) ?? 0
+        }
+    }
+    
     func saveReminder() {
         if title.isEmpty {
             return
@@ -141,7 +141,7 @@ struct AssignmentView: View {
             // Update the existing assignment
             assignment.name = title
             assignment.descriptions = notes
-            assignment.due = dueDate
+            assignment.due = dateTime ? dueDate : nil
             assignment.url = url
             assignment.type = types[selectedType]
             assignment.course = self.courses[selectedSemester][selectedCourse]
@@ -151,7 +151,7 @@ struct AssignmentView: View {
             let assignment = Assignment(context: managedObjectContext)
             assignment.name = title
             assignment.descriptions = notes
-            assignment.due = dueDate
+            assignment.due = dateTime ? dueDate : nil
             assignment.type = types[selectedType]
             assignment.course = self.courses[selectedSemester][selectedCourse]
             
@@ -190,7 +190,6 @@ struct AssignmentView: View {
         self.courses = courseGroups
     }
 }
-
 #Preview {
     AssignmentView()
 }

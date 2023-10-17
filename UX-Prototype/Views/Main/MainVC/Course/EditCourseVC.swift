@@ -73,10 +73,10 @@ class EditCourseVC: UIViewController {
           dateFormatter.dateFormat = "yyyy"
           let yearString = dateFormatter.string(from: date)
           
-          let str =  "\(semester?.type ?? "") \(yearString)"
+          let nameRepresentation =  "\(semester?.type ?? "") \(yearString)"
 
           // Fetch the Semester object from the persistent store
-          let sem = CoreDataManager.shared.fetch(entity: Semester.self, with: ["name": name])?.first
+          let sem = CoreDataManager.shared.fetch(entity: Semester.self, with: ["name": nameRepresentation])?.first
           
 
             // Check if the Semester object exists in the persistent store
