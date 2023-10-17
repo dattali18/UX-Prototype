@@ -156,6 +156,21 @@ struct SwiftUICustomView: View {
         }
     }
     
+    func saveReminder() {
+            // Implement the logic to save the reminder
+            // You can access reminder properties like reminder?.title, reminder?.notes, etc.
+            // Here, you can update your data model or use Core Data to save the reminder.
+            // This function should handle the saving logic according to your app's requirements.
+        let _ = CoreDataManager.shared.create(entity: Assignment.self, with: [
+            "name" : title,
+            "descriptions": notes,
+            "due": datetime ? dueDate : Date(),
+            "importance": improtance,
+            "type": type,
+            "course" : courses[selectedSemester][selectedCourse]
+        ])
+    }
+    
     private func fetchSemestersAndCourses() {
         let semesters = CoreDataManager.shared.fetch(entity: Semester.self) ?? []
         self.semesters = semesters
