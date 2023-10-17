@@ -7,9 +7,6 @@
 
 import UIKit
 
-// TODO: 1. add a save button with all check and save it to core data
-// TODO: 2. add swip action to delete link from list
-
 enum Mode {
 case edit
 case add
@@ -25,7 +22,6 @@ class AddResourcesVC: UIViewController {
     
     @IBOutlet weak var mainBtn: UIButton!
     
-    
     var course: Course?
     var links: [Link] = []
     var resource: Resource?
@@ -40,7 +36,6 @@ class AddResourcesVC: UIViewController {
         
         let nib = UINib(nibName: "LinkTVC", bundle: nil)
         self.tableView.register(nib, forCellReuseIdentifier: "LinkTVC")
-
         
         // Do any additional setup after loading the view.
         if(course != nil) {
@@ -52,7 +47,6 @@ class AddResourcesVC: UIViewController {
         self.navigationController?.navigationBar.prefersLargeTitles = false
         
         self.view.backgroundColor = .secondarySystemBackground
-//        self.tableView.backgroundColor = .systemBackground
         
         // if the mode == true we are in add mode
         if(mode == .edit) {
@@ -72,11 +66,9 @@ class AddResourcesVC: UIViewController {
             
             navigationButton.tintColor = .systemRed
 
-
             // Add the navigation bar button item to the navigation bar
             self.navigationItem.rightBarButtonItem = navigationButton
         }
-        
     }
     
     @objc func deleteResource() {
@@ -112,10 +104,8 @@ class AddResourcesVC: UIViewController {
     }
     
     @IBAction func addRescourceBtn(_ sender: Any) {
-//        self.showInfoAlert(message: "Please add all links before saving.")
         let name = self.nameField.text
         let description = self.descriptionField.text
-//        let links = self.links
         
         if(name == "" || description == "") {
             self.showErrorAlert(message: "Please fill in the name and description before saving.")
@@ -158,6 +148,7 @@ class AddResourcesVC: UIViewController {
     }
 }
 
+// MARK: - Table View
 extension AddResourcesVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.links.count
@@ -192,6 +183,7 @@ extension AddResourcesVC: UITableViewDelegate, UITableViewDataSource {
         return 84
     }
     
+    // MARK: - Swipe Action
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") {  (contextualAction, view, boolValue) in
             

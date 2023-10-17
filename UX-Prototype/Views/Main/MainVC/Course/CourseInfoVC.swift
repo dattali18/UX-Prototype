@@ -24,12 +24,10 @@ class CourseInfoVC: UIViewController, MFMailComposeViewControllerDelegate {
         self.navigationController?.navigationBar.prefersLargeTitles = true
         
         self.view.backgroundColor = .secondarySystemBackground
-//        self.tableView.backgroundColor = .systemBackground
         
         // Create a new navigation bar button item
         let navigationButton = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(addNewResource))
-
-
+        
         // Add the navigation bar button item to the navigation bar
         self.navigationItem.rightBarButtonItem = navigationButton
         
@@ -51,7 +49,10 @@ class CourseInfoVC: UIViewController, MFMailComposeViewControllerDelegate {
         }
         self.navigationController?.pushViewController(vc, animated: true)
     }
-        
+}
+
+// MARK: - Data Fetching
+extension CourseInfoVC {
     func fetchData() {
         if(self.course == nil) {
             return
@@ -78,6 +79,7 @@ class CourseInfoVC: UIViewController, MFMailComposeViewControllerDelegate {
     }
 }
 
+// MARK: - Table View
 extension CourseInfoVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if(self.resources.isEmpty || self.resources.count < section) {
@@ -141,14 +143,8 @@ extension CourseInfoVC: UITableViewDelegate, UITableViewDataSource {
             return headerView
           }
     }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let urlString = self.links[indexPath.section][indexPath.row].url ?? ""
-    }
-
 
     // MARK: siwpe action
-    
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") {  (contextualAction, view, boolValue) in
             self.showDeleteConfirmationAlert(message: "Are you sure you want to delete this link?") { didConfirmDelete in

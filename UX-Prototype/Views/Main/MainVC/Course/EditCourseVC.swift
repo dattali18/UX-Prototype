@@ -28,18 +28,13 @@ class EditCourseVC: UIViewController {
         semesterPicker.dataSource = self
         semesterPicker.delegate = self
 
-        // Do any additional setup after loading the view.
-//        self.course = CourseDataManager.shared.fetchCourse(withName: courseNameTxt)
         self.course = CoreDataManager.shared.fetch(entity: Course.self, with: ["name": courseNameTxt as Any])?.first
         self.semesters = CoreDataManager.shared.fetch(entity: Semester.self)
-        
         
         self.title = courseNameTxt
         
         navigationController?.navigationBar.prefersLargeTitles = true
         view.backgroundColor = .secondarySystemBackground
-        
-        
         
         let name: String = self.course?.name ?? ""
         let number: Int = Int(self.course?.number ?? 0)
@@ -61,10 +56,8 @@ class EditCourseVC: UIViewController {
         }
         
     }
-    
    
     @IBAction func updateBtn(_ sender: Any){
-        print("hi")
       if(courseName.text == "" || courseNumber.text == "" || courseCredits.text == "") {
         self.showErrorAlert(message: "Please fill all field before saving")
         return
@@ -83,7 +76,7 @@ class EditCourseVC: UIViewController {
           let str =  "\(semester?.type ?? "") \(yearString)"
 
           // Fetch the Semester object from the persistent store
-          let sem = CoreDataManager.shared.fetch(entity: Semester.self, with: ["str": str])?.first
+          let sem = CoreDataManager.shared.fetch(entity: Semester.self, with: ["name": name])?.first
           
 
             // Check if the Semester object exists in the persistent store
@@ -106,26 +99,10 @@ class EditCourseVC: UIViewController {
 
       }
     }
-
-    
-    // The save action
-    @objc func save() {
-        
-        if(courseName.text == "" || courseNumber.text == "" || courseCredits.text == "") {
-            self.showErrorAlert(message: "Please fill all field before saving")
-        } else {
-            let name: String       = courseName.text ?? ""
-            let credits: Float     = Float(courseCredits.text ?? "0.0") ?? 0
-            
-            let _ = CourseDataManager.shared.updateCourseWithID(self.course?.number ?? 0, newName: name, newCredits: credits)
-            
-            navigationController?.popToRootViewController(animated: true)
-        }
-        
-    }
 }
 
 
+// MARK: - Picker View
 extension EditCourseVC: UIPickerViewDataSource, UIPickerViewDelegate {
     // Implement UIPickerViewDataSource methods
         func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -140,7 +117,7 @@ extension EditCourseVC: UIPickerViewDataSource, UIPickerViewDelegate {
         func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
             let semester: Semester? = semesters?[row]
             
-            return  semester?.str ?? "" // Display the description of the Semester enum
+            return  semester?.name ?? "" // Display the description of the Semester enum
         }
         
         // Handle the selected row

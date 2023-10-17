@@ -27,7 +27,6 @@ class NewSemesterVC: UIViewController {
         semesterPicker.dataSource = self
         semesterPicker.delegate = self
     }
-    
 
     @IBAction func startNewSemester(_ sender: Any){
         // Get the start and end dates from the date pickers
@@ -58,10 +57,9 @@ class NewSemesterVC: UIViewController {
             self.showErrorAlert(message: "Something went wront")
         }
     }
-    
-
 }
 
+// MARK: - Picker View
 extension NewSemesterVC: UIPickerViewDataSource, UIPickerViewDelegate {
     // Implement UIPickerViewDataSource methods
         func numberOfComponents(in pickerView: UIPickerView) -> Int {

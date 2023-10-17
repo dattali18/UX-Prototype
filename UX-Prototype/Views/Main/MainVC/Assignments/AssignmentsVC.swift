@@ -53,7 +53,7 @@ class AssignmentsVC: UIViewController {
     }
 }
 
-
+// MARK: - Table View
 extension AssignmentsVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.sections[section].count
@@ -88,7 +88,7 @@ extension AssignmentsVC : UITableViewDelegate, UITableViewDataSource {
         return 44
     }
     
-    
+    // MARK: - Swipe Action
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") {  (contextualAction, view, boolValue) in
             
@@ -127,7 +127,6 @@ extension AssignmentsVC : UITableViewDelegate, UITableViewDataSource {
         
         let (course, _) = self.sections[section][row]
         
-//        vc.assignemnts = assignments
         vc.course = course
         vc.type = self.sectionName[section]
 
@@ -136,6 +135,7 @@ extension AssignmentsVC : UITableViewDelegate, UITableViewDataSource {
     
 }
 
+// MARK: - Diasaprearing View Delegate
 extension AssignmentsVC: DisappearingViewDelegate {
     func viewWillDisappear() {
             // This function will be called from the SwiftUI view
@@ -144,10 +144,8 @@ extension AssignmentsVC: DisappearingViewDelegate {
             fetchData()
         }
 }
-
+// MARK: - Data Fetching
 extension AssignmentsVC {
-    
-    // MARK: - Data Fetching
     
     /// Fetches and organizes the assignment data and reloads the table view.
     func fetchData() {
@@ -178,8 +176,6 @@ extension AssignmentsVC {
         // Reload table view data
         self.tableView.reloadData()
     }
-    
-    // MARK: - Assignment Sorting
     
     /// Sorts assignments into three lists based on their type.
     ///

@@ -542,7 +542,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Th-JD-kti" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2686" y="665"/>
+            <point key="canvasLocation" x="2663" y="665"/>
         </scene>
         <!--Add ResourcesVC-->
         <scene sceneID="qFP-Tc-nig">
@@ -662,36 +662,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q3D-MB-cC1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3378" y="665"/>
-        </scene>
-        <!--Links ListVC-->
-        <scene sceneID="zd9-R7-nMw">
-            <objects>
-                <viewController storyboardIdentifier="LinksListVC" id="T7d-GK-5Q9" customClass="LinksListVC" customModule="UX_Prototype" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Xcr-zG-DNg">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Hello" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i0V-HG-FGR">
-                                <rect key="frame" x="35" y="400" width="320" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="320" id="BKa-FT-Y5o"/>
-                                    <constraint firstAttribute="height" constant="44" id="JbL-5K-hXX"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="uCO-ac-R6y"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="i0V-HG-FGR" firstAttribute="centerY" secondItem="Xcr-zG-DNg" secondAttribute="centerY" id="5wH-iq-esJ"/>
-                            <constraint firstItem="i0V-HG-FGR" firstAttribute="centerX" secondItem="Xcr-zG-DNg" secondAttribute="centerX" id="RGc-ga-0DC"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jWZ-Ja-VDA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4055" y="665"/>
         </scene>
         <!--Main Tab BarVC-->
         <scene sceneID="UTh-iP-DDe">
@@ -1106,10 +1076,10 @@
     <resources>
         <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="secondaryLabelColor">
-            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="secondarySystemBackgroundColor">
-            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

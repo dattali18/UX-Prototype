@@ -31,8 +31,8 @@ class EditSemesterVC: UIViewController {
         
         // setting the values
         if(semester != nil) {
-            self.title = "Edit - \(semester!.str!)"
-            let row = semesterFromString(str: semester!.str!)?.num ?? 0
+            self.title = "Edit - \(semester!.name!)"
+            let row = semesterFromString(str: semester!.name!)?.num ?? 0
             semesterPicker.selectRow(row, inComponent: 0, animated: false)
             
             startDatePicker.date = semester?.start! ?? Date()
@@ -43,12 +43,9 @@ class EditSemesterVC: UIViewController {
         let deleteButton = UIBarButtonItem(title: "Delete", style: .plain, target: self, action: #selector(deleteSemester))
         self.navigationItem.rightBarButtonItem = deleteButton
         // Set the font of the delete button to red
-//        deleteButton.setTitleColor(.systemRed, for: .normal)
         deleteButton.tintColor = .systemRed
-
     }
     
-
     @IBAction func editSemester(_ sender: Any){
         // Get the start and end dates from the date pickers
         let startDate = startDatePicker.date
@@ -82,24 +79,20 @@ class EditSemesterVC: UIViewController {
     
     @objc func deleteSemester() {
         // Delete the semester from the database
-        
-        self.showDeleteConfirmationAlert(message: "Are you sure you want to delete the semester \(self.semester?.str! ?? "")?") { didConfirmDelete in
+        self.showDeleteConfirmationAlert(message: "Are you sure you want to delete the semester \(self.semester?.name! ?? "")?") { didConfirmDelete in
             
             if didConfirmDelete {
                 
-                CoreDataManager.shared.delete(entity: Semester.self, with: ["str": self.semester?.str! as Any])
+                CoreDataManager.shared.delete(entity: Semester.self, with: ["str": self.semester?.name! as Any])
                 
                 // Navigate back to the root view controller
             }
             self.navigationController?.popToRootViewController(animated: true)
         }
-        
-        
-
     }
-    
 }
 
+// MARK: - Picker View
 extension EditSemesterVC: UIPickerViewDataSource, UIPickerViewDelegate {
     // Implement UIPickerViewDataSource methods
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

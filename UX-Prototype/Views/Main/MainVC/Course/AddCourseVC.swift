@@ -33,7 +33,6 @@ class AddCourseVC: UIViewController {
         if(self.semesters != nil) {
             if(!self.semesters!.isEmpty) {
                 self.selectedSemester = self.semesters?[0]
-            
             }
         }
         
@@ -73,6 +72,7 @@ class AddCourseVC: UIViewController {
     
 }
 
+// MARK: - Picker View
 extension AddCourseVC: UIPickerViewDataSource, UIPickerViewDelegate {
     // Implement UIPickerViewDataSource methods
         func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -99,7 +99,5 @@ extension AddCourseVC: UIPickerViewDataSource, UIPickerViewDelegate {
         // Handle the selected row
         func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
             self.selectedSemester = semesters?[row]
-            
-//            print("Selected Semester: \(selectedSemester)")
         }
 }

@@ -55,6 +55,7 @@ class CourseVC: UIViewController {
         return true
     }
     
+    // MARK: - Swipe Action
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") {  (contextualAction, view, boolValue) in
             
@@ -71,7 +72,6 @@ class CourseVC: UIViewController {
                     self.tableView.reloadData()
                     
                     CoreDataManager.shared.delete(entity: Course.self, with: ["name": name as Any])
-                    
                 }
             }
         }
@@ -96,7 +96,10 @@ class CourseVC: UIViewController {
 
         return swipeActions
     }
+}
 
+// MARK: - Data Fetching
+extension CourseVC {
     private func fetchCourses() {
         courses = []
         courses = CoreDataManager.shared.fetch(entity: Course.self) ?? []
@@ -132,11 +135,10 @@ class CourseVC: UIViewController {
 }
 
 
+// MARK: - Table View
 extension CourseVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        print("\(indexPath.row), \(indexPath.section)")
-        
         let vc = self.storyboard?.instantiateViewController(identifier: "CourseInfoVC") as! CourseInfoVC
 
         vc.course = self.coursesBySemesters[indexPath.section][indexPath.row]
@@ -183,7 +185,7 @@ extension CourseVC: UITableViewDelegate, UITableViewDataSource {
         {
             if let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "HeaderView") as? CourseSectionHeaderView {
                 
-                headerView.semesterNameLabel?.text = semesters[section].str?.uppercased()
+                headerView.semesterNameLabel?.text = semesters[section].name?.uppercased()
                 headerView.semester = semesters[section]
                 headerView.navigationController = self.navigationController
                 headerView.storyboard = self.storyboard
@@ -198,8 +200,7 @@ extension CourseVC: UITableViewDelegate, UITableViewDataSource {
             let headerView = UITableViewHeaderFooterView()
             headerView.textLabel?.text = "Courses Without Semester"
             return headerView
-          }
+      }
     }
-    
 }
 

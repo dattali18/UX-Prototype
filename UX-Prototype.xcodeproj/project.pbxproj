@@ -19,7 +19,6 @@
 		C6214CFF2ACEA33900E242AC /* CourseInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6214CFE2ACEA33900E242AC /* CourseInfoVC.swift */; };
 		C6214D012ACEA9FB00E242AC /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6214D002ACEA9FB00E242AC /* CoreDataManager.swift */; };
 		C6214D032ACED68C00E242AC /* NewSemesterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6214D022ACED68C00E242AC /* NewSemesterVC.swift */; };
-		C62F81E12AD58F1A009A831F /* ResourcesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62F81E02AD58F1A009A831F /* ResourcesVC.swift */; };
 		C63BF2D22AD813DB00ED750A /* AssignmentEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63BF2D12AD813DA00ED750A /* AssignmentEnum.swift */; };
 		C64591482ADBDD8C009163F1 /* AssignmentsListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64591462ADBDD8C009163F1 /* AssignmentsListTVC.swift */; };
 		C64591492ADBDD8C009163F1 /* AssignmentsListTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C64591472ADBDD8C009163F1 /* AssignmentsListTVC.xib */; };
@@ -66,7 +65,6 @@
 		C6E146862AD7E61E00DEE83B /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E146852AD7E61E00DEE83B /* SwiftUIView.swift */; };
 		C6E8E0AF2AD5CBAE00FA56E9 /* ResourcesSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E8E0AE2AD5CBAE00FA56E9 /* ResourcesSectionHeaderView.swift */; };
 		C6E8E0B12AD5CC9F00FA56E9 /* ResourcesSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6E8E0B02AD5CC9F00FA56E9 /* ResourcesSectionHeaderView.xib */; };
-		C6E8E0B32AD5CF7A00FA56E9 /* LinksListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E8E0B22AD5CF7A00FA56E9 /* LinksListVC.swift */; };
 		C6F745B12AB8764700780F90 /* AddCourseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F745B02AB8764700780F90 /* AddCourseVC.swift */; };
 /* End PBXBuildFile section */
 
@@ -83,7 +81,6 @@
 		C6214CFE2ACEA33900E242AC /* CourseInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseInfoVC.swift; sourceTree = "<group>"; };
 		C6214D002ACEA9FB00E242AC /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		C6214D022ACED68C00E242AC /* NewSemesterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSemesterVC.swift; sourceTree = "<group>"; };
-		C62F81E02AD58F1A009A831F /* ResourcesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourcesVC.swift; sourceTree = "<group>"; };
 		C63BF2D12AD813DA00ED750A /* AssignmentEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentEnum.swift; sourceTree = "<group>"; };
 		C64591462ADBDD8C009163F1 /* AssignmentsListTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentsListTVC.swift; sourceTree = "<group>"; };
 		C64591472ADBDD8C009163F1 /* AssignmentsListTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AssignmentsListTVC.xib; sourceTree = "<group>"; };
@@ -132,7 +129,6 @@
 		C6E146852AD7E61E00DEE83B /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		C6E8E0AE2AD5CBAE00FA56E9 /* ResourcesSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourcesSectionHeaderView.swift; sourceTree = "<group>"; };
 		C6E8E0B02AD5CC9F00FA56E9 /* ResourcesSectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResourcesSectionHeaderView.xib; sourceTree = "<group>"; };
-		C6E8E0B22AD5CF7A00FA56E9 /* LinksListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinksListVC.swift; sourceTree = "<group>"; };
 		C6F745B02AB8764700780F90 /* AddCourseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCourseVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -193,8 +189,6 @@
 				C6214D022ACED68C00E242AC /* NewSemesterVC.swift */,
 				C68125202AD00A6A008DE83E /* EditSemesterVC.swift */,
 				C6D8D6512AD42575009A1F9F /* AddResourcesVC.swift */,
-				C62F81E02AD58F1A009A831F /* ResourcesVC.swift */,
-				C6E8E0B22AD5CF7A00FA56E9 /* LinksListVC.swift */,
 			);
 			path = Course;
 			sourceTree = "<group>";
@@ -331,13 +325,13 @@
 			path = Authentication;
 			sourceTree = "<group>";
 		};
-		C6E146842AD7E5FD00DEE83B /* SwiftUI */ = {
+		C6E146842AD7E5FD00DEE83B /* SwiftUIViews */ = {
 			isa = PBXGroup;
 			children = (
 				C6E146852AD7E61E00DEE83B /* SwiftUIView.swift */,
 				C68CE3652ADD322D009411F9 /* AssignmentView.swift */,
 			);
-			path = SwiftUI;
+			path = SwiftUIViews;
 			sourceTree = "<group>";
 		};
 		C6F745AA2AB774AE00780F90 /* MainVC */ = {
@@ -392,7 +386,7 @@
 		C6F745AF2AB7750800780F90 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				C6E146842AD7E5FD00DEE83B /* SwiftUI */,
+				C6E146842AD7E5FD00DEE83B /* SwiftUIViews */,
 				C6C40FA92AB33D6900E958C1 /* CustomViews */,
 				C6F745AE2AB774F800780F90 /* Login */,
 				C6F745AD2AB774ED00780F90 /* Main */,
@@ -488,7 +482,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C62F81E12AD58F1A009A831F /* ResourcesVC.swift in Sources */,
 				C64591502ADC4F9D009163F1 /* Assignments.swift in Sources */,
 				C6C40F8F2AB2F81500E958C1 /* SignUpVC.swift in Sources */,
 				C6D8D6522AD42575009A1F9F /* AddResourcesVC.swift in Sources */,
@@ -514,7 +507,6 @@
 				C6C40F7B2AB2F70700E958C1 /* AppDelegate.swift in Sources */,
 				C6C40F7D2AB2F70700E958C1 /* SceneDelegate.swift in Sources */,
 				C6C40FA62AB33B3A00E958C1 /* CourseTVC.swift in Sources */,
-				C6E8E0B32AD5CF7A00FA56E9 /* LinksListVC.swift in Sources */,
 				C68CE3662ADD322E009411F9 /* AssignmentView.swift in Sources */,
 				C6214D012ACEA9FB00E242AC /* CoreDataManager.swift in Sources */,
 				C64BC8ED2ADED243001CD692 /* DisappearingView+extantion.swift in Sources */,
