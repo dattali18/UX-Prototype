@@ -21,6 +21,13 @@ class CourseViewModel: ObservableObject {
     var course: Course?
     var mode: Mode = .add
     
+    let decimalFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        return formatter
+    }()
+
+    
 
     init(with course: Course? = nil) {
         // Load your semesters data here, e.g., from Core Data

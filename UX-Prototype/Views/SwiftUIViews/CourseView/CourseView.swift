@@ -24,9 +24,13 @@ struct CourseView: View {
                 Section
                 {
                     TextField("Course Name", text: $viewModel.name)
-                    TextField("Course Number", value: $viewModel.number, format: .number)
+//                    TextField("Course Number", value: $viewModel.number, format: .number)
+//                        .keyboardType(.numberPad)
+                    TextField("Course Number", value: $viewModel.number, formatter: NumberFormatter())
                         .keyboardType(.numberPad)
-                    TextField("Course Credits", value: $viewModel.credits, format: .number)
+//                    TextField("Course Credits", value: $viewModel.credits, format: .number)
+//                        .keyboardType(.decimalPad) 
+                    TextField("Course Credits", value: $viewModel.credits, formatter: viewModel.decimalFormatter)
                         .keyboardType(.decimalPad)
                     
                 } header : {

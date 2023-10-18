@@ -33,12 +33,29 @@ class CourseVC: UIViewController {
         
         tableView.register(UINib(nibName: "CourseSectionHeaderView", bundle: nil), forHeaderFooterViewReuseIdentifier: "HeaderView")
 
-        let addCourse = UIBarButtonItem(title: "Add Course", style: .plain, target: self, action: #selector(addCourse))
+        //
+        //        let addSemester = UIBarButtonItem(title: "Add Semester", style: .plain, target: self, action: #selector(addSemester))
+        //
+        //        navigationItem.rightBarButtonItem = addSemester
+        //        navigationItem.leftBarButtonItem = addCourse
         
-        let addSemester = UIBarButtonItem(title: "Add Semester", style: .plain, target: self, action: #selector(addSemester))
+        let addCourseAction = UIAction(title: "Course", image: UIImage(systemName: "plus")) { _ in
+            // Handle the "Course" action (e.g., add a new course)
+            self.addCourse()
+        }
         
-        navigationItem.rightBarButtonItem = addSemester
-        navigationItem.leftBarButtonItem = addCourse
+        
+        let addSemesterAction = UIAction(title: "Semester", image: UIImage(systemName: "plus")) { _ in
+            // Handle the "Semester" action (e.g., add a new semester)
+            self.addSemester()
+        }
+        
+        let menu = UIMenu(children: [addCourseAction, addSemesterAction])
+        
+        
+        let addButton = UIBarButtonItem(image: UIImage(systemName: "plus"), menu: menu)
+        navigationItem.rightBarButtonItem = addButton
+        
         
         fetchData()
     }
@@ -50,6 +67,7 @@ class CourseVC: UIViewController {
         
         fetchData()
     }
+    
     
     @objc func addCourse() {
         var courseView = CourseView()
@@ -71,12 +89,12 @@ class CourseVC: UIViewController {
         // Present the SwiftUI view
         present(hostingController, animated: true, completion: nil)
         
-        
 //        let vc = storyboard?.instantiateViewController(withIdentifier: "NewSemesterVC") as! NewSemesterVC
 //        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 
+// MARK: - Delegate
 extension CourseVC : DisappearingViewDelegate, EditSemesterDelegate {
     func pushEdit(with semester: Semester?) {
         
@@ -88,14 +106,6 @@ extension CourseVC : DisappearingViewDelegate, EditSemesterDelegate {
         present(hostingController, animated: true, completion: nil)
     }
     
-    func viewWillDisappear() {
-        fetchData()
-    }
-    
-    
-}
-
-extension CourseVC : DisappearingViewDelegate {
     func viewWillDisappear() {
         fetchData()
     }

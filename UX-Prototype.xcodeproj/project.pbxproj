@@ -201,16 +201,24 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		C62D98F02AE0412C008E61A8 /* Depraceted */ = {
+			isa = PBXGroup;
+			children = (
+				C6214D022ACED68C00E242AC /* NewSemesterVC.swift */,
+				C68125202AD00A6A008DE83E /* EditSemesterVC.swift */,
+				C6F745B02AB8764700780F90 /* AddCourseVC.swift */,
+				C65552512ACD5BE4006019DE /* EditCourseVC.swift */,
+			);
+			path = Depraceted;
+			sourceTree = "<group>";
+		};
 		C63432F12AD687D900775A7B /* Course */ = {
 			isa = PBXGroup;
 			children = (
 				C6C40F9A2AB3046D00E958C1 /* CourseVC.swift */,
-				C6F745B02AB8764700780F90 /* AddCourseVC.swift */,
-				C65552512ACD5BE4006019DE /* EditCourseVC.swift */,
 				C6214CFE2ACEA33900E242AC /* CourseInfoVC.swift */,
-				C6214D022ACED68C00E242AC /* NewSemesterVC.swift */,
-				C68125202AD00A6A008DE83E /* EditSemesterVC.swift */,
 				C6D8D6512AD42575009A1F9F /* AddResourcesVC.swift */,
+				C62D98F02AE0412C008E61A8 /* Depraceted */,
 			);
 			path = Course;
 			sourceTree = "<group>";
