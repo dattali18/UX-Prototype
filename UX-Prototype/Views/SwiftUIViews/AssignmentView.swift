@@ -105,16 +105,6 @@ struct AssignmentView: View {
             }
             .toolbar {
                 // Add a "Save" button to the top of the navigation bar
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button {
-                        hideKeyboard()
-                    } label: {
-                        Image(systemName: "keyboard.chevron.compact.down.fill")
-                    }
-                    .foregroundColor(.blue)
-                   
-                }
-                
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button{
                         // Handle the save action here

@@ -8,8 +8,14 @@
 import SwiftUI
 
 struct CourseView: View {
-    @StateObject var viewModel = CourseViewModel()
-
+    weak var delegate: DisappearingViewDelegate?
+    @Environment(\.presentationMode) var presentationMode
+    
+    @StateObject var viewModel: CourseViewModel
+    
+    init(with course: Course? = nil) {
+        _viewModel = StateObject(wrappedValue: CourseViewModel(with: course))
+    }
     
     var body: some View {
         NavigationView {
@@ -30,7 +36,7 @@ struct CourseView: View {
                 }
                 
                 Section {
-                    Toggle(isOn: $viewModel.haveSemester, label: {
+                    Toggle(isOn: $viewModel.hasSemester, label: {
                         HStack {
                             Image(systemName: "graduationcap.fill")
                                 .foregroundColor(.blue)
@@ -38,7 +44,7 @@ struct CourseView: View {
                         }
                     })
                     
-                    if viewModel.haveSemester
+                    if viewModel.hasSemester
                     {
                         Picker("Type", selection: $viewModel.selectedSemester) {
                             ForEach(0..<viewModel.semesters.count, id: \.self) { index in
@@ -54,7 +60,13 @@ struct CourseView: View {
                     
                 } footer : {
                     Button {
-                        viewModel.saveCourse()
+                        if(viewModel.validateInpute()) {
+                            let _ = viewModel.saveCourse()
+                            self.presentationMode.wrappedValue.dismiss()
+                        } else {
+                            viewModel.showingAlert()
+                        }
+                       
                     } label: {
                         HStack
                         {
@@ -69,9 +81,17 @@ struct CourseView: View {
                 
             }
             .navigationTitle("New Course")
-            .onTapGesture {
-                    hideKeyboard()
+            .alert(isPresented: $viewModel.showAlert) {
+                Alert(
+                    title: Text("Invalid Input"),
+                    message: Text("Please enter all info before saving."),
+                    dismissButton: .default(Text("OK"))
+                )
             }
+            .onDisappear {
+                self.delegate?.viewWillDisappear()
+            }
+
         }
     }
 }

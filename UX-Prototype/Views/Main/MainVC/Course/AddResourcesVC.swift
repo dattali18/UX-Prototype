@@ -7,11 +7,7 @@
 
 import UIKit
 
-enum Mode {
-case edit
-case add
-    
-}
+
 
 class AddResourcesVC: UIViewController {
     @IBOutlet weak var nameField: UITextField!

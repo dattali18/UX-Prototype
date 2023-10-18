@@ -12,14 +12,42 @@ class CourseViewModel: ObservableObject {
     @Published var selectedSemester: Int = 0
     
     @Published var name: String = ""
-    @Published var number: Int?
+    @Published var number: Int32?
     @Published var credits: Float?
-    @Published var haveSemester: Bool = true
+    @Published var hasSemester: Bool = true
+    
+    @Published var showAlert: Bool = false
+    
+    var course: Course?
+    var mode: Mode = .add
     
 
-    init() {
+    init(with course: Course? = nil) {
         // Load your semesters data here, e.g., from Core Data
         self.loadSemesters()
+        
+        
+        self.course = course
+        
+        if(course == nil)
+        {
+            return
+        }
+        
+        mode = .edit
+        
+        let semester = self.course?.semester
+        
+        if(semester != nil && semesters.isEmpty == false) {
+            selectedSemester = semesters.firstIndex(of: semester!) ?? 0
+            hasSemester = true
+        } else {
+            hasSemester = false
+        }
+        
+        name = self.course?.name ?? ""
+        number = self.course?.number
+        credits = self.course?.credits
     }
 
     func loadSemesters() {
@@ -28,7 +56,41 @@ class CourseViewModel: ObservableObject {
         semesters = CoreDataManager.shared.fetch(entity: Semester.self) ?? []
     }
     
-    func saveCourse() {
-        print("hi")
+    func saveCourse() -> Course?{
+        let managedObjectContext = CoreDataStack.shared.managedObjectContext
+        
+        if(mode == .add)
+        {
+            self.course = Course(context: managedObjectContext)
+        }
+        
+        course!.name     = name
+        course!.number   = number ?? 0
+        course!.credits  = credits ?? 0.0
+        
+        if (semesters.isEmpty == false) {
+            course!.semester = hasSemester ? semesters[selectedSemester] : nil
+        }
+        
+        do {
+          try managedObjectContext.save()
+          return course
+        } catch {
+          print("Error creating entity: \(error)")
+          return nil
+        }
     }
+    
+    func validateInpute() -> Bool {
+        if(name == "" || credits == nil || number == nil)
+        {
+            return false
+        }
+        return true
+    }
+    
+    func showingAlert() {
+        showAlert = true
+    }
+
 }

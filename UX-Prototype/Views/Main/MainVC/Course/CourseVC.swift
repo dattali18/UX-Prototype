@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreData
+import SwiftUI
 
 class CourseVC: UIViewController {
     
@@ -24,10 +25,6 @@ class CourseVC: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
-        
-        fetchCourses()
-        fetchSemesters()
-        getCoursesBySemesters()
 
         self.title = "Courses"
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -42,6 +39,8 @@ class CourseVC: UIViewController {
         
         navigationItem.rightBarButtonItem = addSemester
         navigationItem.leftBarButtonItem = addCourse
+        
+        fetchData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -49,16 +48,19 @@ class CourseVC: UIViewController {
         
         navigationController?.navigationBar.prefersLargeTitles = true
         
-        fetchCourses()
-        fetchSemesters()
-        getCoursesBySemesters()
-        
-        tableView.reloadData()
+        fetchData()
     }
     
     @objc func addCourse() {
-        let vc = storyboard?.instantiateViewController(withIdentifier: "AddCourseVC") as! AddCourseVC
-        self.navigationController?.pushViewController(vc, animated: true)
+        var courseView = CourseView()
+        courseView.delegate = self
+        let hostingController = UIHostingController(rootView: courseView)
+
+        // Present the SwiftUI view
+        present(hostingController, animated: true, completion: nil)
+        
+//        let vc = storyboard?.instantiateViewController(withIdentifier: "AddCourseVC") as! AddCourseVC
+//        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func addSemester() {
@@ -67,8 +69,24 @@ class CourseVC: UIViewController {
     }
 }
 
+extension CourseVC : DisappearingViewDelegate {
+    func viewWillDisappear() {
+        fetchData()
+    }
+    
+    
+}
+
 // MARK: - Data Fetching
 extension CourseVC {
+    func fetchData() {
+        fetchCourses()
+        fetchSemesters()
+        fetchCoursesBySemester()
+        
+        tableView.reloadData()
+    }
+    
     private func fetchCourses() {
         courses = []
         courses = CoreDataManager.shared.fetch(entity: Course.self) ?? []
@@ -86,7 +104,7 @@ extension CourseVC {
         self.semesters = semesters
     }
     
-    private func getCoursesBySemesters(){
+    private func fetchCoursesBySemester(){
         coursesBySemesters = []
         
         for semester in self.semesters {
@@ -99,7 +117,7 @@ extension CourseVC {
         if !coursesWithoutSemester.isEmpty {
             self.coursesBySemesters.append(coursesWithoutSemester)
         }
-
+        
     }
 }
 
@@ -183,16 +201,17 @@ extension CourseVC: UITableViewDelegate, UITableViewDataSource {
             let row = indexPath.row
             let section = indexPath.section
             
-            let name = self.coursesBySemesters[section][row].name
+            let course = self.coursesBySemesters[section][row]
+            let name = course.name ?? ""
             
 //            CourseDataManager.shared.deleteCourse(withName: name)
-            self.showDeleteConfirmationAlert(message: "Are you sure you want to delete the course \(name ?? "")?") { didConfirmDelete in
+            self.showDeleteConfirmationAlert(message: "Are you sure you want to delete the course \(name)?") { didConfirmDelete in
                 
                 if didConfirmDelete {
                     self.coursesBySemesters[section].remove(at: row)
                     self.tableView.reloadData()
                     
-                    CoreDataManager.shared.delete(entity: Course.self, with: ["name": name as Any])
+                    CoreDataManager.shared.delete(course)
                 }
             }
         }
@@ -202,12 +221,19 @@ extension CourseVC: UITableViewDelegate, UITableViewDataSource {
             let row = indexPath.row
             let section = indexPath.section
             
-            let name = self.coursesBySemesters[section][row].name
+            let course = self.coursesBySemesters[section][row]
             
-            let vc = self.storyboard?.instantiateViewController(identifier: "editCourseVC") as! EditCourseVC
-            vc.courseNameTxt = name
+            var courseView = CourseView(with: course)
+            courseView.delegate = self
+            let hostingController = UIHostingController(rootView: courseView)
 
-            self.navigationController?.pushViewController(vc, animated: true)
+            // Present the SwiftUI view
+            self.present(hostingController, animated: true, completion: nil)
+            
+//            let vc = self.storyboard?.instantiateViewController(identifier: "editCourseVC") as! EditCourseVC
+//            vc.courseNameTxt = name
+//
+//            self.navigationController?.pushViewController(vc, animated: true)
         }
 
         editAction.backgroundColor = .systemBlue
