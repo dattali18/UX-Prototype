@@ -23,7 +23,7 @@ class EditSemesterVC: UIViewController {
         self.hideKeyboardWhenTappedAround()
 
         self.title = "Edit Semester"
-        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.prefersLargeTitles = false
         view.backgroundColor = .secondarySystemBackground
         
         semesterPicker.dataSource = self
@@ -40,7 +40,7 @@ class EditSemesterVC: UIViewController {
         }
         
         // Add a delete button to the navigation bar
-        let deleteButton = UIBarButtonItem(title: "Delete", style: .plain, target: self, action: #selector(deleteSemester))
+        let deleteButton = UIBarButtonItem(image: UIImage(systemName: "trash.fill"), style: .plain, target: self, action: #selector(deleteSemester))
         self.navigationItem.rightBarButtonItem = deleteButton
         // Set the font of the delete button to red
         deleteButton.tintColor = .systemRed

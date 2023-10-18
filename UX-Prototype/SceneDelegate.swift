@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
@@ -19,11 +20,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             guard let _ = (scene as? UIWindowScene) else { return }
             
             changeScreen()
-            
-            // adding dummy data if the list is empty
-//            CourseDataManager.shared.checkAndAddDummyDataIfNeeded()
-//            CourseDataManager.shared.checkAndAddSampleAssignmentsIfNeeded()
-//            CoreDataManager.shared.deleteAll(Semester.self) 
         }
     
         func changeScreen() {
@@ -36,9 +32,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 window?.rootViewController = CustomTB
                 window?.makeKeyAndVisible()
             } else {
+
                 // user not logged in, take to LoginNavigationController
-                let loginNC = storyboard.instantiateViewController(identifier: "LoginNC")
-                window?.rootViewController = loginNC
+                let authNC = storyboard.instantiateViewController(identifier: "AuthNC") as!AuthNC
+                
+                window?.rootViewController = authNC
                 window?.makeKeyAndVisible()
             }
         }

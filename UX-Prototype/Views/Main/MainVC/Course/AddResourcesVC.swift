@@ -39,7 +39,11 @@ class AddResourcesVC: UIViewController {
         
         // Do any additional setup after loading the view.
         if(course != nil) {
-            self.title = "Add Resource To \(self.course!.name!)"
+            if(mode == .add) {
+                self.title = "Add Resource \(self.course!.name!)"
+            } else {
+                self.title = "Edit Resource \(self.course!.name!)"
+            }
         } else {
             self.title = "Add Resource To None"
         }
@@ -62,10 +66,12 @@ class AddResourcesVC: UIViewController {
             }
             
             // Create a new navigation bar button item
-            let navigationButton = UIBarButtonItem(title: "Delete", style: .plain, target: self, action: #selector(deleteResource))
+//            let navigationButton = UIBarButtonItem(title: "Delete", style: .plain, target: self, action: #selector(deleteResource))
+//            navigationButton.tintColor = .systemRed
             
+            let navigationButton = UIBarButtonItem(image: UIImage(systemName: "trash.fill"), style: .plain, target: self, action: #selector(deleteResource))
             navigationButton.tintColor = .systemRed
-
+            
             // Add the navigation bar button item to the navigation bar
             self.navigationItem.rightBarButtonItem = navigationButton
         }

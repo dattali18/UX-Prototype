@@ -10,3 +10,11 @@ import Foundation
 protocol DisappearingViewDelegate: AnyObject {
     func viewWillDisappear()
 }
+
+protocol NavigationViewDelegate: AnyObject {
+    func navigate()
+}
+
+protocol UserLoginViewDelegate: AnyObject {
+    func Login()
+}

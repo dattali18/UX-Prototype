@@ -47,6 +47,7 @@ class CourseInfoVC: UIViewController, MFMailComposeViewControllerDelegate {
         if(self.course != nil) {
             vc.course = self.course
         }
+        
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
@@ -85,6 +86,7 @@ extension CourseInfoVC: UITableViewDelegate, UITableViewDataSource {
         if(self.resources.isEmpty || self.resources.count < section) {
             return 0
         }
+        
         return self.links[section].count
     }
     
@@ -92,6 +94,7 @@ extension CourseInfoVC: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LinkTVC", for: indexPath) as! LinkTVC
         
         let linksArray = self.links[indexPath.section]
+        
         if(linksArray.isEmpty) {
             return cell
         }
@@ -127,6 +130,7 @@ extension CourseInfoVC: UITableViewDelegate, UITableViewDataSource {
                 headerView.nameLabel.text        = resource.name
                 headerView.decriptionLabel.text  = resource.descriptions
                 
+                headerView.course = self.course
                 headerView.resource = resource
                 headerView.navigationController = self.navigationController
                 headerView.storyboard = self.storyboard
@@ -165,6 +169,7 @@ extension CourseInfoVC: UITableViewDelegate, UITableViewDataSource {
             
             addResource.resource = self.resources[indexPath.section]
             addResource.mode = .edit
+            addResource.course = self.course
 
             self.navigationController?.pushViewController(addResource, animated: true)
         }

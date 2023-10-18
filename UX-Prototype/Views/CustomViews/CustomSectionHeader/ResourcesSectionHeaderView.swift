@@ -17,6 +17,7 @@ class ResourcesSectionHeaderView: UITableViewHeaderFooterView {
     var resource: Resource?
     var navigationController: UINavigationController?
     var storyboard: UIStoryboard?
+    var course: Course?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,6 +31,7 @@ class ResourcesSectionHeaderView: UITableViewHeaderFooterView {
         let addResource = storyboard.instantiateViewController(identifier: "AddResourcesVC") as! AddResourcesVC
         addResource.resource = self.resource
         addResource.mode = .edit
+        addResource.course = self.course
 
         navigationController.pushViewController(addResource, animated: true)
     }
