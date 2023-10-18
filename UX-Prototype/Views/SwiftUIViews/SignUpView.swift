@@ -77,15 +77,8 @@ struct SignUpView: View {
                 
             }
             .navigationTitle("Sign Up")
-            .toolbar {
-                // Add a "Save" button to the top of the navigation bar
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button {
-                        hideKeyboard()
-                    } label: {
-                        Image(systemName: "keyboard.chevron.compact.down.fill")
-                    }
-                }
+            .onTapGesture {
+                    hideKeyboard()
             }
         }
     }

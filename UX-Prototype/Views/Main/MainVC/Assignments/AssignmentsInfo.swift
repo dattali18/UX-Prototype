@@ -111,10 +111,10 @@ extension AssignmentsInfo : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let assignment = self.assignemnts[indexPath.row]
         
-        var swiftUIView = AssignmentView(assignment: assignment)
+        var assignmentView = AssignmentView(with: assignment)
         // implementing the obeserver pattern
-        swiftUIView.delegate = self
-        let hostingController = UIHostingController(rootView: swiftUIView)
+        assignmentView.delegate = self
+        let hostingController = UIHostingController(rootView: assignmentView)
 
         // Present the SwiftUI view
         present(hostingController, animated: true, completion: nil)

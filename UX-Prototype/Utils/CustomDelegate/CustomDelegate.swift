@@ -18,3 +18,7 @@ protocol NavigationViewDelegate: AnyObject {
 protocol UserLoginViewDelegate: AnyObject {
     func Login()
 }
+
+protocol EditSemesterDelegate: AnyObject {
+    func pushEdit(with semester: Semester?)
+}
