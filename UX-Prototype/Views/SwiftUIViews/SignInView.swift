@@ -31,7 +31,6 @@ struct SignInView: View {
                    
                 } footer: {
                     Button {
-                        // FIXME: - Implement delegate
                         loginDelegate?.Login()
                     } label: {
                         HStack
@@ -42,7 +41,6 @@ struct SignInView: View {
                         }
                         .frame(width: 350, height: 30)
                     }
-
                     .buttonStyle(.borderedProminent)
 
                 }

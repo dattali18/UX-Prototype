@@ -41,6 +41,8 @@
 		C68CE3632ADD2E06009411F9 /* COREDATA.md in Resources */ = {isa = PBXBuildFile; fileRef = C68CE3612ADD2E06009411F9 /* COREDATA.md */; };
 		C68CE3642ADD2E06009411F9 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = C68CE3622ADD2E06009411F9 /* README.md */; };
 		C68DF9CD2AB9FE93006B0F70 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C68DF9CB2AB9FE93006B0F70 /* Model.xcdatamodeld */; };
+		C6A1500A2ADFFB3C00115C59 /* CourseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A150092ADFFB3C00115C59 /* CourseView.swift */; };
+		C6A1500C2AE005E000115C59 /* CourseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A1500B2AE005E000115C59 /* CourseViewModel.swift */; };
 		C6AE4BD72AD450FA0037C821 /* LinkTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AE4BD52AD450FA0037C821 /* LinkTVC.swift */; };
 		C6AE4BD82AD450FA0037C821 /* LinkTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6AE4BD62AD450FA0037C821 /* LinkTVC.xib */; };
 		C6BA53852ACD916D00924AD0 /* CourseDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BA53842ACD916D00924AD0 /* CourseDataManager.swift */; };
@@ -107,6 +109,8 @@
 		C68CE3612ADD2E06009411F9 /* COREDATA.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = COREDATA.md; sourceTree = "<group>"; };
 		C68CE3622ADD2E06009411F9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C68DF9CC2AB9FE93006B0F70 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		C6A150092ADFFB3C00115C59 /* CourseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseView.swift; sourceTree = "<group>"; };
+		C6A1500B2AE005E000115C59 /* CourseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseViewModel.swift; sourceTree = "<group>"; };
 		C6AE4BD52AD450FA0037C821 /* LinkTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkTVC.swift; sourceTree = "<group>"; };
 		C6AE4BD62AD450FA0037C821 /* LinkTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LinkTVC.xib; sourceTree = "<group>"; };
 		C6BA53842ACD916D00924AD0 /* CourseDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDataManager.swift; sourceTree = "<group>"; };
@@ -279,6 +283,15 @@
 			path = Extenstions;
 			sourceTree = "<group>";
 		};
+		C6A1500D2AE005E800115C59 /* CourseView */ = {
+			isa = PBXGroup;
+			children = (
+				C6A150092ADFFB3C00115C59 /* CourseView.swift */,
+				C6A1500B2AE005E000115C59 /* CourseViewModel.swift */,
+			);
+			path = CourseView;
+			sourceTree = "<group>";
+		};
 		C6C40F6E2AB2F70700E958C1 = {
 			isa = PBXGroup;
 			children = (
@@ -339,6 +352,7 @@
 				C666DD402ADF175200654065 /* AssignmentView.swift */,
 				C689661A2ADFD75000A289F6 /* SignUpView.swift */,
 				C689661C2ADFE0EC00A289F6 /* SignInView.swift */,
+				C6A1500D2AE005E800115C59 /* CourseView */,
 			);
 			path = SwiftUIViews;
 			sourceTree = "<group>";
@@ -501,6 +515,7 @@
 				C6C40F932AB3034300E958C1 /* CourseNC.swift in Sources */,
 				C68966212ADFF09900A289F6 /* HostingSignUpVC.swift in Sources */,
 				C6C40F9D2AB3047B00E958C1 /* CalendarVC.swift in Sources */,
+				C6A1500A2ADFFB3C00115C59 /* CourseView.swift in Sources */,
 				C6BA53852ACD916D00924AD0 /* CourseDataManager.swift in Sources */,
 				C6214D032ACED68C00E242AC /* NewSemesterVC.swift in Sources */,
 				C6C40F912AB301EA00E958C1 /* MainTabBarVC.swift in Sources */,
@@ -535,6 +550,7 @@
 				C67777112AD305E2009B61BA /* UITouch+extention.swift in Sources */,
 				C60D06EA2ACC767000B1F5BC /* Model.swift in Sources */,
 				C6AE4BD72AD450FA0037C821 /* LinkTVC.swift in Sources */,
+				C6A1500C2AE005E000115C59 /* CourseViewModel.swift in Sources */,
 				C6C40F9F2AB3048900E958C1 /* AssignmentsVC.swift in Sources */,
 				C6F745B12AB8764700780F90 /* AddCourseVC.swift in Sources */,
 			);
