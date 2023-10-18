@@ -95,6 +95,14 @@ extension CourseVC : DisappearingViewDelegate, EditSemesterDelegate {
     
 }
 
+extension CourseVC : DisappearingViewDelegate {
+    func viewWillDisappear() {
+        fetchData()
+    }
+    
+    
+}
+
 // MARK: - Data Fetching
 extension CourseVC {
     func fetchData() {

@@ -25,7 +25,8 @@ class CourseViewModel: ObservableObject {
     init(with course: Course? = nil) {
         // Load your semesters data here, e.g., from Core Data
         self.loadSemesters()
-    
+        
+        
         self.course = course
         
         if(course == nil)
