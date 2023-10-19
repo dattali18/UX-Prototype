@@ -79,6 +79,7 @@ class SemesterViewModel: ObservableObject {
     func showAlert() {
         isShowing = true
     }
+    
     func showDeleteAlert() {
         deleteAlertShowing = true
     }

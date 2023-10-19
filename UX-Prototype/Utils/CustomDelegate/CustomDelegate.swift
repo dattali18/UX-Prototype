@@ -22,3 +22,7 @@ protocol UserLoginViewDelegate: AnyObject {
 protocol EditSemesterDelegate: AnyObject {
     func pushEdit(with semester: Semester?)
 }
+
+protocol EditResourceDelegate: AnyObject {
+    func pushEdit(resource: Resource?, course: Course?)
+}

@@ -19,6 +19,8 @@ class ResourceViewModel: ObservableObject {
     @Published var selectedLink: Int = 0
     
     @Published var showingAlert: Bool = false
+    @Published var deleteAlertShowing: Bool = false
+    @Published var deleteAlertResponse: Bool = false
     
     var resource: Resource?
     var course: Course?
@@ -37,6 +39,9 @@ class ResourceViewModel: ObservableObject {
         }
         
         mode = .edit
+        
+        name = self.resource?.name ?? ""
+        description = self.resource?.descriptions ?? ""
         
         let linksSet = resource?.links ?? NSSet()
         
@@ -110,8 +115,17 @@ class ResourceViewModel: ObservableObject {
         }
     }
     
+    func deleteData() {
+        
+        CoreDataManager.shared.delete(self.resource)
+    }
+    
     func showAlert() {
         showingAlert = true
+    }
+    
+    func showDeleteAlert() {
+        deleteAlertShowing = true
     }
     
     func editLink(with link: Link) {

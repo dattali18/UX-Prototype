@@ -96,11 +96,11 @@ struct AssignmentView: View {
                         self.presentationMode.wrappedValue.dismiss()
                     } label: {
                         HStack {
-                            Image(systemName: "square.and.arrow.down")
+//                            Image(systemName: "square.and.arrow.down")
                             Text("Save")
                         }
                     }
-                    .foregroundColor(.red)
+                    .foregroundColor(.blue)
                 }
             }
         }

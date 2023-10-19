@@ -12,8 +12,8 @@ class CourseSectionHeaderView: UITableViewHeaderFooterView {
     @IBOutlet weak var editButton: UIButton!
     
     var semester: Semester?
-    var navigationController: UINavigationController?
-    var storyboard: UIStoryboard?
+//    var navigationController: UINavigationController?
+//    var storyboard: UIStoryboard?
 
     weak var delegate: EditSemesterDelegate?
     

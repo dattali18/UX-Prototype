@@ -96,6 +96,32 @@ struct ResourceView: View {
                         }
                     }
                 }
+                
+                ToolbarItem(placement: .navigationBarLeading) {
+                    if viewModel.mode == .edit {
+                        Button {
+                            viewModel.showDeleteAlert()
+                        } label: {
+                            HStack {
+//                                Image(systemName: "trash.fill")
+                                Text("Delete")
+                            }
+                        }
+                        .foregroundColor(.red)
+                        .alert(isPresented: $viewModel.deleteAlertShowing) {
+                            Alert(
+                                title: Text("Delete?"),
+                                message: Text("Are you sure you want to delete this semester?"),
+                                primaryButton: .destructive(Text("Delete")) {
+                                    viewModel.deleteData()
+                                    // Dismiss the view
+                                    self.presentationMode.wrappedValue.dismiss()
+                                },
+                                secondaryButton: .cancel(Text("Cancel"))
+                            )
+                        }
+                    }
+                }
             }
         }
         .alert(isPresented: $viewModel.showingAlert) {

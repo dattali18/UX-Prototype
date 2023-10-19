@@ -1,4 +1,5 @@
 import UIKit
+import SwiftUI
 import MessageUI
 
 
@@ -41,14 +42,39 @@ class CourseInfoVC: UIViewController, MFMailComposeViewControllerDelegate {
     }
     
     @objc func addNewResource() {
-      // Implement the logic for adding a new resource to the course
-        let vc = self.storyboard?.instantiateViewController(identifier: "AddResourcesVC") as! AddResourcesVC
+        var resourceView = ResourceView(resource: nil, course: course)
+        resourceView.delegate = self
         
-        if(self.course != nil) {
-            vc.course = self.course
-        }
+        let hostingController = UIHostingController(rootView: resourceView)
+
+        // Present the SwiftUI view
+        present(hostingController, animated: true, completion: nil)
+//      // Implement the logic for adding a new resource to the course
+//        let vc = self.storyboard?.instantiateViewController(identifier: "AddResourcesVC") as! AddResourcesVC
+//        
+//        if(self.course != nil) {
+//            vc.course = self.course
+//        }
+//        
+//        self.navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
+// MARK: - DELEGATE
+extension CourseInfoVC: DisappearingViewDelegate, EditResourceDelegate {
+    func pushEdit(resource: Resource?, course: Course?) {
         
-        self.navigationController?.pushViewController(vc, animated: true)
+        var resourceView = ResourceView(resource: resource, course: course)
+        resourceView.delegate = self
+        
+        let hostingController = UIHostingController(rootView: resourceView)
+
+        // Present the SwiftUI view
+        present(hostingController, animated: true, completion: nil)
+    }
+    
+    func viewWillDisappear() {
+        fetchData()
     }
 }
 
@@ -132,9 +158,7 @@ extension CourseInfoVC: UITableViewDelegate, UITableViewDataSource {
                 
                 headerView.course = self.course
                 headerView.resource = resource
-                
-                headerView.navigationController = self.navigationController
-                headerView.storyboard = self.storyboard
+                headerView.delegate = self
                 
                 return headerView
             } else {
@@ -177,7 +201,7 @@ extension CourseInfoVC: UITableViewDelegate, UITableViewDataSource {
         
         editAction.backgroundColor = .systemBlue
         
-        let swipeActions = UISwipeActionsConfiguration(actions: [deleteAction, editAction])
+        let swipeActions = UISwipeActionsConfiguration(actions: [deleteAction])
 
         return swipeActions
     }
