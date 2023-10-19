@@ -75,6 +75,8 @@
 		C6D8D64D2AD40F85009A1F9F /* ResourcesTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D8D64B2AD40F85009A1F9F /* ResourcesTVC.swift */; };
 		C6D8D64E2AD40F85009A1F9F /* ResourcesTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6D8D64C2AD40F85009A1F9F /* ResourcesTVC.xib */; };
 		C6D8D6522AD42575009A1F9F /* AddResourcesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D8D6512AD42575009A1F9F /* AddResourcesVC.swift */; };
+		C6DDF4AC2AE168B000A47EB7 /* CalendarKit in Frameworks */ = {isa = PBXBuildFile; productRef = C6DDF4AB2AE168B000A47EB7 /* CalendarKit */; };
+		C6DDF4AE2AE16A9D00A47EB7 /* EKWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DDF4AD2AE16A9D00A47EB7 /* EKWrapper.swift */; };
 		C6E8E0AF2AD5CBAE00FA56E9 /* ResourcesSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E8E0AE2AD5CBAE00FA56E9 /* ResourcesSectionHeaderView.swift */; };
 		C6E8E0B12AD5CC9F00FA56E9 /* ResourcesSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6E8E0B02AD5CC9F00FA56E9 /* ResourcesSectionHeaderView.xib */; };
 		C6F745B12AB8764700780F90 /* AddCourseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F745B02AB8764700780F90 /* AddCourseVC.swift */; };
@@ -151,6 +153,7 @@
 		C6D8D64B2AD40F85009A1F9F /* ResourcesTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourcesTVC.swift; sourceTree = "<group>"; };
 		C6D8D64C2AD40F85009A1F9F /* ResourcesTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResourcesTVC.xib; sourceTree = "<group>"; };
 		C6D8D6512AD42575009A1F9F /* AddResourcesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddResourcesVC.swift; sourceTree = "<group>"; };
+		C6DDF4AD2AE16A9D00A47EB7 /* EKWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EKWrapper.swift; sourceTree = "<group>"; };
 		C6E8E0AE2AD5CBAE00FA56E9 /* ResourcesSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourcesSectionHeaderView.swift; sourceTree = "<group>"; };
 		C6E8E0B02AD5CC9F00FA56E9 /* ResourcesSectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResourcesSectionHeaderView.xib; sourceTree = "<group>"; };
 		C6F745B02AB8764700780F90 /* AddCourseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCourseVC.swift; sourceTree = "<group>"; };
@@ -161,6 +164,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6DDF4AC2AE168B000A47EB7 /* CalendarKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,6 +244,7 @@
 			isa = PBXGroup;
 			children = (
 				C6C40F9C2AB3047B00E958C1 /* CalendarVC.swift */,
+				C6DDF4AD2AE16A9D00A47EB7 /* EKWrapper.swift */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -402,11 +407,27 @@
 			path = Authentication;
 			sourceTree = "<group>";
 		};
-		C6E146842AD7E5FD00DEE83B /* SwiftUIViews */ = {
+		C6DDF4A82AE166FB00A47EB7 /* SignInView */ = {
+			isa = PBXGroup;
+			children = (
+				C689661C2ADFE0EC00A289F6 /* SignInView.swift */,
+			);
+			path = SignInView;
+			sourceTree = "<group>";
+		};
+		C6DDF4A92AE1670900A47EB7 /* SingUpView */ = {
 			isa = PBXGroup;
 			children = (
 				C689661A2ADFD75000A289F6 /* SignUpView.swift */,
-				C689661C2ADFE0EC00A289F6 /* SignInView.swift */,
+			);
+			path = SingUpView;
+			sourceTree = "<group>";
+		};
+		C6E146842AD7E5FD00DEE83B /* SwiftUIViews */ = {
+			isa = PBXGroup;
+			children = (
+				C6DDF4A92AE1670900A47EB7 /* SingUpView */,
+				C6DDF4A82AE166FB00A47EB7 /* SignInView */,
 				C6A150102AE026D400115C59 /* AssignmentView */,
 				C6A1500D2AE005E800115C59 /* CourseView */,
 				C6A150152AE02A4300115C59 /* SemesterView */,
@@ -494,6 +515,9 @@
 			dependencies = (
 			);
 			name = "UX-Prototype";
+			packageProductDependencies = (
+				C6DDF4AB2AE168B000A47EB7 /* CalendarKit */,
+			);
 			productName = "UX-Prototype";
 			productReference = C6C40F772AB2F70700E958C1 /* UX-Prototype.app */;
 			productType = "com.apple.product-type.application";
@@ -522,6 +546,9 @@
 				Base,
 			);
 			mainGroup = C6C40F6E2AB2F70700E958C1;
+			packageReferences = (
+				C6DDF4AA2AE168B000A47EB7 /* XCRemoteSwiftPackageReference "CalendarKit" */,
+			);
 			productRefGroup = C6C40F782AB2F70700E958C1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -569,6 +596,7 @@
 				C6A150142AE02A3B00115C59 /* SemesterView.swift in Sources */,
 				C64591502ADC4F9D009163F1 /* Assignments.swift in Sources */,
 				C6C40F8F2AB2F81500E958C1 /* SignUpVC.swift in Sources */,
+				C6DDF4AE2AE16A9D00A47EB7 /* EKWrapper.swift in Sources */,
 				C6D8D6522AD42575009A1F9F /* AddResourcesVC.swift in Sources */,
 				C68125212AD00A6A008DE83E /* EditSemesterVC.swift in Sources */,
 				C6C40F932AB3034300E958C1 /* CourseNC.swift in Sources */,
@@ -770,6 +798,7 @@
 				INFOPLIST_FILE = "UX-Prototype/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = TaskManager;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
+				INFOPLIST_KEY_NSCalendarsUsageDescription = "please let me use it.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -802,6 +831,7 @@
 				INFOPLIST_FILE = "UX-Prototype/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = TaskManager;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
+				INFOPLIST_KEY_NSCalendarsUsageDescription = "please let me use it.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -844,6 +874,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C6DDF4AA2AE168B000A47EB7 /* XCRemoteSwiftPackageReference "CalendarKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/richardtop/CalendarKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.9;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C6DDF4AB2AE168B000A47EB7 /* CalendarKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C6DDF4AA2AE168B000A47EB7 /* XCRemoteSwiftPackageReference "CalendarKit" */;
+			productName = CalendarKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		C68DF9CB2AB9FE93006B0F70 /* Model.xcdatamodeld */ = {
