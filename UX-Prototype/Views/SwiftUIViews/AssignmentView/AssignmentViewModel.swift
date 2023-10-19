@@ -40,6 +40,11 @@ class AssignmentViewModel: ObservableObject {
             dueDate = assignment!.due ?? Date.now
             dateTime = assignment!.due != nil
             selectedType = types.firstIndex(where: { $0 == assignment!.type ?? "Homework" }) ?? 0
+            
+            if(semesters.isEmpty || courses.isEmpty) {
+                return
+            }
+            
             selectedSemester = semesters.firstIndex(where: {$0 == assignment!.course?.semester}) ?? 0
             selectedCourse = courses[selectedSemester].firstIndex(where: {$0 == assignment!.course}) ?? 0
         }

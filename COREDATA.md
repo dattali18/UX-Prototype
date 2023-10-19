@@ -46,7 +46,7 @@ class Semester {
   + end: Date?
   + id: UUID
   + start: Date?
-  + str: String?
+  + name: String?
   + type: String?
   + courses: [Course]
 }

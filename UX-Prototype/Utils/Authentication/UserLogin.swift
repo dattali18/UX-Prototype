@@ -15,7 +15,8 @@ class UserLogin {
     public var user: User? = nil // Change this to a property
     
     func loggedIn() -> Bool {
-        return self.user != nil
+        return true
+//        return self.user != nil
     }
     
     func signUp(Name name: String,Email email: String,Password password: String) {

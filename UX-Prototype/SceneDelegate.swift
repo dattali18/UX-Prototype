@@ -34,7 +34,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             } else {
 
                 // user not logged in, take to LoginNavigationController
-                let authNC = storyboard.instantiateViewController(identifier: "AuthNC") as!AuthNC
+                let authNC = storyboard.instantiateViewController(identifier: "AuthNC") as! AuthNC
+                
+//                let hostingController = UIHostingController(rootView: ResourceView())
                 
                 window?.rootViewController = authNC
                 window?.makeKeyAndVisible()

@@ -132,6 +132,7 @@ extension CourseInfoVC: UITableViewDelegate, UITableViewDataSource {
                 
                 headerView.course = self.course
                 headerView.resource = resource
+                
                 headerView.navigationController = self.navigationController
                 headerView.storyboard = self.storyboard
                 

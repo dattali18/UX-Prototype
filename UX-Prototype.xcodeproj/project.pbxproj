@@ -19,6 +19,8 @@
 		C6214CFF2ACEA33900E242AC /* CourseInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6214CFE2ACEA33900E242AC /* CourseInfoVC.swift */; };
 		C6214D012ACEA9FB00E242AC /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6214D002ACEA9FB00E242AC /* CoreDataManager.swift */; };
 		C6214D032ACED68C00E242AC /* NewSemesterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6214D022ACED68C00E242AC /* NewSemesterVC.swift */; };
+		C62D98F22AE05511008E61A8 /* ResourceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62D98F12AE05511008E61A8 /* ResourceView.swift */; };
+		C62D98F52AE0552F008E61A8 /* ResourceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62D98F42AE0552F008E61A8 /* ResourceViewModel.swift */; };
 		C63BF2D22AD813DB00ED750A /* AssignmentEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63BF2D12AD813DA00ED750A /* AssignmentEnum.swift */; };
 		C64591482ADBDD8C009163F1 /* AssignmentsListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64591462ADBDD8C009163F1 /* AssignmentsListTVC.swift */; };
 		C64591492ADBDD8C009163F1 /* AssignmentsListTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C64591472ADBDD8C009163F1 /* AssignmentsListTVC.xib */; };
@@ -91,6 +93,8 @@
 		C6214CFE2ACEA33900E242AC /* CourseInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseInfoVC.swift; sourceTree = "<group>"; };
 		C6214D002ACEA9FB00E242AC /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		C6214D022ACED68C00E242AC /* NewSemesterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSemesterVC.swift; sourceTree = "<group>"; };
+		C62D98F12AE05511008E61A8 /* ResourceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceView.swift; sourceTree = "<group>"; };
+		C62D98F42AE0552F008E61A8 /* ResourceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceViewModel.swift; sourceTree = "<group>"; };
 		C63BF2D12AD813DA00ED750A /* AssignmentEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentEnum.swift; sourceTree = "<group>"; };
 		C64591462ADBDD8C009163F1 /* AssignmentsListTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentsListTVC.swift; sourceTree = "<group>"; };
 		C64591472ADBDD8C009163F1 /* AssignmentsListTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AssignmentsListTVC.xib; sourceTree = "<group>"; };
@@ -210,6 +214,15 @@
 				C65552512ACD5BE4006019DE /* EditCourseVC.swift */,
 			);
 			path = Depraceted;
+			sourceTree = "<group>";
+		};
+		C62D98F32AE05517008E61A8 /* ResourceView */ = {
+			isa = PBXGroup;
+			children = (
+				C62D98F12AE05511008E61A8 /* ResourceView.swift */,
+				C62D98F42AE0552F008E61A8 /* ResourceViewModel.swift */,
+			);
+			path = ResourceView;
 			sourceTree = "<group>";
 		};
 		C63432F12AD687D900775A7B /* Course */ = {
@@ -397,6 +410,7 @@
 				C6A150102AE026D400115C59 /* AssignmentView */,
 				C6A1500D2AE005E800115C59 /* CourseView */,
 				C6A150152AE02A4300115C59 /* SemesterView */,
+				C62D98F32AE05517008E61A8 /* ResourceView */,
 			);
 			path = SwiftUIViews;
 			sourceTree = "<group>";
@@ -560,6 +574,7 @@
 				C6C40F932AB3034300E958C1 /* CourseNC.swift in Sources */,
 				C68966212ADFF09900A289F6 /* HostingSignUpVC.swift in Sources */,
 				C6C40F9D2AB3047B00E958C1 /* CalendarVC.swift in Sources */,
+				C62D98F52AE0552F008E61A8 /* ResourceViewModel.swift in Sources */,
 				C6A1500A2ADFFB3C00115C59 /* CourseView.swift in Sources */,
 				C6BA53852ACD916D00924AD0 /* CourseDataManager.swift in Sources */,
 				C6214D032ACED68C00E242AC /* NewSemesterVC.swift in Sources */,
@@ -588,6 +603,7 @@
 				C6C40FA62AB33B3A00E958C1 /* CourseTVC.swift in Sources */,
 				C6214D012ACEA9FB00E242AC /* CoreDataManager.swift in Sources */,
 				C6A150172AE02AD200115C59 /* SemesterViewModel.swift in Sources */,
+				C62D98F22AE05511008E61A8 /* ResourceView.swift in Sources */,
 				C64BC8ED2ADED243001CD692 /* CustomDelegate.swift in Sources */,
 				C666DD412ADF175200654065 /* AssignmentView.swift in Sources */,
 				C6C40F952AB3036200E958C1 /* CalendarNC.swift in Sources */,
