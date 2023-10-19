@@ -8,7 +8,7 @@
 import UIKit
 
 class RemindersVC: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -17,5 +17,9 @@ class RemindersVC: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         
         view.backgroundColor = .secondarySystemBackground
+        
+        
     }
 }
+
+

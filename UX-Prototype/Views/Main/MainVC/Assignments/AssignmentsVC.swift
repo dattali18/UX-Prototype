@@ -8,8 +8,14 @@
 import UIKit
 import SwiftUI
 
+import EventKit
+import CalendarKit
+import EventKitUI
+
 class AssignmentsVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
+    
+    var eventStore = EKEventStore()
     
     var assignments: [Assignment] = []
     var courses: [Course] = []
@@ -138,13 +144,25 @@ extension AssignmentsVC : UITableViewDelegate, UITableViewDataSource {
 }
 
 // MARK: - Diasaprearing View Delegate
-extension AssignmentsVC: DisappearingViewDelegate {
-    func viewWillDisappear() {
-            // This function will be called from the SwiftUI view
-            // when it is about to disappear
-            // You can perform actions here
-            fetchData()
+extension AssignmentsVC: DisappearingAssignmentViewDelegate {
+    func viewWillDisappear(assignment: Assignment?, open: Bool) {
+        fetchData()
+        print("hi")
+        
+        if(assignment == nil){
+            return
         }
+        
+        print("hello")
+        
+        if(open) {
+            let date = assignment?.due ?? Date()
+            let title = assignment?.name ?? ""
+            
+            let event = createNewEvent(at: date, title: title)
+            presentEditingViewForEvent(event.ekEvent)
+        }
+    }
 }
 // MARK: - Data Fetching
 extension AssignmentsVC {
@@ -265,4 +283,66 @@ extension AssignmentsVC {
             }
         }
     }
+}
+
+extension AssignmentsVC : EKEventEditViewDelegate {
+    private func createNewEvent(at date: Date, title: String) -> EKWrapper {
+        let newEKEvent = EKEvent(eventStore: eventStore)
+        
+        newEKEvent.calendar = eventStore.defaultCalendarForNewEvents
+        
+        var components = DateComponents()
+        components.hour = 1
+        
+        let calendar = Calendar.current
+        
+        let endDate = calendar.date(byAdding: components, to: date)
+        
+        newEKEvent.startDate = date
+        newEKEvent.endDate = endDate
+        newEKEvent.title = title
+
+        let newEKWrapper = EKWrapper(eventKitEvent: newEKEvent)
+        newEKWrapper.editedEvent = newEKWrapper
+        return newEKWrapper
+    }
+    
+    private func presentEditingViewForEvent(_ ekEvent: EKEvent) {
+        let eventEditViewController = EKEventEditViewController()
+        eventEditViewController.event = ekEvent
+        eventEditViewController.eventStore = eventStore
+        eventEditViewController.editViewDelegate = self
+        present(eventEditViewController, animated: true, completion: nil)
+    }
+    
+    private func presentDetailViewForEvent(_ ekEvent: EKEvent) {
+        let eventController = EKEventViewController()
+        eventController.event = ekEvent
+        eventController.allowsCalendarPreview = true
+        eventController.allowsEditing = true
+        navigationController?.pushViewController(eventController,
+                                                 animated: true)
+    }
+
+    
+    private func requestAccessToCalendar() {
+        // Request access to the events
+        eventStore.requestAccess(to: .event) { [weak self] granted, error in
+            // Handle the response to the request.
+            DispatchQueue.main.async {
+                guard let self else { return }
+                self.initializeStore()
+            }
+        }
+    }
+    
+    private func initializeStore() {
+        eventStore = EKEventStore()
+    }
+    
+    @objc(eventEditViewController:didCompleteWithAction:)
+    func eventEditViewController(_ controller: EKEventEditViewController, didCompleteWith action: EKEventEditViewAction) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
 }

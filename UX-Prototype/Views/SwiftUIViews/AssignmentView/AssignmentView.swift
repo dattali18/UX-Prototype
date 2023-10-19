@@ -1,14 +1,14 @@
-///
-///  SwiftUICustomView.swift
-///  UX-Prototype
-///
-///  Created by Daniel Attali on 10/16/23.
-///
+//
+//  SwiftUICustomView.swift
+//  UX-Prototype
+//
+//  Created by Daniel Attali on 10/16/23.
+//
 
 import SwiftUI
 
 struct AssignmentView: View {
-    weak var delegate: DisappearingViewDelegate?
+    weak var delegate: DisappearingAssignmentViewDelegate?
     
     @Environment(\.presentationMode) var presentationMode
     
@@ -78,22 +78,41 @@ struct AssignmentView: View {
                         }
                     }
                 }
+                
+                Section {
+                    
+                    Toggle(isOn: $viewModel.createEvent, label: {
+                        HStack {
+                            Image(systemName: "calendar.circle.fill")
+                                .foregroundColor(.green)
+                                .font(.largeTitle)
+                            Text("Create Event")
+                        }
+                        
+                    })
+                           
+               } header : {
+                   Text("Events")
+               } footer : {
+                   Text("If you want to crate a calendar event.")
+               }
             }
             .navigationTitle("Assignment")
             .onAppear {
                 viewModel.fetchSemestersAndCourses()
                 viewModel.editMode()
             }
-            .onDisappear {
-                self.delegate?.viewWillDisappear()
-            }
             .toolbar {
                 // Add a "Save" button to the top of the navigation bar
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button{
-                        viewModel.saveReminder()
-                        // Dismiss the view
-                        self.presentationMode.wrappedValue.dismiss()
+                        if(viewModel.validateInput())
+                        {
+                            let assignment: Assignment? = viewModel.saveReminder()
+                            // Dismiss the view
+                            self.presentationMode.wrappedValue.dismiss()
+                            self.delegate?.viewWillDisappear(assignment: assignment, open: viewModel.createEvent)
+                        }
                     } label: {
                         HStack {
 //                            Image(systemName: "square.and.arrow.down")

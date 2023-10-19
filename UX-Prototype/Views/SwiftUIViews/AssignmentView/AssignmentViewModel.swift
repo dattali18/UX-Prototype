@@ -16,6 +16,7 @@ class AssignmentViewModel: ObservableObject {
     @Published var dueDate: Date = Date.now
     @Published var dateTime: Bool = false
     
+    
     @Published var selectedSemester: Int = 0
     @Published var selectedCourse: Int = 0
     @Published var selectedType: Int = 0
@@ -23,6 +24,8 @@ class AssignmentViewModel: ObservableObject {
     @Published var semesters: [Semester] = []
     @Published var courses: [[Course]] = []
     @Published var types: [String] = ["Homework", "Midterm", "Final", "Others"]
+    
+    @Published var createEvent: Bool = false
     
     var assignment: Assignment?
     
@@ -50,44 +53,33 @@ class AssignmentViewModel: ObservableObject {
         }
     }
     
-    func saveReminder() {
-        if title.isEmpty {
-            return
-        }
-
+    func validateInput() -> Bool{
+        return title != ""
+    }
+    
+    func saveReminder() -> Assignment? {
         let managedObjectContext = CoreDataStack.shared.managedObjectContext
         
-        if let assignment = assignment {
-            // Update the existing assignment
-            assignment.name = title
-            assignment.descriptions = notes
-            assignment.due = dateTime ? dueDate : nil
-            assignment.url = url
-            assignment.type = types[selectedType]
-            assignment.course = self.courses[selectedSemester][selectedCourse]
+        if(assignment == nil) {
             
-        } else {
-            // Create a new assignment
-            let assignment = Assignment(context: managedObjectContext)
-            assignment.name = title
-            assignment.descriptions = notes
-            assignment.due = dateTime ? dueDate : nil
-            assignment.type = types[selectedType]
-            assignment.course = self.courses[selectedSemester][selectedCourse]
-            
-            // Add the assignment to the course
-            let course = self.courses[selectedSemester][selectedCourse]
-            course.addToAssignments(assignment)
-            
-            // Insert the assignment into the context
-            managedObjectContext.insert(assignment)
+            assignment = Assignment(context: managedObjectContext)
         }
         
+        assignment?.name = title
+        assignment?.descriptions = notes
+        assignment?.due = dateTime ? dueDate : nil
+        assignment?.url = url
+        assignment?.type = types[selectedType]
+        assignment?.course = self.courses[selectedSemester][selectedCourse]
+        
+
         do {
             try managedObjectContext.save()
+            return assignment
             
         } catch {
             print("Error creating/updating entity: \(error)")
+            return nil
         }
     }
     

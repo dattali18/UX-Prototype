@@ -6,13 +6,15 @@
 //
 
 import UIKit
+
 import CalendarKit
+
 import EventKit
 import EventKitUI
 
 
 
-class CalendarVC: DayViewController{
+class CalendarVC: DayViewController {
     private var eventStore = EKEventStore()
     
     override func viewDidLoad() {
@@ -169,18 +171,17 @@ class CalendarVC: DayViewController{
     }
     
     override func dayViewDidBeginDragging(dayView: DayView) {
-            endEventEditing()
-        }
+        endEventEditing()
+    }
         
-        // MARK: - EKEventEditViewDelegate
-        
-    @objc(eventEditViewController:didCompleteWithAction:) func eventEditViewController(_ controller: EKEventEditViewController, didCompleteWith action: EKEventEditViewAction) {
-            endEventEditing()
-            reloadData()
-            controller.dismiss(animated: true, completion: nil)
-        }
 }
 
 extension CalendarVC: EKEventEditViewDelegate{
+    // MARK: - EKEventEditViewDelegate
     
+    @objc(eventEditViewController:didCompleteWithAction:)
+    func eventEditViewController(_ controller: EKEventEditViewController, didCompleteWith action: EKEventEditViewAction) {
+        endEventEditing()
+        controller.dismiss(animated: true, completion: nil)
+    }
 }

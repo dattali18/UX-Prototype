@@ -11,6 +11,10 @@ protocol DisappearingViewDelegate: AnyObject {
     func viewWillDisappear()
 }
 
+protocol DisappearingAssignmentViewDelegate: AnyObject {
+    func viewWillDisappear(assignment: Assignment?, open: Bool)
+}
+
 protocol NavigationViewDelegate: AnyObject {
     func navigate()
 }
