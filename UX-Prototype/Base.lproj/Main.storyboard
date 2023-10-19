@@ -286,13 +286,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Juv-Uq-2d3">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="umV-hm-Xdf">
                                 <rect key="frame" x="0.0" y="91" width="390" height="719"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="customViewCellTableViewCell" id="WO7-Yr-iQ7">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="CourseTVC" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="customViewCellTableViewCell" id="l29-FL-tAi">
                                         <rect key="frame" x="20" y="55.333332061767578" width="350" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WO7-Yr-iQ7" id="vte-VP-blu">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="l29-FL-tAi" id="I0L-xg-xv6">
                                             <rect key="frame" x="0.0" y="0.0" width="350" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
@@ -303,15 +303,15 @@
                         <viewLayoutGuide key="safeArea" id="oiK-mV-hSB"/>
                         <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Juv-Uq-2d3" firstAttribute="trailing" secondItem="oiK-mV-hSB" secondAttribute="trailing" id="2CF-5a-Axp"/>
-                            <constraint firstItem="oiK-mV-hSB" firstAttribute="bottom" secondItem="Juv-Uq-2d3" secondAttribute="bottom" id="bYK-Sq-OPz"/>
-                            <constraint firstItem="Juv-Uq-2d3" firstAttribute="leading" secondItem="oiK-mV-hSB" secondAttribute="leading" id="gXI-ZW-loV"/>
-                            <constraint firstItem="Juv-Uq-2d3" firstAttribute="top" secondItem="oiK-mV-hSB" secondAttribute="top" id="jVV-km-ci4"/>
+                            <constraint firstItem="umV-hm-Xdf" firstAttribute="top" secondItem="oiK-mV-hSB" secondAttribute="top" id="NrV-Ko-wkv"/>
+                            <constraint firstItem="oiK-mV-hSB" firstAttribute="bottom" secondItem="umV-hm-Xdf" secondAttribute="bottom" id="av9-Yz-Y4n"/>
+                            <constraint firstItem="umV-hm-Xdf" firstAttribute="leading" secondItem="oiK-mV-hSB" secondAttribute="leading" id="t0C-WA-Dtw"/>
+                            <constraint firstItem="umV-hm-Xdf" firstAttribute="trailing" secondItem="oiK-mV-hSB" secondAttribute="trailing" id="w4M-r1-2Wr"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="KaC-FM-Gx4"/>
                     <connections>
-                        <outlet property="tableView" destination="Juv-Uq-2d3" id="Dn5-23-dYa"/>
+                        <outlet property="tableView" destination="umV-hm-Xdf" id="YVm-WF-hH0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aVp-n8-yIk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1098,10 +1098,10 @@
     <resources>
         <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="secondaryLabelColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="secondarySystemBackgroundColor">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

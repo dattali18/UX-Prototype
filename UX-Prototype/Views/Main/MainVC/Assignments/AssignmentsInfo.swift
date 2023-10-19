@@ -13,7 +13,7 @@ class AssignmentsInfo: UIViewController {
         
     var assignemnts: [Assignment] = []
     var course: Course?
-    var type: String?
+    var type: String = "Assignment"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +29,11 @@ class AssignmentsInfo: UIViewController {
         }
         
         fetchData()
+        
+        if(self.assignemnts.isEmpty == false)
+        {
+            type = self.assignemnts[0].type ?? type
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -67,7 +72,7 @@ extension AssignmentsInfo : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Assignments"
+        return type
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

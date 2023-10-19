@@ -15,6 +15,8 @@ class CourseVC: UIViewController {
     var semesters: [Semester] = []
     var coursesBySemesters: [[Course]] = []
     
+    var options: [String] = []
+    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -23,6 +25,8 @@ class CourseVC: UIViewController {
         let nib = UINib(nibName: "CourseTVC", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "CourseTVC")
         
+        tableView.register(UINib(nibName: "CourseSectionHeaderView", bundle: nil), forHeaderFooterViewReuseIdentifier: "HeaderView")
+        
         tableView.delegate = self
         tableView.dataSource = self
 
@@ -30,34 +34,14 @@ class CourseVC: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         
         view.backgroundColor = .secondarySystemBackground
-        
-        tableView.register(UINib(nibName: "CourseSectionHeaderView", bundle: nil), forHeaderFooterViewReuseIdentifier: "HeaderView")
 
-        //
-        //        let addSemester = UIBarButtonItem(title: "Add Semester", style: .plain, target: self, action: #selector(addSemester))
-        //
-        //        navigationItem.rightBarButtonItem = addSemester
-        //        navigationItem.leftBarButtonItem = addCourse
+        fetchData()
         
-        let addCourseAction = UIAction(title: "Course", image: UIImage(systemName: "plus")) { _ in
-            // Handle the "Course" action (e.g., add a new course)
-            self.addCourse()
-        }
-        
-        
-        let addSemesterAction = UIAction(title: "Semester", image: UIImage(systemName: "plus")) { _ in
-            // Handle the "Semester" action (e.g., add a new semester)
-            self.addSemester()
-        }
-        
-        let menu = UIMenu(children: [addCourseAction, addSemesterAction])
-        
-        
-        let addButton = UIBarButtonItem(image: UIImage(systemName: "plus"), menu: menu)
+        let addButton = UIBarButtonItem(image: UIImage(systemName: "plus"), menu: createAddMenu())
         navigationItem.rightBarButtonItem = addButton
         
-        
-        fetchData()
+        let sortButton = UIBarButtonItem(image: UIImage(systemName: "slider.vertical.3"), menu: createOptionMenu())
+        navigationItem.leftBarButtonItem = sortButton
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -67,8 +51,45 @@ class CourseVC: UIViewController {
         
         fetchData()
     }
+}
+
+// MARK: - Component Init
+extension CourseVC {
+    func createAddMenu() -> UIMenu {
+        let addCourseAction = UIAction(title: "Course", image: UIImage(systemName: "plus")) { _ in
+            // Handle the "Course" action (e.g., add a new course)
+            self.addCourse()
+        }
+        
+        let addSemesterAction = UIAction(title: "Semester", image: UIImage(systemName: "plus")) { _ in
+            // Handle the "Semester" action (e.g., add a new semester)
+            self.addSemester()
+        }
+        
+        return UIMenu(children: [addCourseAction, addSemesterAction])
+    }
     
-    
+    func createOptionMenu() -> UIMenu {
+        initOption()
+        
+        var actions: [UIAction] = []
+        
+        for option in options
+        {
+            let action = UIAction(title: option) { _ in
+                // Handle the "Course" action (e.g., add a new course)
+                self.sortBy(option: option)
+            }
+            
+            actions.append(action)
+        }
+        
+        return UIMenu(children: actions)
+    }
+}
+
+// MARK: - Actions
+extension CourseVC {
     @objc func addCourse() {
         var courseView = CourseView()
         courseView.delegate = self
@@ -76,9 +97,6 @@ class CourseVC: UIViewController {
 
         // Present the SwiftUI view
         present(hostingController, animated: true, completion: nil)
-        
-//        let vc = storyboard?.instantiateViewController(withIdentifier: "AddCourseVC") as! AddCourseVC
-//        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func addSemester() {
@@ -88,9 +106,14 @@ class CourseVC: UIViewController {
 
         // Present the SwiftUI view
         present(hostingController, animated: true, completion: nil)
-        
-//        let vc = storyboard?.instantiateViewController(withIdentifier: "NewSemesterVC") as! NewSemesterVC
-//        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc func sortBy(option : String) {
+        if(option == "All") {
+            fetchData()
+        } else {
+            fetchSemester(semester: option)
+        }
     }
 }
 
@@ -110,7 +133,6 @@ extension CourseVC : DisappearingViewDelegate, EditSemesterDelegate {
         fetchData()
     }
     
-    
 }
 
 // MARK: - Data Fetching
@@ -123,9 +145,33 @@ extension CourseVC {
         tableView.reloadData()
     }
     
+    func fetchSemester(semester: String) {
+        let semester = CoreDataManager.shared.fetch(entity: Semester.self, with: ["name": semester as Any])?.first
+        
+        if(semester == nil){
+            return
+        }
+        
+        let all_courses = CoreDataManager.shared.fetch(entity: Course.self) ?? []
+        var courses = all_courses.filter { $0.semester == semester }
+        courses.sort {$0.name ?? "" > $1.name ?? ""}
+        
+        self.courses = courses
+        self.semesters = [semester!]
+        self.coursesBySemesters = [courses]
+        
+        tableView.reloadData()
+    }
+    
+    func initOption() {
+        self.options = self.semesters.map { return $0.name ?? "" }
+        self.options.append("All")
+    }
+    
     private func fetchCourses() {
         courses = []
         courses = CoreDataManager.shared.fetch(entity: Course.self) ?? []
+        courses.sort {$0.name ?? "" > $1.name ?? ""}
        }
 
     private func fetchSemesters() {
