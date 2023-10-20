@@ -16,6 +16,7 @@ class CourseVC: UIViewController {
     var coursesBySemesters: [[Course]] = []
     
     var options: [String] = []
+    var selectedOption: String = "All"
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -34,8 +35,11 @@ class CourseVC: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         
         view.backgroundColor = .secondarySystemBackground
+        
+        let defualt = UserDefaults.standard
+        self.selectedOption = defualt.string(forKey: "SemesterSort")  ?? "All"
 
-        fetchData()
+        fetchData(option: self.selectedOption)
         
         let addButton = UIBarButtonItem(image: UIImage(systemName: "plus"), menu: createAddMenu())
         navigationItem.rightBarButtonItem = addButton
@@ -49,7 +53,15 @@ class CourseVC: UIViewController {
         
         navigationController?.navigationBar.prefersLargeTitles = true
         
-        fetchData()
+        fetchData(option: self.selectedOption)
+        
+        let sortButton = UIBarButtonItem(image: UIImage(systemName: "slider.vertical.3"), menu: createOptionMenu())
+        navigationItem.leftBarButtonItem = sortButton
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        let defualt = UserDefaults.standard
+        defualt.set(self.selectedOption, forKey: "SemesterSort")
     }
 }
 
@@ -70,15 +82,13 @@ extension CourseVC {
     }
     
     func createOptionMenu() -> UIMenu {
-        initOption()
-        
         var actions: [UIAction] = []
         
         for option in options
         {
             let action = UIAction(title: option) { _ in
                 // Handle the "Course" action (e.g., add a new course)
-                self.sortBy(option: option)
+                self.fetchData(option: option)
             }
             
             actions.append(action)
@@ -108,13 +118,10 @@ extension CourseVC {
         present(hostingController, animated: true, completion: nil)
     }
     
-    @objc func sortBy(option : String) {
-        if(option == "All") {
-            fetchData()
-        } else {
-            fetchSemester(semester: option)
-        }
-    }
+//    @objc func sortBy(option : String) {
+//        self.selectedOption = option
+//        fetchData(option: self.selectedOption)
+//    }
 }
 
 // MARK: - Delegate
@@ -130,17 +137,33 @@ extension CourseVC : DisappearingViewDelegate, EditSemesterDelegate {
     }
     
     func viewWillDisappear() {
-        fetchData()
+        fetchData(option: self.selectedOption)
+        let sortButton = UIBarButtonItem(image: UIImage(systemName: "slider.vertical.3"), menu: createOptionMenu())
+        navigationItem.leftBarButtonItem = sortButton
     }
     
 }
 
 // MARK: - Data Fetching
 extension CourseVC {
-    func fetchData() {
-        fetchCourses()
+    func fetchData(option: String) {
         fetchSemesters()
-        fetchCoursesBySemester()
+        initOption()
+        
+        
+        if(self.options.contains(option)) {
+            self.selectedOption = option
+        } else {
+            self.selectedOption = "All"
+        }
+        
+        if(self.selectedOption == "All") {
+            
+            fetchCourses()
+            fetchCoursesBySemester()
+        } else {
+            fetchSemester(semester: self.selectedOption)
+        }
         
         tableView.reloadData()
     }
@@ -165,7 +188,7 @@ extension CourseVC {
     
     func initOption() {
         self.options = self.semesters.map { return $0.name ?? "" }
-        self.options.append("All")
+        self.options.insert("All", at: 0)
     }
     
     private func fetchCourses() {

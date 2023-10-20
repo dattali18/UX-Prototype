@@ -26,6 +26,8 @@ struct CourseView: View {
                     TextField("Course Name", text: $viewModel.name)
                     TextField("Course Number", value: $viewModel.number, format: .number)
                         .keyboardType(.numberPad)
+//                    TextField("Course Number", value: $viewModel.number, formatter: viewModel.formatter())
+                        .keyboardType(.numberPad)
                     
                     TextField("Course Credits", value: $viewModel.credits, format: .number)
                         .keyboardType(.decimalPad) 
@@ -56,32 +58,20 @@ struct CourseView: View {
                 } header : {
                     Text("Connect To Semester")
                 }
-                
-                Section {
-                    
-                } footer : {
-                    Button {
+            }
+            .navigationTitle("New Course")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("Save") {
                         if(viewModel.validateInpute()) {
                             let _ = viewModel.saveCourse()
                             self.presentationMode.wrappedValue.dismiss()
                         } else {
                             viewModel.showingAlert()
                         }
-                       
-                    } label: {
-                        HStack
-                        {
-                            Spacer()
-                            Text("Save")
-                            Spacer()
-                        }
-                        .frame(width: 350, height: 30)
                     }
-                    .buttonStyle(.borderedProminent)
                 }
-                
             }
-            .navigationTitle("New Course")
             .alert(isPresented: $viewModel.showAlert) {
                 Alert(
                     title: Text("Invalid Input"),

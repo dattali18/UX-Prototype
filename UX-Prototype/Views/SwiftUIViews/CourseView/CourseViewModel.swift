@@ -18,6 +18,12 @@ class CourseViewModel: ObservableObject {
     
     @Published var showAlert: Bool = false
     
+    var formatter = {
+        let f = NumberFormatter()
+        f.numberStyle = .none
+        return f
+    }
+    
     var course: Course?
     var mode: Mode = .add
     

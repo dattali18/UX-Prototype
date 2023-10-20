@@ -36,28 +36,28 @@ struct SemesterView: View {
                     
                 }
                 
-                Section {
-                    
-                } footer: {
-                    Button {
-                        if(viewModel.validateInput()) {
-                            let _ = viewModel.saveSemester()
-                            self.presentationMode.wrappedValue.dismiss()
-                        } else {
-                            viewModel.showAlert()
-                        }
-                       
-                    } label: {
-                        HStack
-                        {
-                            Spacer()
-                            Text("Save")
-                            Spacer()
-                        }
-                        .frame(width: 350, height: 30)
-                    }
-                    .buttonStyle(.borderedProminent)
-                }
+//                Section {
+//                    
+//                } footer: {
+//                    Button {
+//                        if(viewModel.validateInput()) {
+//                            let _ = viewModel.saveSemester()
+//                            self.presentationMode.wrappedValue.dismiss()
+//                        } else {
+//                            viewModel.showAlert()
+//                        }
+//                       
+//                    } label: {
+//                        HStack
+//                        {
+//                            Spacer()
+//                            Text("Save")
+//                            Spacer()
+//                        }
+//                        .frame(width: 350, height: 30)
+//                    }
+//                    .buttonStyle(.borderedProminent)
+//                }
             }
             .navigationTitle("New Semester")
             .alert(isPresented: $viewModel.isShowing) {
@@ -69,12 +69,21 @@ struct SemesterView: View {
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("Save") {
+                        if(viewModel.validateInput()) {
+                            let _ = viewModel.saveSemester()
+                            self.presentationMode.wrappedValue.dismiss()
+                        } else {
+                            viewModel.showAlert()
+                        }  
+                    }
+                }
+                ToolbarItem(placement: .navigationBarLeading) {
                     if viewModel.mode == .edit {
                         Button {
                             viewModel.showDeleteAlert()
                         } label: {
                             HStack {
-                                Image(systemName: "trash.fill")
                                 Text("Delete")
                             }
                         }

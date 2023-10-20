@@ -23,6 +23,9 @@ class AssignmentsVC: UIViewController {
     
     var sectionName: [String] = ["Homework", "Midterm", "Final", "Others"]
     
+    var options: [String] = ["All", "Homework", "Midterm", "Final", "Others"]
+    var selectedOption: String = "All"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,16 +41,28 @@ class AssignmentsVC: UIViewController {
         
         view.backgroundColor = .secondarySystemBackground
         
+        let defualt = UserDefaults.standard
+        self.selectedOption = defualt.string(forKey: "AssignmentSort")  ?? "All"
+        
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
         navigationItem.rightBarButtonItem = addButton
         
-        fetchData()
+        let sortButton = UIBarButtonItem(image: UIImage(systemName: "slider.vertical.3"), menu: createOptionMenu())
+        navigationItem.leftBarButtonItem = sortButton
+        
+        fetchData(option: selectedOption)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         navigationController?.navigationBar.prefersLargeTitles = true
-        fetchData()
+        
+        fetchData(option: selectedOption)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        let defualt = UserDefaults.standard
+        defualt.set(self.selectedOption, forKey: "AssignmentSort")
     }
     
     @objc func addButtonTapped() {
@@ -58,6 +73,27 @@ class AssignmentsVC: UIViewController {
 
         // Present the SwiftUI view
         present(hostingController, animated: true, completion: nil)
+    }
+}
+
+// MARK: - Componet Init
+extension AssignmentsVC {
+    func createOptionMenu() -> UIMenu {
+        
+        var actions: [UIAction] = []
+        
+        for option in options
+        {
+            let action = UIAction(title: option) { _ in
+                // Handle the "Course" action (e.g., add a new course)
+                self.fetchData(option: option)
+                self.selectedOption = option
+            }
+            
+            actions.append(action)
+        }
+        
+        return UIMenu(children: actions)
     }
 }
 
@@ -90,8 +126,6 @@ extension AssignmentsVC : UITableViewDelegate, UITableViewDataSource {
         return 44 // Adjust the section header height as needed
     }
 
-
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 44
     }
@@ -105,7 +139,6 @@ extension AssignmentsVC : UITableViewDelegate, UITableViewDataSource {
             
             let (course, assignments) = self.sections[section][row]
             
-//            CourseDataManager.shared.deleteCourse(withName: name)
             self.showDeleteConfirmationAlert(message: "Are you sure you want to delete the course \(course.name ?? "")?") { didConfirmDelete in
                 if didConfirmDelete {
                     self.sections[section].remove(at: row)
@@ -131,7 +164,7 @@ extension AssignmentsVC : UITableViewDelegate, UITableViewDataSource {
         let row = indexPath.row
         let section = indexPath.section
         
-        let vc = self.storyboard?.instantiateViewController(identifier: "AssignmentsInfo") as! AssignmentsInfo
+        let vc = self.storyboard?.instantiateViewController(identifier: "AssignmentsInfo") as! AssignmentsInfoVC
         
         let (course, _) = self.sections[section][row]
         
@@ -146,14 +179,11 @@ extension AssignmentsVC : UITableViewDelegate, UITableViewDataSource {
 // MARK: - Diasaprearing View Delegate
 extension AssignmentsVC: DisappearingAssignmentViewDelegate {
     func viewWillDisappear(assignment: Assignment?, open: Bool) {
-        fetchData()
-        print("hi")
+        fetchData(option: selectedOption)
         
         if(assignment == nil){
             return
         }
-        
-        print("hello")
         
         if(open) {
             let date = assignment?.due ?? Date()
@@ -168,7 +198,7 @@ extension AssignmentsVC: DisappearingAssignmentViewDelegate {
 extension AssignmentsVC {
     
     /// Fetches and organizes the assignment data and reloads the table view.
-    func fetchData() {
+    func fetchData(option: String) {
         // Initialize arrays
         self.assignments = []
         self.sections = []
@@ -177,21 +207,43 @@ extension AssignmentsVC {
         // Fetch assignments from the data manager
         self.assignments = CoreDataManager.shared.fetch(entity: Assignment.self) ?? []
         
-        //        printAssignments(self.assignments)
-        
         // Sort assignments by type (Homework, Midterm, Final)
         let (homework, midterm, final, others) = sortAssignmentsByType(self.assignments)
         
-        
         // Group assignments by course
-        self.sections = [
-            sortAssignmentsByCourse(homework),
-            sortAssignmentsByCourse(midterm),
-            sortAssignmentsByCourse(final),
-            sortAssignmentsByCourse(others)
-        ]
-        
-        
+        switch option {
+        case "All":
+            self.sections = [
+                sortAssignmentsByCourse(homework),
+                sortAssignmentsByCourse(midterm),
+                sortAssignmentsByCourse(final),
+                sortAssignmentsByCourse(others)
+            ]
+            self.sectionName = ["Homework", "Midterm", "Final", "Others"]
+        case "Homework":
+            self.sections = [
+                sortAssignmentsByCourse(homework)
+            ]     
+            self.sectionName = [option]
+        case "Midterm":
+            self.sections = [
+                sortAssignmentsByCourse(midterm)
+            ]   
+            self.sectionName = [option]
+        case "Final":
+            self.sections = [
+                sortAssignmentsByCourse(final)
+            ]
+            self.sectionName = [option]
+        case "Others":
+            self.sections = [
+                sortAssignmentsByCourse(others)
+            ]
+            self.sectionName = [option]
+        default:
+            break
+        }
+      
         
         // Reload table view data
         self.tableView.reloadData()

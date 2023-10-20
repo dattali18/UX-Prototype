@@ -12,7 +12,7 @@ import EventKit
 import CalendarKit
 import EventKitUI
 
-class AssignmentsInfo: UIViewController {
+class AssignmentsInfoVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var eventStore = EKEventStore()
@@ -29,6 +29,9 @@ class AssignmentsInfo: UIViewController {
         
         self.title = ""
         navigationController?.navigationBar.prefersLargeTitles = false
+        
+        let nib = UINib(nibName: "AssignmentTVC", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "AssignmentTVC")
         
         if(course != nil) {
             self.title = "\(course!.name!) - Assignments"
@@ -51,7 +54,7 @@ class AssignmentsInfo: UIViewController {
 }
 
 // MARK: - Delegate
-extension AssignmentsInfo: DisappearingAssignmentViewDelegate {
+extension AssignmentsInfoVC: DisappearingAssignmentViewDelegate {
     func viewWillDisappear(assignment: Assignment?, open: Bool) {
         fetchData()
         
@@ -70,7 +73,7 @@ extension AssignmentsInfo: DisappearingAssignmentViewDelegate {
 }
 
 // MARK: - Table View
-extension AssignmentsInfo : UITableViewDelegate, UITableViewDataSource {
+extension AssignmentsInfoVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.assignemnts.count
     }
@@ -80,9 +83,43 @@ extension AssignmentsInfo : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "assignments", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AssignmentTVC", for: indexPath) as! AssignmentTVC
         
-        cell.textLabel?.text = self.assignemnts[indexPath.row].name
+        let assignment = self.assignemnts[indexPath.row]
+        cell.nameLabel.text = assignment.name
+        
+        if  assignment.descriptions == "" || assignment.descriptions == nil {
+//            cell.descriptionLabel.text = "No Description"
+        } else {
+            cell.descriptionLabel.text = assignment.descriptions
+        }
+        
+        // Your Date object
+        
+        let date = assignment.due
+        
+        if(date == nil) {
+//            cell.dateLabel.text = "No Date"
+        } else {
+            
+            // Create a DateFormatter
+            let dateFormatter = DateFormatter()
+            
+            dateFormatter.dateFormat = "E d MMM"
+            
+            // Convert the Date to a String
+            let dateString = dateFormatter.string(from: date!)
+            cell.dateLabel.text = dateString
+        }
+        
+        let url = assignment.url
+        
+        if(url == "" || url == nil) {
+//            cell.urlLabel.text = "No URL"
+        } else {
+            cell.urlLabel.text = url
+        }
+        
         
         return cell
     }
@@ -98,7 +135,7 @@ extension AssignmentsInfo : UITableViewDelegate, UITableViewDataSource {
 
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 44
+        return 104
     }
     
     // MARK: - Swipe Action
@@ -143,7 +180,7 @@ extension AssignmentsInfo : UITableViewDelegate, UITableViewDataSource {
     
 }
 // MARK: - Data Fetching
-extension AssignmentsInfo {
+extension AssignmentsInfoVC {
     func fetchData() {
         self.assignemnts = []
         
@@ -159,7 +196,7 @@ extension AssignmentsInfo {
     }
 }
 
-extension AssignmentsInfo : EKEventEditViewDelegate {
+extension AssignmentsInfoVC : EKEventEditViewDelegate {
     private func createNewEvent(at date: Date, title: String) -> EKWrapper {
         let newEKEvent = EKEvent(eventStore: eventStore)
         
