@@ -17,6 +17,7 @@ class AssignmentsInfoVC: UIViewController {
     
     var eventStore = EKEventStore()
         
+    var sections: [[Assignment]] = []
     var assignemnts: [Assignment] = []
     var course: Course?
     var type: String = "Assignment"
@@ -75,17 +76,21 @@ extension AssignmentsInfoVC: DisappearingAssignmentViewDelegate {
 // MARK: - Table View
 extension AssignmentsInfoVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.assignemnts.count
+        return self.sections[section].count
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        1
+        2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AssignmentTVC", for: indexPath) as! AssignmentTVC
         
-        let assignment = self.assignemnts[indexPath.row]
+        let row = indexPath.row
+        let section = indexPath.section
+        
+        let assignment = self.sections[section][row]
+        
         cell.nameLabel.text = assignment.name
         
         if  assignment.descriptions == "" || assignment.descriptions == nil {
@@ -143,15 +148,15 @@ extension AssignmentsInfoVC : UITableViewDelegate, UITableViewDataSource {
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") {  (contextualAction, view, boolValue) in
             
             let row = indexPath.row
-//            let section = indexPath.section
+            let section = indexPath.section
             
-            let assignment = self.assignemnts[row]
+            let assignment = self.sections[section][row]
             
 //            CourseDataManager.shared.deleteCourse(withName: name)
             self.showDeleteConfirmationAlert(message: "Are you sure you want to delete this assignemnt?") { didConfirmDelete in
                 if didConfirmDelete {
                     
-                    self.assignemnts.remove(at: row)
+                    self.sections[section].remove(at: row)
                     self.tableView.reloadData()
                     
                     CoreDataManager.shared.delete(assignment)
@@ -166,8 +171,41 @@ extension AssignmentsInfoVC : UITableViewDelegate, UITableViewDataSource {
         return swipeActions
     }
     
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let doneAction = UIContextualAction(style: .normal, title: "Done") {  (contextualAction, view, boolValue) in
+            let row = indexPath.row
+            let section = indexPath.section
+            
+            let assignment = self.sections[section][row]
+            
+            assignment.done = !assignment.done
+            
+            self.fetchData()
+        }
+        
+        let row = indexPath.row
+        let section = indexPath.section
+        
+        let assignment = self.sections[section][row]
+        let done = assignment.done
+        if done {
+            doneAction.title = "Undone"
+            doneAction.backgroundColor = .systemRed
+            doneAction.image = UIImage(systemName: "x.circle")
+        } else {
+            doneAction.backgroundColor = .systemGreen
+            doneAction.image = UIImage(systemName: "checkmark.circle")
+        }
+        let swipeActions = UISwipeActionsConfiguration(actions: [doneAction])
+
+        return swipeActions
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let assignment = self.assignemnts[indexPath.row]
+        let row = indexPath.row
+        let section = indexPath.section
+        
+        let assignment = self.sections[section][row]
         
         var assignmentView = AssignmentView(with: assignment)
         // implementing the obeserver pattern
@@ -191,6 +229,11 @@ extension AssignmentsInfoVC {
         
         self.assignemnts = CoreDataManager.shared.fetch(entity: Assignment.self) ?? []
         self.assignemnts = self.assignemnts.filter {$0.course == self.course && $0.type == self.type}
+        
+        let done = self.assignemnts.filter { $0.done == true }
+        let noDone = self.assignemnts.filter { $0.done == false }
+        
+        self.sections = [noDone, done]
         
         self.tableView.reloadData()
     }
