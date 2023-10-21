@@ -8,8 +8,61 @@
 import SwiftUI
 
 struct ProjectView: View {
+    weak var delegate: DisappearingViewDelegate?
+    
+    @Environment(\.presentationMode) var presentationMode
+    
+    @StateObject var viewModel: ProjectViewModel
+    
+    init(resource: Resource? = nil, course: Course? = nil) {
+        _viewModel = StateObject(wrappedValue: ProjectViewModel())
+    }
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView
+        {
+            Form
+            {
+                Section {
+                    List(viewModel.projects, id:\.id) { project in
+                        HStack {
+                            Image(project.icon!)
+                                .font(.largeTitle)
+                            
+                            Spacer()
+                            
+                            VStack(alignment: .leading, spacing: 5) {
+                                Text(project.name!)
+                                
+                                
+                                Text(project.descriptions ?? "")
+                                    .font(.caption2)
+                                    .foregroundStyle(.gray)
+                                    .lineLimit(1)
+                            }
+                            
+                            Spacer()
+                            
+                            Image(systemName: "chevron.forward")
+                        }
+                    }
+                } header : {
+                    Text("Project")
+                } footer : {
+                    Text("Project Assignment.")
+                }
+            }
+            .navigationTitle("Projects")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        
+                    } label : {
+                        Image(systemName: "plus")
+                    }
+                }
+            }
+        }
 
     }
 }
