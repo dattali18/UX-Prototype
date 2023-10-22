@@ -71,7 +71,9 @@ class AssignmentViewModel: ObservableObject {
         if(mode == .add) {
             
             assignment = Assignment(context: managedObjectContext)
+            assignment?.id = UUID()
         }
+        
         
         assignment?.name = title
         assignment?.descriptions = notes

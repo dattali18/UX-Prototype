@@ -86,6 +86,7 @@ class ResourceViewModel: ObservableObject {
         if(mode == .add)
         {
             self.resource = Resource(context: managedObjectContext)
+            resource?.id = UUID()
         }
         
         resource?.name = name

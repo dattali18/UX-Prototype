@@ -66,6 +66,7 @@ class CourseViewModel: ObservableObject {
         if(mode == .add)
         {
             self.course = Course(context: managedObjectContext)
+            course?.id = UUID()
         }
         
         course!.name     = name

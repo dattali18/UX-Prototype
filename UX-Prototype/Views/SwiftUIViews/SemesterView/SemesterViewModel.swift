@@ -51,6 +51,7 @@ class SemesterViewModel: ObservableObject {
         if(mode == .add)
         {
             self.semester = Semester(context: managedObjectContext)
+            semester?.id = UUID()
         }
         
         let date = start
