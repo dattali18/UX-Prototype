@@ -47,14 +47,15 @@ class AssignmentsVC: UIViewController {
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
         navigationItem.rightBarButtonItem = addButton
         
-        let sortButton = UIBarButtonItem(image: UIImage(systemName: "slider.vertical.3"), menu: createOptionMenu())
-        navigationItem.leftBarButtonItem = sortButton
+//        let sortButton = UIBarButtonItem(image: UIImage(systemName: "slider.vertical.3"), menu: createOptionMenu())
+//        navigationItem.leftBarButtonItem = sortButton
         
         fetchData(option: selectedOption)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
         navigationController?.navigationBar.prefersLargeTitles = true
         
         fetchData(option: selectedOption)
@@ -76,7 +77,7 @@ class AssignmentsVC: UIViewController {
     }
 }
 
-// MARK: - Componet Init
+// MARK: - Component Init
 extension AssignmentsVC {
     func createOptionMenu() -> UIMenu {
         
@@ -90,7 +91,12 @@ extension AssignmentsVC {
                 self.selectedOption = option
             }
             
+            if(option == selectedOption) {
+                action.image = UIImage(systemName: "checkmark")
+            }
+            
             actions.append(action)
+
         }
         
         return UIMenu(children: actions)
@@ -247,6 +253,9 @@ extension AssignmentsVC {
         
         // Reload table view data
         self.tableView.reloadData()
+        
+        let sortButton = UIBarButtonItem(image: UIImage(systemName: "slider.vertical.3"), menu: createOptionMenu())
+        navigationItem.leftBarButtonItem = sortButton
     }
     
     /// Sorts assignments into three lists based on their type.

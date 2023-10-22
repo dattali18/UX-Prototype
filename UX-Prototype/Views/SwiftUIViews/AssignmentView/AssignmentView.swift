@@ -97,7 +97,7 @@ struct AssignmentView: View {
                    Text("If you want to crate a calendar event.")
                }
             }
-            .navigationTitle("Assignment")
+            .navigationTitle(viewModel.navigationtitle)
             .onAppear {
                 viewModel.fetchSemestersAndCourses()
                 viewModel.editMode()

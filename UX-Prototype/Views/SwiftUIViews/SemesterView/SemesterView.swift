@@ -59,7 +59,7 @@ struct SemesterView: View {
 //                    .buttonStyle(.borderedProminent)
 //                }
             }
-            .navigationTitle("New Semester")
+            .navigationTitle(viewModel.navigationtitle)
             .alert(isPresented: $viewModel.isShowing) {
                 Alert(
                     title: Text("Invalid Input"),

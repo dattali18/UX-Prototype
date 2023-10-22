@@ -1,5 +1,5 @@
 //
-//  ProjectView.swift
+//  ProjectsView.swift
 //  UX-Prototype
 //
 //  Created by Daniel Attali on 10/19/23.
@@ -7,15 +7,15 @@
 
 import SwiftUI
 
-struct ProjectView: View {
+struct ProjectsView: View {
     weak var delegate: DisappearingViewDelegate?
     
     @Environment(\.presentationMode) var presentationMode
     
-    @StateObject var viewModel: ProjectViewModel
+    @StateObject var viewModel: ProjectsViewModel
     
     init(resource: Resource? = nil, course: Course? = nil) {
-        _viewModel = StateObject(wrappedValue: ProjectViewModel())
+        _viewModel = StateObject(wrappedValue: ProjectsViewModel())
     }
     
     var body: some View {
@@ -68,5 +68,5 @@ struct ProjectView: View {
 }
 
 #Preview {
-    ProjectView()
+    ProjectsView()
 }

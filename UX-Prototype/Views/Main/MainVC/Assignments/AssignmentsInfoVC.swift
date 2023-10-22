@@ -130,7 +130,7 @@ extension AssignmentsInfoVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return type
+        return section == 0 ? "\(type) - Not Done" : "\(type) - Done"
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -191,10 +191,10 @@ extension AssignmentsInfoVC : UITableViewDelegate, UITableViewDataSource {
         if done {
             doneAction.title = "Undone"
             doneAction.backgroundColor = .systemRed
-            doneAction.image = UIImage(systemName: "x.circle")
+            doneAction.image = UIImage(systemName: "x.circle.fill")
         } else {
             doneAction.backgroundColor = .systemGreen
-            doneAction.image = UIImage(systemName: "checkmark.circle")
+            doneAction.image = UIImage(systemName: "checkmark.circle.fill")
         }
         let swipeActions = UISwipeActionsConfiguration(actions: [doneAction])
 

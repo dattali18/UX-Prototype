@@ -26,7 +26,7 @@ struct CourseView: View {
                     TextField("Course Name", text: $viewModel.name)
                     TextField("Course Number", value: $viewModel.number, format: .number)
                         .keyboardType(.numberPad)
-//                    TextField("Course Number", value: $viewModel.number, formatter: viewModel.formatter())
+
                         .keyboardType(.numberPad)
                     
                     TextField("Course Credits", value: $viewModel.credits, format: .number)
@@ -59,7 +59,7 @@ struct CourseView: View {
                     Text("Connect To Semester")
                 }
             }
-            .navigationTitle("New Course")
+            .navigationTitle(viewModel.navigationtitle)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Save") {

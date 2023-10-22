@@ -77,7 +77,7 @@ struct ResourceView: View {
                     }
                 }
             }
-            .navigationTitle("Add Resource")
+            .navigationTitle(viewModel.navigationtitle)
             .toolbar {
                 // Add a "Save" button to the top of the navigation bar
                 ToolbarItem(placement: .navigationBarTrailing) {

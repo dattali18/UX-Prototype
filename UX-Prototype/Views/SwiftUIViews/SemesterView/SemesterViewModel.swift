@@ -19,22 +19,26 @@ class SemesterViewModel: ObservableObject {
     @Published var isShowing: Bool = false
     @Published var deleteAlertShowing: Bool = false
     @Published var deleteAlertResponse: Bool = false
-
+    
+    
+    @Published var navigationtitle: String = "Add Semester"
     
     var mode: Mode = .add
     var semester: Semester?
     
     init(with semester: Semester? = nil) {
         self.semester = semester
-        
+        if(semester != nil) {
+            mode = .edit
+            navigationtitle = "Edit Semester"
+        }
         edit()
     }
     
     func edit() {
-        if(semester == nil){
+        if(mode == .add){
             return
         }
-        mode = .edit
         
         selectedType    = types.firstIndex(of: semester?.type ?? "") ?? 0
         start           = semester?.start ?? Date()

@@ -30,14 +30,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 // set CustomTabBarController as the root view
                 let CustomTB = storyboard.instantiateViewController(identifier: "MainTB") as! MainTabBarVC
                 window?.rootViewController = CustomTB
-                window?.rootViewController = UIHostingController(rootView: ProjectView())
+//                window?.rootViewController = UIHostingController(rootView: ProjectsView())
                 window?.makeKeyAndVisible()
             } else {
 
                 // user not logged in, take to LoginNavigationController
                 let authNC = storyboard.instantiateViewController(identifier: "AuthNC") as! AuthNC
-                
-                
                 
                 window?.rootViewController = authNC
                 window?.makeKeyAndVisible()

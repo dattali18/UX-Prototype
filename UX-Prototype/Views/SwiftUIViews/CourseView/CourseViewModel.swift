@@ -18,21 +18,11 @@ class CourseViewModel: ObservableObject {
     
     @Published var showAlert: Bool = false
     
-    var formatter = {
-        let f = NumberFormatter()
-        f.numberStyle = .none
-        return f
-    }
+    @Published var navigationtitle: String = "Add Course"
     
     var course: Course?
-    var mode: Mode = .add
     
-    let decimalFormatter: NumberFormatter = {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .decimal
-        return formatter
-    }()
-
+    var mode: Mode = .add
     
 
     init(with course: Course? = nil) {
@@ -48,6 +38,7 @@ class CourseViewModel: ObservableObject {
         }
         
         mode = .edit
+        navigationtitle = "Edit Course"
         
         let semester = self.course?.semester
         

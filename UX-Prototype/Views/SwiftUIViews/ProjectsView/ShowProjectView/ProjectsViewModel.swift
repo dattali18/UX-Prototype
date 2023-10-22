@@ -7,8 +7,9 @@
 
 import Foundation
 
-class ProjectViewModel: ObservableObject {
+class ProjectsViewModel: ObservableObject {
     @Published var projects: [Project] = []
+    @Published var selectedProject: Project?
     
     init() {
         demoData()
@@ -35,6 +36,6 @@ class ProjectViewModel: ObservableObject {
     }
     
     func fetchProject() {
-        demoData()
+        self.projects = CoreDataManager.shared.fetch(entity: Project.self) ?? []
     }
 }

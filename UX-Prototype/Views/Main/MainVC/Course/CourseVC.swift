@@ -44,8 +44,8 @@ class CourseVC: UIViewController {
         let addButton = UIBarButtonItem(image: UIImage(systemName: "plus"), menu: createAddMenu())
         navigationItem.rightBarButtonItem = addButton
         
-        let sortButton = UIBarButtonItem(image: UIImage(systemName: "slider.vertical.3"), menu: createOptionMenu())
-        navigationItem.leftBarButtonItem = sortButton
+//        let sortButton = UIBarButtonItem(image: UIImage(systemName: "slider.vertical.3"), menu: createOptionMenu())
+//        navigationItem.leftBarButtonItem = sortButton
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -55,8 +55,8 @@ class CourseVC: UIViewController {
         
         fetchData(option: self.selectedOption)
         
-        let sortButton = UIBarButtonItem(image: UIImage(systemName: "slider.vertical.3"), menu: createOptionMenu())
-        navigationItem.leftBarButtonItem = sortButton
+//        let sortButton = UIBarButtonItem(image: UIImage(systemName: "slider.vertical.3"), menu: createOptionMenu())
+//        navigationItem.leftBarButtonItem = sortButton
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -89,6 +89,10 @@ extension CourseVC {
             let action = UIAction(title: option) { _ in
                 // Handle the "Course" action (e.g., add a new course)
                 self.fetchData(option: option)
+            }
+            
+            if(option == selectedOption) {
+                action.image = UIImage(systemName: "checkmark")
             }
             
             actions.append(action)
@@ -166,6 +170,9 @@ extension CourseVC {
         }
         
         tableView.reloadData()
+        
+        let sortButton = UIBarButtonItem(image: UIImage(systemName: "slider.vertical.3"), menu: createOptionMenu())
+        navigationItem.leftBarButtonItem = sortButton
     }
     
     func fetchSemester(semester: String) {

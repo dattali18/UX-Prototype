@@ -24,22 +24,24 @@ class ResourceViewModel: ObservableObject {
     
     var resource: Resource?
     var course: Course?
+    
     var mode: Mode = .add
+    
+    @Published var navigationtitle: String = "Add Resource"
     
     init(resource: Resource? = nil, course: Course? = nil) {
         self.resource = resource
         self.course = course
+        
+        if(self.resource != nil) {
+            mode = .edit
+            navigationtitle = "Edit Resource"
+        }
+        
         fetchData()
     }
     
     func fetchData() {
-        
-        if(self.resource == nil) {
-            return
-        }
-        
-        mode = .edit
-        
         name = self.resource?.name ?? ""
         description = self.resource?.descriptions ?? ""
         
@@ -48,21 +50,6 @@ class ResourceViewModel: ObservableObject {
         for link in linksSet {
             links.append(link as! Link)
         }
-//        
-//        let managedObjectContext = CoreDataManager.shared.managedObjectContext
-//        
-//        let names = ["Moddle", "ChatGPT", "GitHub"]
-//        let urls = ["https://apps4world.com/add-core-data-swiftui-tutorial.html","https://chat.openai.com/c/708527b8-69b2-495c-a95a-7607b96f45de", "https://github.com"]
-//        
-//        for i in 0...2 {
-//            let link = Link(context: managedObjectContext)
-//            
-//            link.id = UUID()
-//            link.name = names[i]
-//            link.url = urls[i]
-//            
-//            links.append(link)
-//        }
     }
     
     func addLink() {

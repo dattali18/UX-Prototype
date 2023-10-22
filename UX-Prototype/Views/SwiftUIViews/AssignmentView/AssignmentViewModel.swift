@@ -27,15 +27,23 @@ class AssignmentViewModel: ObservableObject {
     
     @Published var createEvent: Bool = false
     
+    @Published var navigationtitle: String = "Add Assignment"
+    
+    var mode: Mode = .add
+    
     var assignment: Assignment?
     
     init(with assignment: Assignment? = nil) {
         self.assignment = assignment
+        if(assignment != nil) {
+            mode = .edit
+            navigationtitle = "Edit Assignment"
+        }
     }
     
     
     func editMode() {
-        if(assignment != nil) {
+        if(mode == .edit) {
             // Populate the fields with assignment data
             title = assignment!.name ?? ""
             notes = assignment!.descriptions ?? ""
@@ -60,7 +68,7 @@ class AssignmentViewModel: ObservableObject {
     func saveReminder() -> Assignment? {
         let managedObjectContext = CoreDataStack.shared.managedObjectContext
         
-        if(assignment == nil) {
+        if(mode == .add) {
             
             assignment = Assignment(context: managedObjectContext)
         }
