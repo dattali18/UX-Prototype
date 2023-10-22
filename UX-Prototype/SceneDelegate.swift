@@ -30,7 +30,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 // set CustomTabBarController as the root view
                 let CustomTB = storyboard.instantiateViewController(identifier: "MainTB") as! MainTabBarVC
                 window?.rootViewController = CustomTB
-                window?.rootViewController = UIHostingController(rootView: AddProjectView())
+//                window?.rootViewController = UIHostingController(rootView: AddProjectView())
                 window?.makeKeyAndVisible()
             } else {
 

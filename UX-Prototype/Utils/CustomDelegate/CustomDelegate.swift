@@ -30,3 +30,7 @@ protocol EditSemesterDelegate: AnyObject {
 protocol EditResourceDelegate: AnyObject {
     func pushEdit(resource: Resource?, course: Course?)
 }
+
+protocol AddProjectDelegate: AnyObject {
+    func pushAddView(project: Project?)
+}

@@ -12,7 +12,7 @@ class ProjectsViewModel: ObservableObject {
     @Published var selectedProject: Project?
     
     init() {
-        demoData()
+        fetchProject()
     }
     
     func demoData()  {
@@ -32,10 +32,19 @@ class ProjectsViewModel: ObservableObject {
         project2.url    = "https://github.com/dattali18/WPF-.NET-Project"
         project2.descriptions = "This project is part of the \"mini projects in windows system\" course, focusing on teaching the SOLID principle and basic design patterns such as Singleton and Factory. The project aims to create a store management and selling application using WPF in C#."
         
-        self.projects = [project1, project2]
+        do {
+            try managedObjectContext.save()
+            
+        } catch {
+            print("Error creating/updating entity: \(error)")
+        }
+        
+//        self.projects = [project1, project2]
     }
     
     func fetchProject() {
         self.projects = CoreDataManager.shared.fetch(entity: Project.self) ?? []
     }
+    
+    
 }

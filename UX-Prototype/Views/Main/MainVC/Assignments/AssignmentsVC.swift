@@ -254,7 +254,7 @@ extension AssignmentsVC {
         // Reload table view data
         self.tableView.reloadData()
         
-        let sortButton = UIBarButtonItem(image: UIImage(systemName: "slider.vertical.3"), menu: createOptionMenu())
+        let sortButton = UIBarButtonItem(image: UIImage(systemName: "list.bullet"), menu: createOptionMenu())
         navigationItem.leftBarButtonItem = sortButton
     }
     

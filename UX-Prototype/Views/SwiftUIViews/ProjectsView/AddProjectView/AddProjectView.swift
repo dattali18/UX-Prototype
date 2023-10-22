@@ -80,12 +80,9 @@ struct AddProjectView: View {
                             self.delegate?.viewWillDisappear()
                         }
                     } label: {
-                        HStack {
-
-                            Text("Save")
-                        }
+                        Text("Save")
                     }
-                    .foregroundColor(.blue)
+                    .foregroundStyle(.blue)
                 }
                 
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -98,6 +95,7 @@ struct AddProjectView: View {
                         } label : {
                             Text("Delete")
                         }
+                        .foregroundStyle(.red)
                     }
                 }
             }

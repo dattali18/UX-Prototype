@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ProjectsView: View {
     weak var delegate: DisappearingViewDelegate?
+    weak var addProjectDelegate: AddProjectDelegate?
     
     @Environment(\.presentationMode) var presentationMode
     
@@ -45,6 +46,9 @@ struct ProjectsView: View {
                             
                             Image(systemName: "chevron.forward")
                         }
+                        .onTapGesture {
+                            addProjectDelegate?.pushAddView(project: project)
+                        }
                     }
                 } header : {
                     Text("Project")
@@ -56,7 +60,7 @@ struct ProjectsView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
-                        
+                        addProjectDelegate?.pushAddView(project: nil)
                     } label : {
                         Image(systemName: "plus")
                     }

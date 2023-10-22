@@ -69,11 +69,11 @@
 		C6C40F932AB3034300E958C1 /* CourseNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C40F922AB3034300E958C1 /* CourseNC.swift */; };
 		C6C40F952AB3036200E958C1 /* CalendarNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C40F942AB3036200E958C1 /* CalendarNC.swift */; };
 		C6C40F972AB3038000E958C1 /* AssignmentsNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C40F962AB3038000E958C1 /* AssignmentsNC.swift */; };
-		C6C40F992AB3039B00E958C1 /* RemindersNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C40F982AB3039B00E958C1 /* RemindersNC.swift */; };
+		C6C40F992AB3039B00E958C1 /* ProjectsNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C40F982AB3039B00E958C1 /* ProjectsNC.swift */; };
 		C6C40F9B2AB3046D00E958C1 /* CourseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C40F9A2AB3046D00E958C1 /* CourseVC.swift */; };
 		C6C40F9D2AB3047B00E958C1 /* CalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C40F9C2AB3047B00E958C1 /* CalendarVC.swift */; };
 		C6C40F9F2AB3048900E958C1 /* AssignmentsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C40F9E2AB3048900E958C1 /* AssignmentsVC.swift */; };
-		C6C40FA12AB3049900E958C1 /* RemindersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C40FA02AB3049900E958C1 /* RemindersVC.swift */; };
+		C6C40FA12AB3049900E958C1 /* ProjectsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C40FA02AB3049900E958C1 /* ProjectsVC.swift */; };
 		C6C40FA32AB30E9F00E958C1 /* UserLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C40FA22AB30E9F00E958C1 /* UserLogin.swift */; };
 		C6C40FA62AB33B3A00E958C1 /* CourseTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C40FA42AB33B3A00E958C1 /* CourseTVC.swift */; };
 		C6C40FA72AB33B3A00E958C1 /* CourseTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6C40FA52AB33B3A00E958C1 /* CourseTVC.xib */; };
@@ -153,11 +153,11 @@
 		C6C40F922AB3034300E958C1 /* CourseNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseNC.swift; sourceTree = "<group>"; };
 		C6C40F942AB3036200E958C1 /* CalendarNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarNC.swift; sourceTree = "<group>"; };
 		C6C40F962AB3038000E958C1 /* AssignmentsNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentsNC.swift; sourceTree = "<group>"; };
-		C6C40F982AB3039B00E958C1 /* RemindersNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersNC.swift; sourceTree = "<group>"; };
+		C6C40F982AB3039B00E958C1 /* ProjectsNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsNC.swift; sourceTree = "<group>"; };
 		C6C40F9A2AB3046D00E958C1 /* CourseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseVC.swift; sourceTree = "<group>"; };
 		C6C40F9C2AB3047B00E958C1 /* CalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVC.swift; sourceTree = "<group>"; };
 		C6C40F9E2AB3048900E958C1 /* AssignmentsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentsVC.swift; sourceTree = "<group>"; };
-		C6C40FA02AB3049900E958C1 /* RemindersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersVC.swift; sourceTree = "<group>"; };
+		C6C40FA02AB3049900E958C1 /* ProjectsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsVC.swift; sourceTree = "<group>"; };
 		C6C40FA22AB30E9F00E958C1 /* UserLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLogin.swift; sourceTree = "<group>"; };
 		C6C40FA42AB33B3A00E958C1 /* CourseTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseTVC.swift; sourceTree = "<group>"; };
 		C6C40FA52AB33B3A00E958C1 /* CourseTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CourseTVC.xib; sourceTree = "<group>"; };
@@ -224,6 +224,7 @@
 		C62D98F02AE0412C008E61A8 /* Depraceted */ = {
 			isa = PBXGroup;
 			children = (
+				C6D8D6512AD42575009A1F9F /* AddResourcesVC.swift */,
 				C6214D022ACED68C00E242AC /* NewSemesterVC.swift */,
 				C68125202AD00A6A008DE83E /* EditSemesterVC.swift */,
 				C6F745B02AB8764700780F90 /* AddCourseVC.swift */,
@@ -246,7 +247,6 @@
 			children = (
 				C6C40F9A2AB3046D00E958C1 /* CourseVC.swift */,
 				C6214CFE2ACEA33900E242AC /* CourseInfoVC.swift */,
-				C6D8D6512AD42575009A1F9F /* AddResourcesVC.swift */,
 				C62D98F02AE0412C008E61A8 /* Depraceted */,
 			);
 			path = Course;
@@ -270,12 +270,12 @@
 			path = Assignments;
 			sourceTree = "<group>";
 		};
-		C63432F42AD6880700775A7B /* Reminders */ = {
+		C63432F42AD6880700775A7B /* Project */ = {
 			isa = PBXGroup;
 			children = (
-				C6C40FA02AB3049900E958C1 /* RemindersVC.swift */,
+				C6C40FA02AB3049900E958C1 /* ProjectsVC.swift */,
 			);
-			path = Reminders;
+			path = Project;
 			sourceTree = "<group>";
 		};
 		C63432F52AD6889E00775A7B /* CustomTableViewCell */ = {
@@ -484,7 +484,7 @@
 				C63432F12AD687D900775A7B /* Course */,
 				C63432F22AD687EA00775A7B /* Calendar */,
 				C63432F32AD687F600775A7B /* Assignments */,
-				C63432F42AD6880700775A7B /* Reminders */,
+				C63432F42AD6880700775A7B /* Project */,
 			);
 			path = MainVC;
 			sourceTree = "<group>";
@@ -495,7 +495,7 @@
 				C6C40F922AB3034300E958C1 /* CourseNC.swift */,
 				C6C40F942AB3036200E958C1 /* CalendarNC.swift */,
 				C6C40F962AB3038000E958C1 /* AssignmentsNC.swift */,
-				C6C40F982AB3039B00E958C1 /* RemindersNC.swift */,
+				C6C40F982AB3039B00E958C1 /* ProjectsNC.swift */,
 			);
 			path = MainNC;
 			sourceTree = "<group>";
@@ -656,7 +656,7 @@
 				C68DF9CD2AB9FE93006B0F70 /* Model.xcdatamodeld in Sources */,
 				C6C40F9B2AB3046D00E958C1 /* CourseVC.swift in Sources */,
 				C67777122AD305E2009B61BA /* UIAlerts+extention.swift in Sources */,
-				C6C40F992AB3039B00E958C1 /* RemindersNC.swift in Sources */,
+				C6C40F992AB3039B00E958C1 /* ProjectsNC.swift in Sources */,
 				C63BF2D22AD813DB00ED750A /* AssignmentEnum.swift in Sources */,
 				C689661D2ADFE0EC00A289F6 /* SignInView.swift in Sources */,
 				C65552522ACD5BE4006019DE /* EditCourseVC.swift in Sources */,
@@ -664,7 +664,7 @@
 				C6C40F972AB3038000E958C1 /* AssignmentsNC.swift in Sources */,
 				C6C40F7F2AB2F70700E958C1 /* LoginVC.swift in Sources */,
 				C6A1500F2AE01FE600115C59 /* ModeEnum.swift in Sources */,
-				C6C40FA12AB3049900E958C1 /* RemindersVC.swift in Sources */,
+				C6C40FA12AB3049900E958C1 /* ProjectsVC.swift in Sources */,
 				C6A150122AE026EF00115C59 /* AssignmentViewModel.swift in Sources */,
 				C64591482ADBDD8C009163F1 /* AssignmentsListTVC.swift in Sources */,
 				C645914C2ADC27DE009163F1 /* AssignmentsInfoVC.swift in Sources */,

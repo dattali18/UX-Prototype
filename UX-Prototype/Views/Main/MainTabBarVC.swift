@@ -6,9 +6,11 @@
 //
 
 import UIKit
+import SwiftUI
 
 class MainTabBarVC: UITabBarController {
     var userId: Int!
+    var projectsNC: UINavigationController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,20 +22,20 @@ class MainTabBarVC: UITabBarController {
         
         let courseNC = storyboard.instantiateViewController(identifier: "CourseNC") as! CourseNC
         let calendarNC = storyboard.instantiateViewController(identifier: "CalendarNC") as! CalendarNC
-        let AssignmentsNC = storyboard.instantiateViewController(identifier: "AssignmentsNC") as! AssignmentsNC
-        let remindersNC = storyboard.instantiateViewController(identifier: "RemindersNC") as! RemindersNC
+        let assignmentsNC = storyboard.instantiateViewController(identifier: "AssignmentsNC") as! AssignmentsNC
+        let projectsNC = storyboard.instantiateViewController(identifier: "ProjectsNC") as! ProjectsNC
         
         courseNC.tabBarItem.image       = UIImage(systemName: "book.closed")
         calendarNC.tabBarItem.image     = UIImage(systemName: "calendar")
-        AssignmentsNC.tabBarItem.image  = UIImage(systemName: "clock.arrow.circlepath")
-        remindersNC.tabBarItem.image    = UIImage(systemName: "square.and.pencil")
+        assignmentsNC.tabBarItem.image  = UIImage(systemName: "pencil.and.ruler.fill")
+        projectsNC.tabBarItem.image    = UIImage(systemName: "wrench.and.screwdriver.fill")
         
         courseNC.title = "Courses"
         calendarNC.title = "Calendar"
-        AssignmentsNC.title = "Assignments"
-        remindersNC.title = "Reminders"
+        assignmentsNC.title = "Assignments"
+        projectsNC.title = "Projects"
         
-        setViewControllers([courseNC, calendarNC, AssignmentsNC, remindersNC], animated: true)
+        setViewControllers([courseNC, calendarNC, assignmentsNC, projectsNC], animated: true)
     }
 }
 
