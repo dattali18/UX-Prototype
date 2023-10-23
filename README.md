@@ -61,4 +61,21 @@ Please contact me if you have any question about the project or me.
 
 ## Screenshots
 
-<img height="400" src="/UX-Prototype/ScreenShot/IMG_8086.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8087.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8088.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8089.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8090.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8091.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8092.PNG">  <img height="400" src="/UX-Prototype/ScreenShot/IMG_8094.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8096.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8097.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8098.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8099.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8100.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8102.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8103.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8104.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8105.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8106.PNG">
+![Filtering course by semesters](/UX-Prototype/ScreenShot/IMG_8086.PNG)
+![Editing course](/UX-Prototype/ScreenShot/IMG_8087.PNG)
+![Editing semester](/UX-Prototype/ScreenShot/IMG_8088.PNG)
+![Adding course](/UX-Prototype/ScreenShot/IMG_8089.PNG)
+![Adding Semester](/UX-Prototype/ScreenShot/IMG_8090.PNG)
+![Deleting course](/UX-Prototype/ScreenShot/IMG_8091.PNG)
+![Editing resource](/UX-Prototype/ScreenShot/IMG_8092.PNG)
+![Filtering assignmetn by type](/UX-Prototype/ScreenShot/IMG_8093.PNG)
+![Assignment list](/UX-Prototype/ScreenShot/IMG_8095.PNG)
+![Competing assignmet](/UX-Prototype/ScreenShot/IMG_8097.PNG)
+![Adding assignment](/UX-Prototype/ScreenShot/IMG_8098.PNG)
+![Editing assignment and crouseing a calendar event](/UX-Prototype/ScreenShot/IMG_8099.PNG)
+![Projects list](/UX-Prototype/ScreenShot/IMG_8100.PNG)
+![Adding project](/UX-Prototype/ScreenShot/IMG_8102.PNG)
+![editing project](/UX-Prototype/ScreenShot/IMG_8103.PNG)
+![Seeing last 5 commits on project](/UX-Prototype/ScreenShot/IMG_8104.PNG)
+![Screenshot 19](/UX-Prototype/ScreenShot/IMG_8105.PNG)
+![Screenshot 20](/UX-Prototype/ScreenShot/IMG_8106.PNG)
