@@ -61,39 +61,80 @@ Please contact me if you have any question about the project or me.
 
 ## Screenshots
 
+### Course/Semester + Resource
+
 **Filtering course by semesters**
+
 <img height="400" src="/UX-Prototype/ScreenShot/IMG_8086.PNG">
+
 **Editing course**
+
 <img height="400" src="/UX-Prototype/ScreenShot/IMG_8087.PNG">
+
 **Editing semester**
-<img height="400" src="/UX-Prototype/ScreenShot/IMG_8088.PNG"
+
+<img height="400" src="/UX-Prototype/ScreenShot/IMG_8088.PNG">
+
 **Adding course**
+
 <img height="400" src="/UX-Prototype/ScreenShot/IMG_8089.PNG">
+
 **Adding semester**
+
 <img height="400" src="/UX-Prototype/ScreenShot/IMG_8090.PNG">
+
 **Deleting course**
+
 <img height="400" src="/UX-Prototype/ScreenShot/IMG_8091.PNG">
+
 **Resources list**
 <img height="400" src="/UX-Prototype/ScreenShot/IMG_8108.PNG">
 **Editing resource**
+
 <img height="400" src="/UX-Prototype/ScreenShot/IMG_8094.PNG">
+
+### Assigment
+
 **Filtering assignmetn by type**
+
 <img height="400" src="/UX-Prototype/ScreenShot/IMG_8096.PNG">
+
 **Assignment List**
+
 <img height="400" src="/UX-Prototype/ScreenShot/IMG_8097.PNG">
+
 **Compelting assignmet**
+
 <img height="400" src="/UX-Prototype/ScreenShot/IMG_8098.PNG">
+
 **Adding assignment**
+
 <img height="400" src="/UX-Prototype/ScreenShot/IMG_8099.PNG">
+
+### Calendar
+
 **Editing assignment and crouseing a calendar event**
+
 <img height="400" src="/UX-Prototype/ScreenShot/IMG_8100.PNG">
+
 **Seeing calendar event**
+
 <img height="400" src="/UX-Prototype/ScreenShot/IMG_8102.PNG">
+
+## Projects
+
 **Projects list**
+
 <img height="400" src="/UX-Prototype/ScreenShot/IMG_8103.PNG">
+
 **Adding project**
+
 <img height="400" src="/UX-Prototype/ScreenShot/IMG_8104.PNG">
+
 **Editing project**
+
 <img height="400" src="/UX-Prototype/ScreenShot/IMG_8105.PNG">
+
 **Seeing last 5 commits on project**
+
 <img height="400" src="/UX-Prototype/ScreenShot/IMG_8106.PNG">
