@@ -9,7 +9,8 @@ This project was inspired by a course in `UX`/`UI` design, in which we had to pr
 ## Technologies Used
 
 * `Swift`: The prototype is written in `Swift`, which is a modern programming language developed by Apple. `Swif`t is known for its speed, performance, and safety.
-* `UIKit:` The prototype uses `UIKit`, which is Apple's framework for developing user interfaces for `iOS` applications. `UIKit` provides a variety of controls and views that can be used to create complex and interactive user interfaces.
+* `UIKit:` The app uses `UIKit`, which is Apple's framework for developing user interfaces for `iOS` applications. `UIKit` provides a variety of controls and views that can be used to create complex and interactive user interfaces.
+* `SwiftUI`: The app uses `SwiftUI`, wich is Apple's framwork for develping user iterfaces for `iOS` applications.
 * `Model-View-Controller (MVC)` : The prototype follows the `Model-View-Controller (MVC)` design pattern. `MVC` is a design pattern that separates the user interface, the data model, and the application logic into three separate components. This makes the code more modular and easier to maintain.
 
 ## Features
@@ -22,9 +23,6 @@ The prototype includes a variety of features for managing courses and semesters,
 * Assigning students to courses.
 * Viewing a student's grades.
 
-## Screenshots
-
-<img height="400" src="/UX-Prototype/ScreenShot/IMG_8073.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8074.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8075.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8076.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8077.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8078.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8079.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8080.PNG">
 
 ## Installation
 
@@ -47,3 +45,7 @@ I am Daniel Attali, a third-year Software Engineering `B.Sc`. student at `JCT` (
 I am a highly motivated and skilled individual with a strong work ethic. I am eager to learn and grow, and I am always looking for new challenges. I am confident that my skills and experience will make me a valuable asset to any team.
 
 Please contact me if you have any question about the project or me.
+
+## Screenshots
+
+<img height="400" src="/UX-Prototype/ScreenShot/IMG_8086.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8087.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8088.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8089.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8090.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8091.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8092.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8093.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8094.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8095.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8096.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8097.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8098.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8099.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8100.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8102.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8103.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8104.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8105.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8106.PNG">

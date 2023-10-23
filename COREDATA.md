@@ -22,7 +22,7 @@ class Assignment {
 class Project {
   + icon: String?
   + id: UUID
-  + link: String?
+  + url: String?
   + name: String
   + number: Int32
   + course: Course
