@@ -61,4 +61,40 @@ Please contact me if you have any question about the project or me.
 
 ## Screenshots
 
-<img height="400" src="/UX-Prototype/ScreenShot/IMG_8086.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8087.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8088.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8089.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8090.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8091.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8092.PNG">  <img height="400" src="/UX-Prototype/ScreenShot/IMG_8094.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8096.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8097.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8098.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8099.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8100.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8102.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8103.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8104.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8105.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8106.PNG">
+### Filtering course by semesters
+<img height="400" src="/UX-Prototype/ScreenShot/IMG_8086.PNG">
+### Editing course
+<img height="400" src="/UX-Prototype/ScreenShot/IMG_8087.PNG">
+### Editing semester
+<img height="400" src="/UX-Prototype/ScreenShot/IMG_8088.PNG">
+### Adding course
+<img height="400" src="/UX-Prototype/ScreenShot/IMG_8089.PNG">
+### Deleting course
+<img height="400" src="/UX-Prototype/ScreenShot/IMG_8090.PNG">
+### Editing resource
+<img height="400" src="/UX-Prototype/ScreenShot/IMG_8091.PNG">
+### Filtering assignmetn by type
+<img height="400" src="/UX-Prototype/ScreenShot/IMG_8092.PNG">
+### Competing assignmet
+<img height="400" src="/UX-Prototype/ScreenShot/IMG_8094.PNG">
+### Adding assignment
+<img height="400" src="/UX-Prototype/ScreenShot/IMG_8096.PNG">
+### Editing assignment and crouseing a calendar event
+<img height="400" src="/UX-Prototype/ScreenShot/IMG_8097.PNG">
+### Projects list
+<img height="400" src="/UX-Prototype/ScreenShot/IMG_8098.PNG">
+### Adding project
+<img height="400" src="/UX-Prototype/ScreenShot/IMG_8099.PNG">
+### Editing project
+<img height="400" src="/UX-Prototype/ScreenShot/IMG_8100.PNG">
+### Seeing last 5 commits on project
+<img height="400" src="/UX-Prototype/ScreenShot/IMG_8102.PNG">
+### Adding course
+<img height="400" src="/UX-Prototype/ScreenShot/IMG_8103.PNG">
+### Adding course
+<img height="400" src="/UX-Prototype/ScreenShot/IMG_8104.PNG">
+### Adding course
+<img height="400" src="/UX-Prototype/ScreenShot/IMG_8105.PNG">
+### Adding course
+<img height="400" src="/UX-Prototype/ScreenShot/IMG_8106.PNG">
+
