@@ -193,6 +193,7 @@
 		C6AE6A132AE6AA410074CB38 /* IMG_8109.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_8109.PNG; sourceTree = "<group>"; };
 		C6AE6A152AE6AB5E0074CB38 /* IMG_8111.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_8111.PNG; sourceTree = "<group>"; };
 		C6AE6A162AE6AB5E0074CB38 /* IMG_8110.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_8110.PNG; sourceTree = "<group>"; };
+		C6AE6A1A2AE6AE620074CB38 /* video1.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video1.MP4; sourceTree = "<group>"; };
 		C6BA53842ACD916D00924AD0 /* CourseDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDataManager.swift; sourceTree = "<group>"; };
 		C6BA53862ACDB4D800924AD0 /* SemesterEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemesterEnum.swift; sourceTree = "<group>"; };
 		C6C40F772AB2F70700E958C1 /* UX-Prototype.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UX-Prototype.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -474,6 +475,14 @@
 			path = CustomDelegate;
 			sourceTree = "<group>";
 		};
+		C6AE6A192AE6ADE70074CB38 /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				C6AE6A1A2AE6AE620074CB38 /* video1.MP4 */,
+			);
+			path = Video;
+			sourceTree = "<group>";
+		};
 		C6C40F6E2AB2F70700E958C1 = {
 			isa = PBXGroup;
 			children = (
@@ -508,6 +517,7 @@
 				C6C40F882AB2F70A00E958C1 /* Info.plist */,
 				C60D5B192AD68B42004B4595 /* Utils */,
 				C634F1FF2ABB2E3600CC1B91 /* ScreenShot */,
+				C6AE6A192AE6ADE70074CB38 /* Video */,
 			);
 			path = "UX-Prototype";
 			sourceTree = "<group>";
