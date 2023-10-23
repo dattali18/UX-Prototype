@@ -142,7 +142,7 @@ extension CourseVC : DisappearingViewDelegate, EditSemesterDelegate {
     
     func viewWillDisappear() {
         fetchData(option: self.selectedOption)
-        let sortButton = UIBarButtonItem(image: UIImage(systemName: "slider.vertical.3"), menu: createOptionMenu())
+        let sortButton = UIBarButtonItem(image: UIImage(systemName: "list.bullet"), menu: createOptionMenu())
         navigationItem.leftBarButtonItem = sortButton
     }
     

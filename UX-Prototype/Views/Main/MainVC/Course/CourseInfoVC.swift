@@ -188,6 +188,8 @@ extension CourseInfoVC: UITableViewDelegate, UITableViewDataSource {
             }
         }
         
+        deleteAction.image = UIImage(systemName: "trash.fill")
+        
         let editAction = UIContextualAction(style: .normal, title: "Edit") {  (contextualAction, view, boolValue) in
 
             let addResource = self.storyboard?.instantiateViewController(identifier: "AddResourcesVC") as! AddResourcesVC
