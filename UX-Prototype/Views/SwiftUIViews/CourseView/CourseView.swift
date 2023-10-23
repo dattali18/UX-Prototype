@@ -24,15 +24,16 @@ struct CourseView: View {
                 Section
                 {
                     TextField("Course Name", text: $viewModel.name)
-                    TextField("Course Number", value: $viewModel.number, format: .number)
+//                    TextField("Course Number", value: $viewModel.number, format: .number)
 //                    TextField("Course Number", value: $viewModel.number, formatter: NumberFormatter())
-                        .keyboardType(.numberPad)
+//                        .keyboardType(.numberPad)
                     
-//                    TextField("Course Number", text: Binding(
-//                            get: { viewModel.stringnumber },
-//                            set: { viewModel.numstringnumberber = $0.filter{ "0123456789".contains($0) } }
-//                        )
-//                    )
+                    TextField("Course Number", text: Binding(
+                            get: { viewModel.stringnumber },
+                            set: { viewModel.stringnumber = $0.filter{ "0123456789".contains($0) } }
+                        )
+                    )
+                    .keyboardType(.numberPad)
                     
                     TextField("Course Credits", value: $viewModel.credits, format: .number)
                         .keyboardType(.decimalPad) 

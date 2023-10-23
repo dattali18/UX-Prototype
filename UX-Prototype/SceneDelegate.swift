@@ -19,7 +19,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
             guard let _ = (scene as? UIWindowScene) else { return }
             
-            changeScreen()
+//            changeScreen()
+            let storyboard = UIStoryboard (name: "Main", bundle: nil)
+            let CustomTB = storyboard.instantiateViewController(identifier: "MainTB") as! MainTabBarVC
+            window?.rootViewController = CustomTB
+            window?.makeKeyAndVisible()
         }
     
         func changeScreen() {
@@ -30,9 +34,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 // set CustomTabBarController as the root view
                 let CustomTB = storyboard.instantiateViewController(identifier: "MainTB") as! MainTabBarVC
                 window?.rootViewController = CustomTB
-                
-//                window?.rootViewController = UIHostingController(rootView: ProjectView())
                 window?.makeKeyAndVisible()
+//                window?.rootViewController = UIHostingController(rootView: ProjectView())
+                
             } else {
 
                 // user not logged in, take to LoginNavigationController

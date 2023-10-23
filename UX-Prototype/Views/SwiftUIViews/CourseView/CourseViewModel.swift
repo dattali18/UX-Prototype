@@ -51,7 +51,7 @@ class CourseViewModel: ObservableObject {
         }
         
         name = self.course?.name ?? ""
-        number = self.course?.number
+        stringnumber = "\(self.course?.number ?? 0)"
         credits = self.course?.credits
     }
 
@@ -71,7 +71,8 @@ class CourseViewModel: ObservableObject {
         }
         
         course!.name     = name
-        course!.number   = number ?? 0
+        course!.number     = NumberFormatter().number(from: "0" + stringnumber) as! Int32
+//        course!.number   = number ?? 0
         course!.credits  = credits ?? 0.0
         
         if (semesters.isEmpty == false) {
@@ -88,7 +89,7 @@ class CourseViewModel: ObservableObject {
     }
     
     func validateInpute() -> Bool {
-        if(name == "" || credits == nil || number == nil)
+        if(name == "" || credits == nil || stringnumber == "")
         {
             return false
         }
