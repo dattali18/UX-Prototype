@@ -35,7 +35,7 @@ class MainTabBarVC: UITabBarController {
         assignmentsNC.title = "Assignments"
         projectsNC.title = "Projects"
         
-        setViewControllers([courseNC, calendarNC, assignmentsNC, projectsNC], animated: true)
+        setViewControllers([courseNC, assignmentsNC, projectsNC, calendarNC], animated: true)
     }
 }
 

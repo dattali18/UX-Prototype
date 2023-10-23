@@ -34,15 +34,16 @@ class AssignmentsInfoVC: UIViewController {
         let nib = UINib(nibName: "AssignmentTVC", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "AssignmentTVC")
         
-        if(course != nil) {
-            self.title = "\(course!.name!) - Assignments"
-        }
         
         fetchData()
         
         if(self.assignemnts.isEmpty == false)
         {
             type = self.assignemnts[0].type ?? type
+        }
+        
+        if(course != nil) {
+            self.title = "\(course!.name!) - \(type)"
         }
     }
     
@@ -130,7 +131,7 @@ extension AssignmentsInfoVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return section == 0 ? "\(type) - Not Done" : "\(type) - Done"
+        return section == 0 ? "" : "Completed"
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -228,7 +229,8 @@ extension AssignmentsInfoVC {
         }
         
         self.assignemnts = CoreDataManager.shared.fetch(entity: Assignment.self) ?? []
-        self.assignemnts = self.assignemnts.filter {$0.course == self.course && $0.type == self.type}
+        self.assignemnts = self.assignemnts.filter { $0.course == self.course && $0.type == self.type }
+        self.assignemnts = self.assignemnts.sorted { $0.name ?? "" > $1.name ?? "" }
         
         let done = self.assignemnts.filter { $0.done == true }
         let noDone = self.assignemnts.filter { $0.done == false }

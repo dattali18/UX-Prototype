@@ -33,6 +33,10 @@ class CourseInfoVC: UIViewController, MFMailComposeViewControllerDelegate {
         self.navigationItem.rightBarButtonItem = navigationButton
         
         fetchData()
+        
+        if(course != nil) {
+            self.title = self.course?.name ?? self.title
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
