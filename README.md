@@ -15,13 +15,26 @@ This project was inspired by a course in `UX`/`UI` design, in which we had to pr
 
 ## Features
 
-The prototype includes a variety of features for managing courses and semesters, such as:
+The course management application offers a range of features to help students manage their courses and semesters effectively:
 
-* Viewing a list of all courses and semesters.
-* Adding, editing, and deleting courses and semesters.
-* Viewing a course's details, including its name, description, and semester.
-* Assigning students to courses.
-* Viewing a student's grades.
+1. **Course and Semester Management:**
+   - Create new courses and semesters effortlessly by tapping the plus button in the navigation bar. Fill out the necessary details in a form and save.
+   - Edit existing courses and semesters with ease. Simply swipe left and click the edit button. You can modify course or semester details and save your changes.
+   - Delete unwanted courses directly from the list by swiping left.
+
+2. **Filter Courses:**
+   - Quickly find the courses you're looking for using the filter feature. Filter by semester or view all courses. Access the filter button on the left side of the navigation bar in the CourseVC view.
+
+3. **Assignment Management:**
+   - Assignments are seamlessly linked to courses and categorized as "Homework," "Midterm," "Final," or "Others."
+   - Create assignments with the option to add events, which are also viewable in your iPhone calendar as well as within the app's calendar.
+
+4. **Resource Handling:**
+   - Add resources associated with your courses, including a name, description, and links to online resources. While the app doesn't handle files, it allows you to organize and access online materials.
+
+5. **GitHub Integration:**
+   - The ProjectsVC feature allows you to create and manage projects. You can specify project details like name and URL and link them to specific courses.
+   - In the ProjectView, you can view the last five commits on the GitHub repository if it's public.
 
 
 ## Installation
@@ -48,4 +61,4 @@ Please contact me if you have any question about the project or me.
 
 ## Screenshots
 
-<img height="400" src="/UX-Prototype/ScreenShot/IMG_8086.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8087.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8088.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8089.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8090.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8091.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8092.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8093.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8094.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8095.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8096.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8097.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8098.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8099.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8100.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8102.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8103.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8104.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8105.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8106.PNG">
+<img height="400" src="/UX-Prototype/ScreenShot/IMG_8086.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8087.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8088.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8089.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8090.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8091.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8092.PNG">  <img height="400" src="/UX-Prototype/ScreenShot/IMG_8094.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8096.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8097.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8098.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8099.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8100.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8102.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8103.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8104.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8105.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/IMG_8106.PNG">
