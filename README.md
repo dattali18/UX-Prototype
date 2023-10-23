@@ -61,10 +61,6 @@ I am a highly motivated and skilled individual with a strong work ethic. I am ea
 
 Please contact me if you have any question about the project or me.
 
-## Videoshot
-
-![](/UX-Prototype/Video/video1.mp4)
-
 ## Screenshots
 
 ### Course/Semester + Resource
