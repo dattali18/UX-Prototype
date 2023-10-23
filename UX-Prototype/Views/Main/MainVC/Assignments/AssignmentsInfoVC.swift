@@ -95,7 +95,7 @@ extension AssignmentsInfoVC : UITableViewDelegate, UITableViewDataSource {
         cell.nameLabel.text = assignment.name
         
         if  assignment.descriptions == "" || assignment.descriptions == nil {
-//            cell.descriptionLabel.text = "No Description"
+            cell.descriptionLabel.text = "No Description"
         } else {
             cell.descriptionLabel.text = assignment.descriptions
         }
@@ -105,7 +105,7 @@ extension AssignmentsInfoVC : UITableViewDelegate, UITableViewDataSource {
         let date = assignment.due
         
         if(date == nil) {
-//            cell.dateLabel.text = "No Date"
+            cell.dateLabel.text = "No Date"
         } else {
             
             // Create a DateFormatter
@@ -121,7 +121,7 @@ extension AssignmentsInfoVC : UITableViewDelegate, UITableViewDataSource {
         let url = assignment.url
         
         if(url == "" || url == nil) {
-//            cell.urlLabel.text = "No URL"
+            cell.urlLabel.text = "No URL"
         } else {
             cell.urlLabel.text = url
         }

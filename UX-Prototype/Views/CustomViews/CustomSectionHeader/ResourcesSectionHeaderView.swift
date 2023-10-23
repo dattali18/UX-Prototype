@@ -28,15 +28,5 @@ class ResourcesSectionHeaderView: UITableViewHeaderFooterView {
 
     @IBAction func editButton(_ sender: Any) {
         delegate?.pushEdit(resource: resource, course: course)
-        // Navigate to the editSemesterVC class.
-//        guard let navigationController = navigationController else { return }
-//        guard let storyboard = storyboard else { return }
-//
-//        let addResource = storyboard.instantiateViewController(identifier: "AddResourcesVC") as! AddResourcesVC
-//        addResource.resource = self.resource
-//        addResource.mode = .edit
-//        addResource.course = self.course
-//
-//        navigationController.pushViewController(addResource, animated: true)
     }
 }

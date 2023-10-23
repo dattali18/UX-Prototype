@@ -34,7 +34,7 @@ class CourseVC: UIViewController {
         self.title = "Courses"
         navigationController?.navigationBar.prefersLargeTitles = true
         
-        view.backgroundColor = .secondarySystemBackground
+//        view.backgroundColor = .secondarySystemBackground
         
         let defualt = UserDefaults.standard
         self.selectedOption = defualt.string(forKey: "SemesterSort")  ?? "All"

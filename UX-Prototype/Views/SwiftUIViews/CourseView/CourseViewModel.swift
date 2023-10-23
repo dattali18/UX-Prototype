@@ -13,6 +13,7 @@ class CourseViewModel: ObservableObject {
     
     @Published var name: String = ""
     @Published var number: Int32?
+    @Published var stringnumber: String = ""
     @Published var credits: Float?
     @Published var hasSemester: Bool = false
     

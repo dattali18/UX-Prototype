@@ -23,7 +23,7 @@ class CourseTVC:
         
         rightArrowBtn.tintColor = .secondaryLabel
         
-        self.backgroundColor = .systemBackground
+//        self.backgroundColor = .systemBackground
   
     }
 
