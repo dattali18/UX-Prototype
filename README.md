@@ -61,40 +61,39 @@ Please contact me if you have any question about the project or me.
 
 ## Screenshots
 
-### Filtering course by semesters
+**Filtering course by semesters**
 <img height="400" src="/UX-Prototype/ScreenShot/IMG_8086.PNG">
-### Editing course
+**Editing course**
 <img height="400" src="/UX-Prototype/ScreenShot/IMG_8087.PNG">
-### Editing semester
-<img height="400" src="/UX-Prototype/ScreenShot/IMG_8088.PNG">
-### Adding course
+**Editing semester**
+<img height="400" src="/UX-Prototype/ScreenShot/IMG_8088.PNG"
+**Adding course**
 <img height="400" src="/UX-Prototype/ScreenShot/IMG_8089.PNG">
-### Deleting course
+**Adding semester**
 <img height="400" src="/UX-Prototype/ScreenShot/IMG_8090.PNG">
-### Editing resource
+**Deleting course**
 <img height="400" src="/UX-Prototype/ScreenShot/IMG_8091.PNG">
-### Filtering assignmetn by type
+**Resources list**
 <img height="400" src="/UX-Prototype/ScreenShot/IMG_8092.PNG">
-### Competing assignmet
+**Editing resource**
 <img height="400" src="/UX-Prototype/ScreenShot/IMG_8094.PNG">
-### Adding assignment
+**Filtering assignmetn by type**
 <img height="400" src="/UX-Prototype/ScreenShot/IMG_8096.PNG">
-### Editing assignment and crouseing a calendar event
+**Assignment List**
 <img height="400" src="/UX-Prototype/ScreenShot/IMG_8097.PNG">
-### Projects list
+**Compelting assignmet**
 <img height="400" src="/UX-Prototype/ScreenShot/IMG_8098.PNG">
-### Adding project
+**Adding assignment**
 <img height="400" src="/UX-Prototype/ScreenShot/IMG_8099.PNG">
-### Editing project
+**Editing assignment and crouseing a calendar event**
 <img height="400" src="/UX-Prototype/ScreenShot/IMG_8100.PNG">
-### Seeing last 5 commits on project
+**Seeing calendar event**
 <img height="400" src="/UX-Prototype/ScreenShot/IMG_8102.PNG">
-### Adding course
+**Projects list**
 <img height="400" src="/UX-Prototype/ScreenShot/IMG_8103.PNG">
-### Adding course
+**Adding project**
 <img height="400" src="/UX-Prototype/ScreenShot/IMG_8104.PNG">
-### Adding course
+**Editing project**
 <img height="400" src="/UX-Prototype/ScreenShot/IMG_8105.PNG">
-### Adding course
+**Seeing last 5 commits on project**
 <img height="400" src="/UX-Prototype/ScreenShot/IMG_8106.PNG">
-
