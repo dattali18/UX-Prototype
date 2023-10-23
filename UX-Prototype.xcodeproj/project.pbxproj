@@ -79,6 +79,7 @@
 		C6AE6A0D2AE69A3E0074CB38 /* IMG_8086.PNG in Resources */ = {isa = PBXBuildFile; fileRef = C6AE69F82AE69A3D0074CB38 /* IMG_8086.PNG */; };
 		C6AE6A0E2AE69A3E0074CB38 /* IMG_8104.PNG in Resources */ = {isa = PBXBuildFile; fileRef = C6AE69F92AE69A3D0074CB38 /* IMG_8104.PNG */; };
 		C6AE6A0F2AE69A3E0074CB38 /* IMG_8097.PNG in Resources */ = {isa = PBXBuildFile; fileRef = C6AE69FA2AE69A3E0074CB38 /* IMG_8097.PNG */; };
+		C6AE6A122AE6A9700074CB38 /* IMG_8108.PNG in Resources */ = {isa = PBXBuildFile; fileRef = C6AE6A112AE6A9700074CB38 /* IMG_8108.PNG */; };
 		C6BA53852ACD916D00924AD0 /* CourseDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BA53842ACD916D00924AD0 /* CourseDataManager.swift */; };
 		C6BA53872ACDB4D800924AD0 /* SemesterEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BA53862ACDB4D800924AD0 /* SemesterEnum.swift */; };
 		C6C40F7B2AB2F70700E958C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C40F7A2AB2F70700E958C1 /* AppDelegate.swift */; };
@@ -185,6 +186,7 @@
 		C6AE69F92AE69A3D0074CB38 /* IMG_8104.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_8104.PNG; sourceTree = "<group>"; };
 		C6AE69FA2AE69A3E0074CB38 /* IMG_8097.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_8097.PNG; sourceTree = "<group>"; };
 		C6AE6A102AE69B2F0074CB38 /* TREE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TREE.md; sourceTree = "<group>"; };
+		C6AE6A112AE6A9700074CB38 /* IMG_8108.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_8108.PNG; sourceTree = "<group>"; };
 		C6BA53842ACD916D00924AD0 /* CourseDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDataManager.swift; sourceTree = "<group>"; };
 		C6BA53862ACDB4D800924AD0 /* SemesterEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemesterEnum.swift; sourceTree = "<group>"; };
 		C6C40F772AB2F70700E958C1 /* UX-Prototype.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UX-Prototype.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -358,6 +360,7 @@
 		C634F1FF2ABB2E3600CC1B91 /* ScreenShot */ = {
 			isa = PBXGroup;
 			children = (
+				C6AE6A112AE6A9700074CB38 /* IMG_8108.PNG */,
 				C6AE69F82AE69A3D0074CB38 /* IMG_8086.PNG */,
 				C6AE69F32AE69A3C0074CB38 /* IMG_8087.PNG */,
 				C6AE69F02AE69A3B0074CB38 /* IMG_8088.PNG */,
@@ -716,6 +719,7 @@
 				C64591512ADC4F9D009163F1 /* Assignments.xib in Resources */,
 				C6AE6A082AE69A3E0074CB38 /* IMG_8087.PNG in Resources */,
 				C61689582AD019ED00B102C5 /* IMG_8079.PNG in Resources */,
+				C6AE6A122AE6A9700074CB38 /* IMG_8108.PNG in Resources */,
 				C6C40F822AB2F70700E958C1 /* Main.storyboard in Resources */,
 				C6AE6A032AE69A3E0074CB38 /* IMG_8089.PNG in Resources */,
 				C6AE6A0C2AE69A3E0074CB38 /* IMG_8101.PNG in Resources */,

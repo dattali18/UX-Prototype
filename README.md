@@ -74,7 +74,7 @@ Please contact me if you have any question about the project or me.
 **Deleting course**
 <img height="400" src="/UX-Prototype/ScreenShot/IMG_8091.PNG">
 **Resources list**
-<img height="400" src="/UX-Prototype/ScreenShot/IMG_8092.PNG">
+<img height="400" src="/UX-Prototype/ScreenShot/IMG_8108.PNG">
 **Editing resource**
 <img height="400" src="/UX-Prototype/ScreenShot/IMG_8094.PNG">
 **Filtering assignmetn by type**
