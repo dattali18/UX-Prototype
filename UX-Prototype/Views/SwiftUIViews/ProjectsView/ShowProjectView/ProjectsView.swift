@@ -26,28 +26,53 @@ struct ProjectsView: View {
             {
                 Section {
                     List(viewModel.projects, id:\.id) { project in
-                        HStack {
-                            Image(project.icon!)
-                                .font(.largeTitle)
-                            
-                            Spacer()
-                            
-                            VStack(alignment: .leading, spacing: 5) {
-                                Text(project.name!)
+                        NavigationLink(destination: ProjectView(project: project)) {
+                            HStack {
+                                Image(project.icon!)
+                                    .font(.largeTitle)
                                 
+                                Spacer()
                                 
-                                Text(project.descriptions ?? "")
-                                    .font(.caption2)
-                                    .foregroundStyle(.gray)
-                                    .lineLimit(1)
+                                VStack(alignment: .leading, spacing: 5) {
+                                    Text(project.name!)
+                                    
+                                    
+                                    Text(project.descriptions ?? "")
+                                        .font(.caption2)
+                                        .foregroundStyle(.gray)
+                                        .lineLimit(1)
+                                }
+                                
+                                Spacer()
+                           
                             }
-                            
-                            Spacer()
-                            
-                            Image(systemName: "chevron.forward")
                         }
-                        .onTapGesture {
-                            addProjectDelegate?.pushAddView(project: project)
+                        .swipeActions(edge: .trailing) {
+                            Button {
+                                addProjectDelegate?.pushAddView(project: project)
+                            } label : {
+                                Label("Edit", systemImage: "pencil")
+                            }
+                            .tint(.blue)
+                        }
+                        .swipeActions(edge: .leading) {
+                            Button {
+                                viewModel.showDeleteAlert()
+                            } label : {
+                                Label("Delete", systemImage: "trash")
+                            }
+                            .tint(.red)
+                        }
+                        .alert(isPresented: $viewModel.deleteAlertShowing) {
+                            Alert(
+                                title: Text("Delete?"),
+                                message: Text("Are you sure you want to delete this project?"),
+                                primaryButton: .destructive(Text("Delete")) {
+                                    viewModel.deleteProject(project: project)
+
+                                },
+                                secondaryButton: .cancel(Text("Cancel"))
+                            )
                         }
                     }
                 } header : {
@@ -65,6 +90,9 @@ struct ProjectsView: View {
                         Image(systemName: "plus")
                     }
                 }
+            }
+            .onAppear {
+                viewModel.fetchProject()
             }
         }
 

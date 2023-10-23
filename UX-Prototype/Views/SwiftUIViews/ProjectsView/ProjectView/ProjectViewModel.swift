@@ -5,9 +5,15 @@ class ProjectViewModel: ObservableObject {
     @Published var isFetchingData = false
     @Published var commits: [CommitInfo] = []
     
+    var project: Project?
+    
+    init(project: Project?) {
+        self.project = project
+    }
+    
     func fetchData() {
         isFetchingData = true
-        self.fetchData(from: "https://github.com/dattali18/UX-Prototype")
+        self.fetchData(from: project?.url ?? "")
         
     }
 
@@ -112,9 +118,7 @@ class ProjectViewModel: ObservableObject {
     
     func formatDate(_ date: Date) -> String {
         let formatter = DateFormatter()
-//        formatter.dateFormat = "E dd MMM" // Format like "Fri 20 Oct"
-        formatter.dateFormat = "dd/MM/yyyy"
-        // To format as "dd/MM/yyyy", use: formatter.dateFormat = "dd/MM/yyyy"
+        formatter.dateFormat = "dd/MM/yyyy HH:mm"
         return formatter.string(from: date)
     }
 

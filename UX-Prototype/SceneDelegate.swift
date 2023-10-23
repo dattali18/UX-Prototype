@@ -31,7 +31,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 let CustomTB = storyboard.instantiateViewController(identifier: "MainTB") as! MainTabBarVC
                 window?.rootViewController = CustomTB
                 
-                window?.rootViewController = UIHostingController(rootView: ProjectView())
+//                window?.rootViewController = UIHostingController(rootView: ProjectView())
                 window?.makeKeyAndVisible()
             } else {
 

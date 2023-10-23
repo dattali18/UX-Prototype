@@ -60,7 +60,6 @@
 		C6AE4BD82AD450FA0037C821 /* LinkTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6AE4BD62AD450FA0037C821 /* LinkTVC.xib */; };
 		C6BA53852ACD916D00924AD0 /* CourseDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BA53842ACD916D00924AD0 /* CourseDataManager.swift */; };
 		C6BA53872ACDB4D800924AD0 /* SemesterEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BA53862ACDB4D800924AD0 /* SemesterEnum.swift */; };
-		C6BD03FC2AE569640014ABDC /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BD03FB2AE569640014ABDC /* JSONParser.swift */; };
 		C6C40F7B2AB2F70700E958C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C40F7A2AB2F70700E958C1 /* AppDelegate.swift */; };
 		C6C40F7D2AB2F70700E958C1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C40F7C2AB2F70700E958C1 /* SceneDelegate.swift */; };
 		C6C40F7F2AB2F70700E958C1 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C40F7E2AB2F70700E958C1 /* LoginVC.swift */; };
@@ -145,7 +144,6 @@
 		C6AE4BD62AD450FA0037C821 /* LinkTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LinkTVC.xib; sourceTree = "<group>"; };
 		C6BA53842ACD916D00924AD0 /* CourseDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDataManager.swift; sourceTree = "<group>"; };
 		C6BA53862ACDB4D800924AD0 /* SemesterEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemesterEnum.swift; sourceTree = "<group>"; };
-		C6BD03FB2AE569640014ABDC /* JSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
 		C6C40F772AB2F70700E958C1 /* UX-Prototype.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UX-Prototype.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6C40F7A2AB2F70700E958C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C6C40F7C2AB2F70700E958C1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -334,7 +332,6 @@
 			children = (
 				C63B60602AE5558B00B9CFAA /* ProjectViewModel.swift */,
 				C63B60622AE5559A00B9CFAA /* ProjectView.swift */,
-				C6BD03FB2AE569640014ABDC /* JSONParser.swift */,
 			);
 			path = ProjectView;
 			sourceTree = "<group>";
@@ -695,7 +692,6 @@
 				C6C40F7D2AB2F70700E958C1 /* SceneDelegate.swift in Sources */,
 				C6C40FA62AB33B3A00E958C1 /* CourseTVC.swift in Sources */,
 				C6214D012ACEA9FB00E242AC /* CoreDataManager.swift in Sources */,
-				C6BD03FC2AE569640014ABDC /* JSONParser.swift in Sources */,
 				C6A150172AE02AD200115C59 /* SemesterViewModel.swift in Sources */,
 				C62D98F22AE05511008E61A8 /* ResourceView.swift in Sources */,
 				C64BC8ED2ADED243001CD692 /* CustomDelegate.swift in Sources */,

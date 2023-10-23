@@ -8,47 +8,62 @@
 import SwiftUI
 
 struct ProjectView: View {
-    @ObservedObject var viewModel = ProjectViewModel()
+    weak var delegate: DisappearingViewDelegate?
+    
+    @Environment(\.presentationMode) var presentationMode
+    
+    @StateObject var viewModel: ProjectViewModel
+    
+    init(project: Project?) {
+        self._viewModel = StateObject(wrappedValue: ProjectViewModel(project: project))
+    }
     
     var body: some View {
-        NavigationView { // You can wrap the list in a NavigationView for navigation purposes
-            Form {
-                Section {
-                    Text("Project Name")
-                    Text("Project Description")
-                    Text("Project URL")
-                }
-                
-                Section {
-                    List(viewModel.commits, id: \.id) { commit in
-                        VStack(alignment: .leading) {
+        Form {
+            Section("Project Info") {
+                Text(viewModel.project?.name ?? "Project Name")
+                Text(viewModel.project?.descriptions ?? "Project Description")
+                    .foregroundStyle(.gray)
+                Text((viewModel.project?.url ?? "Project URL").toDetectedAttributedString())
+            }
+            
+            Section("Latest Commits") {
+                List(viewModel.commits, id: \.id) { commit in
+                    VStack(alignment: .leading) {
+                        HStack {
                             Text(commit.authorName)
                                 .font(.headline)
+                            
+                            Spacer()
+                            
                             Text(commit.commitDate)
                                 .font(.subheadline)
-                            Text(commit.commitMessage)
-                                .font(.body)
+                                .foregroundStyle(.blue)
                         }
-                    }
-                    
-                    
-                    if viewModel.isFetchingData {
-                        ProgressView("Fetching data...")
-                            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        Text(commit.commitMessage)
+                            .font(.body)
+                            .foregroundStyle(.gray)
+                            .lineLimit(1)
                     }
                 }
-            }
-            .navigationBarTitle("Project") // Set a navigation title
-            .onAppear {
-                if !viewModel.isFetchingData {
-                    viewModel.fetchData()
+                
+                
+                if viewModel.isFetchingData {
+                    ProgressView("Fetching data...")
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
                 }
             }
         }
+        .onAppear {
+            if !viewModel.isFetchingData {
+                viewModel.fetchData()
+            }
+        }
+        .navigationBarTitle("Project") // Set a navigation title
     }
 }
 
 
 #Preview {
-    ProjectView()
+    ProjectView(project: nil)
 }

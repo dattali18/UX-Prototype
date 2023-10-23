@@ -11,6 +11,8 @@ class ProjectsViewModel: ObservableObject {
     @Published var projects: [Project] = []
     @Published var selectedProject: Project?
     
+    @Published var deleteAlertShowing: Bool = false
+    
     init() {
         fetchProject()
     }
@@ -46,5 +48,13 @@ class ProjectsViewModel: ObservableObject {
         self.projects = CoreDataManager.shared.fetch(entity: Project.self) ?? []
     }
     
+    func deleteProject(project: Project?) {
+        self.projects.removeAll(where: { $0 == project })
+        CoreDataManager.shared.delete(project)
+    }
+    
+    func showDeleteAlert() {
+        deleteAlertShowing = true
+    }
     
 }
