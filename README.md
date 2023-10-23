@@ -88,12 +88,14 @@ Please contact me if you have any question about the project or me.
 <img height="400" src="/UX-Prototype/ScreenShot/IMG_8091.PNG">
 
 **Resources list**
+
 <img height="400" src="/UX-Prototype/ScreenShot/IMG_8108.PNG">
+
 **Editing resource**
 
-<img height="400" src="/UX-Prototype/ScreenShot/IMG_8094.PNG">
+<img height="400" src="/UX-Prototype/ScreenShot/IMG_8109.PNG">
 
-### Assigment
+### Assigments
 
 **Filtering assignmetn by type**
 
@@ -120,6 +122,14 @@ Please contact me if you have any question about the project or me.
 **Seeing calendar event**
 
 <img height="400" src="/UX-Prototype/ScreenShot/IMG_8102.PNG">
+
+**Adding an event in the calendar**
+
+<img height="400" src="/UX-Prototype/ScreenShot/IMG_8110.PNG">
+
+**Seeing event details in the calendar**
+
+<img height="400" src="/UX-Prototype/ScreenShot/IMG_8111.PNG">
 
 ## Projects
 
