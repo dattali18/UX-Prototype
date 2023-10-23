@@ -12,6 +12,8 @@ This project was inspired by a course in `UX`/`UI` design, in which we had to pr
 * `UIKit:` The app uses `UIKit`, which is Apple's framework for developing user interfaces for `iOS` applications. `UIKit` provides a variety of controls and views that can be used to create complex and interactive user interfaces.
 * `SwiftUI`: The app uses `SwiftUI`, wich is Apple's framwork for develping user iterfaces for `iOS` applications.
 * `Model-View-Controller (MVC)` : The prototype follows the `Model-View-Controller (MVC)` design pattern. `MVC` is a design pattern that separates the user interface, the data model, and the application logic into three separate components. This makes the code more modular and easier to maintain.
+* `CalendarKit` a framwork used in the calendar tab for creating editing and deleting event.
+* `CoreData` Apple's framwork to have persistante data, please see the `COREDATA.md` file to see the data structure for the project.
 
 ## Features
 
