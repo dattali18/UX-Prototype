@@ -88,10 +88,12 @@ Please contact me if you have any question about the project or me.
 <img height="400" src="/UX-Prototype/ScreenShot/IMG_8091.PNG">
 
 **Resources list**
+
 <img height="400" src="/UX-Prototype/ScreenShot/IMG_8108.PNG">
+
 **Editing resource**
 
-<img height="400" src="/UX-Prototype/ScreenShot/IMG_8094.PNG">
+<img height="400" src="/UX-Prototype/ScreenShot/IMG_8109.PNG">
 
 ### Assigment
 
