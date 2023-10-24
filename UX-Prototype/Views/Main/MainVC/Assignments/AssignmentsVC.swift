@@ -19,7 +19,7 @@ class AssignmentsVC: UIViewController {
     
     var assignments: [Assignment] = []
     var courses: [Course] = []
-    var sections: [[(Course , [Assignment])]] = []
+    var sections: [[(String? , [Assignment])]] = []
     
     var sectionName: [String] = ["Homework", "Midterm", "Final", "Others"]
     
@@ -116,9 +116,9 @@ extension AssignmentsVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AssignmentsListTVC", for: indexPath) as! AssignmentsListTVC
         
-        let (course, assignments) = self.sections[indexPath.section][indexPath.row]
+        let (name, assignments) = self.sections[indexPath.section][indexPath.row]
         
-        cell.courseLabel.text = course.name
+        cell.courseLabel.text = name
         cell.numberLabel.text = "\(assignments.count)"
         
         return cell
@@ -138,14 +138,14 @@ extension AssignmentsVC : UITableViewDelegate, UITableViewDataSource {
     
     // MARK: - Swipe Action
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") {  (contextualAction, view, boolValue) in
+        _ = UIContextualAction(style: .destructive, title: "Delete") {  (contextualAction, view, boolValue) in
             
             let row = indexPath.row
             let section = indexPath.section
             
-            let (course, assignments) = self.sections[section][row]
+            let (name, assignments) = self.sections[section][row]
             
-            self.showDeleteConfirmationAlert(message: "Are you sure you want to delete the course \(course.name ?? "")?") { didConfirmDelete in
+            self.showDeleteConfirmationAlert(message: "Are you sure you want to delete the course \(name ?? "")?") { didConfirmDelete in
                 if didConfirmDelete {
                     self.sections[section].remove(at: row)
                     self.tableView.reloadData()
@@ -158,10 +158,10 @@ extension AssignmentsVC : UITableViewDelegate, UITableViewDataSource {
             }
         }
         
-        deleteAction.image = UIImage(systemName: "trash.fill")
+//        deleteAction.image = UIImage(systemName: "trash.fill")
         
-        
-        let swipeActions = UISwipeActionsConfiguration(actions: [deleteAction])
+//        let swipeActions = UISwipeActionsConfiguration(actions: [deleteAction])
+        let swipeActions = UISwipeActionsConfiguration(actions: [])
 
         return swipeActions
     }
@@ -172,9 +172,8 @@ extension AssignmentsVC : UITableViewDelegate, UITableViewDataSource {
         
         let vc = self.storyboard?.instantiateViewController(identifier: "AssignmentsInfo") as! AssignmentsInfoVC
         
-        let (course, _) = self.sections[section][row]
-        
-        vc.course = course
+        let (name, _) = self.sections[section][row]
+        vc.name = name
         vc.type = self.sectionName[section]
 
         self.navigationController?.pushViewController(vc, animated: true)
@@ -295,7 +294,7 @@ extension AssignmentsVC {
     ///   - assignments: An array of assignments to be grouped by course.
     ///
     /// - Returns: An array of tuples, each containing a course and its associated assignments.
-    func sortAssignmentsByCourse(_ assignments: [Assignment]) -> [(Course, [Assignment])] {
+    func sortAssignmentsByCourse(_ assignments: [Assignment]) -> [(String?, [Assignment])] {
         var courseAssignmentMap = [Course: [Assignment]]()
 
         for assignment in assignments {
@@ -309,12 +308,18 @@ extension AssignmentsVC {
         }
 
         // Filter out courses with no assignments
-        let courseAssignmentPairs = courseAssignmentMap
+        var courseAssignmentPairs = courseAssignmentMap
             .filter { !$0.value.isEmpty }
-            .map { ($0.key, $0.value) }
+            .map { ($0.key.name, $0.value) }
             .sorted { (pair1, pair2) in
-                return pair1.0.name ?? "" < pair2.0.name ?? ""
+                return pair1.0 ?? "" < pair2.0 ?? ""
             }
+        
+        /// adding the assignment without course connection
+        let noCourseAssignment = assignments.filter { $0.course == nil }
+        if(!noCourseAssignment.isEmpty) {
+            courseAssignmentPairs.append(("General", noCourseAssignment))
+        }
         
         return courseAssignmentPairs
     }

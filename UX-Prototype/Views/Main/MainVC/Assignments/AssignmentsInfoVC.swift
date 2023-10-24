@@ -19,7 +19,8 @@ class AssignmentsInfoVC: UIViewController {
         
     var sections: [[Assignment]] = []
     var assignemnts: [Assignment] = []
-    var course: Course?
+//    var course: Course?
+    var name: String?
     var type: String = "Assignment"
 
     override func viewDidLoad() {
@@ -42,9 +43,7 @@ class AssignmentsInfoVC: UIViewController {
             type = self.assignemnts[0].type ?? type
         }
         
-        if(course != nil) {
-            self.title = "\(course!.name!) - \(type)"
-        }
+        self.title = "\(name ?? "") - \(type)"
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -223,13 +222,9 @@ extension AssignmentsInfoVC {
     func fetchData() {
         self.assignemnts = []
         
-        if(self.course == nil) {
-            self.tableView.reloadData()
-            return
-        }
-        
         self.assignemnts = CoreDataManager.shared.fetch(entity: Assignment.self) ?? []
-        self.assignemnts = self.assignemnts.filter { $0.course == self.course && $0.type == self.type }
+        
+        self.assignemnts = self.assignemnts.filter { $0.course?.name == name && $0.type == self.type }
         self.assignemnts = self.assignemnts.sorted { $0.name ?? "" > $1.name ?? "" }
         
         let done = self.assignemnts.filter { $0.done == true }

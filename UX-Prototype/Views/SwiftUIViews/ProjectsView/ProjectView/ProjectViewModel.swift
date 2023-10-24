@@ -20,6 +20,7 @@ class ProjectViewModel: ObservableObject {
     func fetchData(from link: String) {
         guard let username = extractUsername(from: link), let reponame = extractReponame(from: link) else {
             print("Invalid GitHub link format")
+            self.isFetchingData = false
             return
         }
         

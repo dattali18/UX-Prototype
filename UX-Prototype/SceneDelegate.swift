@@ -19,6 +19,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
             guard let _ = (scene as? UIWindowScene) else { return }
             
+//            CoreDataManager.shared.deleteAll(Assignment.self)
+//            MokeDataManager.shared.CreateMockData()
+            
 //            changeScreen()
             let storyboard = UIStoryboard (name: "Main", bundle: nil)
             let CustomTB = storyboard.instantiateViewController(identifier: "MainTB") as! MainTabBarVC

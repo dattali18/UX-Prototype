@@ -83,6 +83,7 @@
 		C6AE6A142AE6AA410074CB38 /* IMG_8109.PNG in Resources */ = {isa = PBXBuildFile; fileRef = C6AE6A132AE6AA410074CB38 /* IMG_8109.PNG */; };
 		C6AE6A172AE6AB5E0074CB38 /* IMG_8111.PNG in Resources */ = {isa = PBXBuildFile; fileRef = C6AE6A152AE6AB5E0074CB38 /* IMG_8111.PNG */; };
 		C6AE6A182AE6AB5E0074CB38 /* IMG_8110.PNG in Resources */ = {isa = PBXBuildFile; fileRef = C6AE6A162AE6AB5E0074CB38 /* IMG_8110.PNG */; };
+		C6B2C7A32AE847D000913562 /* MockDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B2C7A22AE847CF00913562 /* MockDataManager.swift */; };
 		C6BA53852ACD916D00924AD0 /* CourseDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BA53842ACD916D00924AD0 /* CourseDataManager.swift */; };
 		C6BA53872ACDB4D800924AD0 /* SemesterEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BA53862ACDB4D800924AD0 /* SemesterEnum.swift */; };
 		C6C40F7B2AB2F70700E958C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C40F7A2AB2F70700E958C1 /* AppDelegate.swift */; };
@@ -194,6 +195,7 @@
 		C6AE6A152AE6AB5E0074CB38 /* IMG_8111.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_8111.PNG; sourceTree = "<group>"; };
 		C6AE6A162AE6AB5E0074CB38 /* IMG_8110.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_8110.PNG; sourceTree = "<group>"; };
 		C6AE6A1A2AE6AE620074CB38 /* video1.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video1.MP4; sourceTree = "<group>"; };
+		C6B2C7A22AE847CF00913562 /* MockDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataManager.swift; sourceTree = "<group>"; };
 		C6BA53842ACD916D00924AD0 /* CourseDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDataManager.swift; sourceTree = "<group>"; };
 		C6BA53862ACDB4D800924AD0 /* SemesterEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemesterEnum.swift; sourceTree = "<group>"; };
 		C6C40F772AB2F70700E958C1 /* UX-Prototype.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UX-Prototype.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -252,6 +254,7 @@
 			children = (
 				C6214D002ACEA9FB00E242AC /* CoreDataManager.swift */,
 				C6BA53842ACD916D00924AD0 /* CourseDataManager.swift */,
+				C6B2C7A22AE847CF00913562 /* MockDataManager.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -793,6 +796,7 @@
 				C6C40FA12AB3049900E958C1 /* ProjectsVC.swift in Sources */,
 				C6A150122AE026EF00115C59 /* AssignmentViewModel.swift in Sources */,
 				C64591482ADBDD8C009163F1 /* AssignmentsListTVC.swift in Sources */,
+				C6B2C7A32AE847D000913562 /* MockDataManager.swift in Sources */,
 				C63B60632AE5559A00B9CFAA /* ProjectView.swift in Sources */,
 				C645914C2ADC27DE009163F1 /* AssignmentsInfoVC.swift in Sources */,
 				C63B60612AE5558B00B9CFAA /* ProjectViewModel.swift in Sources */,
@@ -972,7 +976,7 @@
 				DEVELOPMENT_TEAM = 47V6B32V59;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "UX-Prototype/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = TaskManager;
+				INFOPLIST_KEY_CFBundleDisplayName = "Course Manager";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_NSCalendarsUsageDescription = "Please let us get access to the calendar so the app can function properly.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -989,6 +993,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "co.danielattali.UX-Prototype";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1005,7 +1012,7 @@
 				DEVELOPMENT_TEAM = 47V6B32V59;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "UX-Prototype/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = TaskManager;
+				INFOPLIST_KEY_CFBundleDisplayName = "Course Manager";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_NSCalendarsUsageDescription = "Please let us get access to the calendar so the app can function properly.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1022,6 +1029,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "co.danielattali.UX-Prototype";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

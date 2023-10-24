@@ -25,7 +25,6 @@ class CalendarVC: DayViewController {
         // The app must have access to the user's calendar to show the events on the timeline
         requestAccessToCalendar()
         // Subscribe to notifications to reload the UI when
-        subscribeToNotifications()
         
     }
     
@@ -40,10 +39,12 @@ class CalendarVC: DayViewController {
         eventStore.requestAccess(to: .event) { [weak self] granted, error in
             // Handle the response to the request.
             DispatchQueue.main.async {
-                guard let self else { return }
-                self.initializeStore()
-                self.subscribeToNotifications()
-                self.reloadData()
+                if(granted) {
+                    guard let self else { return }
+                    self.initializeStore()
+                    self.subscribeToNotifications()
+                    self.reloadData()
+                }
             }
         }
     }

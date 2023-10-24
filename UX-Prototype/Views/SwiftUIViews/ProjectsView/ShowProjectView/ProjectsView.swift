@@ -36,6 +36,9 @@ struct ProjectsView: View {
                                 VStack(alignment: .leading, spacing: 5) {
                                     Text(project.name!)
                                     
+                                    Text(project.url ?? "")
+                                        .font(.caption2)
+                                        .lineLimit(1)
                                     
                                     Text(project.descriptions ?? "")
                                         .font(.caption2)
@@ -46,20 +49,25 @@ struct ProjectsView: View {
                                 Spacer()
                            
                             }
-                        }
-                        .swipeActions(edge: .trailing) {
-                            Button {
-                                addProjectDelegate?.pushAddView(project: project)
-                            } label : {
-                                Label("Edit", systemImage: "pencil")
-                            }
-                            .tint(.blue)
+                            .frame(height: 74)
                         }
                         .swipeActions(edge: .leading) {
                             Button {
+                                addProjectDelegate?.pushAddView(project: project)
+                            } label : {
+                                Text("Edit")
+                                Image(systemName: "pencil")
+//                                Label("Edit", systemImage: "pencil")
+                            }
+                            .tint(.blue)
+                        }
+                        .swipeActions(edge: .trailing) {
+                            Button {
                                 viewModel.showDeleteAlert()
                             } label : {
-                                Label("Delete", systemImage: "trash")
+                                Text("Delete")
+                                Image(systemName: "trash.fill")
+//                                Label("Delete", systemImage: "trash")
                             }
                             .tint(.red)
                         }

@@ -276,7 +276,7 @@ extension CourseVC: UITableViewDelegate, UITableViewDataSource {
 
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 84
+        return 94
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -317,7 +317,6 @@ extension CourseVC: UITableViewDelegate, UITableViewDataSource {
             let course = self.coursesBySemesters[section][row]
             let name = course.name ?? ""
             
-//            CourseDataManager.shared.deleteCourse(withName: name)
             self.showDeleteConfirmationAlert(message: "Are you sure you want to delete the course \(name)?") { didConfirmDelete in
                 
                 if didConfirmDelete {
@@ -329,6 +328,14 @@ extension CourseVC: UITableViewDelegate, UITableViewDataSource {
             }
         }
         
+        deleteAction.image = UIImage(systemName: "trash.fill")
+        
+        let swipeActions = UISwipeActionsConfiguration(actions: [deleteAction])
+
+        return swipeActions
+    }
+    
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let editAction  = UIContextualAction(style: .normal, title: "Edit") {  (contextualAction, view, boolValue) in
             // Get the name of the course
             let row = indexPath.row
@@ -342,18 +349,13 @@ extension CourseVC: UITableViewDelegate, UITableViewDataSource {
 
             // Present the SwiftUI view
             self.present(hostingController, animated: true, completion: nil)
-            
-//            let vc = self.storyboard?.instantiateViewController(identifier: "editCourseVC") as! EditCourseVC
-//            vc.courseNameTxt = name
-//
-//            self.navigationController?.pushViewController(vc, animated: true)
         }
 
+        editAction.image = UIImage(systemName: "pencil")
         editAction.backgroundColor = .systemBlue
         
+        let swipeActions = UISwipeActionsConfiguration(actions: [editAction])
         
-        let swipeActions = UISwipeActionsConfiguration(actions: [deleteAction, editAction])
-
         return swipeActions
     }
 }

@@ -74,7 +74,7 @@ class ResourceViewModel: ObservableObject {
     }
     
     func validateData() -> Bool {
-        return !(name == "")
+        return name != ""
     }
     
     func saveData() -> Resource? {
@@ -104,7 +104,6 @@ class ResourceViewModel: ObservableObject {
     }
     
     func deleteData() {
-        
         CoreDataManager.shared.delete(self.resource)
     }
     
