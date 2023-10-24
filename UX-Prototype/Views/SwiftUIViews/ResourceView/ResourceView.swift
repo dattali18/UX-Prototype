@@ -91,7 +91,6 @@ struct ResourceView: View {
                         }
                     } label: {
                         HStack {
-    //                        Image(systemName: "square.and.arrow.down")
                             Text("Save")
                         }
                     }

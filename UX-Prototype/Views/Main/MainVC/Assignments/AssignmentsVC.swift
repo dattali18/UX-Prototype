@@ -319,6 +319,7 @@ extension AssignmentsVC {
         return courseAssignmentPairs
     }
     
+    
     // Add more functions as needed for further functionality.
     
     func printAssignments(_ assignments: [Assignment]) {

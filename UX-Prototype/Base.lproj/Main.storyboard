@@ -287,7 +287,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="umV-hm-Xdf">
-                                <rect key="frame" x="0.0" y="0.0" width="390" height="810"/>
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="CourseTVC" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="customViewCellTableViewCell" id="l29-FL-tAi">
                                         <rect key="frame" x="20" y="55.333332061767578" width="350" height="43.666667938232422"/>
@@ -301,10 +301,9 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="oiK-mV-hSB"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="umV-hm-Xdf" firstAttribute="top" secondItem="LSO-3E-OOl" secondAttribute="top" id="NrV-Ko-wkv"/>
-                            <constraint firstItem="oiK-mV-hSB" firstAttribute="bottom" secondItem="umV-hm-Xdf" secondAttribute="bottom" id="av9-Yz-Y4n"/>
+                            <constraint firstAttribute="bottom" secondItem="umV-hm-Xdf" secondAttribute="bottom" id="av9-Yz-Y4n"/>
                             <constraint firstItem="umV-hm-Xdf" firstAttribute="leading" secondItem="oiK-mV-hSB" secondAttribute="leading" id="t0C-WA-Dtw"/>
                             <constraint firstItem="umV-hm-Xdf" firstAttribute="trailing" secondItem="oiK-mV-hSB" secondAttribute="trailing" id="w4M-r1-2Wr"/>
                         </constraints>

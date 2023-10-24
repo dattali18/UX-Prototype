@@ -48,12 +48,15 @@ struct AddProjectView: View {
                         Text("Link To Course")
                     })
                     
-                    if(viewModel.hasCourse)
-                    {
+                    if(viewModel.hasCourse) {
                     
                         Picker("Semester", selection: $viewModel.selectedSemester) {
-                            ForEach(0..<viewModel.semesters.count, id: \.self) { index in
-                                Text(viewModel.semesters[index].name ?? "")
+                            ForEach(0..<viewModel.semesters.count + 1, id: \.self) { index in
+                                if(index < viewModel.semesters.count) {
+                                    Text(viewModel.semesters[index].name ?? "")
+                                } else {
+                                    Text("No Semester")
+                                }
                             }
                         }
                         
@@ -63,11 +66,24 @@ struct AddProjectView: View {
                                     Text(viewModel.courses[viewModel.selectedSemester][index].name ?? "")
                                 }
                             }
+                        } else if viewModel.selectedSemester == viewModel.semesters.count {
+                            Picker("Course", selection: $viewModel.selectedCourse) {
+                                ForEach(0..<viewModel.noSemesterCourse.count, id:\.self) { index in
+                                    Text(viewModel.noSemesterCourse[index].name ?? "")
+                                }
+                            }
                         }
                     }
                 }
             }
             .navigationTitle(viewModel.navigationtitle)
+            .alert(isPresented: $viewModel.showingAlert) {
+                Alert(
+                    title: Text("Invalid Input"),
+                    message: Text("Please enter all info before saving."),
+                    dismissButton: .default(Text("OK"))
+                )
+            }
             .toolbar {
                 // Add a "Save" button to the top of the navigation bar
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -78,6 +94,8 @@ struct AddProjectView: View {
                             // Dismiss the view
                             self.presentationMode.wrappedValue.dismiss()
                             self.delegate?.viewWillDisappear()
+                        } else {
+                            self.viewModel.showAlert()
                         }
                     } label: {
                         Text("Save")

@@ -24,9 +24,6 @@ struct CourseView: View {
                 Section
                 {
                     TextField("Course Name", text: $viewModel.name)
-//                    TextField("Course Number", value: $viewModel.number, format: .number)
-//                    TextField("Course Number", value: $viewModel.number, formatter: NumberFormatter())
-//                        .keyboardType(.numberPad)
                     
                     TextField("Course Number", text: Binding(
                             get: { viewModel.stringnumber },

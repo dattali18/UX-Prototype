@@ -74,7 +74,7 @@ class ResourceViewModel: ObservableObject {
     }
     
     func validateData() -> Bool {
-        return !(name == "" || description == "")
+        return !(name == "")
     }
     
     func saveData() -> Resource? {

@@ -40,40 +40,90 @@ struct AssignmentView: View {
                     }
                 })
                 
-                if viewModel.dateTime {
-                    DatePicker("Due Date", selection: $viewModel.dueDate)
-                        .datePickerStyle(GraphicalDatePickerStyle())
-                        .frame(maxHeight: 400)
+                    if viewModel.dateTime {
+                        DatePicker("Due Date", selection: $viewModel.dueDate)
+                            .datePickerStyle(GraphicalDatePickerStyle())
+                            .frame(maxHeight: 400)
+                    }
                 }
-            }
                 
                 // Type Section
                 Section("") {
-                HStack
-                {
-                    Image(systemName: "graduationcap.circle.fill")
-                        .foregroundColor(.blue)
-                        .font(.largeTitle)
-                    Picker("Type", selection: $viewModel.selectedType) {
-                        ForEach(0..<viewModel.types.count, id: \.self) {index in
-                            Text(viewModel.types[index])
+                    HStack
+                    {
+                        Image(systemName: "graduationcap.circle.fill")
+                            .foregroundColor(.blue)
+                            .font(.largeTitle)
+                        Picker("Type", selection: $viewModel.selectedType) {
+                            ForEach(0..<viewModel.types.count, id: \.self) {index in
+                                Text(viewModel.types[index])
+                            }
                         }
                     }
                 }
-            }
                 
                 // Semester/Course Section
-                Section("") {
-                    Picker("Semester", selection: $viewModel.selectedSemester) {
-                        ForEach(0..<viewModel.semesters.count, id: \.self) { index in
-                            Text(viewModel.semesters[index].name ?? "")
-                        }
-                    }
+//                Section("Course") {
+//                    Toggle(isOn: $viewModel.hasCourse, label: {
+//                        Text("Link To Course")
+//                    })
+//                    
+//                    if (viewModel.hasCourse) {
+//                        
+//                        Picker("Semester", selection: $viewModel.selectedSemester) {
+//                            ForEach(0..<viewModel.semesters.count + 1, id: \.self) { index in
+//                                if(index < viewModel.semesters.count) {
+//                                    Text(viewModel.semesters[index].name ?? "")
+//                                } else {
+//                                    Text("No Semester")
+//                                }
+//                            }
+//                        }
+//                        
+//                        if viewModel.courses.indices.contains(viewModel.selectedSemester) {
+//                            Picker("Course", selection: $viewModel.selectedCourse) {
+//                                ForEach(0..<viewModel.courses[viewModel.selectedSemester].count, id: \.self) { index in
+//                                    Text(viewModel.courses[viewModel.selectedSemester][index].name ?? "")
+//                                }
+//                            }
+//                        } else if viewModel.selectedSemester == viewModel.semesters.count {
+//                            Picker("Course", selection: $viewModel.selectedCourse) {
+//                                ForEach(0..<viewModel.noSemesterCourse.count, id:\.self) { index in
+//                                    Text(viewModel.noSemesterCourse[index].name ?? "")
+//                                }
+//                            }
+//                        }
+//                    }
+//                }
+                Section("Course") {
+                    Toggle(isOn: $viewModel.hasCourse, label: {
+                        Text("Link To Course")
+                    })
                     
-                    if viewModel.courses.indices.contains(viewModel.selectedSemester) {
-                        Picker("Course", selection: $viewModel.selectedCourse) {
-                            ForEach(0..<viewModel.courses[viewModel.selectedSemester].count, id: \.self) { index in
-                                Text(viewModel.courses[viewModel.selectedSemester][index].name ?? "")
+                    if(viewModel.hasCourse) {
+                    
+                        Picker("Semester", selection: $viewModel.selectedSemester) {
+                            ForEach(0..<viewModel.semesters.count + 1, id: \.self) { index in
+                                if(index < viewModel.semesters.count) {
+                                    Text(viewModel.semesters[index].name ?? "")
+                                } else {
+                                    Text("No Semester")
+                                }
+                            }
+                        }
+                        
+                        if viewModel.courses.indices.contains(viewModel.selectedSemester) {
+                            Picker("Course", selection: $viewModel.selectedCourse) {
+                                ForEach(0..<viewModel.courses[viewModel.selectedSemester].count, id: \.self) { index in
+                                    Text(viewModel.courses[viewModel.selectedSemester][index].name ?? "")
+                                }
+                            }
+                        }
+                       else if viewModel.selectedSemester == viewModel.semesters.count {
+                            Picker("Course", selection: $viewModel.selectedCourse) {
+                                ForEach(0..<viewModel.noSemesterCourses.count, id:\.self) { index in
+                                    Text(viewModel.noSemesterCourses[index].name ?? "")
+                                }
                             }
                         }
                     }

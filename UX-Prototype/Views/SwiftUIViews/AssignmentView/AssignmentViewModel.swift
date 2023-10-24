@@ -23,9 +23,11 @@ class AssignmentViewModel: ObservableObject {
     
     @Published var semesters: [Semester] = []
     @Published var courses: [[Course]] = []
+    @Published var noSemesterCourses: [Course] = []
     @Published var types: [String] = ["Homework", "Midterm", "Final", "Others"]
     
     @Published var createEvent: Bool = false
+    @Published var hasCourse: Bool = false
     
     @Published var navigationtitle: String = "Add Assignment"
     
@@ -56,8 +58,22 @@ class AssignmentViewModel: ObservableObject {
                 return
             }
             
-            selectedSemester = semesters.firstIndex(where: {$0 == assignment!.course?.semester}) ?? 0
-            selectedCourse = courses[selectedSemester].firstIndex(where: {$0 == assignment!.course}) ?? 0
+            if(self.assignment?.course != nil) {
+                if(self.assignment?.course?.semester == nil) {
+                    selectedSemester = semesters.count
+                    selectedCourse = noSemesterCourses.firstIndex(where: { $0 == assignment?.course }) ?? 0
+                } else {
+                    
+                    selectedSemester = semesters.firstIndex(where: {$0 == assignment!.course?.semester}) ?? 0
+                    selectedCourse = courses[selectedSemester].firstIndex(where: {$0 == assignment!.course}) ?? 0
+                }
+                self.hasCourse = true
+            } else {
+                self.hasCourse = false
+            }
+            
+//            selectedSemester = semesters.firstIndex(where: {$0 == assignment!.course?.semester}) ?? 0
+//            selectedCourse = courses[selectedSemester].firstIndex(where: {$0 == assignment!.course}) ?? 0
         }
     }
     
@@ -80,7 +96,14 @@ class AssignmentViewModel: ObservableObject {
         assignment?.due = dateTime ? dueDate : nil
         assignment?.url = url
         assignment?.type = types[selectedType]
-        assignment?.course = self.courses[selectedSemester][selectedCourse]
+        if hasCourse {
+            if(selectedSemester == self.semesters.count) {
+                assignment?.course = self.noSemesterCourses[selectedCourse]
+            } else {
+                assignment?.course = self.courses[selectedSemester][selectedCourse]
+            }
+        }
+//        assignment?.course = self.courses[selectedSemester][selectedCourse]
         
 
         do {
@@ -108,6 +131,7 @@ class AssignmentViewModel: ObservableObject {
             }
         }
         self.courses = courseGroups
+        self.noSemesterCourses = courses.filter { $0.semester == nil }
     }
 }
 

@@ -15,12 +15,15 @@ class AddProjectViewModel : ObservableObject {
     @Published var icons: [String] = ["GitHub", "Git"]
     @Published var semesters: [Semester] = []
     @Published var courses: [[Course]] = []
+    @Published var noSemesterCourse : [Course] = []
     
     @Published var selectedIcon: Int = 0
     @Published var selectedSemester: Int = 0
     @Published var selectedCourse: Int = 0
     
     @Published var hasCourse: Bool = false
+    
+    @Published var showingAlert: Bool = false
     
     @Published var navigationtitle: String = "Add Project"
     
@@ -56,8 +59,20 @@ class AddProjectViewModel : ObservableObject {
             return
         }
         
-        selectedSemester = semesters.firstIndex(where: {$0 == project!.course?.semester}) ?? 0
-        selectedCourse = courses[selectedSemester].firstIndex(where: {$0 == project!.course}) ?? 0
+        if(self.project?.course != nil) {
+            if(self.project?.course?.semester == nil) {
+                selectedSemester = semesters.count
+                selectedCourse = noSemesterCourse.firstIndex(where: { $0 == project?.course }) ?? 0
+            } else {
+                
+                selectedSemester = semesters.firstIndex(where: {$0 == project!.course?.semester}) ?? 0
+                selectedCourse = courses[selectedSemester].firstIndex(where: {$0 == project!.course}) ?? 0
+            }
+            self.hasCourse = true
+        } else {
+            self.hasCourse = false
+        }
+        
     }
     
     func fetchSemestersAndCourses() {
@@ -75,6 +90,7 @@ class AddProjectViewModel : ObservableObject {
             }
         }
         self.courses = courseGroups
+        self.noSemesterCourse = courses.filter { $0.semester == nil }
     }
     
     func validateInput() -> Bool {
@@ -94,7 +110,13 @@ class AddProjectViewModel : ObservableObject {
         project?.descriptions = descriptions
         project?.url = url
         project?.icon = icons[selectedIcon]
-        project?.course = self.courses[selectedSemester][selectedCourse]
+        if(hasCourse) {
+            if(selectedSemester == self.semesters.count) {
+                project?.course = self.noSemesterCourse[selectedCourse]
+            } else {
+                project?.course = self.courses[selectedSemester][selectedCourse]
+            }
+        }
         
         do {
             try managedObjectContext.save()
@@ -108,5 +130,9 @@ class AddProjectViewModel : ObservableObject {
     
     func deleteProject() {
         CoreDataManager.shared.delete(self.project)
+    }
+    
+    func showAlert()  {
+        self.showingAlert = true
     }
 }
