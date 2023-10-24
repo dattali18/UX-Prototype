@@ -8,8 +8,8 @@
 import Foundation
 import CoreData
 
-class MokeDataManager {
-    static let shared = MokeDataManager()
+class MockDataManager {
+    static let shared = MockDataManager()
     
     private init() {}
     
@@ -77,39 +77,84 @@ class MokeDataManager {
             return
         }
         
-        let name = ["YouTube", "Moodle", "Contact Info"]
-        
-        let youtube = Link(context: managedObjectContext)
-        youtube.id = UUID()
-        youtube.name = "Course YouTube Link"
-        youtube.url = "https://www.youtube.com/watch?v=ZOh08w9Ku9k"
 
-        let moodle = Link(context: managedObjectContext)
-        moodle.id = UUID()
-        moodle.name = "Course Moddle"
-        moodle.url = "https://moodle.jct.ac.il/course/view.php?id=62761"
-        
-        let contactinfo = Link(context: managedObjectContext)
-        contactinfo.id = UUID()
-        contactinfo.name = "Ms Israel Israeli"
-        contactinfo.url = "555555555"
-        
-        let links: [Link] = [youtube, moodle , contactinfo]
-        
-        
+        let resourceNames = ["YouTube", "Google Drive", "WhatsApp", "Contact Info", "Assignment Guidelines", "Discussion Forum"]
+        let linkNames = ["Course YouTube Link", "Course Moodle", "Ms Israel Israeli", "John Doe", "Alice Smith", "Course Syllabus", "Contact Support", "Assignment Submission", "Announcements", "Discussion Board"]
+        let linkURLs = [
+            "https://www.youtube.com/watch?v=ZOh08w9Ku9k",
+            "https://moodle.jct.ac.il/course/view.php?id=62761",
+            "tel:555555555",
+            "mailto:john.doe@example.com",
+            "mailto:alice.smith@example.com",
+            "https://example.com/syllabus",
+            "mailto:support@example.com",
+            "https://example.com/submit-assignment",
+            "https://example.com/announcements",
+            "https://example.com/discussion-board",
+            "tel:123456789",
+            "tel:987654321",
+            "mailto:professor@example.com",
+            "mailto:tutor@example.com",
+            "https://example.com/lecture-notes",
+            "https://example.com/quizzes",
+            "https://example.com/resource-center"
+        ]
+
         for course in courses {
-            let resource1 = Resource(context: managedObjectContext)
-            resource1.id = UUID()
-            resource1.name = name.randomElement()
-            resource1.links = NSSet(array: [links.randomElement() as Any])
-            
-            let resource2 = Resource(context: managedObjectContext)
-            resource2.id = UUID()
-            resource2.name = name.randomElement()
-            resource2.links = NSSet(array: [links.randomElement() as Any])
-            
-            course.resources = NSSet(array: [resource1, resource2])
+            for _ in 1...Int.random(in: 1...4) {
+                var links: [Link] = []
+                let resource = Resource(context: managedObjectContext)
+                resource.id = UUID()
+                resource.name = resourceNames.randomElement()
+                
+                // Create 2 random links for each resource
+                links = []
+                for _ in 1...Int.random(in: 1...3) {
+                    let link = Link(context: managedObjectContext)
+                    link.id = UUID()
+                    link.name = linkNames.randomElement()
+                    link.url = linkURLs.randomElement()
+                    links.append(link)
+                }
+                
+                resource.links = NSSet(array: links)
+                course.addToResources(resource)
+            }
         }
+
+        
+//        for course in courses {
+//            let name = ["YouTube", "Moodle", "Contact Info"]
+//            
+//            let youtube = Link(context: managedObjectContext)
+//            youtube.id = UUID()
+//            youtube.name = "Course YouTube Link"
+//            youtube.url = "https://www.youtube.com/watch?v=ZOh08w9Ku9k"
+//
+//            let moodle = Link(context: managedObjectContext)
+//            moodle.id = UUID()
+//            moodle.name = "Course Moddle"
+//            moodle.url = "https://moodle.jct.ac.il/course/view.php?id=62761"
+//            
+//            let contactinfo = Link(context: managedObjectContext)
+//            contactinfo.id = UUID()
+//            contactinfo.name = "Ms Israel Israeli"
+//            contactinfo.url = "555555555"
+//            
+//            let links: [Link] = [youtube, moodle , contactinfo]
+//            
+//            let resource1 = Resource(context: managedObjectContext)
+//            resource1.id = UUID()
+//            resource1.name = name.randomElement()
+//            resource1.links = NSSet(array: links)
+//            
+//            let resource2 = Resource(context: managedObjectContext)
+//            resource2.id = UUID()
+//            resource2.name = name.randomElement()
+//            resource2.links = NSSet(array: links)
+//            
+//            course.resources = NSSet(array: [resource1, resource2])
+//        }
         
         do {
             try managedObjectContext.save()

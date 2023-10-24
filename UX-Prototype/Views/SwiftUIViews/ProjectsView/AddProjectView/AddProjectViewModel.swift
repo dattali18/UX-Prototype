@@ -116,6 +116,8 @@ class AddProjectViewModel : ObservableObject {
             } else {
                 project?.course = self.courses[selectedSemester][selectedCourse]
             }
+        } else {
+            project?.course = nil
         }
         
         do {

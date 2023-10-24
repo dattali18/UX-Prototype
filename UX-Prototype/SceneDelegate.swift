@@ -20,7 +20,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             guard let _ = (scene as? UIWindowScene) else { return }
             
 //            CoreDataManager.shared.deleteAll(Assignment.self)
-//            MokeDataManager.shared.CreateMockData()
+//            CoreDataManager.shared.deleteAll(Resource.self)
+//            MockDataManager.shared.CreateMockData()
             
 //            changeScreen()
             let storyboard = UIStoryboard (name: "Main", bundle: nil)

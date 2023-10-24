@@ -224,7 +224,11 @@ extension AssignmentsInfoVC {
         
         self.assignemnts = CoreDataManager.shared.fetch(entity: Assignment.self) ?? []
         
-        self.assignemnts = self.assignemnts.filter { $0.course?.name == name && $0.type == self.type }
+        if(self.name == "General") {
+            self.assignemnts = self.assignemnts.filter { $0.course == nil && $0.type == self.type }
+        } else {
+            self.assignemnts = self.assignemnts.filter { $0.course?.name == name && $0.type == self.type }
+        }
         self.assignemnts = self.assignemnts.sorted { $0.name ?? "" > $1.name ?? "" }
         
         let done = self.assignemnts.filter { $0.done == true }

@@ -102,10 +102,10 @@ class AssignmentViewModel: ObservableObject {
             } else {
                 assignment?.course = self.courses[selectedSemester][selectedCourse]
             }
+        } else {
+            assignment?.course = nil
         }
-//        assignment?.course = self.courses[selectedSemester][selectedCourse]
         
-
         do {
             try managedObjectContext.save()
             return assignment
