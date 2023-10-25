@@ -99,7 +99,7 @@ Please contact me if you have any question about the project or me.
 
 **Editing resource**
 
-<img height="400" src="/UX-Prototype/ScreenShot/editResource.PNG"><img height="400" src="/UX-Prototype/ScreenShot/editResource.DPNG">
+<img height="400" src="/UX-Prototype/ScreenShot/editResource.PNG"><img height="400" src="/UX-Prototype/ScreenShot/editResourceD.PNG">
 
 
 ### Assigments
