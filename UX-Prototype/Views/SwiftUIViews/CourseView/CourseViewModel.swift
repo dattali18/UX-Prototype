@@ -15,6 +15,7 @@ class CourseViewModel: ObservableObject {
     @Published var number: Int32?
     @Published var stringnumber: String = ""
     @Published var credits: Float?
+    @Published var grade: Float = 0.0
     @Published var hasSemester: Bool = false
     
     @Published var showAlert: Bool = false
@@ -53,6 +54,7 @@ class CourseViewModel: ObservableObject {
         name = self.course?.name ?? ""
         stringnumber = "\(self.course?.number ?? 0)"
         credits = self.course?.credits
+        grade = self.course?.grade ?? 0.0
     }
 
     func loadSemesters() {
@@ -74,6 +76,7 @@ class CourseViewModel: ObservableObject {
         course!.number     = NumberFormatter().number(from: "0" + stringnumber) as! Int32
 //        course!.number   = number ?? 0
         course!.credits  = credits ?? 0.0
+        course?.grade = grade
         
         if (semesters.isEmpty == false) {
             course!.semester = hasSemester ? semesters[selectedSemester] : nil

@@ -42,9 +42,9 @@ class MockDataManager {
         semester.start = formatter.date(from: "2023/11/08")
         semester.end = formatter.date(from: "2024/3/08")
         
-        let names: [String] = ["SQL", "Software Engineering", "Windows Development", "Intro to reversing", "Data mining", "AI & ML"]
+        let names: [String] = ["Database Systems", "Software Engineering", "Windows Development", "Intro to reversing", "Data mining", "AI & Applications"]
         let numbes: [Int32] = [150221, 151060, 153004, 157130, 157123, 157102]
-        let credits: [Float] = [3.00, 5.00, 2.00, 4.00, 4.00, 3.00]
+        let credits: [Float] = [3.50, 4.00, 2.00, 2.00, 3.00, 2.50]
         
         for index in 0..<names.count {
             let course = Course(context: managedObjectContext)

@@ -16,9 +16,6 @@ class ResourcesSectionHeaderView: UITableViewHeaderFooterView {
     
     var resource: Resource?
     var course: Course?
-//    var navigationController: UINavigationController?
-//    var storyboard: UIStoryboard?
-    
     
     weak var delegate: EditResourceDelegate?
     

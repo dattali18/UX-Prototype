@@ -34,7 +34,6 @@ class CourseVC: UIViewController {
         self.title = "Courses"
         navigationController?.navigationBar.prefersLargeTitles = true
         
-//        view.backgroundColor = .secondarySystemBackground
         
         let defualt = UserDefaults.standard
         self.selectedOption = defualt.string(forKey: "SemesterSort")  ?? "All"
@@ -129,7 +128,13 @@ extension CourseVC {
 }
 
 // MARK: - Delegate
-extension CourseVC : DisappearingViewDelegate, EditSemesterDelegate {
+extension CourseVC : DisappearingViewDelegate, EditSemesterDelegate, SemesterDelegate {
+    func pushSemester(with semester: Semester?) {
+        let vc = UIHostingController(rootView: SemesterInfoView(semester: semester))
+        vc.title = "Semester Info"
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     func pushEdit(with semester: Semester?) {
         
         var semesterView = SemesterView(with: semester)
@@ -145,6 +150,8 @@ extension CourseVC : DisappearingViewDelegate, EditSemesterDelegate {
         let sortButton = UIBarButtonItem(image: UIImage(systemName: "list.bullet"), menu: createOptionMenu())
         navigationItem.leftBarButtonItem = sortButton
     }
+    
+    
     
 }
 
@@ -283,12 +290,14 @@ extension CourseVC: UITableViewDelegate, UITableViewDataSource {
         if section < semesters.count
         {
             if let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "HeaderView") as? CourseSectionHeaderView {
+
+                headerView.editdelegate = self
+                headerView.semesterdelegetae = self
                 
-                headerView.semesterNameLabel?.text = semesters[section].name?.uppercased()
-                headerView.semester = semesters[section]
-                headerView.delegate = self
-//                headerView.navigationController = self.navigationController
-//                headerView.storyboard = self.storyboard
+                let semester = semesters[section]
+                
+                headerView.semesterName.titleLabel?.text = semester.name?.uppercased()
+                headerView.semester = semester
                 
                 return headerView
             } else {
@@ -330,18 +339,30 @@ extension CourseVC: UITableViewDelegate, UITableViewDataSource {
         
         deleteAction.image = UIImage(systemName: "trash.fill")
         
-        let swipeActions = UISwipeActionsConfiguration(actions: [deleteAction])
+        let resourcesAction = UIContextualAction(style: .normal, title: "Resources") {  (contextualAction, view, boolValue) in
+            let vc = self.storyboard?.instantiateViewController(identifier: "CourseInfoVC") as! CourseInfoVC
+
+            vc.course = self.coursesBySemesters[indexPath.section][indexPath.row]
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        
+        resourcesAction.backgroundColor = .systemOrange
+        resourcesAction.image = UIImage(systemName: "folder.fill")
+        
+        
+        let swipeActions = UISwipeActionsConfiguration(actions: [deleteAction, resourcesAction])
 
         return swipeActions
     }
     
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let editAction  = UIContextualAction(style: .normal, title: "Edit") {  (contextualAction, view, boolValue) in
+        let row = indexPath.row
+        let section = indexPath.section
+        
+        let course = self.coursesBySemesters[section][row]
+        
+        let editAction = UIContextualAction(style: .normal, title: "Edit") {  (contextualAction, view, boolValue) in
             // Get the name of the course
-            let row = indexPath.row
-            let section = indexPath.section
-            
-            let course = self.coursesBySemesters[section][row]
             
             var courseView = CourseView(with: course)
             courseView.delegate = self
@@ -354,7 +375,24 @@ extension CourseVC: UITableViewDelegate, UITableViewDataSource {
         editAction.image = UIImage(systemName: "pencil")
         editAction.backgroundColor = .systemBlue
         
-        let swipeActions = UISwipeActionsConfiguration(actions: [editAction])
+//        let semesterAction = UIContextualAction(style: .normal, title: "Semester") { (contextualAction, view, boolValue) in
+//            let semester = course.semester
+//            
+//            let vc = UIHostingController(rootView: SemesterInfoView(semester: semester))
+//            vc.title = "Semester Info"
+//            self.navigationController?.pushViewController(vc, animated: true)
+//        
+//        }
+        
+//        semesterAction.backgroundColor = .systemPink
+//        semesterAction.image = UIImage(systemName: "book.fill")
+        
+        var actions = [editAction]
+//        if course.semester != nil {
+//            actions.append(semesterAction)
+//        }
+        
+        let swipeActions = UISwipeActionsConfiguration(actions: actions)
         
         return swipeActions
     }

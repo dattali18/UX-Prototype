@@ -73,6 +73,11 @@
 		C6C40FA32AB30E9F00E958C1 /* UserLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C40FA22AB30E9F00E958C1 /* UserLogin.swift */; };
 		C6C40FA62AB33B3A00E958C1 /* CourseTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C40FA42AB33B3A00E958C1 /* CourseTVC.swift */; };
 		C6C40FA72AB33B3A00E958C1 /* CourseTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6C40FA52AB33B3A00E958C1 /* CourseTVC.xib */; };
+		C6CEB4E32AE9559600AB5CD3 /* CoursesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CEB4E22AE9559600AB5CD3 /* CoursesListViewModel.swift */; };
+		C6CEB4E52AE955AA00AB5CD3 /* CoursesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CEB4E42AE955AA00AB5CD3 /* CoursesListView.swift */; };
+		C6CEB4E72AE95F1900AB5CD3 /* CourseRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CEB4E62AE95F1900AB5CD3 /* CourseRowView.swift */; };
+		C6CEB4E92AE95F5F00AB5CD3 /* CourseHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CEB4E82AE95F5F00AB5CD3 /* CourseHeaderView.swift */; };
+		C6CEB4EB2AE9624D00AB5CD3 /* CourseInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CEB4EA2AE9624D00AB5CD3 /* CourseInfoView.swift */; };
 		C6D8D64D2AD40F85009A1F9F /* ResourcesTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D8D64B2AD40F85009A1F9F /* ResourcesTVC.swift */; };
 		C6D8D64E2AD40F85009A1F9F /* ResourcesTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6D8D64C2AD40F85009A1F9F /* ResourcesTVC.xib */; };
 		C6D8D6522AD42575009A1F9F /* AddResourcesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D8D6512AD42575009A1F9F /* AddResourcesVC.swift */; };
@@ -82,6 +87,8 @@
 		C6E8E0AF2AD5CBAE00FA56E9 /* ResourcesSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E8E0AE2AD5CBAE00FA56E9 /* ResourcesSectionHeaderView.swift */; };
 		C6E8E0B12AD5CC9F00FA56E9 /* ResourcesSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6E8E0B02AD5CC9F00FA56E9 /* ResourcesSectionHeaderView.xib */; };
 		C6F745B12AB8764700780F90 /* AddCourseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F745B02AB8764700780F90 /* AddCourseVC.swift */; };
+		C6FAA7C22AE9328E00A6449A /* SemesterInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6FAA7C12AE9328E00A6449A /* SemesterInfoView.swift */; };
+		C6FAA7C42AE932A000A6449A /* SemesterInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6FAA7C32AE932A000A6449A /* SemesterInfoViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -155,6 +162,11 @@
 		C6C40FA22AB30E9F00E958C1 /* UserLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLogin.swift; sourceTree = "<group>"; };
 		C6C40FA42AB33B3A00E958C1 /* CourseTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseTVC.swift; sourceTree = "<group>"; };
 		C6C40FA52AB33B3A00E958C1 /* CourseTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CourseTVC.xib; sourceTree = "<group>"; };
+		C6CEB4E22AE9559600AB5CD3 /* CoursesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesListViewModel.swift; sourceTree = "<group>"; };
+		C6CEB4E42AE955AA00AB5CD3 /* CoursesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesListView.swift; sourceTree = "<group>"; };
+		C6CEB4E62AE95F1900AB5CD3 /* CourseRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseRowView.swift; sourceTree = "<group>"; };
+		C6CEB4E82AE95F5F00AB5CD3 /* CourseHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseHeaderView.swift; sourceTree = "<group>"; };
+		C6CEB4EA2AE9624D00AB5CD3 /* CourseInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseInfoView.swift; sourceTree = "<group>"; };
 		C6D8D64B2AD40F85009A1F9F /* ResourcesTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourcesTVC.swift; sourceTree = "<group>"; };
 		C6D8D64C2AD40F85009A1F9F /* ResourcesTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResourcesTVC.xib; sourceTree = "<group>"; };
 		C6D8D6512AD42575009A1F9F /* AddResourcesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddResourcesVC.swift; sourceTree = "<group>"; };
@@ -163,6 +175,8 @@
 		C6E8E0AE2AD5CBAE00FA56E9 /* ResourcesSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourcesSectionHeaderView.swift; sourceTree = "<group>"; };
 		C6E8E0B02AD5CC9F00FA56E9 /* ResourcesSectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResourcesSectionHeaderView.xib; sourceTree = "<group>"; };
 		C6F745B02AB8764700780F90 /* AddCourseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCourseVC.swift; sourceTree = "<group>"; };
+		C6FAA7C12AE9328E00A6449A /* SemesterInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemesterInfoView.swift; sourceTree = "<group>"; };
+		C6FAA7C32AE932A000A6449A /* SemesterInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemesterInfoViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -342,6 +356,7 @@
 		C6A1500D2AE005E800115C59 /* CourseView */ = {
 			isa = PBXGroup;
 			children = (
+				C6CEB4E12AE9556A00AB5CD3 /* CoursesListView */,
 				C6A150092ADFFB3C00115C59 /* CourseView.swift */,
 				C6A1500B2AE005E000115C59 /* CourseViewModel.swift */,
 			);
@@ -360,8 +375,8 @@
 		C6A150152AE02A4300115C59 /* SemesterView */ = {
 			isa = PBXGroup;
 			children = (
-				C6A150132AE02A3B00115C59 /* SemesterView.swift */,
-				C6A150162AE02AD200115C59 /* SemesterViewModel.swift */,
+				C6FAA7BF2AE9325200A6449A /* SemesterInfo */,
+				C6FAA7C02AE9326400A6449A /* AddSemester */,
 			);
 			path = SemesterView;
 			sourceTree = "<group>";
@@ -428,6 +443,18 @@
 				C63432F52AD6889E00775A7B /* CustomTableViewCell */,
 			);
 			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		C6CEB4E12AE9556A00AB5CD3 /* CoursesListView */ = {
+			isa = PBXGroup;
+			children = (
+				C6CEB4E22AE9559600AB5CD3 /* CoursesListViewModel.swift */,
+				C6CEB4E42AE955AA00AB5CD3 /* CoursesListView.swift */,
+				C6CEB4E62AE95F1900AB5CD3 /* CourseRowView.swift */,
+				C6CEB4E82AE95F5F00AB5CD3 /* CourseHeaderView.swift */,
+				C6CEB4EA2AE9624D00AB5CD3 /* CourseInfoView.swift */,
+			);
+			path = CoursesListView;
 			sourceTree = "<group>";
 		};
 		C6D8D6422AD3D706009A1F9F /* Authentication */ = {
@@ -541,6 +568,24 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		C6FAA7BF2AE9325200A6449A /* SemesterInfo */ = {
+			isa = PBXGroup;
+			children = (
+				C6FAA7C12AE9328E00A6449A /* SemesterInfoView.swift */,
+				C6FAA7C32AE932A000A6449A /* SemesterInfoViewModel.swift */,
+			);
+			path = SemesterInfo;
+			sourceTree = "<group>";
+		};
+		C6FAA7C02AE9326400A6449A /* AddSemester */ = {
+			isa = PBXGroup;
+			children = (
+				C6A150132AE02A3B00115C59 /* SemesterView.swift */,
+				C6A150162AE02AD200115C59 /* SemesterViewModel.swift */,
+			);
+			path = AddSemester;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -639,6 +684,8 @@
 				C6C40F932AB3034300E958C1 /* CourseNC.swift in Sources */,
 				C68966212ADFF09900A289F6 /* HostingSignUpVC.swift in Sources */,
 				C6C40F9D2AB3047B00E958C1 /* CalendarVC.swift in Sources */,
+				C6CEB4E32AE9559600AB5CD3 /* CoursesListViewModel.swift in Sources */,
+				C6CEB4E52AE955AA00AB5CD3 /* CoursesListView.swift in Sources */,
 				C647748B2AE5240800FC0F08 /* AddProjectView.swift in Sources */,
 				C62D98F52AE0552F008E61A8 /* ResourceViewModel.swift in Sources */,
 				C6A1500A2ADFFB3C00115C59 /* CourseView.swift in Sources */,
@@ -658,15 +705,18 @@
 				C6C40F7F2AB2F70700E958C1 /* LoginVC.swift in Sources */,
 				C6A1500F2AE01FE600115C59 /* ModeEnum.swift in Sources */,
 				C6C40FA12AB3049900E958C1 /* ProjectsVC.swift in Sources */,
+				C6CEB4E72AE95F1900AB5CD3 /* CourseRowView.swift in Sources */,
 				C6A150122AE026EF00115C59 /* AssignmentViewModel.swift in Sources */,
 				C64591482ADBDD8C009163F1 /* AssignmentsListTVC.swift in Sources */,
 				C6B2C7A32AE847D000913562 /* MockDataManager.swift in Sources */,
+				C6FAA7C42AE932A000A6449A /* SemesterInfoViewModel.swift in Sources */,
 				C63B60632AE5559A00B9CFAA /* ProjectView.swift in Sources */,
 				C645914C2ADC27DE009163F1 /* AssignmentsInfoVC.swift in Sources */,
 				C63B60612AE5558B00B9CFAA /* ProjectViewModel.swift in Sources */,
 				C68966232ADFF12E00A289F6 /* AuthNC.swift in Sources */,
 				C6D8D64D2AD40F85009A1F9F /* ResourcesTVC.swift in Sources */,
 				C689661F2ADFEB0300A289F6 /* HostingLoginVC.swift in Sources */,
+				C6CEB4E92AE95F5F00AB5CD3 /* CourseHeaderView.swift in Sources */,
 				C6C40F7B2AB2F70700E958C1 /* AppDelegate.swift in Sources */,
 				C689661B2ADFD75000A289F6 /* SignUpView.swift in Sources */,
 				C6C40F7D2AB2F70700E958C1 /* SceneDelegate.swift in Sources */,
@@ -674,6 +724,7 @@
 				C6214D012ACEA9FB00E242AC /* CoreDataManager.swift in Sources */,
 				C6A150172AE02AD200115C59 /* SemesterViewModel.swift in Sources */,
 				C62D98F22AE05511008E61A8 /* ResourceView.swift in Sources */,
+				C6FAA7C22AE9328E00A6449A /* SemesterInfoView.swift in Sources */,
 				C64BC8ED2ADED243001CD692 /* CustomDelegate.swift in Sources */,
 				C666DD412ADF175200654065 /* AssignmentView.swift in Sources */,
 				C6C40F952AB3036200E958C1 /* CalendarNC.swift in Sources */,
@@ -688,6 +739,7 @@
 				C6A1500C2AE005E000115C59 /* CourseViewModel.swift in Sources */,
 				C6C40F9F2AB3048900E958C1 /* AssignmentsVC.swift in Sources */,
 				C6F745B12AB8764700780F90 /* AddCourseVC.swift in Sources */,
+				C6CEB4EB2AE9624D00AB5CD3 /* CourseInfoView.swift in Sources */,
 				C67B73D62AE43DB10013AEB0 /* ProjectsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -765,7 +817,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -820,7 +872,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
