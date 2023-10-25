@@ -22,7 +22,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //            CoreDataManager.shared.deleteAll(Assignment.self)
 //            CoreDataManager.shared.deleteAll(Resource.self)
 //            MockDataManager.shared.CreateMockData()
-            
 //            changeScreen()
             let storyboard = UIStoryboard (name: "Main", bundle: nil)
             let CustomTB = storyboard.instantiateViewController(identifier: "MainTB") as! MainTabBarVC
@@ -73,6 +72,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         func sceneWillEnterForeground(_ scene: UIScene) {
             // Called as the scene transitions from the background to the foreground.
             // Use this method to undo the changes made on entering the background.
+            UIApplication.shared.applicationIconBadgeNumber = 0
         }
         
         func sceneDidEnterBackground(_ scene: UIScene) {

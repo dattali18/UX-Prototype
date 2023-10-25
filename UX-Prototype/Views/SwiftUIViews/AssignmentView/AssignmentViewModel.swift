@@ -7,6 +7,7 @@
 
 import Foundation
 import UserNotifications
+import UIKit
 
 class AssignmentViewModel: ObservableObject {
     
@@ -127,6 +128,7 @@ class AssignmentViewModel: ObservableObject {
             content.title = title
             content.sound = .default
             content.body = notes
+            content.badge = 1
             
             
             let trigger = UNCalendarNotificationTrigger(dateMatching:
@@ -140,9 +142,9 @@ class AssignmentViewModel: ObservableObject {
             UNUserNotificationCenter.current().add(request, withCompletionHandler: {error in
                 if let _ = error {
                     print("Error")
+                } else {
                 }
             })
-            print("hello")
         }
         
         do {
