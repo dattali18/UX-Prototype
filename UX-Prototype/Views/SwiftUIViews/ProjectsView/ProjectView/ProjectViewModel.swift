@@ -31,12 +31,6 @@ class ProjectViewModel: ObservableObject {
             }
         }
         
-//        fetchCommits(from: "\(username)/\(reponame)", lastNCommits: 2)
-//        { commitData in
-////            print(commitData)
-//            self.commits = commitData
-//            self.isFetchingData = false
-//        }
     }
 
     func fetchCommits(from repository: String, lastNCommits: Int, completion: @escaping ([CommitInfo]) -> Void) {
