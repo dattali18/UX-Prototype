@@ -8,7 +8,7 @@ This project was inspired by a course in `UX`/`UI` design, in which we had to pr
 
 ## Technologies Used
 
-* `Swift`: The prototype is written in `Swift`, which is a modern programming language developed by Apple. `Swif`t is known for its speed, performance, and safety.
+* `Swift`: The prototype is written in `Swift`, which is a modern programming language developed by Apple. `Swift` is known for its speed, performance, and safety.
 * `UIKit:` The app uses `UIKit`, which is Apple's framework for developing user interfaces for `iOS` applications. `UIKit` provides a variety of controls and views that can be used to create complex and interactive user interfaces.
 * `SwiftUI`: The app uses `SwiftUI`, wich is Apple's framwork for develping user iterfaces for `iOS` applications.
 * `Model-View-Controller (MVC)` : The prototype follows the `Model-View-Controller (MVC)` design pattern. `MVC` is a design pattern that separates the user interface, the data model, and the application logic into three separate components. This makes the code more modular and easier to maintain.
@@ -67,132 +67,107 @@ Please contact me if you have any question about the project or me.
 
 **Filtering course by semesters**
 
-<img height="400" src="/UX-Prototype/ScreenShot/fillteringCourses.PNG">
-<img height="400" src="/UX-Prototype/ScreenShot/fillteringCoursesD.PNG">
+<img height="400" src="/UX-Prototype/ScreenShot/fillteringCourses.PNG"><img height="400" src="/UX-Prototype/ScreenShot/fillteringCoursesD.PNG">
 
 **Editing course**
 
-<img height="400" src="/UX-Prototype/ScreenShot/editCourse.PNG">
-<img height="400" src="/UX-Prototype/ScreenShot/editCourseD.PNG">
+<img height="400" src="/UX-Prototype/ScreenShot/editCourse.PNG"><img height="400" src="/UX-Prototype/ScreenShot/editCourseD.PNG">
 
 **Adding course**
 
-<img height="400" src="/UX-Prototype/ScreenShot/addCourse.PNG">
-<img height="400" src="/UX-Prototype/ScreenShot/addCourseD.PNG">
+<img height="400" src="/UX-Prototype/ScreenShot/addCourse.PNG"><img height="400" src="/UX-Prototype/ScreenShot/addCourseD.PNG">
 
 **Swipe Action course**
 
-<img height="400" src="/UX-Prototype/ScreenShot/deletingCourse.PNG">
-<img height="400" src="/UX-Prototype/ScreenShot/deletingCourseD.PNG">
+<img height="400" src="/UX-Prototype/ScreenShot/deletingCourse.PNG"><img height="400" src="/UX-Prototype/ScreenShot/deletingCourseD.PNG">
 
-<img height="400" src="/UX-Prototype/ScreenShot/editingCourse.PNG">
-<img height="400" src="/UX-Prototype/ScreenShot/editingCourseD.PNG">
+<img height="400" src="/UX-Prototype/ScreenShot/editingCourse.PNG"><img height="400" src="/UX-Prototype/ScreenShot/editingCourseD.PNG">
 
 **Editing semester**
 
-<img height="400" src="/UX-Prototype/ScreenShot/editSemester.PNG">
-<img height="400" src="/UX-Prototype/ScreenShot/editSemesterD.PNG">
+<img height="400" src="/UX-Prototype/ScreenShot/editSemester.PNG"><img height="400" src="/UX-Prototype/ScreenShot/editSemesterD.PNG">
 
 
 **Adding semester**
 
-<img height="400" src="/UX-Prototype/ScreenShot/addSemester.PNG">
-<img height="400" src="/UX-Prototype/ScreenShot/addSemesterD.PNG">
+<img height="400" src="/UX-Prototype/ScreenShot/addSemester.PNG"><img height="400" src="/UX-Prototype/ScreenShot/addSemesterD.PNG">
 
 
 **Resources list**
 
-<img height="400" src="/UX-Prototype/ScreenShot/resources.PNG">
-<img height="400" src="/UX-Prototype/ScreenShot/resourcesD.PNG">
+<img height="400" src="/UX-Prototype/ScreenShot/resources.PNG"><img height="400" src="/UX-Prototype/ScreenShot/resourcesD.PNG">
 
 **Editing resource**
 
-<img height="400" src="/UX-Prototype/ScreenShot/editResourcePNG">
-<img height="400" src="/UX-Prototype/ScreenShot/editResourceDPNG">
+<img height="400" src="/UX-Prototype/ScreenShot/editResource.PNG"><img height="400" src="/UX-Prototype/ScreenShot/editResource.DPNG">
 
 
 ### Assigments
 
 **Filtering assignmetn by type**
 
-<img height="400" src="/UX-Prototype/ScreenShot/fillteringAssignment.PNG">
-<img height="400" src="/UX-Prototype/ScreenShot/fillteringAssignmentD.PNG">
+<img height="400" src="/UX-Prototype/ScreenShot/fillteringAssignment.PNG"><img height="400" src="/UX-Prototype/ScreenShot/fillteringAssignmentD.PNG">
 
 **Assignment List**
 
-<img height="400" src="/UX-Prototype/ScreenShot/assignments.PNG">
-<img height="400" src="/UX-Prototype/ScreenShot/assignmentsD.PNG">
+<img height="400" src="/UX-Prototype/ScreenShot/assignments.PNG"><img height="400" src="/UX-Prototype/ScreenShot/assignmentsD.PNG">
 
 **Adding assignment**
 
-<img height="400" src="/UX-Prototype/ScreenShot/addAssignmant.PNG">
-<img height="400" src="/UX-Prototype/ScreenShot/addAssignmantD.PNG">
+<img height="400" src="/UX-Prototype/ScreenShot/addAssignmant.PNG"><img height="400" src="/UX-Prototype/ScreenShot/addAssignmantD.PNG">
 
 **Compelting assignmet**
 
-<img height="400" src="/UX-Prototype/ScreenShot/completingAssignment.PNG">
-<img height="400" src="/UX-Prototype/ScreenShot/completingAssignmentD.PNG">
+<img height="400" src="/UX-Prototype/ScreenShot/completingAssignment.PNG"><img height="400" src="/UX-Prototype/ScreenShot/completingAssignmentD.PNG">
 
 **Uncompleting assignment**
 
-<img height="400" src="/UX-Prototype/ScreenShot/uncompletingAssignment.PNG">
-<img height="400" src="/UX-Prototype/ScreenShot/uncompletingAssignmentD.PNG">
+<img height="400" src="/UX-Prototype/ScreenShot/uncompletingAssignment.PNG"><img height="400" src="/UX-Prototype/ScreenShot/uncompletingAssignmentD.PNG">
 
 **Swipe Action resources**
 
-<img height="400" src="/UX-Prototype/ScreenShot/editingAssignment.PNG">
-<img height="400" src="/UX-Prototype/ScreenShot/editingAssignmentD.PNG">
+<img height="400" src="/UX-Prototype/ScreenShot/editingAssignment.PNG"><img height="400" src="/UX-Prototype/ScreenShot/editingAssignmentD.PNG">
 
 
 ### Calendar
 
 **creating a calendar event**
 
-<img height="400" src="/UX-Prototype/ScreenShot/addEvent.PNG">
-<img height="400" src="/UX-Prototype/ScreenShot/addEventD.PNG">
+<img height="400" src="/UX-Prototype/ScreenShot/addEvent.PNG"><img height="400" src="/UX-Prototype/ScreenShot/addEventD.PNG">
 
 **Seeing calendar event**
 
-<img height="400" src="/UX-Prototype/ScreenShot/calendar.PNG">
-<img height="400" src="/UX-Prototype/ScreenShot/calendarD.PNG">
+<img height="400" src="/UX-Prototype/ScreenShot/calendar.PNG"><img height="400" src="/UX-Prototype/ScreenShot/calendarD.PNG">
 
 **Event details in the calendar**
 
-<img height="400" src="/UX-Prototype/ScreenShot/editEvent.PNG">
-<img height="400" src="/UX-Prototype/ScreenShot/editEventD.PNG">
+<img height="400" src="/UX-Prototype/ScreenShot/editEvent.PNG"><img height="400" src="/UX-Prototype/ScreenShot/editEventD.PNG">
 
 
 ## Projects
 
 **Projects list**
 
-<img height="400" src="/UX-Prototype/ScreenShot/projects.PNG">
-<img height="400" src="/UX-Prototype/ScreenShot/projectsD.PNG">
+<img height="400" src="/UX-Prototype/ScreenShot/projects.PNG"><img height="400" src="/UX-Prototype/ScreenShot/projectsD.PNG">
 
 **Adding project**
 
-<img height="400" src="/UX-Prototype/ScreenShot/addProject.PNG">
-<img height="400" src="/UX-Prototype/ScreenShot/addProjectD.PNG">
+<img height="400" src="/UX-Prototype/ScreenShot/addProject.PNG"><img height="400" src="/UX-Prototype/ScreenShot/addProjectD.PNG">
 
 **Editing project**
 
-<img height="400" src="/UX-Prototype/ScreenShot/editProject.PNG">
-<img height="400" src="/UX-Prototype/ScreenShot/editProjectD.PNG">
+<img height="400" src="/UX-Prototype/ScreenShot/editProject.PNG"><img height="400" src="/UX-Prototype/ScreenShot/editProjectD.PNG">
 
 **Swipe Action project**
 
-<img height="400" src="/UX-Prototype/ScreenShot/editingProject.PNG">
-<img height="400" src="/UX-Prototype/ScreenShot/editingProjectD.PNG">
+<img height="400" src="/UX-Prototype/ScreenShot/editingProject.PNG"><img height="400" src="/UX-Prototype/ScreenShot/editingProjectD.PNG">
 
-<img height="400" src="/UX-Prototype/ScreenShot/deletingProject.PNG">
-<img height="400" src="/UX-Prototype/ScreenShot/deletingProjectD.PNG">
+<img height="400" src="/UX-Prototype/ScreenShot/deletingProject.PNG"><img height="400" src="/UX-Prototype/ScreenShot/deletingProjectD.PNG">
 
 **Seeing last 5 commits on project**
 
-<img height="400" src="/UX-Prototype/ScreenShot/projectView.PNG">
-<img height="400" src="/UX-Prototype/ScreenShot/projectViewD.PNG">
+<img height="400" src="/UX-Prototype/ScreenShot/projectView.PNG"><img height="400" src="/UX-Prototype/ScreenShot/projectViewD.PNG">
 
 **Commits loading**
 
-<img height="400" src="/UX-Prototype/ScreenShot/projectLoading.PNG">
-<img height="400" src="/UX-Prototype/ScreenShot/projectLoadingD.PNG">
+<img height="400" src="/UX-Prototype/ScreenShot/projectLoading.PNG"><img height="400" src="/UX-Prototype/ScreenShot/projectLoadingD.PNG">
