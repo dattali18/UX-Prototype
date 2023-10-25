@@ -166,7 +166,26 @@ extension AssignmentsInfoVC : UITableViewDelegate, UITableViewDataSource {
         
         deleteAction.image = UIImage(systemName: "trash.fill")
         
-        let swipeActions = UISwipeActionsConfiguration(actions: [deleteAction])
+        let editAction = UIContextualAction(style: .normal, title: "Edit") {  (contextualAction, view, boolValue) in
+            let row = indexPath.row
+            let section = indexPath.section
+            
+            let assignment = self.sections[section][row]
+            
+            var assignmentView = AssignmentView(with: assignment)
+            // implementing the obeserver pattern
+            assignmentView.delegate = self
+            let hostingController = UIHostingController(rootView: assignmentView)
+
+            // Present the SwiftUI view
+            self.present(hostingController, animated: true, completion: nil)
+            
+        }
+        
+        editAction.backgroundColor = .systemBlue
+        editAction.image = UIImage(systemName: "pencil")
+        
+        let swipeActions = UISwipeActionsConfiguration(actions: [deleteAction, editAction])
 
         return swipeActions
     }

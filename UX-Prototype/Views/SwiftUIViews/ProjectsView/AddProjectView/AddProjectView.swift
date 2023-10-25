@@ -45,8 +45,14 @@ struct AddProjectView: View {
 //              Semester/Course Section
                 Section("Course") {
                     Toggle(isOn: $viewModel.hasCourse, label: {
-                        Text("Link To Course")
+                        HStack {
+                            Image(systemName: "books.vertical.circle.fill")
+                                .foregroundColor(.pink)
+                                .font(.largeTitle)
+                            Text("Link To Course")
+                        }
                     })
+                    .tint(.pink)
                     
                     if(viewModel.hasCourse) {
                     

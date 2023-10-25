@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UserNotifications
 
 class AssignmentViewModel: ObservableObject {
     
@@ -27,6 +28,7 @@ class AssignmentViewModel: ObservableObject {
     @Published var types: [String] = ["Homework", "Midterm", "Final", "Others"]
     
     @Published var createEvent: Bool = false
+    @Published var createReminder: Bool = false
     @Published var hasCourse: Bool = false
     
     @Published var navigationtitle: String = "Add Assignment"
@@ -41,6 +43,16 @@ class AssignmentViewModel: ObservableObject {
             mode = .edit
             navigationtitle = "Edit Assignment"
         }
+    }
+    
+    func requestAccessToNotification() {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound], completionHandler: {success, error in
+            if(success)  {
+                
+            } else if let _ = error {
+                print("Error")
+            }
+        })
     }
     
     
@@ -104,6 +116,33 @@ class AssignmentViewModel: ObservableObject {
             }
         } else {
             assignment?.course = nil
+        }
+        
+        // create reminder
+        if(self.createReminder && dateTime) {
+            requestAccessToNotification()
+            
+            let content = UNMutableNotificationContent()
+            
+            content.title = title
+            content.sound = .default
+            content.body = notes
+            
+            
+            let trigger = UNCalendarNotificationTrigger(dateMatching:
+                                                            Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: dueDate)
+                                                            , repeats: false)
+            
+            let stringID: String = assignment?.id?.uuidString ?? UUID().uuidString
+            
+            let request = UNNotificationRequest(identifier: stringID, content: content, trigger: trigger)
+            
+            UNUserNotificationCenter.current().add(request, withCompletionHandler: {error in
+                if let _ = error {
+                    print("Error")
+                }
+            })
+            print("hello")
         }
         
         do {

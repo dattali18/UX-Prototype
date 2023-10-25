@@ -44,11 +44,13 @@ struct CourseView: View {
                 Section {
                     Toggle(isOn: $viewModel.hasSemester, label: {
                         HStack {
-                            Image(systemName: "graduationcap.fill")
-                                .foregroundColor(.blue)
+                            Image(systemName: "graduationcap.circle.fill")
+                                .font(.largeTitle)
+                                .foregroundColor(.pink)
                             Text("Semester")
                         }
                     })
+                    .tint(.pink)
                     
                     if viewModel.hasSemester
                     {

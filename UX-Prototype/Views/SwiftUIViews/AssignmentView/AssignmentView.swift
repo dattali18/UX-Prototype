@@ -39,6 +39,7 @@ struct AssignmentView: View {
                         Text("Date")
                     }
                 })
+                    .tint(.red)
                 
                     if viewModel.dateTime {
                         DatePicker("Due Date", selection: $viewModel.dueDate)
@@ -97,8 +98,14 @@ struct AssignmentView: View {
 //                }
                 Section("Course") {
                     Toggle(isOn: $viewModel.hasCourse, label: {
-                        Text("Link To Course")
+                        HStack {
+                            Image(systemName: "books.vertical.circle.fill")
+                                .foregroundColor(.yellow)
+                                .font(.largeTitle)
+                            Text("Link To Course")
+                        }
                     })
+                    .tint(.yellow)
                     
                     if(viewModel.hasCourse) {
                     
@@ -130,7 +137,22 @@ struct AssignmentView: View {
                 }
                 
                 Section {
-                    
+                    Toggle(isOn: $viewModel.createReminder) {
+                        HStack {
+                            Image(systemName: "list.bullet.circle.fill")
+                                .foregroundColor(.pink)
+                                .font(.largeTitle)
+                            Text("Create Reminder")
+                        }
+                    }.tint(.pink)
+                } header : {
+                    Text("Reminder")
+                } footer : {
+                    Text("If you wan't to create a reminder.")
+                }
+                
+                
+                Section {
                     Toggle(isOn: $viewModel.createEvent, label: {
                         HStack {
                             Image(systemName: "calendar.circle.fill")
@@ -138,8 +160,7 @@ struct AssignmentView: View {
                                 .font(.largeTitle)
                             Text("Create Event")
                         }
-                        
-                    })
+                    }).tint(.green)
                            
                } header : {
                    Text("Events")
