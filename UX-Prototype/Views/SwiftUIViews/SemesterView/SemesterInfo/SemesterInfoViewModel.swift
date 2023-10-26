@@ -62,8 +62,8 @@ class SemesterInfoViewModel : ObservableObject {
         var total: Float = 0
         
         for course in courses {
-            total += course.credits + course.grade
+            total += course.credits * course.grade
         }
-        return total / Float(totalCourses)
+        return total / Float(totalCredits)
     }
 }

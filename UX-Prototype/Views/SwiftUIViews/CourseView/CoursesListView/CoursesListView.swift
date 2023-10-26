@@ -50,17 +50,23 @@ struct CoursesListView: View {
                             }
                         }
                     } header : {
-                        HStack {
-                            Text(name)
-                            Spacer()
-                            if name != viewModel.noSemester {
-                                Button {
-                                    viewModel.editSemester(name: name)
-                                } label : {
-                                    Text("Edit")
-                                        .font(.caption)
+                        if name != viewModel.noSemester {
+                            NavigationLink(
+                                destination: SemesterInfoView(semester: viewModel.getSemesterByName(name: name)))
+                            {
+                                HStack {
+                                    Text(name)
+                                    Spacer()
+                                    Button {
+                                        viewModel.editSemester(name: name)
+                                    } label : {
+                                        Text("Edit")
+                                            .font(.caption)
+                                    }
                                 }
                             }
+                        } else {
+                            Text(name)
                         }
                     }
                 }
@@ -70,7 +76,10 @@ struct CoursesListView: View {
             .onAppear {
                 viewModel.fetchData()
             }
-            .sheet(isPresented: $viewModel.isPresented, onDismiss: { 
+            .onDisappear {
+                viewModel.saveUserDefualt()
+            }
+            .sheet(isPresented: $viewModel.isPresented, onDismiss: {
                 viewModel.fetchData()
             }) {
                 if let action = viewModel.action {
@@ -110,6 +119,7 @@ struct CoursesListView: View {
                         ForEach(viewModel.options, id: \.self) { option in
                             Button {
                                 viewModel.selectedOption = option
+                                viewModel.fetchData()
                             } label : {
                                 if viewModel.selectedOption == option {
                                     Label(option, systemImage: "checkmark")

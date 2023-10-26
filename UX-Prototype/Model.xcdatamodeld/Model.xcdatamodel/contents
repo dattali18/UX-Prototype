@@ -24,6 +24,7 @@
     </entity>
     <entity name="GradeItem" representedClassName="GradeItem" syncable="YES" codeGenerationType="class">
         <attribute name="grade" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="weight" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
         <relationship name="course" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Course" inverseName="gradeItems" inverseEntity="Course"/>

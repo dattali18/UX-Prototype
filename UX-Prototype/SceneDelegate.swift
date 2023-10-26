@@ -21,9 +21,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             
 //            CoreDataManager.shared.deleteAll(Assignment.self)
 //            CoreDataManager.shared.deleteAll(Resource.self)
+//            CoreDataManager.shared.deleteAll(Semester.self)
 //            CoreDataManager.shared.deleteAll(Course.self)
+//            CoreDataManager.shared.deleteAll(GradeItem.self)
 //            MockDataManager.shared.CreateMockData()
-//            changeScreen()
             
 //            let storyboard = UIStoryboard (name: "Main", bundle: nil)
 //            let CustomTB = storyboard.instantiateViewController(identifier: "MainTB") as! MainTabBarVC

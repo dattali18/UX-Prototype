@@ -41,10 +41,10 @@ struct CourseView: View {
                     Text("Please enter all info before saving")
                 }
                 
-                Section("Grade") {
-                    TextField("Final Grade",value: $viewModel.grade, format: .number)
-                        .keyboardType(.decimalPad)
-                }
+//                Section("Grade") {
+//                    TextField("Final Grade",value: $viewModel.grade, format: .number)
+//                        .keyboardType(.decimalPad)
+//                }
                 
                 Section {
                     Toggle(isOn: $viewModel.hasSemester, label: {

@@ -38,7 +38,8 @@ class CoursesListViewModel : ObservableObject {
     @Published var deleteAlertShowing: Bool = false
     
     init() {
-//        fetchData()
+        let defualt = UserDefaults.standard
+        self.selectedOption = defualt.string(forKey: "SemesterSort")  ?? "All"
     }
     
     // MARK: - DATA FETCHING
@@ -55,24 +56,34 @@ class CoursesListViewModel : ObservableObject {
         /// fetching and sorting all courses
         var allCoureses = CoreDataManager.shared.fetch(entity: Course.self) ?? []
         allCoureses = allCoureses.sorted { $0.name ?? "" > $1.name ?? "" }
-        
         /// fetching and sorrting all semesters
         semesters = CoreDataManager.shared.fetch(entity: Semester.self) ?? []
         semesters = semesters.sorted { $0.start ?? Date() > $1.start ?? Date() }
         
-        /// maping courses to semesters
-        for semester in semesters {
+        if self.selectedOption == "All" {
+            /// maping courses to semesters
+            for semester in semesters {
+                self.courses.append(allCoureses.filter { $0.semester == semester })
+                self.sectionsName.append(semester.name ?? "")
+            }
+            
+            /// adding courses without semesters
+            self.courses.append(allCoureses.filter { $0.semester == nil })
+            self.sectionsName.append(noSemester)
+        } else if self.selectedOption == self.noSemester {
+            /// adding courses without semesters
+            self.courses.append(allCoureses.filter { $0.semester == nil })
+            self.sectionsName.append(noSemester)
+        } else {
+            let semester = self.getSemesterByName(name: self.selectedOption)
+            
             self.courses.append(allCoureses.filter { $0.semester == semester })
-            self.sectionsName.append(semester.name ?? "")
+            self.sectionsName.append(semester?.name ?? "")
         }
         
-        /// adding courses without semesters
-        self.courses.append(allCoureses.filter { $0.semester == nil })
-        self.sectionsName.append(noSemester)
-        
-        
         /// setting up the option for filtering
-        self.options = self.sectionsName
+        self.options = self.semesters.map { $0.name ?? ""}
+        self.options.append(self.noSemester)
         self.options.insert("All", at: 0)
     }
     
@@ -122,6 +133,11 @@ class CoursesListViewModel : ObservableObject {
     
     func showDeleteAlert() {
         deleteAlertShowing = true
+    }
+    
+    func saveUserDefualt() {
+        let defualt = UserDefaults.standard
+        defualt.set(self.selectedOption, forKey: "SemesterSort")
     }
 }
 

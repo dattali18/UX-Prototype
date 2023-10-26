@@ -51,11 +51,12 @@ struct SemesterInfoView: View {
                 ForEach(viewModel.courses) { course in
                     HStack {
                         Text(course.name ?? "")
-                            .badge(Text(String(course.credits)))
+                            .badge(Text(String(course.grade)))
                     }
                 }
             }
         }
+        .navigationTitle(viewModel.name)
     }
 }
 
