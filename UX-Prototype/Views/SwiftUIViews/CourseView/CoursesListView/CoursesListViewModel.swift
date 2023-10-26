@@ -7,16 +7,30 @@
 
 import Foundation
 
+enum CourseActionType {
+    case addCourse
+    case editCourse
+    case addSemester
+    case editSemester
+}
+
 class CoursesListViewModel : ObservableObject {
+    
+    static var course: Course? = CoreDataManager.shared.fetch(entity: Course.self)?.first
     
     @Published var courses : [[Course]] = []
     @Published var semesters : [Semester] = []
+    
     
     @Published var sectionsName : [String] = []
     @Published var sectionCount : Int = 0
     
     @Published var options: [String] = []
     @Published var selectedOption: String = "All"
+    
+    @Published var isPresented: Bool = false
+    var action : CourseActionType?
+    var course : Course?
     
     var noSemester: String = "Course Without Semester"
     
@@ -29,6 +43,11 @@ class CoursesListViewModel : ObservableObject {
     
     ///  fetching the data from the core data and putting it into the different lists
     func fetchData() {
+        // reseting all lists to empty lists
+        self.courses = []
+        self.semesters = []
+        self.sectionsName = []
+        
         /// fetching and sorting all courses
         var allCoureses = CoreDataManager.shared.fetch(entity: Course.self) ?? []
         allCoureses = allCoureses.sorted { $0.name ?? "" > $1.name ?? "" }
@@ -47,7 +66,6 @@ class CoursesListViewModel : ObservableObject {
         self.courses.append(allCoureses.filter { $0.semester == nil })
         self.sectionsName.append(noSemester)
         
-        self.sectionCount = self.sectionsName.count
         
         /// setting up the option for filtering
         self.options = self.sectionsName
@@ -71,6 +89,17 @@ class CoursesListViewModel : ObservableObject {
             return
         }
         
+    }
+    
+    func addCourse() {
+        isPresented = true
+        action = .addCourse
+    }
+    
+    func editCourse(course: Course?) {
+        self.isPresented = true
+        self.action = .editCourse
+        self.course = course
     }
 }
 

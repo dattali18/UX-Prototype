@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C600F2982AE9703C006BDB82 /* SwipeButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C600F2972AE9703C006BDB82 /* SwipeButtonView.swift */; };
 		C60D06EA2ACC767000B1F5BC /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60D06E92ACC767000B1F5BC /* Model.swift */; };
 		C6214CFF2ACEA33900E242AC /* CourseInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6214CFE2ACEA33900E242AC /* CourseInfoVC.swift */; };
 		C6214D012ACEA9FB00E242AC /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6214D002ACEA9FB00E242AC /* CoreDataManager.swift */; };
@@ -92,6 +93,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C600F2972AE9703C006BDB82 /* SwipeButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeButtonView.swift; sourceTree = "<group>"; };
 		C60D06E92ACC767000B1F5BC /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		C6214CFE2ACEA33900E242AC /* CourseInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseInfoVC.swift; sourceTree = "<group>"; };
 		C6214D002ACEA9FB00E242AC /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
@@ -453,6 +455,7 @@
 				C6CEB4E62AE95F1900AB5CD3 /* CourseRowView.swift */,
 				C6CEB4E82AE95F5F00AB5CD3 /* CourseHeaderView.swift */,
 				C6CEB4EA2AE9624D00AB5CD3 /* CourseInfoView.swift */,
+				C600F2972AE9703C006BDB82 /* SwipeButtonView.swift */,
 			);
 			path = CoursesListView;
 			sourceTree = "<group>";
@@ -693,6 +696,7 @@
 				C6214D032ACED68C00E242AC /* NewSemesterVC.swift in Sources */,
 				C647748D2AE5241800FC0F08 /* AddProjectViewModel.swift in Sources */,
 				C6C40F912AB301EA00E958C1 /* MainTabBarVC.swift in Sources */,
+				C600F2982AE9703C006BDB82 /* SwipeButtonView.swift in Sources */,
 				C68DF9CD2AB9FE93006B0F70 /* Model.xcdatamodeld in Sources */,
 				C6C40F9B2AB3046D00E958C1 /* CourseVC.swift in Sources */,
 				C67777122AD305E2009B61BA /* UIAlerts+extention.swift in Sources */,

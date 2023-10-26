@@ -11,7 +11,7 @@ struct CourseRowView: View {
     var course: Course
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 10) {
+        VStack(alignment: .leading, spacing: 25) {
             Text(course.name ?? "None")
                 .fontWeight(.semibold)
             

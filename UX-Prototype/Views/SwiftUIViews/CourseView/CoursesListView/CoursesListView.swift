@@ -16,22 +16,51 @@ struct CoursesListView: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(0..<viewModel.sectionCount) { index in
+                ForEach(Array(viewModel.sectionsName.enumerated()), id: \.element) { index, name in
                     Section {
                         ForEach(viewModel.courses[index], id: \.id) { course in
                             NavigationLink(destination: CourseInfoView(course: course)) {
                                 CourseRowView(course: course)
                             }
-                            
-                        }
+                            .swipeActions(edge: .trailing) {
+                                Button {
+                                    
+                                } label : {
+                                    SwipeButtonView(text: "Delete", image: "trash.fill")
+                                }
+                                .tint(.red)
+                            }
+                            .swipeActions(edge: .leading) {
+                                Button {
+                                    viewModel.editCourse(course: course)
+                                } label : {
+                                    SwipeButtonView(text: "Edit", image: "pencil")
+                                }
+                                .tint(.blue)
+                            }
+                            }
                     } header : {
-                        CourseHeaderView(sectionName: viewModel.sectionsName[index])
+                        CourseHeaderView(sectionName: name)
                     }
                 }
             }
             .navigationTitle("Courses")
             .onAppear {
                 viewModel.fetchData()
+            }
+            .sheet(isPresented: $viewModel.isPresented) {
+                if let action = viewModel.action {
+                    switch action {
+                        case .addCourse:
+                            CourseView()
+                        case .editCourse:
+                            CourseView(with: viewModel.course)
+                        case .addSemester:
+                            CourseView()
+                        case .editSemester:
+                            CourseView()
+                    }
+                }
             }
         }
     }
