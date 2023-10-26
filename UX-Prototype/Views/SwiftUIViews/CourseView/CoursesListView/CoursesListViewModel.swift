@@ -117,5 +117,16 @@ class CoursesListViewModel : ObservableObject {
     func showDeleteAlert() {
         deleteAlertShowing = true
     }
+    
+    func addCourse() {
+        isPresented = true
+        action = .addCourse
+    }
+    
+    func editCourse(course: Course?) {
+        self.isPresented = true
+        self.action = .editCourse
+        self.course = course
+    }
 }
 
