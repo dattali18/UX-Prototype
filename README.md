@@ -1,7 +1,6 @@
 # UX-Prototype
 
 ## Overview
-
 This project is a UX prototype for a course management application. The prototype is designed to be easy to use and navigate, and it provides a variety of features for managing courses and semesters.
 
 This project was inspired by a course in `UX`/`UI` design, in which we had to present a prototype of an original app idea. This is the real-life project built from that prototype
