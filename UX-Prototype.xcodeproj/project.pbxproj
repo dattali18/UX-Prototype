@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		C600F2982AE9703C006BDB82 /* SwipeButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C600F2972AE9703C006BDB82 /* SwipeButtonView.swift */; };
 		C60D06EA2ACC767000B1F5BC /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60D06E92ACC767000B1F5BC /* Model.swift */; };
+		C61B4E422AEACC8700869E67 /* ResourceListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61B4E412AEACC8700869E67 /* ResourceListViewModel.swift */; };
+		C61B4E442AEACCE000869E67 /* ResourceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61B4E432AEACCE000869E67 /* ResourceListView.swift */; };
 		C6214CFF2ACEA33900E242AC /* CourseInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6214CFE2ACEA33900E242AC /* CourseInfoVC.swift */; };
 		C6214D012ACEA9FB00E242AC /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6214D002ACEA9FB00E242AC /* CoreDataManager.swift */; };
 		C6214D032ACED68C00E242AC /* NewSemesterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6214D022ACED68C00E242AC /* NewSemesterVC.swift */; };
@@ -96,6 +98,8 @@
 /* Begin PBXFileReference section */
 		C600F2972AE9703C006BDB82 /* SwipeButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeButtonView.swift; sourceTree = "<group>"; };
 		C60D06E92ACC767000B1F5BC /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		C61B4E412AEACC8700869E67 /* ResourceListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceListViewModel.swift; sourceTree = "<group>"; };
+		C61B4E432AEACCE000869E67 /* ResourceListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceListView.swift; sourceTree = "<group>"; };
 		C6214CFE2ACEA33900E242AC /* CourseInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseInfoVC.swift; sourceTree = "<group>"; };
 		C6214D002ACEA9FB00E242AC /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		C6214D022ACED68C00E242AC /* NewSemesterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSemesterVC.swift; sourceTree = "<group>"; };
@@ -234,6 +238,24 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		C61B4E402AEACC6A00869E67 /* AddResourceView */ = {
+			isa = PBXGroup;
+			children = (
+				C62D98F12AE05511008E61A8 /* ResourceView.swift */,
+				C62D98F42AE0552F008E61A8 /* ResourceViewModel.swift */,
+			);
+			path = AddResourceView;
+			sourceTree = "<group>";
+		};
+		C61B4E452AEACCE600869E67 /* ResourcesListView */ = {
+			isa = PBXGroup;
+			children = (
+				C61B4E412AEACC8700869E67 /* ResourceListViewModel.swift */,
+				C61B4E432AEACCE000869E67 /* ResourceListView.swift */,
+			);
+			path = ResourcesListView;
+			sourceTree = "<group>";
+		};
 		C62D98F02AE0412C008E61A8 /* Depraceted */ = {
 			isa = PBXGroup;
 			children = (
@@ -249,8 +271,8 @@
 		C62D98F32AE05517008E61A8 /* ResourceView */ = {
 			isa = PBXGroup;
 			children = (
-				C62D98F12AE05511008E61A8 /* ResourceView.swift */,
-				C62D98F42AE0552F008E61A8 /* ResourceViewModel.swift */,
+				C61B4E402AEACC6A00869E67 /* AddResourceView */,
+				C61B4E452AEACCE600869E67 /* ResourcesListView */,
 			);
 			path = ResourceView;
 			sourceTree = "<group>";
@@ -360,6 +382,7 @@
 		C67A34322AEAB0D100EF716C /* CourseCustomView */ = {
 			isa = PBXGroup;
 			children = (
+				C600F2972AE9703C006BDB82 /* SwipeButtonView.swift */,
 				C6CEB4E82AE95F5F00AB5CD3 /* CourseHeaderView.swift */,
 				C6CEB4E62AE95F1900AB5CD3 /* CourseRowView.swift */,
 			);
@@ -369,8 +392,8 @@
 		C67A34342AEAB0F200EF716C /* CourseInfoView */ = {
 			isa = PBXGroup;
 			children = (
+				C6CEB4EA2AE9624D00AB5CD3 /* CourseInfoView.swift */,
 				C67A34302AEA9C1600EF716C /* CourseInfoViewModel.swift */,
-				C600F2972AE9703C006BDB82 /* SwipeButtonView.swift */,
 			);
 			path = CourseInfoView;
 			sourceTree = "<group>";
@@ -432,11 +455,11 @@
 		C6C40F6E2AB2F70700E958C1 = {
 			isa = PBXGroup;
 			children = (
-				C682FA532AE9156000BA0DBC /* ScreenShot */,
 				C6AE6A102AE69B2F0074CB38 /* TREE.md */,
 				C68CE3612ADD2E06009411F9 /* COREDATA.md */,
 				C68CE3622ADD2E06009411F9 /* README.md */,
 				C6C40F792AB2F70700E958C1 /* UX-Prototype */,
+				C682FA532AE9156000BA0DBC /* ScreenShot */,
 				C6C40F782AB2F70700E958C1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -482,7 +505,6 @@
 			children = (
 				C6CEB4E22AE9559600AB5CD3 /* CoursesListViewModel.swift */,
 				C6CEB4E42AE955AA00AB5CD3 /* CoursesListView.swift */,
-				C6CEB4EA2AE9624D00AB5CD3 /* CourseInfoView.swift */,
 			);
 			path = CoursesListView;
 			sourceTree = "<group>";
@@ -735,6 +757,7 @@
 				C6214CFF2ACEA33900E242AC /* CourseInfoVC.swift in Sources */,
 				C6C40F972AB3038000E958C1 /* AssignmentsNC.swift in Sources */,
 				C6C40F7F2AB2F70700E958C1 /* LoginVC.swift in Sources */,
+				C61B4E442AEACCE000869E67 /* ResourceListView.swift in Sources */,
 				C6A1500F2AE01FE600115C59 /* ModeEnum.swift in Sources */,
 				C6C40FA12AB3049900E958C1 /* ProjectsVC.swift in Sources */,
 				C6CEB4E72AE95F1900AB5CD3 /* CourseRowView.swift in Sources */,
@@ -766,6 +789,7 @@
 				C6C40FA32AB30E9F00E958C1 /* UserLogin.swift in Sources */,
 				C681251E2AD0022B008DE83E /* CourseSectionHeaderView.swift in Sources */,
 				C67777112AD305E2009B61BA /* UITouch+extention.swift in Sources */,
+				C61B4E422AEACC8700869E67 /* ResourceListViewModel.swift in Sources */,
 				C60D06EA2ACC767000B1F5BC /* Model.swift in Sources */,
 				C6AE4BD72AD450FA0037C821 /* LinkTVC.swift in Sources */,
 				C6A1500C2AE005E000115C59 /* CourseViewModel.swift in Sources */,

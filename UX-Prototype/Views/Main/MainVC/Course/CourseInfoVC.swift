@@ -3,7 +3,7 @@ import SwiftUI
 import MessageUI
 
 
-class CourseInfoVC: UIViewController, MFMailComposeViewControllerDelegate {
+class CourseInfoVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var course: Course?
