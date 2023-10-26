@@ -38,7 +38,7 @@ class CoursesListViewModel : ObservableObject {
     @Published var deleteAlertShowing: Bool = false
     
     init() {
-        fetchData()
+//        fetchData()
     }
     
     // MARK: - DATA FETCHING
@@ -50,6 +50,7 @@ class CoursesListViewModel : ObservableObject {
         self.courses = []
         self.semesters = []
         self.sectionsName = []
+        
         
         /// fetching and sorting all courses
         var allCoureses = CoreDataManager.shared.fetch(entity: Course.self) ?? []
@@ -91,6 +92,11 @@ class CoursesListViewModel : ObservableObject {
         CoreDataManager.shared.delete(course)
     }
     
+    func addSemester() {
+        isPresented = true
+        action = .addSemester
+    }
+    
     func editSemester(name: String) {
         let semester: Semester? = self.getSemesterByName(name: name)
         
@@ -116,17 +122,6 @@ class CoursesListViewModel : ObservableObject {
     
     func showDeleteAlert() {
         deleteAlertShowing = true
-    }
-    
-    func addCourse() {
-        isPresented = true
-        action = .addCourse
-    }
-    
-    func editCourse(course: Course?) {
-        self.isPresented = true
-        self.action = .editCourse
-        self.course = course
     }
 }
 

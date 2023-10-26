@@ -24,10 +24,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //            CoreDataManager.shared.deleteAll(Course.self)
 //            MockDataManager.shared.CreateMockData()
 //            changeScreen()
-            let storyboard = UIStoryboard (name: "Main", bundle: nil)
-            let CustomTB = storyboard.instantiateViewController(identifier: "MainTB") as! MainTabBarVC
             
+//            let storyboard = UIStoryboard (name: "Main", bundle: nil)
+//            let CustomTB = storyboard.instantiateViewController(identifier: "MainTB") as! MainTabBarVC
 //            window?.rootViewController = CustomTB
+            
             window?.rootViewController = UIHostingController(rootView: CoursesListView())
             window?.makeKeyAndVisible()
         }

@@ -14,16 +14,10 @@ struct CourseRowView: View {
         VStack(alignment: .leading, spacing: 25) {
             Text(course.name ?? "None")
                 .fontWeight(.semibold)
+                .badge(Text(String(course.credits)))
             
-            HStack {
-                Text(String(course.credits))
-                    .foregroundStyle(.gray)
-                
-                Spacer()
-                
-                Text(String(course.number))
-                    .foregroundStyle(.blue)
-            }
+            Text(String(course.number))
+                .foregroundStyle(.blue)
         }
     }
 }

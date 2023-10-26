@@ -24,12 +24,19 @@ struct CoursesListView: View {
                             }
                             .swipeActions(edge: .trailing) {
                                 Button {
-                                    
                                     viewModel.showDeleteAlert()
                                 } label : {
                                     SwipeButtonView(text: "Delete", image: "trash.fill")
                                 }
                                 .tint(.red)
+                            }
+                            .swipeActions(edge: .leading) {
+                                Button {
+                                    viewModel.editCourse(course: course)
+                                } label : {
+                                    SwipeButtonView(text: "Edit", image: "pencil")
+                                }
+                                .tint(.blue)
                             }
                             .alert(isPresented: $viewModel.deleteAlertShowing) {
                                 Alert(
@@ -41,34 +48,31 @@ struct CoursesListView: View {
                                     secondaryButton: .cancel(Text("Cancel"))
                                 )
                             }
-                            .swipeActions(edge: .leading) {
-                                Button {
-                                    viewModel.editCourse(course: course)
-                                } label : {
-                                    SwipeButtonView(text: "Edit", image: "pencil")
-                                }
-                                .tint(.blue)
-                            }
-                            }
+                        }
                     } header : {
                         HStack {
                             Text(name)
                             Spacer()
-                            Button {
-                                viewModel.editSemester(name: name)
-                            } label : {
-                                Text("Edit")
-                                    .font(.caption)
+                            if name != viewModel.noSemester {
+                                Button {
+                                    viewModel.editSemester(name: name)
+                                } label : {
+                                    Text("Edit")
+                                        .font(.caption)
+                                }
                             }
                         }
                     }
                 }
+                .id(UUID())
             }
             .navigationTitle("Courses")
             .onAppear {
                 viewModel.fetchData()
             }
-            .sheet(isPresented: $viewModel.isPresented) {
+            .sheet(isPresented: $viewModel.isPresented, onDismiss: { 
+                viewModel.fetchData()
+            }) {
                 if let action = viewModel.action {
                     switch action {
                         case .addCourse:
@@ -79,6 +83,43 @@ struct CoursesListView: View {
                         SemesterView()
                         case .editSemester:
                         SemesterView(with: viewModel.semester)
+                    }
+                }
+            }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Menu {
+                        Button {
+                            viewModel.addCourse()
+                        } label : {
+                            Label("Course", systemImage: "plus")
+                        }
+                        
+                        Button {
+                            viewModel.addSemester()
+                        } label : {
+                            Label("Semester", systemImage: "plus")
+                        }
+                    } label :  {
+                        Label("Add", systemImage: "plus")
+                    }
+                }
+                
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Menu {
+                        ForEach(viewModel.options, id: \.self) { option in
+                            Button {
+                                viewModel.selectedOption = option
+                            } label : {
+                                if viewModel.selectedOption == option {
+                                    Label(option, systemImage: "checkmark")
+                                } else {
+                                    Text(option)
+                                }
+                            }
+                        }
+                    } label : {
+                        Label("Filter", systemImage: "list.bullet")
                     }
                 }
             }
