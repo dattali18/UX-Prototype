@@ -357,12 +357,40 @@
 			path = Extenstions;
 			sourceTree = "<group>";
 		};
+		C67A34322AEAB0D100EF716C /* CourseCustomView */ = {
+			isa = PBXGroup;
+			children = (
+				C6CEB4E82AE95F5F00AB5CD3 /* CourseHeaderView.swift */,
+				C6CEB4E62AE95F1900AB5CD3 /* CourseRowView.swift */,
+			);
+			path = CourseCustomView;
+			sourceTree = "<group>";
+		};
+		C67A34342AEAB0F200EF716C /* CourseInfoView */ = {
+			isa = PBXGroup;
+			children = (
+				C67A34302AEA9C1600EF716C /* CourseInfoViewModel.swift */,
+				C600F2972AE9703C006BDB82 /* SwipeButtonView.swift */,
+			);
+			path = CourseInfoView;
+			sourceTree = "<group>";
+		};
+		C67A34352AEAB10E00EF716C /* AddCourseView */ = {
+			isa = PBXGroup;
+			children = (
+				C6A150092ADFFB3C00115C59 /* CourseView.swift */,
+				C6A1500B2AE005E000115C59 /* CourseViewModel.swift */,
+			);
+			path = AddCourseView;
+			sourceTree = "<group>";
+		};
 		C6A1500D2AE005E800115C59 /* CourseView */ = {
 			isa = PBXGroup;
 			children = (
+				C67A34342AEAB0F200EF716C /* CourseInfoView */,
+				C67A34322AEAB0D100EF716C /* CourseCustomView */,
 				C6CEB4E12AE9556A00AB5CD3 /* CoursesListView */,
-				C6A150092ADFFB3C00115C59 /* CourseView.swift */,
-				C6A1500B2AE005E000115C59 /* CourseViewModel.swift */,
+				C67A34352AEAB10E00EF716C /* AddCourseView */,
 			);
 			path = CourseView;
 			sourceTree = "<group>";
@@ -454,11 +482,7 @@
 			children = (
 				C6CEB4E22AE9559600AB5CD3 /* CoursesListViewModel.swift */,
 				C6CEB4E42AE955AA00AB5CD3 /* CoursesListView.swift */,
-				C6CEB4E62AE95F1900AB5CD3 /* CourseRowView.swift */,
-				C6CEB4E82AE95F5F00AB5CD3 /* CourseHeaderView.swift */,
 				C6CEB4EA2AE9624D00AB5CD3 /* CourseInfoView.swift */,
-				C67A34302AEA9C1600EF716C /* CourseInfoViewModel.swift */,
-				C600F2972AE9703C006BDB82 /* SwipeButtonView.swift */,
 			);
 			path = CoursesListView;
 			sourceTree = "<group>";

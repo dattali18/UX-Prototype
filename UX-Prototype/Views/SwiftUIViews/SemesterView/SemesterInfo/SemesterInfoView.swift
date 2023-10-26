@@ -39,7 +39,7 @@ struct SemesterInfoView: View {
             
             
             Section {
-                Text("Avrage")
+                Text("Average")
                     .badge(Text(String(format: "%.2f", viewModel.avg)))
             } header : {
                 Text("Grade")
