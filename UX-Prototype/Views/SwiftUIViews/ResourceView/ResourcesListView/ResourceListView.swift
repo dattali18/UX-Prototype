@@ -15,29 +15,32 @@ struct ResourceListView: View {
     }
     
     var body: some View {
-        Text("hi")
-//        List {
-//            ForEach(Array(viewModel.resources.enumerated()), id: \.element) { (index, resource) in
-//                Section {
-//                    ForEach(viewModel.links[index], id: \.id) { link in
-//                        VStack {
-//                            Text(link.name ?? "")
-//                            Text(link.url ?? "")
-//                        }
-//                    }
-//                } header : {
-//                    VStack {
-//                        Text(resource.name!)
-//                        Button("Edit") {
-//                        }
-//                    }
-//                }
-//            }
-//        }
-//        .navigationTitle("Resources")
-//        .onAppear {
-//            viewModel.fetchData()
-//        }
+        List {
+            ForEach(Array(viewModel.resources.enumerated()), id: \.element) { (index, resource) in
+                Section {
+                    ForEach(viewModel.links[index], id: \.id) { link in
+                        VStack(alignment: .leading) {
+                            Text(link.name ?? "")
+                            Text((link.url ?? "").toDetectedAttributedString())
+                                .lineLimit(1)
+                        }
+                    }
+                } header : {
+                    HStack {
+                        Text(resource.name!)
+                        Spacer()
+                        Button("Edit") {
+                        }
+                    }
+                } footer : {
+                    Text(resource.descriptions ?? "")
+                }
+            }
+        }
+        .navigationTitle("Resources")
+        .onAppear {
+            viewModel.fetchData()
+        }
     }
 }
 

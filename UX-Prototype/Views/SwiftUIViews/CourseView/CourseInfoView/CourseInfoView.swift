@@ -30,11 +30,11 @@ struct CourseInfoView: View {
                     .badge(Text(String(viewModel.course?.credits ?? 0.0)))
             }
             
-//            Section("Resources") {
-//                NavigationLink(destination: ResourceListView(course: viewModel.course)) {
-//                    Text("see all resource")
-//                }
-//            }
+            Section("Resources") {
+                NavigationLink(destination: ResourceListView(course: viewModel.course)) {
+                    Text("see all resource")
+                }
+            }
             
             Section("Grade") {
                 Text(String(format: "%.2f", viewModel.finalGrade))
