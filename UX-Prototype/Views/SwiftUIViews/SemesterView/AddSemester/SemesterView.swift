@@ -35,29 +35,7 @@ struct SemesterView: View {
                     DatePicker("End Date", selection: $viewModel.end, displayedComponents: [.date])
                     
                 }
-                
-//                Section {
-//                    
-//                } footer: {
-//                    Button {
-//                        if(viewModel.validateInput()) {
-//                            let _ = viewModel.saveSemester()
-//                            self.presentationMode.wrappedValue.dismiss()
-//                        } else {
-//                            viewModel.showAlert()
-//                        }
-//                       
-//                    } label: {
-//                        HStack
-//                        {
-//                            Spacer()
-//                            Text("Save")
-//                            Spacer()
-//                        }
-//                        .frame(width: 350, height: 30)
-//                    }
-//                    .buttonStyle(.borderedProminent)
-//                }
+        
             }
             .navigationTitle(viewModel.navigationtitle)
             .alert(isPresented: $viewModel.isShowing) {

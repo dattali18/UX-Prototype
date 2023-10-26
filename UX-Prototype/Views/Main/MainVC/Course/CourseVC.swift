@@ -387,7 +387,7 @@ extension CourseVC: UITableViewDelegate, UITableViewDataSource {
 //        semesterAction.backgroundColor = .systemPink
 //        semesterAction.image = UIImage(systemName: "book.fill")
         
-        var actions = [editAction]
+        let actions = [editAction]
 //        if course.semester != nil {
 //            actions.append(semesterAction)
 //        }

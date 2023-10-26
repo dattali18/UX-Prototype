@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct CourseHeaderView: View {
+    var viewModel: CoursesListViewModel = CoursesListViewModel()
+    
     var sectionName: String
     
     var body: some View {
@@ -17,7 +19,7 @@ struct CourseHeaderView: View {
             Spacer()
             
             Button {
-                
+                viewModel.editSemester(name: sectionName)
             } label : {
                 Text("Edit")
                     .font(.caption)
