@@ -250,8 +250,8 @@
 		C61B4E452AEACCE600869E67 /* ResourcesListView */ = {
 			isa = PBXGroup;
 			children = (
-				C61B4E412AEACC8700869E67 /* ResourceListViewModel.swift */,
 				C61B4E432AEACCE000869E67 /* ResourceListView.swift */,
+				C61B4E412AEACC8700869E67 /* ResourceListViewModel.swift */,
 			);
 			path = ResourcesListView;
 			sourceTree = "<group>";

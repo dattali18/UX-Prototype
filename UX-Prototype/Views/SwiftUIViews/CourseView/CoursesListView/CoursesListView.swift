@@ -61,10 +61,10 @@ struct CoursesListView: View {
                                         viewModel.editSemester(name: name)
                                     } label : {
                                         Text("Edit")
-                                            .font(.caption)
                                     }
                                 }
                             }
+                            .font(.subheadline)
                         } else {
                             Text(name)
                         }
