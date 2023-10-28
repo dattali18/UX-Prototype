@@ -32,7 +32,7 @@ struct CourseInfoView: View {
             
             Section("Resources") {
                 NavigationLink(destination: ResourceListView(course: viewModel.course)) {
-                    Text("see all resource")
+                    Text("See all resource")
                 }
             }
             
@@ -77,6 +77,14 @@ struct CourseInfoView: View {
                     } label : {
                         Image(systemName: "plus")
                     }
+                }
+            } footer : {
+                HStack {
+                    Text("Name")
+                    Spacer()
+                    Text("Weight")
+                    Spacer()
+                    Text("Grade")
                 }
             }
         }

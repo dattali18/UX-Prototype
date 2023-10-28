@@ -51,13 +51,13 @@ struct ResourceView: View {
                 
                 Section("Links") {
                     ForEach(viewModel.links, id: \.self.id) { link in
-                        VStack(alignment: .leading, spacing: 5) {
+                        VStack(alignment: .leading, spacing: 10) {
                             Text(link.name ?? "")
-                                .font(.headline)
                             
                             Text((link.url ?? "").toDetectedAttributedString())
                                 .lineLimit(1)
                         }
+                        .frame(height: 74)
                         .swipeActions(edge: .leading){
                             Button {
                                 viewModel.deleteLink(with: link)
@@ -82,7 +82,7 @@ struct ResourceView: View {
                 // Add a "Save" button to the top of the navigation bar
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button{
-                        if(viewModel.validateData()){
+                        if(viewModel.validateInput()){
                             let _ = viewModel.saveData()
                             // Dismiss the view
                             self.presentationMode.wrappedValue.dismiss()
@@ -102,7 +102,6 @@ struct ResourceView: View {
                             viewModel.showDeleteAlert()
                         } label: {
                             HStack {
-//                                Image(systemName: "trash.fill")
                                 Text("Delete")
                             }
                         }

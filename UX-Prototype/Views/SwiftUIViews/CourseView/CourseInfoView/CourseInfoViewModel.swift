@@ -12,8 +12,8 @@ class CourseInfoViewModel : ObservableObject {
     @Published var gradeitems: [GradeItem] = []
     
     @Published var name: String = ""
-    @Published var weight: Float = 0
-    @Published var grade: Float = 0
+    @Published var weight: Float?
+    @Published var grade: Float?
     
     @Published var finalGrade: Float = 0
     
@@ -43,8 +43,8 @@ class CourseInfoViewModel : ObservableObject {
         
         let gradeitem = GradeItem(context: managedObjectContext)
         gradeitem.name = self.name
-        gradeitem.weight = self.weight
-        gradeitem.grade = self.grade
+        gradeitem.weight = self.weight ?? 0.0
+        gradeitem.grade = self.grade ?? 0.0
         gradeitem.id = UUID()
 
         course?.addToGradeItems(gradeitem)

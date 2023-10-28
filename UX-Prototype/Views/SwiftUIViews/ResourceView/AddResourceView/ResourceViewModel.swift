@@ -54,7 +54,7 @@ class ResourceViewModel: ObservableObject {
     
     func addLink() {
         if(linkName == "" || url == "") {
-            showAlert()
+//            showAlert()
             return
         }
         
@@ -73,7 +73,7 @@ class ResourceViewModel: ObservableObject {
         url = ""
     }
     
-    func validateData() -> Bool {
+    func validateInput() -> Bool {
         return name != ""
     }
     
