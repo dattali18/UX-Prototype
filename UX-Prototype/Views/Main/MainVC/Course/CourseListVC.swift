@@ -1,25 +1,23 @@
 //
-//  RemindersVC.swift
+//  CourseListVC.swift
 //  UX-Prototype
 //
-//  Created by Daniel Attali on 9/14/23.
+//  Created by Daniel Attali on 10/29/23.
 //
 
 import UIKit
 import SwiftUI
 
-class ProjectsVC: UIViewController {
+class CourseListVC: UIViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         navigationController?.navigationBar.isHidden = true
-
-
-        var projectView = ProjectsView()
         
-        projectView.addProjectDelegate = self
-        projectView.delegate = self
+        let courseView = CoursesListView()
         
-        let hostingController = UIHostingController(rootView: projectView)
+        let hostingController = UIHostingController(rootView: courseView)
         
         let vcView = hostingController.view!
         
@@ -36,23 +34,6 @@ class ProjectsVC: UIViewController {
         
         hostingController.didMove(toParent: self)
     }
-}
-
-extension ProjectsVC: AddProjectDelegate, DisappearingViewDelegate {
-    func viewWillDisappear() {
-            
-    }
-    
-    func pushAddView(project: Project?) {
-        
-        var addProjectView = AddProjectView(project: project)
-        addProjectView.delegate = self
-        let hostingController = UIHostingController(rootView: addProjectView)
-
-        // Present the SwiftUI view
-        present(hostingController, animated: true, completion: nil)
-    }
     
     
 }
-

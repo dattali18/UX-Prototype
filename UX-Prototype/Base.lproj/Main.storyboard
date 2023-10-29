@@ -261,6 +261,22 @@
             </objects>
             <point key="canvasLocation" x="-895" y="1"/>
         </scene>
+        <!--Course ListVC-->
+        <scene sceneID="pzU-8K-dTu">
+            <objects>
+                <viewController storyboardIdentifier="CourseListVC" id="fRF-hK-hJr" customClass="CourseListVC" customModule="UX_Prototype" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="98r-wu-k3l">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="u4c-JF-jBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="M86-LS-tUW"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PEp-E7-YOO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2438" y="665"/>
+        </scene>
         <!--CourseNC-->
         <scene sceneID="WJw-WX-eRZ">
             <objects>
@@ -271,7 +287,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="5Zy-TC-PKT" kind="relationship" relationship="rootViewController" id="ujd-OO-8Xd"/>
+                        <segue destination="fRF-hK-hJr" kind="relationship" relationship="rootViewController" id="5a3-X3-Bue"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RQ8-WQ-1Xw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -281,7 +297,7 @@
         <!--CourseVC-->
         <scene sceneID="K5c-eR-mEM">
             <objects>
-                <viewController id="5Zy-TC-PKT" customClass="CourseVC" customModule="UX_Prototype" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CourseVC" id="5Zy-TC-PKT" customClass="CourseVC" customModule="UX_Prototype" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LSO-3E-OOl">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1038,21 +1054,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="caL-NV-Vga" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1968" y="665"/>
-        </scene>
-        <!--Hosting Sign UpVC-->
-        <scene sceneID="TUi-io-JRz">
-            <objects>
-                <viewController id="k25-up-8a0" customClass="HostingSignUpVC" customModule="UX_Prototype" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="TV4-z4-iW9">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="2q0-sF-nsg"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QxY-GH-b8Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1968" y="1"/>
         </scene>
         <!--AuthNC-->
         <scene sceneID="kff-7N-sr6">
