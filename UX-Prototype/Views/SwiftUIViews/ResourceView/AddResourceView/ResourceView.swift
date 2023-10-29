@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct ResourceView: View {
-    weak var delegate: DisappearingViewDelegate?
-    
     @Environment(\.presentationMode) var presentationMode
     
     @StateObject var viewModel: ResourceViewModel
@@ -55,6 +53,7 @@ struct ResourceView: View {
                             Text(link.name ?? "")
                             
                             Text((link.url ?? "").toDetectedAttributedString())
+                                .textSelection(.enabled)
                                 .lineLimit(1)
                         }
                         .frame(height: 74)
@@ -131,9 +130,6 @@ struct ResourceView: View {
         }
         .onTapGesture {
             hideKeyboard()
-        }
-        .onDisappear {
-            self.delegate?.viewWillDisappear()
         }
     }
     

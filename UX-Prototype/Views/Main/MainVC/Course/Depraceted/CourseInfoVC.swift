@@ -46,8 +46,8 @@ class CourseInfoVC: UIViewController {
     }
     
     @objc func addNewResource() {
-        var resourceView = ResourceView(resource: nil, course: course)
-        resourceView.delegate = self
+        let resourceView = ResourceView(resource: nil, course: course)
+//        resourceView.delegate = self
         
         let hostingController = UIHostingController(rootView: resourceView)
 
@@ -68,8 +68,8 @@ class CourseInfoVC: UIViewController {
 extension CourseInfoVC: DisappearingViewDelegate, EditResourceDelegate {
     func pushEdit(resource: Resource?, course: Course?) {
         
-        var resourceView = ResourceView(resource: resource, course: course)
-        resourceView.delegate = self
+        let resourceView = ResourceView(resource: resource, course: course)
+//        resourceView.delegate = self
         
         let hostingController = UIHostingController(rootView: resourceView)
 

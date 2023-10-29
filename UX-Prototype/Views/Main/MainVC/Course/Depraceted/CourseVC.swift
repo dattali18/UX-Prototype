@@ -104,8 +104,8 @@ extension CourseVC {
 // MARK: - Actions
 extension CourseVC {
     @objc func addCourse() {
-        var courseView = CourseView()
-        courseView.delegate = self
+        let courseView = CourseView()
+//        courseView.delegate = self
         let hostingController = UIHostingController(rootView: courseView)
 
         // Present the SwiftUI view
@@ -113,8 +113,8 @@ extension CourseVC {
     }
     
     @objc func addSemester() {
-        var semesterView = SemesterView()
-        semesterView.delegate = self
+        let semesterView = SemesterView()
+//        semesterView.delegate = self
         let hostingController = UIHostingController(rootView: semesterView)
 
         // Present the SwiftUI view
@@ -137,8 +137,8 @@ extension CourseVC : DisappearingViewDelegate, EditSemesterDelegate, SemesterDel
     
     func pushEdit(with semester: Semester?) {
         
-        var semesterView = SemesterView(with: semester)
-        semesterView.delegate = self
+        let semesterView = SemesterView(with: semester)
+//        semesterView.delegate = self
         let hostingController = UIHostingController(rootView: semesterView)
 
         // Present the SwiftUI view
@@ -364,8 +364,8 @@ extension CourseVC: UITableViewDelegate, UITableViewDataSource {
         let editAction = UIContextualAction(style: .normal, title: "Edit") {  (contextualAction, view, boolValue) in
             // Get the name of the course
             
-            var courseView = CourseView(with: course)
-            courseView.delegate = self
+            let courseView = CourseView(with: course)
+//            courseView.delegate = self
             let hostingController = UIHostingController(rootView: courseView)
 
             // Present the SwiftUI view

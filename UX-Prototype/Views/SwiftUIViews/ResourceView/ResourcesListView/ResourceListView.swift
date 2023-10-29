@@ -22,6 +22,7 @@ struct ResourceListView: View {
                         VStack(alignment: .leading, spacing: 10) {
                             Text(link.name ?? "")
                             Text((link.url ?? "").toDetectedAttributedString())
+                                .textSelection(.enabled)
                                 .lineLimit(1)
                         }
                         .frame(height: 74)

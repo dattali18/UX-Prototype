@@ -172,9 +172,9 @@ extension AssignmentsInfoVC : UITableViewDelegate, UITableViewDataSource {
             
             let assignment = self.sections[section][row]
             
-            var assignmentView = AssignmentView(with: assignment)
+            let assignmentView = AssignmentView(with: assignment)
             // implementing the obeserver pattern
-            assignmentView.delegate = self
+//            assignmentView.delegate = self
             let hostingController = UIHostingController(rootView: assignmentView)
 
             // Present the SwiftUI view
@@ -228,7 +228,7 @@ extension AssignmentsInfoVC : UITableViewDelegate, UITableViewDataSource {
         
         var assignmentView = AssignmentView(with: assignment)
         // implementing the obeserver pattern
-        assignmentView.delegate = self
+//        assignmentView.delegate = self
         let hostingController = UIHostingController(rootView: assignmentView)
 
         // Present the SwiftUI view

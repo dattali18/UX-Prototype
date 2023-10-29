@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct CourseView: View {
-    weak var delegate: DisappearingViewDelegate?
     @Environment(\.presentationMode) var presentationMode
     
     @StateObject var viewModel: CourseViewModel
@@ -89,10 +88,6 @@ struct CourseView: View {
                     dismissButton: .default(Text("OK"))
                 )
             }
-            .onDisappear {
-                self.delegate?.viewWillDisappear()
-            }
-
         }
     }
 }

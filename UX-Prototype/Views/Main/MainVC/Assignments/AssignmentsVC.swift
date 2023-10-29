@@ -67,8 +67,8 @@ class AssignmentsVC: UIViewController {
     }
     
     @objc func addButtonTapped() {
-        var swiftUIView = AssignmentView()
-        swiftUIView.delegate = self
+        let swiftUIView = AssignmentView()
+//        swiftUIView.delegate = self
         
         let hostingController = UIHostingController(rootView: swiftUIView)
 

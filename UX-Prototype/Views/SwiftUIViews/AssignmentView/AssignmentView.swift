@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct AssignmentView: View {
-    weak var delegate: DisappearingAssignmentViewDelegate?
-    
     @Environment(\.presentationMode) var presentationMode
     
     @StateObject var viewModel: AssignmentViewModel
@@ -179,10 +177,9 @@ struct AssignmentView: View {
                     Button{
                         if(viewModel.validateInput())
                         {
-                            let assignment: Assignment? = viewModel.saveReminder()
+                            let _ : Assignment? = viewModel.saveReminder()
                             // Dismiss the view
                             self.presentationMode.wrappedValue.dismiss()
-                            self.delegate?.viewWillDisappear(assignment: assignment, open: viewModel.createEvent)
                         }
                     } label: {
                         HStack {

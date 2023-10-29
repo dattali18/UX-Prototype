@@ -68,6 +68,10 @@ Please contact me if you have any question about the project or me.
 
 <img height="400" src="/UX-Prototype/ScreenShot/fillteringCourses.PNG"><img height="400" src="/UX-Prototype/ScreenShot/fillteringCoursesD.PNG">
 
+**Course Info**
+
+<img height="400" src="/UX-Prototype/ScreenShot/courseInfo.PNG"><img height="400" src="/UX-Prototype/ScreenShot/courseInfoD.PNG">
+
 **Editing course**
 
 <img height="400" src="/UX-Prototype/ScreenShot/editCourse.PNG"><img height="400" src="/UX-Prototype/ScreenShot/editCourseD.PNG">
@@ -81,6 +85,22 @@ Please contact me if you have any question about the project or me.
 <img height="400" src="/UX-Prototype/ScreenShot/deletingCourse.PNG"><img height="400" src="/UX-Prototype/ScreenShot/deletingCourseD.PNG">
 
 <img height="400" src="/UX-Prototype/ScreenShot/editingCourse.PNG"><img height="400" src="/UX-Prototype/ScreenShot/editingCourseD.PNG">
+
+**Adding Grade** 
+
+<img height="400" src="/UX-Prototype/ScreenShot/addingGrade.PNG"><img height="400" src="/UX-Prototype/ScreenShot/addingGradeD.PNG">
+
+**Editing Grade**
+
+<img height="400" src="/UX-Prototype/ScreenShot/editingGrade.PNG"><img height="400" src="/UX-Prototype/ScreenShot/editingGradeD.PNG">
+
+**Deleting Grade**
+
+<img height="400" src="/UX-Prototype/ScreenShot/deletingGrade.PNG"><img height="400" src="/UX-Prototype/ScreenShot/deletingGradeD.PNG">
+
+**Semester Info** 
+
+<img height="400" src="/UX-Prototype/ScreenShot/semesterInfo.PNG"><img height="400" src="/UX-Prototype/ScreenShot/semesterInfoD.PNG">
 
 **Editing semester**
 
@@ -100,6 +120,13 @@ Please contact me if you have any question about the project or me.
 
 <img height="400" src="/UX-Prototype/ScreenShot/editResource.PNG"><img height="400" src="/UX-Prototype/ScreenShot/editResourceD.PNG">
 
+**Editing Link**
+
+<img height="400" src="/UX-Prototype/ScreenShot/editingLink.PNG"> <img height="400" src="/UX-Prototype/ScreenShot/editingLinkD.PNG">
+
+**Editing Link Alert**
+
+<img height="400" src="/UX-Prototype/ScreenShot/editingAlert.PNG"><img height="400" src="/UX-Prototype/ScreenShot/editingAlertD.PNG">
 
 ### Assigments
 

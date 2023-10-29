@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct SemesterView: View {
-    weak var delegate: DisappearingViewDelegate?
-    
     @Environment(\.presentationMode) var presentationMode
     
     @StateObject var viewModel: SemesterViewModel
@@ -80,9 +78,6 @@ struct SemesterView: View {
                         }
                     }
                 }
-            }
-            .onDisappear {
-                self.delegate?.viewWillDisappear()
             }
         }
     }
