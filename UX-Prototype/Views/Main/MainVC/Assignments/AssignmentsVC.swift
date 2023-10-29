@@ -296,7 +296,7 @@ extension AssignmentsVC {
     /// - Returns: An array of tuples, each containing a course and its associated assignments.
     func sortAssignmentsByCourse(_ assignments: [Assignment]) -> [(String?, [Assignment])] {
         var courseAssignmentMap = [Course: [Assignment]]()
-
+        
         for assignment in assignments {
             if let course = assignment.course {
                 if courseAssignmentMap[course] == nil {

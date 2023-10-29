@@ -30,7 +30,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //            let CustomTB = storyboard.instantiateViewController(identifier: "MainTB") as! MainTabBarVC
 //            window?.rootViewController = CustomTB
             
-            window?.rootViewController = UIHostingController(rootView: CoursesListView())
+//            window?.rootViewController = UIHostingController(rootView: CoursesListView())
+            window?.rootViewController = UIHostingController(rootView: AssignmentListView())
             window?.makeKeyAndVisible()
         }
     

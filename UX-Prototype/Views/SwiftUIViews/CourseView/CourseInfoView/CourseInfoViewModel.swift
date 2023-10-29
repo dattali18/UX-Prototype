@@ -74,6 +74,8 @@ class CourseInfoViewModel : ObservableObject {
     func deleteItem(gradeitem: GradeItem) {
         self.gradeitems.removeAll { $0 == gradeitem }
         CoreDataManager.shared.delete(gradeitem)
+        
+        fetchData()
     }
     
     func editItem(gradeitem: GradeItem) {
