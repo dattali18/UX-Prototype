@@ -14,6 +14,10 @@ class AssignmentInfoViewModel : ObservableObject {
     
     @Published var assignments: [[Assignment]] = [[], []]
     
+    @Published var showingDeleteAlert: Bool = false
+    var index: Int?
+    var assignment: Assignment?
+    
     init(course: String, type: String) {
         self.course = CoreDataManager.shared.fetch(entity: Course.self, with: ["name": course])?.first
         self.type = type
@@ -28,6 +32,17 @@ class AssignmentInfoViewModel : ObservableObject {
 
         self.assignments[0] = assignments.filter { $0.done == false }
         self.assignments[1] = assignments.filter { $0.done == true }
+    }
+    
+    func showDeleteAlert(_ assignment: Assignment, _ index: Int) {
+        self.assignment = assignment
+        self.index = index
+        self.showingDeleteAlert = true
+    }
+    
+    func deleteAssignment() {
+        self.assignments[viewModel.index!].removeAll(where: { $0 ==  viewModel.assignment! })
+        CoreDataManager.shared.delete(assignment)
     }
     
     func dateFormatter(_ date: Date?) -> String {

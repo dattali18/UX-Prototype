@@ -21,7 +21,7 @@ struct AssignmentsInfoView: View {
                     AssignmentListRowView(assignment: assignment)
                         .swipeActions(edge: .trailing) {
                             Button {
-                                
+                                viewModel.showDeleteAlert(assignment, 0)
                             } label : {
                                 Label("Delete", systemImage: "trash.fill")
                             }
@@ -51,7 +51,7 @@ struct AssignmentsInfoView: View {
                     AssignmentListRowView(assignment: assignment)
                         .swipeActions(edge: .trailing) {
                             Button {
-                                
+                                viewModel.showDeleteAlert(assignment, 1)
                             } label : {
                                 Label("Delete", systemImage: "trash.fill")
                             }
@@ -73,10 +73,16 @@ struct AssignmentsInfoView: View {
                             }
                             .tint(.red)
                         }
+
                 }
             } header : {
                 Text("Completed")
             }
+        }
+        .confirmationDialog("", isPresented: $viewModel.showingDeleteAlert) {
+            Button("Delete this assignment?", role: .destructive) {
+                viewModel.deleteAssignment()
+             }
         }
         .navigationBarTitleDisplayMode(.inline)
         .navigationTitle(viewModel.course?.name ?? "")
