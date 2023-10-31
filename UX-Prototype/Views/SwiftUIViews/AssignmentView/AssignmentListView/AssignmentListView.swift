@@ -8,11 +8,26 @@
 import SwiftUI
 
 struct AssignmentListView: View {
+    @StateObject var viewModel = AssignmentListViewModel()
+
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            List {
+                ForEach(viewModel.sections, id:\.0) { option, section in
+                    Section(option) {
+                        ForEach(section, id:\.0) { name, assignments in
+                            Text(name)
+                                .badge(assignments.count)
+                        }
+                    }
+                }
+            }
+            .navigationTitle("Assignment")
+        }
     }
 }
 
-#Preview {
-    AssignmentListView()
-}
+//#Preview {
+//    AssignmentListView()
+//}
