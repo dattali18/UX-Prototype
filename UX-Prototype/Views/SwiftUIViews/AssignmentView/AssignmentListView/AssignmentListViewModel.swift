@@ -13,7 +13,12 @@ class AssignmentListViewModel : ObservableObject {
     @Published var courses: [Course] = []
     @Published var sections: [(String,[(String, [Assignment])])] = []
     
+    @Published var isPresented: Bool = false
+    
     init() {
+        let defualt = UserDefaults.standard
+        self.selectedOption = defualt.string(forKey: "AssignmentSort")  ?? "All"
+        
         fetchData()
     }
     
@@ -24,12 +29,19 @@ class AssignmentListViewModel : ObservableObject {
     func fetchData() {
         self.assignments = []
         self.courses = []
+        self.sections = []
         
         self.assignments = CoreDataManager.shared.fetch(entity: Assignment.self) ?? []
+        self.assignments = self.assignments.sorted { $0.name ?? "" > $1.name ?? "" }
         
-        for category in categories {
-            let s = self.assignments.filter { $0.type == category}
-            self.sections.append((category, mapAssignmentToCourse(s)))
+        if self.selectedOption == "All" {
+            for category in categories {
+                let s = self.assignments.filter { $0.type == category}
+                self.sections.append((category, mapAssignmentToCourse(s)))
+            }
+        } else {
+            let s = self.assignments.filter { $0.type == self.selectedOption}
+            self.sections.append((self.selectedOption, mapAssignmentToCourse(s)))
         }
         
     }
@@ -41,10 +53,23 @@ class AssignmentListViewModel : ObservableObject {
              result[name, default: []].append(assignment)
          }
         
-        let convertedMap: [(String, [Assignment])] = map.map { (key, value) in
+        var convertedMap: [(String, [Assignment])] = map.map { (key, value) in
             return (key, value)
         }
         
+        convertedMap = convertedMap.sorted { item1, item2 in
+            return item1.0 > item2.0
+        }
+        
         return convertedMap
+    }
+    
+    func addAssignment() {
+        self.isPresented = true
+    }
+    
+    func saveUserDefualt() {
+        let defualt = UserDefaults.standard
+        defualt.set(self.selectedOption, forKey: "AssignmentSort")
     }
 }

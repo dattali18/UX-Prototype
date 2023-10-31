@@ -25,9 +25,50 @@ struct AssignmentListView: View {
                 }
             }
             .navigationTitle("Assignment")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        viewModel.addAssignment()
+                    } label : {
+                        Label("Course", systemImage: "plus")
+                    }
+                }
+                
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Menu {
+                        ForEach(viewModel.options, id: \.self) { option in
+                            Button {
+                                viewModel.selectedOption = option
+                                viewModel.fetchData()
+                            } label : {
+                                if viewModel.selectedOption == option {
+                                    Label(option, systemImage: "checkmark")
+                                } else {
+                                    Text(option)
+                                }
+                            }
+                        }
+                    } label : {
+                        Label("Filter", systemImage: "list.bullet")
+                    }
+                }
+            }
         }
+        .onAppear {
+            viewModel.fetchData()
+        }
+        .onDisappear {
+            viewModel.saveUserDefualt()
+        }
+        .sheet(isPresented: $viewModel.isPresented, onDismiss: {
+            viewModel.fetchData()
+        }) {
+            AssignmentView()
+        }
+
     }
 }
+
 
 //#Preview {
 //    AssignmentListView()
