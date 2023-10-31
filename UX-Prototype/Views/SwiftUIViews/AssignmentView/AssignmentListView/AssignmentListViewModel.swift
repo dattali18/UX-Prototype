@@ -18,6 +18,7 @@ class AssignmentListViewModel : ObservableObject {
     }
     
     var options: [String] = ["All", "Homework", "Midterm", "Final", "Others"]
+    var categories: [String] = ["Homework", "Midterm", "Final", "Others"]
     var selectedOption: String = "All"
     
     func fetchData() {
@@ -26,9 +27,9 @@ class AssignmentListViewModel : ObservableObject {
         
         self.assignments = CoreDataManager.shared.fetch(entity: Assignment.self) ?? []
         
-        for option in options {
-            let s = self.assignments.filter { $0.type == option}
-            self.sections.append((option, mapAssignmentToCourse(s)))
+        for category in categories {
+            let s = self.assignments.filter { $0.type == category}
+            self.sections.append((category, mapAssignmentToCourse(s)))
         }
         
     }

@@ -85,6 +85,8 @@
 		C6CEB4E72AE95F1900AB5CD3 /* CourseRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CEB4E62AE95F1900AB5CD3 /* CourseRowView.swift */; };
 		C6CEB4E92AE95F5F00AB5CD3 /* CourseHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CEB4E82AE95F5F00AB5CD3 /* CourseHeaderView.swift */; };
 		C6CEB4EB2AE9624D00AB5CD3 /* CourseInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CEB4EA2AE9624D00AB5CD3 /* CourseInfoView.swift */; };
+		C6D260642AF1471C001B7429 /* AssignmentsInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D260632AF1471C001B7429 /* AssignmentsInfoView.swift */; };
+		C6D260672AF14751001B7429 /* AssignmentInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D260662AF14750001B7429 /* AssignmentInfoViewModel.swift */; };
 		C6D8D64D2AD40F85009A1F9F /* ResourcesTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D8D64B2AD40F85009A1F9F /* ResourcesTVC.swift */; };
 		C6D8D64E2AD40F85009A1F9F /* ResourcesTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6D8D64C2AD40F85009A1F9F /* ResourcesTVC.xib */; };
 		C6D8D6522AD42575009A1F9F /* AddResourcesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D8D6512AD42575009A1F9F /* AddResourcesVC.swift */; };
@@ -181,6 +183,8 @@
 		C6CEB4E62AE95F1900AB5CD3 /* CourseRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseRowView.swift; sourceTree = "<group>"; };
 		C6CEB4E82AE95F5F00AB5CD3 /* CourseHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseHeaderView.swift; sourceTree = "<group>"; };
 		C6CEB4EA2AE9624D00AB5CD3 /* CourseInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseInfoView.swift; sourceTree = "<group>"; };
+		C6D260632AF1471C001B7429 /* AssignmentsInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentsInfoView.swift; sourceTree = "<group>"; };
+		C6D260662AF14750001B7429 /* AssignmentInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentInfoViewModel.swift; sourceTree = "<group>"; };
 		C6D8D64B2AD40F85009A1F9F /* ResourcesTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourcesTVC.swift; sourceTree = "<group>"; };
 		C6D8D64C2AD40F85009A1F9F /* ResourcesTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResourcesTVC.xib; sourceTree = "<group>"; };
 		C6D8D6512AD42575009A1F9F /* AddResourcesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddResourcesVC.swift; sourceTree = "<group>"; };
@@ -448,6 +452,7 @@
 			children = (
 				C648E1AA2AEE8835009CF1E1 /* AssignmentListView */,
 				C648E1A92AEE8821009CF1E1 /* AddAssignmentView */,
+				C6D260652AF14739001B7429 /* AssignmentsInfoView */,
 			);
 			path = AssignmentView;
 			sourceTree = "<group>";
@@ -532,6 +537,15 @@
 				C6CEB4E42AE955AA00AB5CD3 /* CoursesListView.swift */,
 			);
 			path = CoursesListView;
+			sourceTree = "<group>";
+		};
+		C6D260652AF14739001B7429 /* AssignmentsInfoView */ = {
+			isa = PBXGroup;
+			children = (
+				C6D260632AF1471C001B7429 /* AssignmentsInfoView.swift */,
+				C6D260662AF14750001B7429 /* AssignmentInfoViewModel.swift */,
+			);
+			path = AssignmentsInfoView;
 			sourceTree = "<group>";
 		};
 		C6D8D6422AD3D706009A1F9F /* Authentication */ = {
@@ -814,6 +828,7 @@
 				C6DDF4B32AE1904C00A47EB7 /* ProjectsView.swift in Sources */,
 				C6E8E0AF2AD5CBAE00FA56E9 /* ResourcesSectionHeaderView.swift in Sources */,
 				C6BA53872ACDB4D800924AD0 /* SemesterEnum.swift in Sources */,
+				C6D260642AF1471C001B7429 /* AssignmentsInfoView.swift in Sources */,
 				C6C40FA32AB30E9F00E958C1 /* UserLogin.swift in Sources */,
 				C681251E2AD0022B008DE83E /* CourseSectionHeaderView.swift in Sources */,
 				C67777112AD305E2009B61BA /* UITouch+extention.swift in Sources */,
@@ -823,6 +838,7 @@
 				C6A1500C2AE005E000115C59 /* CourseViewModel.swift in Sources */,
 				C6C40F9F2AB3048900E958C1 /* AssignmentsVC.swift in Sources */,
 				C6F745B12AB8764700780F90 /* AddCourseVC.swift in Sources */,
+				C6D260672AF14751001B7429 /* AssignmentInfoViewModel.swift in Sources */,
 				C6CEB4EB2AE9624D00AB5CD3 /* CourseInfoView.swift in Sources */,
 				C67B73D62AE43DB10013AEB0 /* ProjectsViewModel.swift in Sources */,
 			);
