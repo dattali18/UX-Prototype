@@ -29,4 +29,16 @@ class AssignmentInfoViewModel : ObservableObject {
         self.assignments[0] = assignments.filter { $0.done == false }
         self.assignments[1] = assignments.filter { $0.done == true }
     }
+    
+    func dateFormatter(_ date: Date?) -> String {
+        guard let date = date else { return "" }
+        
+        // Create a DateFormatter
+        let dateFormatter = DateFormatter()
+        
+        dateFormatter.dateFormat = "E d MMM"
+        
+        // Convert the Date to a String
+        return dateFormatter.string(from: date)
+    }
 }
