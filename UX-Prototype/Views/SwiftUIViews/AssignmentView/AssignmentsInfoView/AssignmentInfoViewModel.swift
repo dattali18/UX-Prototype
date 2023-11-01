@@ -41,7 +41,7 @@ class AssignmentInfoViewModel : ObservableObject {
     }
     
     func deleteAssignment() {
-        self.assignments[viewModel.index!].removeAll(where: { $0 ==  viewModel.assignment! })
+        self.assignments[self.index!].removeAll(where: { $0 ==  self.assignment! })
         CoreDataManager.shared.delete(assignment)
     }
     
