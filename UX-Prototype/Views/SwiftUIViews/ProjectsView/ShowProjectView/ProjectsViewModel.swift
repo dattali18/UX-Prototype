@@ -13,6 +13,10 @@ class ProjectsViewModel: ObservableObject {
     
     @Published var deleteAlertShowing: Bool = false
     
+    @Published var isPresented: Bool = false
+    var action: ProjectsActionType = .add
+    var project: Project?
+    
     init() {
         fetchProject()
     }
@@ -40,8 +44,6 @@ class ProjectsViewModel: ObservableObject {
         } catch {
             print("Error creating/updating entity: \(error)")
         }
-        
-//        self.projects = [project1, project2]
     }
     
     func fetchProject() {
@@ -57,4 +59,20 @@ class ProjectsViewModel: ObservableObject {
         deleteAlertShowing = true
     }
     
+    func editProject(_ project: Project)  {
+        self.isPresented = true
+        self.action = .edit
+        self.project = project
+        
+    }
+    
+    func addProject() {
+        self.isPresented = true
+        self.action = .add
+    }
+}
+
+enum ProjectsActionType {
+    case add
+    case edit
 }

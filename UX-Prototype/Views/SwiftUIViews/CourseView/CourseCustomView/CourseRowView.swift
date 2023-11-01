@@ -13,7 +13,7 @@ struct CourseRowView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 25) {
             Text(course.name ?? "None")
-                .fontWeight(.semibold)
+//                .fontWeight(.semibold)
                 .badge(Text(String(course.credits)))
             
             Text(String(course.number))

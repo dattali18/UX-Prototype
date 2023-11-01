@@ -8,9 +8,6 @@
 import SwiftUI
 
 struct ProjectsView: View {
-    weak var delegate: DisappearingViewDelegate?
-    weak var addProjectDelegate: AddProjectDelegate?
-    
     @Environment(\.presentationMode) var presentationMode
     
     @StateObject var viewModel: ProjectsViewModel
@@ -53,11 +50,10 @@ struct ProjectsView: View {
                         }
                         .swipeActions(edge: .leading) {
                             Button {
-                                addProjectDelegate?.pushAddView(project: project)
+//                                addProjectDelegate?.pushAddView(project: project)
+                                viewModel.editProject(project)
                             } label : {
-                                Text("Edit")
-                                Image(systemName: "pencil")
-//                                Label("Edit", systemImage: "pencil")
+                                Label("Edit", systemImage: "pencil")
                             }
                             .tint(.blue)
                         }
@@ -65,9 +61,7 @@ struct ProjectsView: View {
                             Button {
                                 viewModel.showDeleteAlert()
                             } label : {
-                                Text("Delete")
-                                Image(systemName: "trash.fill")
-//                                Label("Delete", systemImage: "trash")
+                                Label("Delete", systemImage: "trash.fill")
                             }
                             .tint(.red)
                         }
@@ -93,10 +87,18 @@ struct ProjectsView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
-                        addProjectDelegate?.pushAddView(project: nil)
+                        viewModel.addProject()
                     } label : {
                         Image(systemName: "plus")
                     }
+                }
+            }
+            .sheet(isPresented: $viewModel.isPresented, onDismiss: { viewModel.fetchProject() }) {
+                switch viewModel.action {
+                case .add:
+                    AddProjectView(project: nil)
+                case .edit:
+                    AddProjectView(project: viewModel.project)
                 }
             }
             .onAppear {

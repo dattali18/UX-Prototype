@@ -31,7 +31,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //            window?.rootViewController = CustomTB
             
 //            window?.rootViewController = UIHostingController(rootView: CoursesListView())
-            window?.rootViewController = UIHostingController(rootView: AssignmentListView())
+//            window?.rootViewController = UIHostingController(rootView: AssignmentListView())
+            window?.rootViewController = UIHostingController(rootView: MainTabBarView())
             window?.makeKeyAndVisible()
         }
     

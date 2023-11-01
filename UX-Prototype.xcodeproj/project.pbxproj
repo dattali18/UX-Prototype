@@ -19,6 +19,7 @@
 		C63B60612AE5558B00B9CFAA /* ProjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63B60602AE5558B00B9CFAA /* ProjectViewModel.swift */; };
 		C63B60632AE5559A00B9CFAA /* ProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63B60622AE5559A00B9CFAA /* ProjectView.swift */; };
 		C63BF2D22AD813DB00ED750A /* AssignmentEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63BF2D12AD813DA00ED750A /* AssignmentEnum.swift */; };
+		C63C3AA72AF2855300E2D3A9 /* MainTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63C3AA62AF2855300E2D3A9 /* MainTabBarView.swift */; };
 		C63F3AC32AEE487D00CFE667 /* CourseListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63F3AC22AEE487D00CFE667 /* CourseListVC.swift */; };
 		C64591482ADBDD8C009163F1 /* AssignmentsListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64591462ADBDD8C009163F1 /* AssignmentsListTVC.swift */; };
 		C64591492ADBDD8C009163F1 /* AssignmentsListTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C64591472ADBDD8C009163F1 /* AssignmentsListTVC.xib */; };
@@ -113,6 +114,7 @@
 		C63B60602AE5558B00B9CFAA /* ProjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectViewModel.swift; sourceTree = "<group>"; };
 		C63B60622AE5559A00B9CFAA /* ProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectView.swift; sourceTree = "<group>"; };
 		C63BF2D12AD813DA00ED750A /* AssignmentEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentEnum.swift; sourceTree = "<group>"; };
+		C63C3AA62AF2855300E2D3A9 /* MainTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarView.swift; sourceTree = "<group>"; };
 		C63F3AC22AEE487D00CFE667 /* CourseListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseListVC.swift; sourceTree = "<group>"; };
 		C64591462ADBDD8C009163F1 /* AssignmentsListTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentsListTVC.swift; sourceTree = "<group>"; };
 		C64591472ADBDD8C009163F1 /* AssignmentsListTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AssignmentsListTVC.xib; sourceTree = "<group>"; };
@@ -363,6 +365,14 @@
 			path = ProjectView;
 			sourceTree = "<group>";
 		};
+		C63C3AA82AF2855C00E2D3A9 /* MainTabBarView */ = {
+			isa = PBXGroup;
+			children = (
+				C63C3AA62AF2855300E2D3A9 /* MainTabBarView.swift */,
+			);
+			path = MainTabBarView;
+			sourceTree = "<group>";
+		};
 		C64774882AE523CA00FC0F08 /* AddProjectView */ = {
 			isa = PBXGroup;
 			children = (
@@ -592,6 +602,7 @@
 				C6A150152AE02A4300115C59 /* SemesterView */,
 				C62D98F32AE05517008E61A8 /* ResourceView */,
 				C6DDF4B42AE1905400A47EB7 /* ProjectsView */,
+				C63C3AA82AF2855C00E2D3A9 /* MainTabBarView */,
 			);
 			path = SwiftUIViews;
 			sourceTree = "<group>";
@@ -823,6 +834,7 @@
 				C62D98F22AE05511008E61A8 /* ResourceView.swift in Sources */,
 				C6FAA7C22AE9328E00A6449A /* SemesterInfoView.swift in Sources */,
 				C64BC8ED2ADED243001CD692 /* CustomDelegate.swift in Sources */,
+				C63C3AA72AF2855300E2D3A9 /* MainTabBarView.swift in Sources */,
 				C666DD412ADF175200654065 /* AssignmentView.swift in Sources */,
 				C6C40F952AB3036200E958C1 /* CalendarNC.swift in Sources */,
 				C6DDF4B32AE1904C00A47EB7 /* ProjectsView.swift in Sources */,

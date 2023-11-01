@@ -16,8 +16,8 @@ class ProjectsVC: UIViewController {
 
         var projectView = ProjectsView()
         
-        projectView.addProjectDelegate = self
-        projectView.delegate = self
+//        projectView.addProjectDelegate = self
+//        projectView.delegate = self
         
         let hostingController = UIHostingController(rootView: projectView)
         
