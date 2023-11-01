@@ -28,7 +28,7 @@ struct AssignmentsInfoView: View {
                             .tint(.red)
                             
                             Button {
-                                
+                                viewModel.editAssignment(assignment: assignment)
                             } label : {
                                 Label("Edit", systemImage: "pencil")
                             }
@@ -58,7 +58,7 @@ struct AssignmentsInfoView: View {
                             .tint(.red)
                             
                             Button {
-                                
+                                viewModel.editAssignment(assignment: assignment)
                             } label : {
                                 Label("Edit", systemImage: "pencil")
                             }
@@ -79,6 +79,7 @@ struct AssignmentsInfoView: View {
                 Text("Completed")
             }
         }
+        .id(UUID())
         .confirmationDialog("", isPresented: $viewModel.showingDeleteAlert) {
             Button("Delete this assignment?", role: .destructive) {
                 viewModel.deleteAssignment()
@@ -86,6 +87,11 @@ struct AssignmentsInfoView: View {
         }
         .navigationBarTitleDisplayMode(.inline)
         .navigationTitle(viewModel.course?.name ?? "")
+        .sheet(isPresented: $viewModel.isPresented, onDismiss: {
+            viewModel.fetchData()
+        }) {
+            AssignmentView(with: viewModel.assignment)
+        }
     }
 }
 
@@ -115,9 +121,11 @@ struct AssignmentListRowView : View {
                     Text(assignment.url ?? "")
                         .font(.caption)
                         .foregroundStyle(.blue)
+                        .lineLimit(1)
                 }
             }
         }
+        .frame(height: 74)
     }
     
     func dateFormatter(_ date: Date?) -> String {

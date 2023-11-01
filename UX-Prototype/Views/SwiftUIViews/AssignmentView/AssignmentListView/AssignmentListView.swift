@@ -24,6 +24,7 @@ struct AssignmentListView: View {
                     }
                 }
             }
+            .id(UUID())
             .navigationTitle("Assignment")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {

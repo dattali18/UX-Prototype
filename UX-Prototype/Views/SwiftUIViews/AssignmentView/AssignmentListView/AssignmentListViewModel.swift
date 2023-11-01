@@ -43,7 +43,6 @@ class AssignmentListViewModel : ObservableObject {
             let s = self.assignments.filter { $0.type == self.selectedOption}
             self.sections.append((self.selectedOption, mapAssignmentToCourse(s)))
         }
-        
     }
     
     func mapAssignmentToCourse(_ assignments: [Assignment]) -> [(String, [Assignment])] {
