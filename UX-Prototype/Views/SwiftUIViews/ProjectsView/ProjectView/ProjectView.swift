@@ -21,12 +21,13 @@ struct ProjectView: View {
     var body: some View {
         Form {
             Section {
-                Text(viewModel.project?.name ?? "Project Name")
-                Text(viewModel.project?.descriptions ?? "Project Description")
-                    .foregroundStyle(.gray)
-                Text((viewModel.project?.url ?? "Project URL").toDetectedAttributedString())
+                    Text(viewModel.project?.descriptions ?? "Project Description")
+                        .foregroundStyle(.gray)
+                    Text((viewModel.project?.url ?? "Project URL").toDetectedAttributedString())
             } header : {
-                Text("Project Info")
+                Text(viewModel.project?.name ?? "Project Name")
+                    .foregroundStyle(.black)
+                    .font(.headline)
             } footer : {
                 Text("Please make sure the link to the github repo is correct and the repo is public.")
             }
