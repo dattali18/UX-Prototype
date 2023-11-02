@@ -37,6 +37,105 @@ The course management application offers a range of features to help students ma
    - The ProjectsVC feature allows you to create and manage projects. You can specify project details like name and URL and link them to specific courses.
    - In the ProjectView, you can view the last five commits on the GitHub repository if it's public.
 
+## Core Data
+
+```mermaid
+classDiagram
+
+Semester  <|--  Course
+Course  <|--  Assignment
+Course  <|--  Project
+Course  <|--  GradeItem
+Course  <|--  Resource
+Resource  <|--  Link
+
+class Course {
+  + credits: Float?
+  + id: UUID
+  + name: String?
+  + number: Int32?
+  + assignments: [Assignment]
+  + projects: [Project]
+  + resources: [Resource]
+  + gradeItem: [GradeItem]
+  + semester: Semester?
+}
+
+class Assignment {
+  + name: String?
+  + descriptions: String?
+  + due: Date?
+  + id: UUID
+  + importance: Int32
+  + type: String?
+  + course: Course
+}
+
+class Project {
+  + icon: String?
+  + id: UUID
+  + url: String?
+  + name: String
+  + number: Int32
+  + course: Course
+}
+
+class Resource {
+  + descriptions: String?
+  + id: UUID
+  + name: String
+  + course: Course
+  + links: [Link]
+}
+
+class Link {
+  + name: String?
+  + url: String?
+  + resource: Resource
+}
+
+class Semester {
+  + end: Date?
+  + id: UUID
+  + start: Date?
+  + name: String?
+  + type: String?
+  + courses: [Course]
+}
+
+class GradeItem {
++ id: UUID
++ name: String?
++ weight: Float?
++ grade: Float?
+}
+```
+
+
+## Data Flow (IA - Information Arcitecture)
+
+```mermaid
+graph LR
+
+Main[Main Tab Bar] --> Courses((Courses))
+Main --> Assignment((Assignment))
+Main --> Project((Projects))
+
+Courses --> AddCourse{Edit/Add Course}
+Courses --> AddSemester{Edit/Add Semester}
+Courses --> InfoCourse{Course Info}
+Courses --> InfoSemester{Semester Info}
+
+InfoCourse --> Resources((Resources))
+
+Resources --> AddResource{Edit/Add Resources}
+
+Assignment --> AddAssignment{Edit/Add Assignment}
+Assignment --> InfoAssignment{Assignment Info}
+
+Project --> AddProject{Edit/Add Project}
+Project --> InfoProject{Project Info}
+```
 
 ## Installation
 
@@ -47,10 +146,6 @@ To install the prototype, simply clone the repository and open the project in Xc
 To install the prototype, simply clone the repository and open the project in `Xcode`. run the application on an `iOS` device. The prototype will open to a list of all courses and semesters. You can tap on a course or semester to view its details.
 
 To add a new course or semester, tap on the `+` button in the top right corner of the screen. To edit or delete a course or semester, swipe left on the course or semester and tap on the `Edit` or `Delete` button.
-
-## Conclusion
-
-This UX prototype is a valuable tool for designing and developing a course management application. The prototype is easy to use and navigate, and it provides a variety of features for managing courses and semesters.
 
 ## Author
 
@@ -197,3 +292,7 @@ Please contact me if you have any question about the project or me.
 **Commits loading**
 
 <img height="400" src="/UX-Prototype/ScreenShot/projectLoading.PNG"><img height="400" src="/UX-Prototype/ScreenShot/projectLoadingD.PNG">
+
+## Conclusion
+
+This UX prototype is a valuable tool for designing and developing a course management application. The prototype is easy to use and navigate, and it provides a variety of features for managing courses and semesters.
