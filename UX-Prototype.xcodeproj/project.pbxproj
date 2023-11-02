@@ -60,6 +60,7 @@
 		C6AE4BD72AD450FA0037C821 /* LinkTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AE4BD52AD450FA0037C821 /* LinkTVC.swift */; };
 		C6AE4BD82AD450FA0037C821 /* LinkTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6AE4BD62AD450FA0037C821 /* LinkTVC.xib */; };
 		C6B2C7A32AE847D000913562 /* MockDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B2C7A22AE847CF00913562 /* MockDataManager.swift */; };
+		C6B391E82AF433A300AA0774 /* PROJECT.md in Resources */ = {isa = PBXBuildFile; fileRef = C6B391E72AF433A300AA0774 /* PROJECT.md */; };
 		C6BA53852ACD916D00924AD0 /* CourseDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BA53842ACD916D00924AD0 /* CourseDataManager.swift */; };
 		C6BA53872ACDB4D800924AD0 /* SemesterEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BA53862ACDB4D800924AD0 /* SemesterEnum.swift */; };
 		C6C40F7B2AB2F70700E958C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C40F7A2AB2F70700E958C1 /* AppDelegate.swift */; };
@@ -157,6 +158,7 @@
 		C6AE6A102AE69B2F0074CB38 /* TREE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TREE.md; sourceTree = "<group>"; };
 		C6AE6A1A2AE6AE620074CB38 /* video1.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video1.MP4; sourceTree = "<group>"; };
 		C6B2C7A22AE847CF00913562 /* MockDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataManager.swift; sourceTree = "<group>"; };
+		C6B391E72AF433A300AA0774 /* PROJECT.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = PROJECT.md; sourceTree = "<group>"; };
 		C6BA53842ACD916D00924AD0 /* CourseDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDataManager.swift; sourceTree = "<group>"; };
 		C6BA53862ACDB4D800924AD0 /* SemesterEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemesterEnum.swift; sourceTree = "<group>"; };
 		C6C40F772AB2F70700E958C1 /* UX-Prototype.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UX-Prototype.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -495,6 +497,7 @@
 		C6C40F6E2AB2F70700E958C1 = {
 			isa = PBXGroup;
 			children = (
+				C6B391E72AF433A300AA0774 /* PROJECT.md */,
 				C6AE6A102AE69B2F0074CB38 /* TREE.md */,
 				C68CE3612ADD2E06009411F9 /* COREDATA.md */,
 				C68CE3622ADD2E06009411F9 /* README.md */,
@@ -757,6 +760,7 @@
 				C682FA542AE9156000BA0DBC /* ScreenShot in Resources */,
 				C6E8E0B12AD5CC9F00FA56E9 /* ResourcesSectionHeaderView.xib in Resources */,
 				C64591492ADBDD8C009163F1 /* AssignmentsListTVC.xib in Resources */,
+				C6B391E82AF433A300AA0774 /* PROJECT.md in Resources */,
 				C6C40F872AB2F70A00E958C1 /* LaunchScreen.storyboard in Resources */,
 				C6C40FA72AB33B3A00E958C1 /* CourseTVC.xib in Resources */,
 				C65E3D5F2AE2999300B1F474 /* AssignmentTVC.xib in Resources */,
