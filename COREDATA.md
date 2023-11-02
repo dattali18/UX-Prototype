@@ -50,3 +50,10 @@ class Semester {
   + type: String?
   + courses: [Course]
 }
+
+class GradeItem {
++ id: UUID
++ name: String
++ weight: Float
++ grade: Float
+}
